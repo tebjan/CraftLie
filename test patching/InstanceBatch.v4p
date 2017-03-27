@@ -1,0 +1,107 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_FactLire\demo patch\InstanceBatch.v4p" filename="C:\vvvv\PROJECTS\2017\03_FactLire\demo patch\InstanceBatch.v4p" systemname="InstanceBatch" scrollx="195" scrolly="15">
+   <BOUNDS height="8265" left="16335" top="1635" type="Window" width="12195">
+   </BOUNDS>
+   <NODE componentmode="InABox" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" id="195" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="1">
+   <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
+   </PIN>
+   <BOUNDS height="270" left="3009" top="489" type="Node" width="1800">
+   </BOUNDS>
+   <BOUNDS height="6615" left="3009" top="489" type="Box" width="6780">
+   </BOUNDS>
+   <BOUNDS height="6975" left="19815" top="660" type="Window" width="8295">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enable Depth Buffer" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="AA Quality" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Keyboard State" visible="1">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   <PIN pinname="Show Cursor" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="VSync" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   <NODE nodename="Group (DX11.Layer)" id="283">
+   <BOUNDS type="Node" left="1140" top="5130" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1140" top="5130" width="2400" height="1800">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 7" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers">
+   <LINKPOINT x="840" y="5630">
+   </LINKPOINT>
+   <LINKPOINT x="1050" y="265">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="PerfMeter (DX11.Debug)" filename="%VVVV%\packs\dx11\nodes\modules\PerfMeter (DX11.Debug).v4p" nodename="PerfMeter (DX11.Debug)" componentmode="Hidden" id="284">
+   <BOUNDS type="Node" left="1680" top="4485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="284" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 2">
+   </LINK>
+   <NODE systemname="Mouse (Devices Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Window)" componentmode="Hidden" id="290">
+   <BOUNDS type="Node" left="1350" top="2115" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Device" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="DrawGeometries" filename="DrawGeometries.v4p" nodename="DrawGeometries.v4p" componentmode="Hidden" id="292">
+   <BOUNDS type="Node" left="1342" top="3918" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="0" top="0" width="11685" height="13830">
+   </BOUNDS>
+   <BOUNDS type="Window" left="1620" top="1815" width="11685" height="13830">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
+   </LINK>
+   <NODE systemname="AxisAndGrid (DX11)" filename="%VVVV%\packs\dx11\nodes\modules\AxisAndGrid\AxisAndGrid (DX11).v4p" nodename="AxisAndGrid (DX11)" componentmode="Hidden" id="293">
+   <BOUNDS type="Node" left="4080" top="11250" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="VisualSpray (2d)" filename="vl\VVVV.VisualSpray.vl" nodename="VisualSpray (2d)" componentmode="Hidden" id="295">
+   <BOUNDS type="Node" left="1350" top="3015" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="290" srcpinname="Device" dstnodeid="295" dstpinname="Mouse Device">
+   </LINK>
+   <LINK srcnodeid="295" srcpinname="Draw Call" dstnodeid="292" dstpinname="Input">
+   </LINK>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   </PATCH>
