@@ -1,4 +1,4 @@
-//@author: vux
+//@author: vux, tonfilm
 //@help: standard constant shader
 //@tags: color
 //@credits: 

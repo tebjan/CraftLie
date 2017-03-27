@@ -1,0 +1,231 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\girlpower\DrawGeometries.v4p" systemname="DrawGeometries" filename="C:\vvvv\PROJECTS\2017\03_FactLire\demo patch\DrawGeometries.v4p">
+   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="1230" top="5130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" visible="1" values="BackCullSimple">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Integral (Spreads)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Integral (Spreads)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="4515" top="5445" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="10096">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="CDR (Spreads)" nodename="CDR (Spreads)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="4515" top="6060" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Remainder" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="19" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1485" top="4500" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1485" top="4500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="NoCullSimple">
+   </PIN>
+   </NODE>
+   <NODE systemname="Integral (Spreads)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Integral (Spreads)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="5820" top="5490" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="10096">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="CDR (Spreads)" nodename="CDR (Spreads)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="5820" top="6105" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Remainder" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Output Enum" dstnodeid="6" dstpinname="Mode">
+   </LINK>
+   <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
+   </PIN>
+   <BOUNDS type="Box" left="1950" top="7715" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1950" top="7715" width="750" height="240">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="15" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="21" dstpinname="Input">
+   </LINK>
+   <BOUNDS type="Window" left="900" top="3615" width="10770" height="13830">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="26">
+   <BOUNDS type="Box" left="3150" top="1320" width="1365" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3150" top="1320" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="5355" top="3705" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <PACK Name="dx11" Version="33.0">
+   </PACK>
+   <NODE systemname="Switch (DX11.Texture 2d)" nodename="Switch (DX11.Texture 2d)" componentmode="Hidden" id="38" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="4860" top="4125" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Exists (File)" nodename="Exists (File)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="4845" top="3015" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Exists" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="39" srcpinname="Exists" dstnodeid="38" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Texture Out" dstnodeid="38" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="40">
+   <BOUNDS type="Node" left="6435" top="10425" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6435" top="10425" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11790" top="10605" width="16710" height="5085">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="41">
+   <BOUNDS type="Box" left="7260" top="3360" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7260" top="3360" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Input Value">
+   </PIN>
+   </NODE>
+   <NODE id="36" systemname="GetGeometries (DX11.Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.CraftLie.dll" nodename="GetGeometries (DX11.Buffer)" componentmode="Hidden">
+   <BOUNDS type="Node" left="3150" top="2280" width="7020" height="270">
+   </BOUNDS>
+   <PIN pinname="Transformation" visible="1">
+   </PIN>
+   <PIN pinname="Preferred Buffer Type" slicecount="1" values="Default">
+   </PIN>
+   <PIN pinname="Texture Path" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Transform Counts" visible="1">
+   </PIN>
+   <PIN pinname="Instance Counts" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="41" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="39" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Buffer Drawer">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="34" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="13" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="20" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="855" top="3480" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="Blend">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Render State" dstnodeid="6" dstpinname="Render State">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43">
+   <BOUNDS type="Box" left="3810" top="4770" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3810" top="4770" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Instance Counts|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Instance Counts" dstnodeid="43" dstpinname="Y Input Value">
+   </LINK>
+   <NODE componentmode="Hidden" filename="%VVVV%\packs\CraftLie\nodes\dx11\ConstantInstanceBatch.fx" id="23" nodename="ConstantInstanceBatch (DX11.Effect)" systemname="ConstantInstanceBatch (DX11.Effect)">
+   <BOUNDS height="270" left="1950" top="7020" type="Node" width="7860">
+   </BOUNDS>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="TransformationCount" visible="1" slicecount="1" values="10096">
+   </PIN>
+   <PIN pinname="ColorCount" visible="1" slicecount="1" values="10096">
+   </PIN>
+   <PIN pinname="sbWorld" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="sbColor" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="texture2d" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Render State" dstnodeid="23" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Remainder" dstnodeid="23" dstpinname="TransformStartIndex">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Remainder" dstnodeid="23" dstpinname="ColorStartIndex">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Layer" dstnodeid="24" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transformation" dstnodeid="23" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="23" dstpinname="ColorCount">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="23" dstpinname="TransformationCount">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Color Buffer" dstnodeid="23" dstpinname="sbColor">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transform Buffer" dstnodeid="23" dstpinname="sbWorld">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="23" dstpinname="Geometry">
+   </LINK>
+   </PATCH>
