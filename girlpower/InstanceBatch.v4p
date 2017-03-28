@@ -78,7 +78,7 @@
    <PIN pinname="Device" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="DrawGeometries" filename="DrawGeometries.v4p" nodename="DrawGeometries.v4p" componentmode="Hidden" id="292">
+   <NODE systemname="DrawGeometries" filename="DrawGeometries.v4p" nodename="DrawGeometries.v4p" componentmode="InAWindow" id="292">
    <BOUNDS type="Node" left="1282" top="3738" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="0" width="11685" height="13830">
@@ -102,16 +102,6 @@
    </PACK>
    <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
    </LINK>
-   <NODE id="295" systemname="VisualSpray (2d)" filename="vl\VVVV.VisualSpray.vl" nodename="VisualSpray (2d)" componentmode="Hidden">
-   <BOUNDS type="Node" left="1275" top="2955" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Draw Call" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="295" srcpinname="Draw Call" dstnodeid="292" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="290" srcpinname="Device" dstnodeid="295" dstpinname="Mouse Device">
-   </LINK>
    <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="296">
    <BOUNDS type="Node" left="1770" top="5175" width="100" height="100">
    </BOUNDS>
@@ -129,12 +119,22 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="SubType" slicecount="1" values="|Integer (MinInt .. MaxInt)|">
    </PIN>
    </NODE>
    <LINK srcnodeid="297" srcpinname="Output" dstnodeid="296" dstpinname="String">
+   </LINK>
+   <NODE id="295" systemname="VisualSprayNoInstancing (2d)" filename="vl\VVVV.VisualSpray.vl" nodename="VisualSpray (2d)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1275" top="2955" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Draw Call" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="295" srcpinname="Draw Call" dstnodeid="292" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="290" srcpinname="Device" dstnodeid="295" dstpinname="Mouse Device">
    </LINK>
    <LINK srcnodeid="292" srcpinname="Instance Counts" dstnodeid="297" dstpinname="Input">
    </LINK>

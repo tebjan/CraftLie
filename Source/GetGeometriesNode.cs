@@ -244,12 +244,17 @@ namespace VVVV.DX11.Nodes
             {
                 var geom = geo.GetGeom(context);
 
-                if (geo.InstanceCount > 1)
+                //check drawer
+                //if (geo.InstanceCount > 1)
                 {
-                    var drawer = new DX11InstancedIndexedDrawer();
-                    drawer.InstanceCount = geo.InstanceCount;
-                    drawer.StartInstanceLocation = 0;
-                    geom.AssignDrawer(drawer); 
+                    if (!(geom.Drawer is DX11InstancedIndexedDrawer))
+                    {
+                        geom = (DX11IndexedGeometry)geom.ShallowCopy();
+                        var drawer = new DX11InstancedIndexedDrawer();
+                        drawer.InstanceCount = geo.InstanceCount;
+                        drawer.StartInstanceLocation = 0;
+                        geom.AssignDrawer(drawer);  
+                    }
                 }
 
                 this.FOutput[geoIndex++][context] = geom;

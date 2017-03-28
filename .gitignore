@@ -30,3 +30,4 @@ _ReSharper*/
 *~.xml
 packages/
 nodes/plugins/CraftLie.dll
+nunit_random_seed.tmp
