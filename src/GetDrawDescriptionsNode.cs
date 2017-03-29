@@ -131,7 +131,7 @@ namespace VVVV.DX11.Nodes
                 this.FTransformOutput.Stream.IsChanged = true;
                 this.FColorOutput.Stream.IsChanged = true;
 
-                //set all the count outputs and get the total counts
+                //set all the count output pins and get the total counts
                 UpdatePins();
             }
 

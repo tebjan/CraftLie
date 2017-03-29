@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>CraftLie</id>
+        <version>1.0.0</version>
+        <title>CraftLie</title>
+        <authors>Tebjan Halm</authors>
+        <owners>Tebjan Halm</owners>
+        <projectUrl>https://github.com/tebjan/CraftLie</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A lightweight DX11 fake drawing system for the VL integration into vvvv.</description>
+        <copyright>Copyright © 2017 by Tebjan Halm. All rights reserved.</copyright>
+        <tags>VL DirectX-11 VVVV Graphics</tags>
+    </metadata>
+    <files>
+        <file src="vvvv\girlpower\vl\VVVV.VisualSpray.vl" target="vvvv\girlpower\VVVV.VisualSpray.vl" />
+        <file src="vvvv\girlpower\vl\VVVV.VisualSprayNoInstanceing.vl" target="vvvv\girlpower\VVVV.VisualSprayNoInstanceing.vl" />
+        <file src="vvvv\nodes\dx11\CraftLie.fx" target="vvvv\nodes\dx11\CraftLie.fx" />
+        <file src="vvvv\nodes\modules\Renderer (CraftLie).v4p" target="vvvv\nodes\modules\Renderer (CraftLie).v4p" />
+        <file src="vvvv\nodes\plugins\CraftLie.dll" target="vvvv\nodes\plugins\CraftLie.dll" />
+        <file src="CraftLie.vl" target="CraftLie.vl" />
+    </files>
+</package>

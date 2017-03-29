@@ -22,7 +22,7 @@
             <ControlPoint Id="P3jlRbcGiDRNR9Yqj4157E" Bounds="463,261" />
             <ControlPoint Id="VYtWw0KlhHhLNRcSgp3mcW" Bounds="552,275" />
             <Node Bounds="386,309,61,13" Id="H9HDlOLG5DoLj3FmCPuiw7">
-              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Translation" />
               </p:NodeReference>
@@ -30,7 +30,7 @@
               <Pin Id="EaMP2TU2ZftMnVQiFS0dcC" Name="Result" Kind="OutputPin" />
             </Node>
             <Node Bounds="459,308,42,13" Id="MSE7JTYFCnTMvGPCvDiDdb">
-              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Scaling" />
               </p:NodeReference>
@@ -49,7 +49,7 @@
             </Node>
             <ControlPoint Id="NyKIEcndyalM8kzagEmYhh" Bounds="327,699" />
             <Node Bounds="419,481,85,22" Id="SqU9asRn0tyQZN50XPUnle">
-              <p:NodeReference LastCategoryFullName="CraftLie.Geometry" LastSymbolSource="CraftLie.vl">
+              <p:NodeReference LastCategoryFullName="CraftLie.Geometry" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
                 <CategoryReference Kind="MasterPatchFlag, RecordType" Name="Geometry" NeedsToBeDirectParent="true" />
@@ -68,7 +68,7 @@
               </p:TypeAnnotation>
             </Pad>
             <Node Name="Create" Bounds="325,573,113,95" Id="OEzFksYaDGbOVfySzqn2pI">
-              <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl">
+              <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <CategoryReference Kind="MasterPatchFlag, ClassType" Name="Drawer" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -80,7 +80,7 @@
                 <ControlPoint Id="UhxR5H9voerQRPDCAC0Gzu" Bounds="339,580" />
                 <ControlPoint Id="NJZ4fIl2AQGPBJjZAVCKmV" Bounds="339,660" />
                 <Node Bounds="337,609,89,22" Id="OsjkVzSlokTN2Dk8Rg7kaZ">
-                  <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer" LastSymbolSource="CraftLie.vl">
+                  <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="AddGeometry" />
                     <CategoryReference Kind="MasterPatchFlag, ClassType" Name="GeometryBuffer" NeedsToBeDirectParent="true" />
@@ -98,7 +98,7 @@
           <Patch Id="H20xXNx7wn6M7KAIY8zSA5" Name="Update">
             <Pin Id="LsHDEXk8MlfPa78lvfgZ0A" Name="Position" Kind="InputPin" Bounds="-144,161" />
             <Pin Id="NnwiADj3ZPxPo1KgCfmgiY" Name="Size" Kind="InputPin" Bounds="-56,162" DefaultValue="new vec(1.0,1.0,1.0)">
-              <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector3" />
                 <CategoryReference Kind="Category" Name="3D" />
               </p:TypeAnnotation>
@@ -164,7 +164,7 @@
             <ControlPoint Id="H4Upd5GfjHHO0NYRbzMcui" Bounds="383,393" />
             <ControlPoint Id="OXq8NqgyxptOkMrecI7z8m" Bounds="310,344" />
             <Node Bounds="536,375,282,22" Id="Rwc9f7tCzkmMDbBUHXEgSt">
-              <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer" LastSymbolSource="CraftLie.vl">
+              <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="GetGeometries" />
                 <CategoryReference Kind="MasterPatchFlag, ClassType" Name="GeometryBuffer" NeedsToBeDirectParent="true" />
@@ -197,12 +197,12 @@
           </Patch>
           <Patch Id="Bb1lu9a7L9yLvZD9CHux08" Name="Invoke">
             <Pin Id="PKAPchM7mq9MqbfJJTklYz" Name="Buffer" Kind="InputPin" Bounds="-70,265">
-              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="GeometryBuffer" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="D76vYt2OmDkMVpm2x2gnuy" Name="Buffer" Kind="OutputPin" Bounds="-183,400">
-              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="GeometryBuffer" />
               </p:TypeAnnotation>
             </Pin>
@@ -299,7 +299,7 @@
               <Pin Id="SbUzvZ4glMvNitfIjlCNY0" Name="Result" Kind="OutputPin" />
             </Node>
             <Node Bounds="715,147,37,22" Id="SK8HV90KtGMLuIYsMnBucl">
-              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Count" />
                 <CategoryReference Kind="3288334336" Name="Spread" NeedsToBeDirectParent="true" />
@@ -334,7 +334,7 @@
               <ControlPoint Id="PdSE1ggaJwNMRryes0JKKe" Bounds="909,228" Alignment="Bottom" />
             </Node>
             <Node Bounds="1018,140,37,22" Id="JCLgurRvzwoMhHLQTlTLTz">
-              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Count" />
                 <CategoryReference Kind="3288334336" Name="Spread" NeedsToBeDirectParent="true" />
@@ -368,7 +368,7 @@
               <Pin Id="DgOHMPIrnDvOPCFJao9zpz" Name="Result" Kind="OutputPin" />
             </Node>
             <Node Bounds="907,80,42,13" Id="MVKqR63KYDQQIpNbiBegrs">
-              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Scaling" />
               </p:NodeReference>
@@ -396,7 +396,7 @@
           <Link Id="LMcevuHT10IMffWFn4gsNc" Ids="VMBkAANB9OgL8VmkhfQA6P,HtRKequnpkFOeAvO4sj3ZO" />
           <Link Id="JElcBl2TColNKVUbXO9iG3" Ids="RrhrGjj6UQUPUPWCKnfbYS,VMBkAANB9OgL8VmkhfQA6P" IsHidden="true" />
           <Slot Id="DWTXsIrI5SZPXuqafMWEDI" Name="Transformation">
-            <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics" ReferenceKind="App">
+            <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
               <Choice Kind="TypeFlag" Name="Matrix" />
             </p:TypeAnnotation>
           </Slot>
@@ -413,7 +413,7 @@
             <Pin Id="FXYRE8vFeQtLmF3DR9LHoB" Name="Instance Colors" Kind="OutputPin" Bounds="295,0" />
           </Patch>
           <Slot Id="RSdDYKnnd3MLVTM6fm19KT" Name="Instance Transformations">
-            <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core" ReferenceKind="App">
+            <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie" ReferenceKind="App">
               <Choice Kind="TypeFlag" Name="Spread" />
               <p:TypeArguments>
                 <TypeReference ReferenceKind="App">
@@ -426,7 +426,7 @@
           <Link Id="HYFEuGhLKsBNDITonxii3j" Ids="TdCbML28NahPeMp4uVT0qq,UMBJCzND0ltL5G0PYHCxtS" />
           <Link Id="CenVcKAEMMVNxjyO4e4BJE" Ids="UMBJCzND0ltL5G0PYHCxtS,UEtGb0Xl9gFPLreKq4os10" IsHidden="true" />
           <Slot Id="NWkYEcWGBGaLIDi0psagUQ" Name="Instance Colors">
-            <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core" ReferenceKind="App">
+            <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie" ReferenceKind="App">
               <Choice Kind="TypeFlag" Name="Spread" />
               <p:TypeArguments>
                 <TypeReference ReferenceKind="App">
@@ -475,7 +475,7 @@
             </Pad>
             <ControlPoint Id="JN1u7vwgNqOMNlRXfDNj5w" Bounds="500,202" />
             <Node Bounds="532,277,58,22" Id="BXhsClxAm88QMISr8GTrgi">
-              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Clear" />
                 <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -485,7 +485,7 @@
               <Pin Id="EIVCeJut7e9PKNqk2qY0i9" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Node Bounds="445,279,58,22" Id="D6SPlooBawBMEjCb126GhZ">
-              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Add" />
                 <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -510,7 +510,7 @@
                 <Patch Id="S5jNvXQssGeLh1kHDnVg1G" Name="Update" />
                 <Patch Id="AKm42viRmrOMr6ZOY98oBx" Name="Destroy" />
                 <Node Bounds="300,316,85,22" Id="QnJgrYEviA7NcWRxcT33iZ">
-                  <p:NodeReference LastCategoryFullName="CraftLie.Geometry" LastSymbolSource="CraftLie.vl">
+                  <p:NodeReference LastCategoryFullName="CraftLie.Geometry" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="MasterPatchFlag, RecordType" Name="Geometry" />
                     <Choice Kind="OperationCallFlag" Name="Split" />
@@ -532,7 +532,7 @@
           <Patch Id="RNLx6OoRh3yLmELH4hDu0u" Name="Create" />
           <Patch Id="DcjZ35DoO5vNhskNnlf0RV" Name="AddGeometry">
             <Pin Id="TsG2ZG75slyMzvw782ayLe" Name="Geometry" Kind="InputPin" Bounds="344,151">
-              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Geometry" />
               </p:TypeAnnotation>
             </Pin>
@@ -545,7 +545,7 @@
             <Fragment Id="FKnQCIkQ8x5NHmZqOPNxak" Patch="UbAyXUBmS9YLdSyUtnng93" Enabled="true" />
           </ProcessDefinition>
           <Slot Id="EbLz24A1NLMNqxj0gO9Hct" Name="Geometries">
-            <p:TypeAnnotation LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core" ReferenceKind="App">
+            <p:TypeAnnotation LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie" ReferenceKind="App">
               <Choice Kind="TypeFlag" Name="SpreadBuilder" />
               <p:TypeArguments>
                 <TypeReference ReferenceKind="App">
@@ -600,7 +600,7 @@
           <ControlPoint Id="Ekcte3A1OS6L8a0a5nQsUp" Bounds="618,-451" />
           <ControlPoint Id="Q2NDwzjBsV7LTXcCPnmzhl" Bounds="616,-147" />
           <Node Name="Create" Bounds="614,-399,143,207" Id="CBYWObVObxDOyfTvutpm8n">
-            <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
               <CategoryReference Kind="MasterPatchFlag, ClassType" Name="Drawer" />
               <Choice Kind="OperationCallFlag" Name="Create" />
               <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -612,7 +612,7 @@
               <ControlPoint Id="HWycbMkMhXYMjTlytx5RZz" Bounds="707,-392" />
               <ControlPoint Id="EYTfJ03vWboQMuOHt5m3tq" Bounds="706,-200" />
               <Node Bounds="626,-322,83,22" Id="RWqGJyyDEuNMT6p6PqinOW">
-                <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl">
+                <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <FullNameCategoryReference ID="VVVV.2d.Drawer" />
                   <Choice Kind="OperationCallFlag" Name="Invoke" />
@@ -623,7 +623,7 @@
                 <Pin Id="Lbs9NDcedfbLItyUZH3Sim" Name="Buffer" Kind="OutputPin" />
               </Node>
               <Node Bounds="626,-262,83,22" Id="DtSWqeIFfPXOMk8TmrQDg9">
-                <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl">
+                <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <FullNameCategoryReference ID="VVVV.2d.Drawer" />
                   <Choice Kind="OperationCallFlag" Name="Invoke" />
@@ -666,7 +666,7 @@
           <ControlPoint Id="FmAx4lGN4vmQV2SnV1yE57" Bounds="1011,-448" />
           <ControlPoint Id="DbWDP9u1OJMPwns3FinTgl" Bounds="943,-161" />
           <Node Name="Create" Bounds="940,-424,265,228" Id="PSDdcRCSX1nNaZRVdxECwJ">
-            <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
               <CategoryReference Kind="MasterPatchFlag, ClassType" Name="Drawer" />
               <Choice Kind="OperationCallFlag" Name="Create" />
               <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -690,7 +690,7 @@
                   <Patch Id="JRt2KZ7sg6IMxzSOgmaGqr" Name="Update" />
                   <Patch Id="NPI4yPQk3xNNn0JtXjxCJ0" Name="Destroy" />
                   <Node Bounds="1040,-323,56,22" Id="RjlVvAvfWTbOylQzTQ5bvZ">
-                    <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl">
+                    <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationCallFlag" Name="Invoke" />
                       <CategoryReference Kind="MasterPatchFlag, ClassType" Name="Drawer" NeedsToBeDirectParent="true" />
@@ -732,7 +732,7 @@
         </p:NodeReference>
         <Patch Id="VtmmugCrJP9LyeufwMag8M">
           <Node Bounds="-43,-272,143,22" Id="DeCDpM9nuf7NXODjqyjk7q">
-            <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="MasterPatchFlag, ClassType" Name="Drawer" NeedsToBeDirectParent="true" />
               <Choice Kind="OperationCallFlag" Name="InvokeAndGetGeometries" />
@@ -766,7 +766,7 @@
           <Pin Id="Hjq9XlMQwwHPpLuaLNdZjj" Name="Instance Transformations" Kind="OutputPin" Bounds="208,578" />
           <Link Id="F77sydheDh5OTqW3D2EtPn" Ids="Oek8P3zm7vYPr7ZaAzZlin,Hjq9XlMQwwHPpLuaLNdZjj" IsHidden="true" />
           <Node Bounds="95,-320,65,22" Id="CIdayq3ejlEO7r5jHTc3lu">
-            <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer" LastSymbolSource="CraftLie.vl">
+            <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="Clear" />
               <CategoryReference Kind="MasterPatchFlag, ClassType" Name="GeometryBuffer" NeedsToBeDirectParent="true" />
@@ -795,7 +795,7 @@
             </Pad>
             <ControlPoint Id="E08EmGyx3IcL2Ne6lGf9rv" Bounds="500,202" />
             <Node Bounds="532,277,58,22" Id="P7DVbUtzSEKMqQGTecdQub">
-              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Clear" />
                 <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -805,7 +805,7 @@
               <Pin Id="SdoH23D9Ya1PjMCE3DjY7G" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Node Bounds="445,279,58,22" Id="TXSXh9FghuqMHJhANQxNfo">
-              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Add" />
                 <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -819,7 +819,7 @@
           <Patch Id="AssDMYH0O42LXlwTDgAOkQ" Name="Create" />
           <Patch Id="TW0JO1dQLWeLlCvuRZ8gNV" Name="AddGeometry">
             <Pin Id="Egdi34akoJ4MuzuZuLtFsU" Name="DrawDescription" Kind="InputPin" Bounds="43,151">
-              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="DrawDescription" />
               </p:TypeAnnotation>
             </Pin>
@@ -885,7 +885,7 @@
             </Node>
             <ControlPoint Id="VylDhxfuIhNLtFHA2swdVT" Bounds="606,282" />
             <Node Bounds="537,385,70,22" Id="RVu6FJoeUeBL8KtyGswkUK">
-              <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer2" LastSymbolSource="CraftLie.vl">
+              <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer2" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="GetData" />
                 <CategoryReference Kind="MasterPatchFlag, ClassType" Name="GeometryBuffer2" NeedsToBeDirectParent="true" />
@@ -896,7 +896,7 @@
             </Node>
             <ControlPoint Id="MTqyOdekUNxLTtFBDUQ2ap" Bounds="606,502" />
             <Node Bounds="603,447,56,13" Id="NLDMaaJgsb2LMQ0q20cyYO">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionBuffer" LastSymbolSource="CraftLie.dll">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionBuffer" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="Category" Name="CraftLie" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
@@ -911,12 +911,12 @@
           </Patch>
           <Patch Id="Rl4r7khJgVoLldpJzjwHD9" Name="Invoke">
             <Pin Id="HPOLT5mVNmGQL7vZTJ7m1W" Name="Buffer" Kind="InputPin" Bounds="-307,265">
-              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="GeometryBuffer2" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="MO6E2LoZ1v4PvTpY0c4LRa" Name="Buffer" Kind="OutputPin" Bounds="-420,400">
-              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="GeometryBuffer2" />
               </p:TypeAnnotation>
             </Pin>
@@ -965,9 +965,9 @@
           <Canvas Id="FJtIirBJ67xMijOdBGicDm" Position="-484,9">
             <ControlPoint Id="Pe9Lx0TLr72ODCxcS2MZOY" Bounds="386,248" />
             <ControlPoint Id="JHEBcT2c9wZLWEm3T0Jj3D" Bounds="460,249" />
-            <ControlPoint Id="KJsmszFDCeoPE9G9A5kuXG" Bounds="530,255" />
+            <ControlPoint Id="KJsmszFDCeoPE9G9A5kuXG" Bounds="521,256" />
             <Node Bounds="335,295,61,13" Id="Fhy0f6X6y7XO6ZiDEqTCW8">
-              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Translation" />
               </p:NodeReference>
@@ -975,7 +975,7 @@
               <Pin Id="LZw9CRRwpqIOta3TndzazV" Name="Result" Kind="OutputPin" />
             </Node>
             <Node Bounds="408,294,42,13" Id="N8U5qliQBNWLPWkzkc9DWW">
-              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Scaling" />
               </p:NodeReference>
@@ -993,8 +993,8 @@
               <Pin Id="OcqxT7KejdkLFtI7Iue9Zq" Name="Output" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="ELM3uuBjLUFPRFm91Wn1wX" Bounds="25,637" />
-            <Node Bounds="246,487,575,13" Id="F3NvT3JAdLzLFP4DfO6jXT">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll">
+            <Node Bounds="245,492,575,22" Id="F3NvT3JAdLzLFP4DfO6jXT">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
                 <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
@@ -1020,9 +1020,9 @@
               <Pin Id="N50UEM2kJmyOAbPhbxwcUw" Name="Output" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="O12HquscFIiMnZbAP6mHql" Bounds="283,248" />
-            <ControlPoint Id="JyFTqA0hcO3LeglohG9ts7" Bounds="595,253" />
-            <Node Bounds="119,246,65,13" Id="Fj6h9OIpKcaMBqFwk3L3se">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll">
+            <ControlPoint Id="JyFTqA0hcO3LeglohG9ts7" Bounds="601,260" />
+            <Node Bounds="119,238,69,22" Id="Fj6h9OIpKcaMBqFwk3L3se">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
                 <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
@@ -1036,7 +1036,7 @@
               <p:ValueBoxSettings />
             </Pad>
             <Node Name="Create" Bounds="20,356,113,106" Id="NNlggVVczPOPfPtFhjIzmm">
-              <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer2" LastSymbolSource="CraftLie.vl">
+              <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer2" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="OperationCallFlag" Name="Create" />
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <CategoryReference Kind="MasterPatchFlag, ClassType" Name="Drawer2" NeedsToBeDirectParent="true" />
@@ -1048,7 +1048,7 @@
                 <ControlPoint Id="V047D78UcLzOt6JEE9NM6j" Bounds="35,363" />
                 <ControlPoint Id="QvzxLlluK4PNdewA5sF4lv" Bounds="34,454" />
                 <Node Bounds="32,400,89,22" Id="IxTb8qRFziQNhXOFxyxXbE">
-                  <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer2" LastSymbolSource="CraftLie.vl">
+                  <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer2" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="AddGeometry" />
                     <CategoryReference Kind="MasterPatchFlag, ClassType" Name="GeometryBuffer2" NeedsToBeDirectParent="true" />
@@ -1064,7 +1064,7 @@
           <Patch Id="CIDLVtrKGLFQDbKmKuFzFF" Name="Update">
             <Pin Id="CnKgmlT1KsUPqOF4SMNTat" Name="Position" Kind="InputPin" Bounds="-133,161" />
             <Pin Id="Jne4ZqldbvKOvNyA3Kt8Uz" Name="Size" Kind="InputPin" Bounds="-45,162" DefaultValue="new vec(1.0,1.0,1.0)">
-              <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector3" />
                 <CategoryReference Kind="Category" Name="3D" />
               </p:TypeAnnotation>
@@ -1126,7 +1126,7 @@
           <ControlPoint Id="BFWnH7TbsiqNcrAGLABb8M" Bounds="685,325" />
           <ControlPoint Id="B3kBrTloENdNq9qPBrvqH0" Bounds="617,612" />
           <Node Name="Create" Bounds="615,347,200,233" Id="JMGU5zCalCLL5i9fV5wUhw">
-            <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer2" LastSymbolSource="CraftLie.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer2" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
               <Choice Kind="OperationCallFlag" Name="Create" />
               <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
               <CategoryReference Kind="MasterPatchFlag, ClassType" Name="Drawer2" NeedsToBeDirectParent="true" />
@@ -1150,7 +1150,7 @@
                   <Patch Id="KLfk5NRQgjiNvpN1Zfb5wB" Name="Update" />
                   <Patch Id="Hr9es3qknIeOhrhe03nmvY" Name="Destroy" />
                   <Node Bounds="684,438,83,22" Id="Ny3SYLpAla5OsFJm95EheM">
-                    <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer2" LastSymbolSource="CraftLie.vl">
+                    <p:NodeReference LastCategoryFullName="VVVV.2d.Drawer2" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <CategoryReference Kind="MasterPatchFlag, ClassType" Name="Drawer2" NeedsToBeDirectParent="true" />
                       <Choice Kind="OperationCallFlag" Name="Invoke" />
@@ -2424,5 +2424,5 @@
     </Canvas>
   </Patch>
   <NugetDependency Id="VTzeCUFappyOuabUhCeE9h" Location="VL.DevLib" Version="0.49.63-g3a681d5a96" />
-  <PlatformDependency Id="NRTudJBtZVLLCFcXFD0tzq" Location="..\plugins\CraftLie.dll" />
+  <PlatformDependency Id="APeASG2AmKpMmLhE4129LU" Location="..\..\..\..\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\plugins\CraftLie.dll" />
 </Document>

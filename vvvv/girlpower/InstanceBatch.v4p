@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\girlpower\InstanceBatch.v4p" filename="C:\vvvv\PROJECTS\2017\03_FactLire\demo patch\InstanceBatch.v4p" systemname="InstanceBatch" scrollx="210" scrolly="-360" locked="0">
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\InstanceBatch.v4p" filename="C:\vvvv\PROJECTS\2017\03_FactLire\demo patch\InstanceBatch.v4p" systemname="InstanceBatch" scrollx="0" scrolly="-360" locked="0">
    <BOUNDS height="10770" left="2850" top="1125" type="Window" width="7845">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
@@ -132,7 +132,7 @@
    </NODE>
    <LINK srcnodeid="290" srcpinname="Device" dstnodeid="303" dstpinname="Mouse Device">
    </LINK>
-   <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="InAWindow" id="292">
+   <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="Hidden" id="292">
    <BOUNDS type="Node" left="1267" top="3753" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="15" width="11685" height="13830">
@@ -153,7 +153,7 @@
    <LINK srcnodeid="303" srcpinname="Draw Call" dstnodeid="292" dstpinname="Input">
    </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="1">
-   <BOUNDS type="Window" left="12225" top="810" width="15540" height="14445">
+   <BOUNDS type="Window" left="16950" top="1005" width="15540" height="14445">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
