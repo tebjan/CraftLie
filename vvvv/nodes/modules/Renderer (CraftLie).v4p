@@ -234,7 +234,39 @@
    </LINK>
    <LINK srcnodeid="58" srcpinname="Output" dstnodeid="60" dstpinname="Order">
    </LINK>
-   <NODE id="36" systemname="GetDrawDescriptions (DX11.Buffer)" filename="%VVVV%\packs\CraftLie\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptions (DX11.Buffer)" componentmode="Hidden">
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\packs\CraftLie.1.0.0\vvvv\nodes\dx11\CraftLie.fx" id="23" nodename="CraftLie (DX11.Effect)" systemname="CraftLie (DX11.Effect)">
+   <BOUNDS height="270" left="1935" top="6990" type="Node" width="7860">
+   </BOUNDS>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="TransformationCount" visible="1" slicecount="1" values="10096">
+   </PIN>
+   <PIN pinname="ColorCount" visible="1" slicecount="1" values="10096">
+   </PIN>
+   <PIN pinname="sbWorld" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="sbColor" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="texture2d" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Render State" dstnodeid="23" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Remainder" dstnodeid="23" dstpinname="TransformStartIndex">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Remainder" dstnodeid="23" dstpinname="ColorStartIndex">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="23" dstpinname="texture2d">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Layer" dstnodeid="60" dstpinname="Layer In">
+   </LINK>
+   <NODE id="36" systemname="GetDrawDescriptionData (DX11.Buffer CraftLie)" filename="%VVVV%\lib\packs\CraftLie.1.0.0\vvvv\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptionData (DX11.Buffer CraftLie)" componentmode="Hidden">
    <BOUNDS type="Node" left="3150" top="2280" width="7020" height="270">
    </BOUNDS>
    <PIN pinname="Transformation" visible="1">
@@ -271,38 +303,6 @@
    <LINK srcnodeid="36" srcpinname="Transformation" dstnodeid="47" dstpinname="Transform">
    </LINK>
    <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Buffer">
-   </LINK>
-   <NODE componentmode="Hidden" filename="%VVVV%\lib\packs\CraftLie.1.0.0\vvvv\nodes\dx11\CraftLie.fx" id="23" nodename="CraftLie (DX11.Effect)" systemname="CraftLie (DX11.Effect)">
-   <BOUNDS height="270" left="1935" top="6990" type="Node" width="7860">
-   </BOUNDS>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="TransformationCount" visible="1" slicecount="1" values="10096">
-   </PIN>
-   <PIN pinname="ColorCount" visible="1" slicecount="1" values="10096">
-   </PIN>
-   <PIN pinname="sbWorld" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="sbColor" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="texture2d" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="6" srcpinname="Render State" dstnodeid="23" dstpinname="Render State">
-   </LINK>
-   <LINK srcnodeid="15" srcpinname="Remainder" dstnodeid="23" dstpinname="TransformStartIndex">
-   </LINK>
-   <LINK srcnodeid="21" srcpinname="Remainder" dstnodeid="23" dstpinname="ColorStartIndex">
-   </LINK>
-   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="23" dstpinname="texture2d">
-   </LINK>
-   <LINK srcnodeid="23" srcpinname="Layer" dstnodeid="60" dstpinname="Layer In">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="23" dstpinname="ColorCount">
    </LINK>

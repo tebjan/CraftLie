@@ -2467,7 +2467,7 @@
           </Canvas>
           <Patch Id="EfSdzCpQtOdPjedld4ir7q" Name="Create" />
           <Patch Id="Iyh0BcXvKJ1MZbEb3MVaLo" Name="Update">
-            <Pin Id="LFc6krAvItZONmZh6CuvcN" Name="Layer" Kind="OutputPin" Bounds="130,940" />
+            <Pin Id="LFc6krAvItZONmZh6CuvcN" Name="Draw Description Layer" Kind="OutputPin" Bounds="130,940" />
             <Pin Id="U6wRDuJM1wnOEZb3l6zI7h" Name="Layer" Kind="InputPin" Bounds="362,346" />
           </Patch>
           <ProcessDefinition Id="OpRLpIZ1LF3LcYO1pquhyD">

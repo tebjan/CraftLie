@@ -65,7 +65,7 @@
   <ItemGroup>
     <Compile Include="DrawDescriptionLayer.cs" />
     <Compile Include="DrawDescription.cs" />
-    <Compile Include="GetDrawDescriptionsNode.cs" />
+    <Compile Include="GetDrawDescriptionDataNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -131,6 +131,8 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
+   <PIN pinname="Draw Description Layer" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="290" srcpinname="Device" dstnodeid="303" dstpinname="Mouse Device">
    </LINK>
@@ -188,6 +190,6 @@
    </NODE>
    <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers">
    </LINK>
-   <LINK srcnodeid="303" srcpinname="Layer" dstnodeid="292" dstpinname="Input">
+   <LINK srcnodeid="303" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
    </PATCH>

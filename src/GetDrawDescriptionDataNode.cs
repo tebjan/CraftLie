@@ -16,8 +16,8 @@ using SharpDX;
 
 namespace VVVV.DX11.Nodes
 {
-    [PluginInfo(Name = "GetDrawDescriptions", Category = "DX11.Buffer", Author = "tonfilm")]
-    public class GetDrawDescriptionsNode : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable
+    [PluginInfo(Name = "GetDrawDescriptionData", Category = "DX11.Buffer", Version = "CraftLie", Author = "tonfilm")]
+    public class GetDrawDescriptionDataNode : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable
     {
         [Import()]
         protected IPluginHost2 pluginHost;
