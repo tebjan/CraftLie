@@ -12,10 +12,9 @@ using VL.Core;
 namespace CraftLie
 {
     [Type]
-    public class BufferGeometry : IDisposable
+    public class DrawDescription : IDisposable
     {
-        public readonly AbstractPrimitiveDescriptor Geometry;
-
+        public readonly AbstractPrimitiveDescriptor GeometryDescriptor;
         public Matrix Transformation;
         public string TexturePath;
         public IReadOnlyList<Matrix> InstanceTransformations;
@@ -23,28 +22,28 @@ namespace CraftLie
         public int InstanceCount;
 
         [Node(Hidden = true, IsDefaultValue = true)]
-        public static readonly BufferGeometry Default = new BufferGeometry(new Box(), Matrix.Identity, new Color4(0, 1, 0, 1), "", new List<Matrix>(), new List<Color4>());
+        public static readonly DrawDescription Default = new DrawDescription(new Box(), Matrix.Identity, new Color4(0, 1, 0, 1), "", new List<Matrix>(), new List<Color4>());
 
         [Node]
-        public BufferGeometry()
+        public DrawDescription()
             : this(null)
         {
         }
 
-        public BufferGeometry(AbstractPrimitiveDescriptor geometryDescription)
+        public DrawDescription(AbstractPrimitiveDescriptor geometryDescriptor)
         {
             var box = new Box();
             box.Size = new SlimDX.Vector3(1);
-            Geometry = geometryDescription ?? box;
+            GeometryDescriptor = geometryDescriptor ?? box;
         }
 
-        public BufferGeometry(AbstractPrimitiveDescriptor geometryDescription, 
+        public DrawDescription(AbstractPrimitiveDescriptor geometryDescriptor, 
             Matrix transformation, 
             Color4 color,
             string texturePath,
             IReadOnlyList<Matrix> instanceTransformations,
             IReadOnlyList<Color4> instanceColors)
-            : this(geometryDescription)
+            : this(geometryDescriptor)
         {
             Update(transformation, color, texturePath, instanceTransformations, instanceColors);
         }
@@ -73,9 +72,8 @@ namespace CraftLie
             InstanceCount = Math.Max(Math.Max(instanceTransformations.Count, instanceColors.Count), 1);
         }
 
-        public DX11IndexedGeometry GetGeom(DX11RenderContext context)
+        public DX11IndexedGeometry GetGeometry(DX11RenderContext context)
         {
-
             DX11IndexedGeometry geo;
 
             //var settings = new Box();

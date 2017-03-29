@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel.Composition;
 
-
 using VVVV.PluginInterfaces.V2;
 using VVVV.PluginInterfaces.V1;
 
@@ -17,14 +16,14 @@ using SharpDX;
 
 namespace VVVV.DX11.Nodes
 {
-    [PluginInfo(Name = "GetGeometries", Category = "DX11.Buffer", Author = "tonfilm")]
-    public class GetGeometriesNode : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable
+    [PluginInfo(Name = "GetDrawDescriptions", Category = "DX11.Buffer", Author = "tonfilm")]
+    public class GetDrawDescriptionsNode : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable
     {
         [Import()]
         protected IPluginHost2 pluginHost;
 
-        [Input("Buffer Drawer", Order=5)]
-        protected IDiffSpread<BufferDrawer> FDrawerIn;
+        [Input("Buffer", Order=5)]
+        protected IDiffSpread<DrawDescriptionBuffer> FDrawerIn;
 
         [Input("Keep In Memory", DefaultValue = 0, Order=6)]
         protected ISpread<bool> FKeep;
@@ -70,7 +69,7 @@ namespace VVVV.DX11.Nodes
 
         protected virtual bool NeedConvert { get { return false; } }
 
-        BufferDrawer FMainDrawer;
+        DrawDescriptionBuffer FMainBuffer;
 
         protected int oldOutCount = 0;
 
@@ -93,15 +92,15 @@ namespace VVVV.DX11.Nodes
 
                     if(FDrawerIn.SliceCount > 1)
                     {
-                        FMainDrawer = BufferDrawer.Unite(FDrawerIn);
+                        FMainBuffer = DrawDescriptionBuffer.Unite(FDrawerIn);
                     }
                     else
                     {
-                        FMainDrawer = FDrawerIn[0];
+                        FMainBuffer = FDrawerIn[0];
                     }
 
-                    if (FMainDrawer == null)
-                        FMainDrawer = BufferDrawer.Default;
+                    if (FMainBuffer == null)
+                        FMainBuffer = DrawDescriptionBuffer.Default;
                 }
                 else
                 {
@@ -235,14 +234,14 @@ namespace VVVV.DX11.Nodes
                 Array.Resize(ref this.FBufferCol, FTotalColorCount);
             }
 
-            var geos = FMainDrawer.Geometries;
+            var geoms = FMainBuffer.DrawDescriptions;
 
             var geoIndex = 0;
             var transIndex = 0;
             var colIndex = 0;
-            foreach (var geo in geos)
+            foreach (var geo in geoms)
             {
-                var geom = geo.GetGeom(context);
+                var geom = geo.GetGeometry(context);
 
                 //check drawer
                 //if (geo.InstanceCount > 1)
@@ -291,7 +290,7 @@ namespace VVVV.DX11.Nodes
 
         private void UpdatePins()
         {
-            var geoms = FMainDrawer.Geometries;
+            var geoms = FMainBuffer.DrawDescriptions;
             var outCount = geoms.Count;
 
             FOutput.SliceCount = outCount;

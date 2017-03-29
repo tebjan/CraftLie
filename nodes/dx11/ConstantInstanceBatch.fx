@@ -1,5 +1,5 @@
 //@author: vux, tonfilm
-//@help: standard constant shader
+//@help: standard constant shader with instancing
 //@tags: color
 //@credits: 
 
@@ -15,10 +15,9 @@ SamplerState g_samLinear : IMMUTABLE
 StructuredBuffer<float4x4> sbWorld;
 StructuredBuffer<float4> sbColor;
 
-cbuffer cbPerDraw : register( b0 )
+cbuffer cbPerDraw : register(b0)
 {
 	float4x4 tVP : LAYERVIEWPROJECTION;
-	float4x4 tW : WORLD;
 	
 	uint TransformStartIndex;
 	uint TransformationCount = 1;
@@ -27,6 +26,11 @@ cbuffer cbPerDraw : register( b0 )
 	uint ColorCount = 1;
 };
 
+cbuffer cbPerObject : register(b1)
+{
+    float4x4 tW : WORLD;
+    uint di : DRAWINDEX;
+}
 
 struct VS_IN
 {
@@ -75,7 +79,7 @@ vs2ps VS(VS_IN input)
 float4 PS_Tex(vs2ps In): SV_Target
 {
     float4 col = texture2d.Sample(g_samLinear, In.TexCd) * In.Color;
-	//col.a = saturate(dot(col.rgb, col.rgb));
+	col.a *= saturate(dot(col.rgb, col.rgb));
     return col;
 }
 

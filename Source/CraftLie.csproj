@@ -63,9 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BufferDrawer.cs" />
-    <Compile Include="BufferGeometry.cs" />
-    <Compile Include="GetGeometriesNode.cs" />
+    <Compile Include="DrawDescriptionBuffer.cs" />
+    <Compile Include="DrawDescription.cs" />
+    <Compile Include="GetDrawDescriptionsNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

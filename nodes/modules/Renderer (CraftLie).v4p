@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\girlpower\DrawGeometries.v4p" systemname="DrawGeometries" filename="C:\vvvv\PROJECTS\2017\03_FactLire\demo patch\DrawGeometries.v4p" scrollx="150" scrolly="480">
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0">
    <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="6">
    <BOUNDS type="Node" left="780" top="5175" width="100" height="100">
    </BOUNDS>
@@ -53,9 +53,9 @@
    <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
-   <BOUNDS type="Box" left="1845" top="9155" width="750" height="240">
+   <BOUNDS type="Box" left="1440" top="10055" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1845" top="9155" width="750" height="240">
+   <BOUNDS type="Node" left="1440" top="10055" width="750" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" visible="1">
    </PIN>
@@ -64,14 +64,14 @@
    </LINK>
    <LINK srcnodeid="20" srcpinname="Output" dstnodeid="21" dstpinname="Input">
    </LINK>
-   <BOUNDS type="Window" left="900" top="3615" width="10770" height="13830">
+   <BOUNDS type="Window" left="975" top="4470" width="10770" height="13830">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="26">
-   <BOUNDS type="Box" left="3150" top="1320" width="1365" height="390">
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="26" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="3210" top="1335" width="1365" height="390">
    </BOUNDS>
-   <BOUNDS type="Node" left="3150" top="1320" width="0" height="0">
+   <BOUNDS type="Node" left="3210" top="1335" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -120,7 +120,7 @@
    <BOUNDS type="Window" left="4110" top="10920" width="16710" height="5085">
    </BOUNDS>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="41">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="41" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7260" top="3360" width="795" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="7260" top="3360" width="0" height="0">
@@ -131,51 +131,13 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
-   <PIN pinname="Y Input Value">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <NODE id="36" systemname="GetGeometries (DX11.Buffer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.CraftLie.dll" nodename="GetGeometries (DX11.Buffer)" componentmode="Hidden">
-   <BOUNDS type="Node" left="3150" top="2280" width="7020" height="270">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9645" top="3990" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Transformation" visible="1">
-   </PIN>
-   <PIN pinname="Preferred Buffer Type" slicecount="1" values="Default">
-   </PIN>
-   <PIN pinname="Texture Path" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Transform Counts" visible="1">
-   </PIN>
-   <PIN pinname="Instance Counts" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="41" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="39" dstpinname="Filename">
-   </LINK>
-   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Buffer Drawer">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="34" dstpinname="Filename">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="13" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="20" dstpinname="Input">
-   </LINK>
-   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="42">
-   <BOUNDS type="Node" left="855" top="3480" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Mode" slicecount="1" values="Blend">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="42" srcpinname="Render State" dstnodeid="6" dstpinname="Render State">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43">
-   <BOUNDS type="Box" left="3915" top="4695" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3915" top="4695" width="0" height="0">
+   <BOUNDS type="Node" left="9645" top="3990" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -183,13 +145,13 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Instance Counts|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Object Count|">
    </PIN>
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="%VVVV%\packs\CraftLie\nodes\dx11\ConstantInstanceBatch.fx" id="23" nodename="ConstantInstanceBatch (DX11.Effect)" systemname="ConstantInstanceBatch (DX11.Effect)">
-   <BOUNDS height="270" left="1965" top="6990" type="Node" width="7860">
+   <BOUNDS height="270" left="1935" top="6990" type="Node" width="7860">
    </BOUNDS>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
@@ -216,38 +178,26 @@
    </LINK>
    <LINK srcnodeid="21" srcpinname="Remainder" dstnodeid="23" dstpinname="ColorStartIndex">
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="23" dstpinname="ColorCount">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="23" dstpinname="TransformationCount">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Color Buffer" dstnodeid="23" dstpinname="sbColor">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Transform Buffer" dstnodeid="23" dstpinname="sbWorld">
-   </LINK>
    <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="44">
-   <BOUNDS type="Node" left="4290" top="4125" width="100" height="100">
+   <BOUNDS type="Node" left="9645" top="3315" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="44" srcpinname="Output" dstnodeid="43" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="GetMatrix (Transform)" nodename="GetMatrix (Transform)" componentmode="Hidden" id="45">
    <BOUNDS type="Node" left="1950" top="3165" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Transform" visible="1">
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Transformation" dstnodeid="45" dstpinname="Transform">
-   </LINK>
-   <NODE nodename="Group (DX11.Layer)" id="46">
-   <BOUNDS type="Node" left="1980" top="8400" width="0" height="0">
+   <NODE nodename="Group (DX11.Layer)" id="46" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="1575" top="9300" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="1980" top="8400" width="2400" height="1800">
+   <BOUNDS type="Box" left="1575" top="9300" width="2400" height="1800">
    </BOUNDS>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
@@ -259,19 +209,15 @@
    <LINK srcnodeid="46" srcpinname="Layer Out" dstnodeid="24" dstpinname="Input Node">
    </LINK>
    <NODE systemname="Quad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="47">
-   <BOUNDS type="Node" left="2460" top="7890" width="100" height="100">
+   <BOUNDS type="Node" left="705" top="6990" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Transform" visible="1">
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Transformation" dstnodeid="47" dstpinname="Transform">
-   </LINK>
-   <LINK srcnodeid="23" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 2">
-   </LINK>
    <LINK srcnodeid="47" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 1">
    </LINK>
    <NODE systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden" id="49">
@@ -280,8 +226,94 @@
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
    </NODE>
+   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="23" dstpinname="texture2d">
+   </LINK>
+   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="750" top="3540" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="Blend">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="57" srcpinname="Render State" dstnodeid="6" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="GetSlice (DX11.Layer Order)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="GetSlice (DX11.Layer Order)" componentmode="Hidden" id="58">
+   <BOUNDS type="Node" left="2850" top="8100" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Order (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Order (DX11.Layer)" componentmode="Hidden" id="60">
+   <BOUNDS type="Node" left="1920" top="8685" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Order" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="60" srcpinname="Layer Out" dstnodeid="46" dstpinname="Layer 2">
+   </LINK>
+   <LINK srcnodeid="58" srcpinname="Output" dstnodeid="60" dstpinname="Order">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Layer" dstnodeid="60" dstpinname="Layer In">
+   </LINK>
+   <NODE id="36" systemname="GetDrawDescriptions (DX11.Buffer)" filename="%VVVV%\packs\CraftLie\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptions (DX11.Buffer)" componentmode="Hidden">
+   <BOUNDS type="Node" left="3150" top="2280" width="7020" height="270">
+   </BOUNDS>
+   <PIN pinname="Transformation" visible="1">
+   </PIN>
+   <PIN pinname="Preferred Buffer Type" slicecount="1" values="Default">
+   </PIN>
+   <PIN pinname="Texture Path" visible="1">
+   </PIN>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Transform Counts" visible="1">
+   </PIN>
+   <PIN pinname="Instance Counts" visible="1">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="41" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="39" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Buffer Drawer">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="34" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="13" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="20" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="23" dstpinname="ColorCount">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="23" dstpinname="TransformationCount">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Color Buffer" dstnodeid="23" dstpinname="sbColor">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transform Buffer" dstnodeid="23" dstpinname="sbWorld">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transformation" dstnodeid="45" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transformation" dstnodeid="47" dstpinname="Transform">
+   </LINK>
    <LINK srcnodeid="36" srcpinname="Transformation" dstnodeid="23" dstpinname="Transform In">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="23" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Buffer">
    </LINK>
    </PATCH>

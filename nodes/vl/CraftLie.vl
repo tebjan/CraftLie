@@ -818,9 +818,9 @@
           </Canvas>
           <Patch Id="AssDMYH0O42LXlwTDgAOkQ" Name="Create" />
           <Patch Id="TW0JO1dQLWeLlCvuRZ8gNV" Name="AddGeometry">
-            <Pin Id="Egdi34akoJ4MuzuZuLtFsU" Name="Geometry" Kind="InputPin" Bounds="43,151">
+            <Pin Id="Egdi34akoJ4MuzuZuLtFsU" Name="DrawDescription" Kind="InputPin" Bounds="43,151">
               <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" ReferenceKind="App">
-                <Choice Kind="TypeFlag" Name="BufferGeometry" />
+                <Choice Kind="TypeFlag" Name="DrawDescription" />
               </p:TypeAnnotation>
             </Pin>
           </Patch>
@@ -895,12 +895,12 @@
               <Pin Id="Bxsu5L4VmpROvnEZhVJjEv" Name="Data" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="MTqyOdekUNxLTtFBDUQ2ap" Bounds="606,502" />
-            <Node Bounds="603,447,56,22" Id="NLDMaaJgsb2LMQ0q20cyYO">
-              <p:NodeReference LastCategoryFullName="CraftLie.BufferDrawer" LastSymbolSource="CraftLie.dll">
+            <Node Bounds="603,447,56,13" Id="NLDMaaJgsb2LMQ0q20cyYO">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionBuffer" LastSymbolSource="CraftLie.dll">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="Category" Name="CraftLie" />
-                <CategoryReference Kind="3288334336" Name="BufferDrawer" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
+                <CategoryReference Kind="3288334336" Name="DrawDescriptionBuffer" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="N00bJDEdkAEQLcynJgymej" Name="Geometries" Kind="InputPin" />
               <Pin Id="IQlv4xibvgnOou1hVok67j" Name="Output" Kind="StateOutputPin" />
@@ -993,11 +993,11 @@
               <Pin Id="OcqxT7KejdkLFtI7Iue9Zq" Name="Output" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="ELM3uuBjLUFPRFm91Wn1wX" Bounds="25,637" />
-            <Node Bounds="246,487,575,22" Id="F3NvT3JAdLzLFP4DfO6jXT">
-              <p:NodeReference LastCategoryFullName="CraftLie.BufferGeometry" LastSymbolSource="CraftLie.dll">
+            <Node Bounds="246,487,575,13" Id="F3NvT3JAdLzLFP4DfO6jXT">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <CategoryReference Kind="3355443200" Name="BufferGeometry" NeedsToBeDirectParent="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
+                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="PU8sIpEqYM3OXFGBVm00tm" Name="Input" Kind="StateInputPin" />
               <Pin Id="CJC4dCYjkysOuVh5Uc1g7e" Name="Transformation" Kind="InputPin" />
@@ -1007,7 +1007,7 @@
               <Pin Id="OPQ1R08wrx4OKD46EZhNSp" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="PaS8i1lPUqUMrAQtFW6lZ7" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="N3cPdX8SMc4OqGviSul9NC" Bounds="890,260" />
+            <ControlPoint Id="N3cPdX8SMc4OqGviSul9NC" Bounds="858,260" />
             <ControlPoint Id="OgsGqjYsvmSPJtujjJiTwZ" Bounds="702,260" />
             <Node Bounds="271,415,57,13" Id="IrzUyjwflbHLIk6d4AiHbD">
               <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="VL.CoreLib.dll" LastPackageId="VL.CoreLib">
@@ -1021,11 +1021,11 @@
             </Node>
             <ControlPoint Id="O12HquscFIiMnZbAP6mHql" Bounds="283,248" />
             <ControlPoint Id="JyFTqA0hcO3LeglohG9ts7" Bounds="595,253" />
-            <Node Bounds="119,246,65,22" Id="Fj6h9OIpKcaMBqFwk3L3se">
-              <p:NodeReference LastCategoryFullName="CraftLie.BufferGeometry" LastSymbolSource="CraftLie.dll">
+            <Node Bounds="119,246,65,13" Id="Fj6h9OIpKcaMBqFwk3L3se">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="BufferGeometry" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="OaxKSQe48HFLNplcIu706I" Name="Output" Kind="StateOutputPin" />
             </Node>
@@ -1047,20 +1047,20 @@
                 <Pin Id="KhuKOzIvgr3LyCDHDzbcJH" Name="Buffer" Kind="OutputPin" Bounds="-329,0" />
                 <ControlPoint Id="V047D78UcLzOt6JEE9NM6j" Bounds="35,363" />
                 <ControlPoint Id="QvzxLlluK4PNdewA5sF4lv" Bounds="34,454" />
-                <Node Bounds="32,401,89,22" Id="IxTb8qRFziQNhXOFxyxXbE">
+                <Node Bounds="32,400,89,22" Id="IxTb8qRFziQNhXOFxyxXbE">
                   <p:NodeReference LastCategoryFullName="CraftLie.GeometryBuffer2" LastSymbolSource="CraftLie.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="AddGeometry" />
                     <CategoryReference Kind="MasterPatchFlag, ClassType" Name="GeometryBuffer2" NeedsToBeDirectParent="true" />
                   </p:NodeReference>
                   <Pin Id="V4tIM5Rr3odLZ241cvcyIG" Name="Input" Kind="StateInputPin" />
-                  <Pin Id="BklfBFR5C9VOevEV5klfFr" Name="Geometry" Kind="InputPin" />
+                  <Pin Id="BklfBFR5C9VOevEV5klfFr" Name="DrawDescription" Kind="InputPin" />
                   <Pin Id="PAnIGybt8cBM8lo4Y1q8Po" Name="Output" Kind="StateOutputPin" />
                 </Node>
               </Patch>
             </Node>
           </Canvas>
-          <Patch Id="SlV3CSzx1tnMVieYkY5KPr" Name="Create" ParticipatingElements="NNlggVVczPOPfPtFhjIzmm,Fj6h9OIpKcaMBqFwk3L3se" />
+          <Patch Id="SlV3CSzx1tnMVieYkY5KPr" Name="Create" ParticipatingElements="Fj6h9OIpKcaMBqFwk3L3se,NNlggVVczPOPfPtFhjIzmm" />
           <Patch Id="CIDLVtrKGLFQDbKmKuFzFF" Name="Update">
             <Pin Id="CnKgmlT1KsUPqOF4SMNTat" Name="Position" Kind="InputPin" Bounds="-133,161" />
             <Pin Id="Jne4ZqldbvKOvNyA3Kt8Uz" Name="Size" Kind="InputPin" Bounds="-45,162" DefaultValue="new vec(1.0,1.0,1.0)">
