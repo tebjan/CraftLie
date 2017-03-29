@@ -66,11 +66,14 @@
     <Compile Include="DrawDescriptionLayer.cs" />
     <Compile Include="DrawDescription.cs" />
     <Compile Include="GetDrawDescriptionDataNode.cs" />
+    <Compile Include="PrimitiveDescriptor.cs" />
+    <Compile Include="PrimitiveFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>

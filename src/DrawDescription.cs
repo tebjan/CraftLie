@@ -14,7 +14,7 @@ namespace CraftLie
     [Type]
     public class DrawDescription : IDisposable
     {
-        public readonly AbstractPrimitiveDescriptor GeometryDescriptor;
+        public GeometryDescriptor GeometryDescriptor;
         public Matrix Transformation;
         public string TexturePath;
         public IReadOnlyList<Matrix> InstanceTransformations;
@@ -22,22 +22,20 @@ namespace CraftLie
         public int InstanceCount;
 
         [Node(Hidden = true, IsDefaultValue = true)]
-        public static readonly DrawDescription Default = new DrawDescription(new Box(), Matrix.Identity, new Color4(0, 1, 0, 1), "", new List<Matrix>(), new List<Color4>());
+        public static readonly DrawDescription Default = new DrawDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", new List<Matrix>(), new List<Color4>());
 
-        [Node]
         public DrawDescription()
             : this(null)
         {
         }
 
-        public DrawDescription(AbstractPrimitiveDescriptor geometryDescriptor)
+        [Node]
+        public DrawDescription(GeometryDescriptor geometryDescriptor)
         {
-            var box = new Box();
-            box.Size = new SlimDX.Vector3(1);
-            GeometryDescriptor = geometryDescriptor ?? box;
+            GeometryDescriptor = geometryDescriptor ?? new BoxDescriptor();
         }
 
-        public DrawDescription(AbstractPrimitiveDescriptor geometryDescriptor, 
+        public DrawDescription(GeometryDescriptor geometryDescriptor, 
             Matrix transformation, 
             Color4 color,
             string texturePath,
@@ -46,6 +44,16 @@ namespace CraftLie
             : this(geometryDescriptor)
         {
             Update(transformation, color, texturePath, instanceTransformations, instanceColors);
+        }
+
+        [Node]
+        public void UpdateGeometry(GeometryDescriptor geometryDescriptor)
+        {
+            if(geometryDescriptor != GeometryDescriptor)
+            {
+                DisposeGeometry();
+                GeometryDescriptor = geometryDescriptor;
+            }
         }
 
         [Node]
@@ -77,9 +85,7 @@ namespace CraftLie
             DX11IndexedGeometry geo;
             if (!GeometryCache.TryGetValue(context, out geo))
             {
-                var settings = new Box();
-                settings.Size = new SlimDX.Vector3(1);
-                geo = context.Primitives.Box(settings);
+                geo = PrimitiveFactory.GetGeometry(context, GeometryDescriptor);
                 GeometryCache[context] = geo;
             }
 
@@ -89,12 +95,26 @@ namespace CraftLie
         [Node]
         public void Dispose()
         {
+            DisposeGeometry();
+        }
+
+        private void DisposeGeometry()
+        {
             try
             {
                 foreach (var geo in GeometryCache.Values)
                 {
-                    geo.Dispose();
+                    try
+                    {
+                        geo?.Dispose();
+                    }
+                    catch (Exception)
+                    {
+                        //safe dispose
+                    }
                 }
+
+                GeometryCache.Clear();
             }
             catch (Exception)
             {

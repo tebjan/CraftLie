@@ -950,10 +950,10 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Node Bounds="377,1323,232,13" Id="UNyuU56IAtkNAeNJQhv77H">
+            <Node Bounds="378,1337,232,13" Id="UNyuU56IAtkNAeNJQhv77H">
               <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessNode" Name="Box" />
+                <Choice Kind="ProcessAppFlag" Name="Quad" />
               </p:NodeReference>
               <Pin Id="JalFaChc7B1MWsdRBQZU6a" Name="Transformation" Kind="InputPin" />
               <Pin Id="R51B8f2eg0lMfC25lD8A7i" Name="Color" Kind="InputPin" />
@@ -1020,7 +1020,7 @@
               <Pin Id="VotrZ7pg4WdPfdB6QxPAq9" Name="Apply" Kind="ApplyPin" />
               <Pin Id="Nt1XMdKVjMCMb7uZai1TB3" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <Node Bounds="377,1430,67,13" Id="C3f7qpEVkdzLvE2tr2HvPq">
+            <Node Bounds="378,1445,67,13" Id="C3f7qpEVkdzLvE2tr2HvPq">
               <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
@@ -1111,9 +1111,9 @@
           <Link Id="NxNucJy9IIdPVEErscNXKh" Ids="Forw5085al1LFHvKNvrNPZ,SsXIikBfwevMSxFfu2nlin" />
           <Link Id="OOTnRKsN4vzPUlJ4X9dil6" Ids="H4HRiPlfUveMXNcFFKNhMY,F6pURgRbypWLiQVxFSbIdL" />
           <Link Id="OuiMsoS1ITcLZR4VLaLln4" Ids="MexBPbJpJpMMWBSYmqNo6K,EmHKu7Gm7xsPwD6KTCTWKl" />
-          <Link Id="DSuRn6Qne52PybqMkvqEPv" Ids="HeoE7q9PnT4L6ENPqfj4wQ,BunRSfWnmehO6psqvkwEnQ" />
           <Link Id="RxDjqHsRBHyQZ5ltv7PHLz" Ids="EerI1NLG1FbPn2tqt9QPLm,JmRkRI313BkPskenqMHrhU" />
           <Link Id="ALXbNRrrFZsNVA8b8kKB3x" Ids="JmRkRI313BkPskenqMHrhU,QxAQuniEOnDP0WuGiXgSz3" IsHidden="true" />
+          <Link Id="MeZpxOA7pKNNvPRAqMgSIb" Ids="HeoE7q9PnT4L6ENPqfj4wQ,BunRSfWnmehO6psqvkwEnQ" />
         </Patch>
       </Node>
     </Canvas>
