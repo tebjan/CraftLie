@@ -23,7 +23,7 @@ namespace VVVV.DX11.Nodes
         protected IPluginHost2 pluginHost;
 
         [Input("Buffer", Order=5)]
-        protected IDiffSpread<DrawDescriptionBuffer> FDrawerIn;
+        protected IDiffSpread<DrawDescriptionLayer> FDrawerIn;
 
         [Input("Keep In Memory", DefaultValue = 0, Order=6)]
         protected ISpread<bool> FKeep;
@@ -69,7 +69,7 @@ namespace VVVV.DX11.Nodes
 
         protected virtual bool NeedConvert { get { return false; } }
 
-        DrawDescriptionBuffer FMainBuffer;
+        DrawDescriptionLayer FMainBuffer;
 
         protected int oldOutCount = 0;
 
@@ -92,7 +92,7 @@ namespace VVVV.DX11.Nodes
 
                     if(FDrawerIn.SliceCount > 1)
                     {
-                        FMainBuffer = DrawDescriptionBuffer.Unite(FDrawerIn);
+                        FMainBuffer = DrawDescriptionLayer.Unite(FDrawerIn);
                     }
                     else
                     {
@@ -100,7 +100,7 @@ namespace VVVV.DX11.Nodes
                     }
 
                     if (FMainBuffer == null)
-                        FMainBuffer = DrawDescriptionBuffer.Default;
+                        FMainBuffer = DrawDescriptionLayer.Default;
                 }
                 else
                 {

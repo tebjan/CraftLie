@@ -129,6 +129,8 @@
    <NODE id="303" systemname="VisualSpray (2d)" filename="vl\VVVV.VisualSpray.vl" nodename="VisualSpray (2d)" componentmode="Hidden">
    <BOUNDS type="Node" left="1260" top="2970" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="290" srcpinname="Device" dstnodeid="303" dstpinname="Mouse Device">
    </LINK>
@@ -150,16 +152,14 @@
    </LINK>
    <LINK srcnodeid="292" srcpinname="Object Count" dstnodeid="297" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="303" srcpinname="Draw Call" dstnodeid="292" dstpinname="Input">
-   </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="1">
    <BOUNDS type="Window" left="16950" top="1005" width="15540" height="14445">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS type="Node" height="270" left="939" top="9384" width="1800">
+   <BOUNDS type="Node" height="270" left="894" top="9504" width="1800">
    </BOUNDS>
-   <BOUNDS type="Box" height="12825" left="939" top="9384" width="13740">
+   <BOUNDS type="Box" height="12825" left="894" top="9504" width="13740">
    </BOUNDS>
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
@@ -187,5 +187,7 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="303" srcpinname="Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
    </PATCH>

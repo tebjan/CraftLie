@@ -10,27 +10,27 @@ using VL.Core;
 namespace CraftLie
 {
     [Type(IsImmutable = true)]
-    public class DrawDescriptionBuffer
+    public class DrawDescriptionLayer
     {
         [Node(Hidden = true, IsDefaultValue = true)]
-        public static readonly DrawDescriptionBuffer Default = new DrawDescriptionBuffer(GetDefault().ToList());
+        public static readonly DrawDescriptionLayer Default = new DrawDescriptionLayer(GetDefault().ToList());
 
         public readonly IReadOnlyList<DrawDescription> DrawDescriptions;
 
         [Node]
-        public DrawDescriptionBuffer(IReadOnlyList<DrawDescription> geometries)
+        public DrawDescriptionLayer(IReadOnlyList<DrawDescription> geometries)
         {
             DrawDescriptions = geometries;
         }
 
-        public static DrawDescriptionBuffer Unite(DrawDescriptionBuffer input, DrawDescriptionBuffer input2)
+        public static DrawDescriptionLayer Concat(DrawDescriptionLayer input, DrawDescriptionLayer input2)
         {
-            return new DrawDescriptionBuffer(input.DrawDescriptions.Concat(input2.DrawDescriptions).ToList());
+            return new DrawDescriptionLayer(input.DrawDescriptions.Concat(input2.DrawDescriptions).ToList());
         }
 
-        public static DrawDescriptionBuffer Unite(IEnumerable<DrawDescriptionBuffer> input)
+        public static DrawDescriptionLayer Unite(IEnumerable<DrawDescriptionLayer> input)
         {
-            return new DrawDescriptionBuffer(input.SelectMany(d => d.DrawDescriptions).ToList());
+            return new DrawDescriptionLayer(input.SelectMany(d => d.DrawDescriptions).ToList());
         }
 
         static IEnumerable<DrawDescription> GetDefault()

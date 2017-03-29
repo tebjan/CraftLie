@@ -63,7 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DrawDescriptionBuffer.cs" />
+    <Compile Include="DrawDescriptionLayer.cs" />
     <Compile Include="DrawDescription.cs" />
     <Compile Include="GetDrawDescriptionsNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +80,7 @@
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
+    <DocumentationFile>..\vvvv\nodes\plugins\CraftLie.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <OutputPath>..\vvvv\nodes\plugins\</OutputPath>
