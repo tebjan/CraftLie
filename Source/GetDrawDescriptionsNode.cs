@@ -234,41 +234,40 @@ namespace VVVV.DX11.Nodes
                 Array.Resize(ref this.FBufferCol, FTotalColorCount);
             }
 
-            var geoms = FMainBuffer.DrawDescriptions;
+            var descriptions = FMainBuffer.DrawDescriptions;
 
             var geoIndex = 0;
             var transIndex = 0;
             var colIndex = 0;
-            foreach (var geo in geoms)
+            foreach (var desc in descriptions)
             {
-                var geom = geo.GetGeometry(context);
+                var geometry = desc.GetGeometry(context);
 
                 //check drawer
                 //if (geo.InstanceCount > 1)
                 {
-                    if (!(geom.Drawer is DX11InstancedIndexedDrawer))
+                    if (!(geometry.Drawer is DX11InstancedIndexedDrawer))
                     {
-                        geom = (DX11IndexedGeometry)geom.ShallowCopy();
+                        geometry = (DX11IndexedGeometry)geometry.ShallowCopy();
                         var drawer = new DX11InstancedIndexedDrawer();
-                        drawer.InstanceCount = geo.InstanceCount;
+                        drawer.InstanceCount = desc.InstanceCount;
                         drawer.StartInstanceLocation = 0;
-                        geom.AssignDrawer(drawer);  
+                        geometry.AssignDrawer(drawer);  
                     }
                 }
 
-                this.FOutput[geoIndex++][context] = geom;
+                this.FOutput[geoIndex++][context] = geometry;
 
-                foreach (var trans in geo.InstanceTransformations)
+                foreach (var trans in desc.InstanceTransformations)
                 {
                     trans.Transpose();
                     FBufferTrans[transIndex++] = trans;
                 }
 
-                foreach (var col in geo.InstanceColors)
+                foreach (var col in desc.InstanceColors)
                 {
                     FBufferCol[colIndex++] = col;
                 }
-
             }
         }
 
@@ -290,8 +289,8 @@ namespace VVVV.DX11.Nodes
 
         private void UpdatePins()
         {
-            var geoms = FMainBuffer.DrawDescriptions;
-            var outCount = geoms.Count;
+            var descriptions = FMainBuffer.DrawDescriptions;
+            var outCount = descriptions.Count;
 
             FOutput.SliceCount = outCount;
 
@@ -324,17 +323,17 @@ namespace VVVV.DX11.Nodes
 
             for (int i = 0; i < outCount; i++)
             {
-                var geo = geoms[i];
+                var desc = descriptions[i];
 
-                FInstanceCounts[i] = geo.InstanceCount;
+                FInstanceCounts[i] = desc.InstanceCount;
 
-                var transCount = geo.InstanceTransformations.Count;
-                var colCount = geo.InstanceColors.Count;
+                var transCount = desc.InstanceTransformations.Count;
+                var colCount = desc.InstanceColors.Count;
                 FTransformCounts[i] = transCount;
                 FColorCounts[i] = colCount;
 
-                FTransformation[i] = ToSlimDXMatrix(geo.Transformation);
-                FTexturePath[i] = geo.TexturePath;
+                FTransformation[i] = ToSlimDXMatrix(desc.Transformation);
+                FTexturePath[i] = desc.TexturePath;
 
                 FTotalTransformCount += transCount;
                 FTotalColorCount += colCount;
@@ -373,6 +372,7 @@ namespace VVVV.DX11.Nodes
 
         public void OnImportsSatisfied()
         {
+            this.FOutput.SliceCount = 1;
             this.FTransformOutput.SliceCount = 1;
             this.FColorOutput.SliceCount = 1;
         }

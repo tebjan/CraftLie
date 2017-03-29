@@ -75,11 +75,6 @@ namespace CraftLie
         public DX11IndexedGeometry GetGeometry(DX11RenderContext context)
         {
             DX11IndexedGeometry geo;
-
-            //var settings = new Box();
-            //settings.Size = new SlimDX.Vector3(1);
-            //geo = context.Primitives.Box(settings);
-
             if (!GeometryCache.TryGetValue(context, out geo))
             {
                 var settings = new Box();
