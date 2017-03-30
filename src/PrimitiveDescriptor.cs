@@ -13,6 +13,7 @@ namespace CraftLie
         Sphere,
         Tube,
         Line,
+        Sprites
     }
 
     [Type(IsImmutable = true)]
@@ -121,4 +122,18 @@ namespace CraftLie
         }
     }
 
+    [Type(IsImmutable = true)]
+    public class SpritesDescriptor : GeometryDescriptor
+    {
+        [Node(Hidden = true, IsDefaultValue = true)]
+        public static readonly SpritesDescriptor Default = new SpritesDescriptor();
+
+        public int SpriteCount;
+
+        [Node]
+        public SpritesDescriptor()
+            : base(PrimitiveType.Sprites)
+        {
+        }
+    }
 }

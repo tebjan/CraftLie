@@ -59,6 +59,27 @@ namespace VVVV.DX11.Nodes
         [Output("Color Counts")]
         protected ISpread<int> FColorCounts;
 
+        [Output("Sprites Position Buffer")]
+        protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FSpritesPositionOutput;
+
+        [Output("Sprites Position Counts")]
+        protected ISpread<int> FSpritesPositionCounts;
+
+        [Output("Sprites Size Buffer")]
+        protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FSpritesSizeOutput;
+
+        [Output("Sprites Size Counts")]
+        protected ISpread<int> FSpritesSizeCounts;
+
+        [Output("Sprites Color Buffer")]
+        protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FSpritesColorOutput;
+
+        [Output("Sprites Color Counts")]
+        protected ISpread<int> FSpritesColorCounts;
+
+        [Output("Sprites Texture Path")]
+        protected ISpread<string> FSpritesTexturePath;
+
         [Output("Texts")]
         protected ISpread<string> FTexts;
 
@@ -81,7 +102,7 @@ namespace VVVV.DX11.Nodes
 
         private bool FInvalidate;
         private bool FFirst = true;
-        private int spreadmax;
+        private int FGeometrySpreadMax;
 
         protected virtual bool NeedConvert { get { return false; } }
 
@@ -140,7 +161,7 @@ namespace VVVV.DX11.Nodes
                     this.FValid.SliceCount = 0;
                 }
 
-                this.spreadmax = this.FDrawerIn.SliceCount;
+                this.FGeometrySpreadMax = this.FDrawerIn.SliceCount;
 
                 this.FInvalidate = true;
                 this.FFirst = false;
@@ -155,40 +176,31 @@ namespace VVVV.DX11.Nodes
 
         int FTotalTransformCount;
         int FTotalColorCount;
+        int FTotalSpritesCount;
 
         protected Matrix[] FBufferTrans = new Matrix[4096];
         protected Color4[] FBufferCol = new Color4[4096];
 
+        protected Vector3[] FBufferSpritesPosition = new Vector3[8192];
+        protected Vector2[] FBufferSpritesSize = new Vector2[8192];
+        protected Color4[] FBufferSpritesCol = new Color4[8192];
+
         public void Update(DX11RenderContext context)
         {
-            if (this.spreadmax == 0) { return; }
+            if (this.FGeometrySpreadMax == 0) { return; }
 
             if (this.FInvalidate || !this.FTransformOutput[0].Contains(context))
-            {              
+            {
+                var bufferTypeChanged = this.currentBufferType != this.FBufferType[0];
+
                 //refresh trans buffer?
-                if (this.FTransformOutput[0].Contains(context))
-                {
-                    if (this.FTransformOutput[0][context].ElementCount != FTotalTransformCount
-                        || this.currentBufferType != this.FBufferType[0] 
-                        || this.FTransformOutput[0][context] is DX11ImmutableStructuredBuffer<Matrix>)
-                    {
-                        this.FTransformOutput[0].Dispose(context);
-                    }
-                }
+                CheckBufferDispose<Matrix>(context, this.FTransformOutput[0], FTotalTransformCount, bufferTypeChanged);
 
                 //refresh col buffer?
-                if (this.FColorOutput[0].Contains(context))
-                {
-                    if (this.FColorOutput[0][context].ElementCount != FTotalColorCount
-                        || this.currentBufferType != this.FBufferType[0]
-                        || this.FColorOutput[0][context] is DX11ImmutableStructuredBuffer<Color4>)
-                    {
-                        this.FColorOutput[0].Dispose(context);
-                    }
-                }
+                CheckBufferDispose<Color4>(context, this.FColorOutput[0], FTotalColorCount, bufferTypeChanged);
 
-                SetupLocalBuffers(context);
-               
+                PrepareLocalGeometryBufferData(context);
+
                 //make new buffer?
                 if (!this.FTransformOutput[0].Contains(context))
                 {
@@ -224,6 +236,20 @@ namespace VVVV.DX11.Nodes
 
         }
 
+        private static void CheckBufferDispose<T>(DX11RenderContext context, DX11Resource<IDX11ReadableStructureBuffer> bufferResource, int bufferCount, bool bufferTypeChanged)
+            where T : struct
+        {
+            if (bufferResource.Contains(context))
+            {
+                if (bufferResource[context].ElementCount != bufferCount
+                    || bufferTypeChanged
+                    || bufferResource[context] is DX11ImmutableStructuredBuffer<T>)
+                {
+                    bufferResource.Dispose(context);
+                }
+            }
+        }
+
         private void WriteToBuffer<T>(ISpread<DX11Resource<IDX11ReadableStructureBuffer>> spread, DX11RenderContext context, T[] bufferToCopy) where T : struct
         {
             if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
@@ -238,7 +264,7 @@ namespace VVVV.DX11.Nodes
             }
         }
 
-        private void SetupLocalBuffers(DX11RenderContext context)
+        private void PrepareLocalGeometryBufferData(DX11RenderContext context)
         {
             if (this.FBufferTrans.Length < FTotalTransformCount)
             {
@@ -402,7 +428,7 @@ namespace VVVV.DX11.Nodes
             }
         }
 
-        private RGBAColor ToRGBAColor(Color4 color)
+        RGBAColor ToRGBAColor(Color4 color)
         {
             return new RGBAColor(color.Red, color.Green, color.Blue, color.Alpha);
         }
@@ -425,6 +451,9 @@ namespace VVVV.DX11.Nodes
                 this.FOutput.SafeDisposeAll(context);
                 this.FTransformOutput.SafeDisposeAll(context);
                 this.FColorOutput.SafeDisposeAll(context);
+                this.FSpritesPositionOutput.SafeDisposeAll(context);
+                this.FSpritesSizeOutput.SafeDisposeAll(context);
+                this.FSpritesColorOutput.SafeDisposeAll(context);
             }
         }
 
@@ -434,6 +463,9 @@ namespace VVVV.DX11.Nodes
             this.FOutput.SafeDisposeAll();
             this.FTransformOutput.SafeDisposeAll();
             this.FColorOutput.SafeDisposeAll();
+            this.FSpritesPositionOutput.SafeDisposeAll();
+            this.FSpritesSizeOutput.SafeDisposeAll();
+            this.FSpritesColorOutput.SafeDisposeAll();
         }
         #endregion
 
@@ -442,6 +474,9 @@ namespace VVVV.DX11.Nodes
             this.FOutput.SliceCount = 1;
             this.FTransformOutput.SliceCount = 1;
             this.FColorOutput.SliceCount = 1;
+            this.FSpritesPositionOutput.SliceCount = 1;
+            this.FSpritesSizeOutput.SliceCount = 1;
+            this.FSpritesColorOutput.SliceCount = 1;
         }
     }
 }

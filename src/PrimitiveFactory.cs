@@ -36,13 +36,30 @@ namespace CraftLie
                 case PrimitiveType.Line:
                     return context.Primitives.LineStrip3d(((LineDescriptor)descriptor).Settings, false);
                     break;
+                case PrimitiveType.Sprites:
+                    return CreateNullGeometry(context, (SpritesDescriptor)descriptor);
+                    break;
                 default:
                     var settings = new Quad() { Size = new SlimDX.Vector2(1) };
                     return context.Primitives.QuadNormals(settings);
                     break;
             }
 
-            
+
+        }
+
+        private static IDX11Geometry CreateNullGeometry(DX11RenderContext context, SpritesDescriptor descriptor)
+        {
+            DX11NullInstancedDrawer drawer = new DX11NullInstancedDrawer();
+            drawer.VertexCount = descriptor.SpriteCount;
+            drawer.InstanceCount = 1;
+
+            DX11NullGeometry geom = new DX11NullGeometry(context, drawer);
+            geom.Topology = SlimDX.Direct3D11.PrimitiveTopology.PointList;
+            geom.InputLayout = new SlimDX.Direct3D11.InputElement[0];
+            geom.HasBoundingBox = false;
+
+            return geom;
         }
     }
 }

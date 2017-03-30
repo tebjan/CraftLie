@@ -11,12 +11,60 @@ using VL.Core;
 
 namespace CraftLie
 {
-    [Type]
-    public class DrawDescription : IDisposable
+    public class DrawDescriptionBase : IDisposable
     {
         public GeometryDescriptor GeometryDescriptor;
-        public Matrix Transformation;
         public string TexturePath;
+
+        public IDX11Geometry GetGeometry(DX11RenderContext context)
+        {
+            IDX11Geometry geo;
+            if (!GeometryCache.TryGetValue(context, out geo))
+            {
+                geo = PrimitiveFactory.GetGeometry(context, GeometryDescriptor);
+                GeometryCache[context] = geo;
+            }
+
+            return geo;
+        }
+
+        [Node]
+        public void Dispose()
+        {
+            DisposeGeometry();
+        }
+
+        protected void DisposeGeometry()
+        {
+            try
+            {
+                foreach (var geo in GeometryCache.Values)
+                {
+                    try
+                    {
+                        geo?.Dispose();
+                    }
+                    catch (Exception)
+                    {
+                        //safe dispose
+                    }
+                }
+
+                GeometryCache.Clear();
+            }
+            catch (Exception)
+            {
+                //safe dispose
+            }
+        }
+
+        readonly Dictionary<DX11RenderContext, IDX11Geometry> GeometryCache = new Dictionary<DX11RenderContext, IDX11Geometry>();
+    }
+
+    [Type]
+    public class DrawDescription : DrawDescriptionBase
+    {
+        public Matrix Transformation;
         public IReadOnlyList<Matrix> InstanceTransformations;
         public IReadOnlyList<Color4> InstanceColors;
         public int InstanceCount;
@@ -49,7 +97,7 @@ namespace CraftLie
         [Node]
         public void UpdateGeometry(GeometryDescriptor geometryDescriptor)
         {
-            if(geometryDescriptor != GeometryDescriptor)
+            if (geometryDescriptor != GeometryDescriptor)
             {
                 DisposeGeometry();
                 GeometryDescriptor = geometryDescriptor;
@@ -74,54 +122,71 @@ namespace CraftLie
                 instanceTransformations = Enumerable.Repeat(Matrix.Identity, 1).ToList();
 
             InstanceTransformations = instanceTransformations;
-
             InstanceColors = instanceColors.Count > 0 ? instanceColors : Enumerable.Repeat(color, 1).ToList();
-
             InstanceCount = Math.Max(Math.Max(instanceTransformations.Count, instanceColors.Count), 1);
-        }
+        }      
+    }
 
-        public IDX11Geometry GetGeometry(DX11RenderContext context)
+    [Type(IsImmutable = true)]
+    public class DrawSpritesDescription : DrawDescriptionBase
+    {
+        public IReadOnlyList<Vector3> Positions;
+        public IReadOnlyList<Vector2> Sizes;
+        public IReadOnlyList<Color4> Colors;
+
+        [Node(Hidden = true, IsDefaultValue = true)]
+        public static readonly DrawSpritesDescription Default = new DrawSpritesDescription(
+            new List<Vector3>() { Vector3.Zero },
+            new List<Vector2>() { Vector2.One },
+            new List<Color4>() { Color4.White });
+
+        public int SpriteCount;
+
+        [Node]
+        public DrawSpritesDescription(SpritesDescriptor geometryDescriptor)
         {
-            IDX11Geometry geo;
-            if (!GeometryCache.TryGetValue(context, out geo))
-            {
-                geo = PrimitiveFactory.GetGeometry(context, GeometryDescriptor);
-                GeometryCache[context] = geo;
-            }
-
-            return geo;
+            GeometryDescriptor = geometryDescriptor ?? new SpritesDescriptor();
         }
 
         [Node]
-        public void Dispose()
+        public DrawSpritesDescription(IReadOnlyList<Vector3> positions, IReadOnlyList<Vector2> sizes, IReadOnlyList<Color4> colors, string texturePath = "")
         {
-            DisposeGeometry();
+            Positions = positions;
+            Sizes = sizes;
+            Colors = colors;
+            TexturePath = texturePath;
         }
 
-        private void DisposeGeometry()
+        [Node]
+        public void Update(
+            IReadOnlyList<Vector3> positions, 
+            IReadOnlyList<Vector2> sizes, 
+            IReadOnlyList<Color4> colors, 
+            string texturePath = "")
         {
-            try
-            {
-                foreach (var geo in GeometryCache.Values)
-                {
-                    try
-                    {
-                        geo?.Dispose();
-                    }
-                    catch (Exception)
-                    {
-                        //safe dispose
-                    }
-                }
 
-                GeometryCache.Clear();
-            }
-            catch (Exception)
+            TexturePath = texturePath;
+
+            if (positions == null)
+                positions = new List<Vector3>() { Vector3.Zero };
+
+            if (sizes == null)
+                sizes = new List<Vector2>() { Vector2.One };
+
+            if (colors == null)
+                colors = new List<Color4>() { Color4.White };
+
+            Positions = positions;
+            Sizes = sizes;
+            Colors = colors;
+            var newSpriteCount = Math.Max(Math.Max(Positions.Count, Sizes.Count), Colors.Count);
+
+            if (newSpriteCount != SpriteCount)
             {
-                //safe dispose
+                DisposeGeometry();
+                GeometryDescriptor = new SpritesDescriptor() { SpriteCount = newSpriteCount };
+                SpriteCount = newSpriteCount;
             }
         }
-
-        readonly Dictionary<DX11RenderContext, IDX11Geometry> GeometryCache = new Dictionary<DX11RenderContext, IDX11Geometry>();
     }
 }
