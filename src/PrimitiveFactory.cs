@@ -11,12 +11,15 @@ namespace CraftLie
 {
     public static class PrimitiveFactory
     {
-        public static DX11IndexedGeometry GetGeometry(DX11RenderContext context, GeometryDescriptor descriptor)
+        public static IDX11Geometry GetGeometry(DX11RenderContext context, GeometryDescriptor descriptor)
         {
             switch (descriptor.Type)
             {
                 case PrimitiveType.Quad:
                     return context.Primitives.QuadNormals(((QuadDescriptor)descriptor).Settings);
+                    break;
+                case PrimitiveType.RoundQuad:
+                    return context.Primitives.RoundRect(((RoundQuadDescriptor)descriptor).Settings);
                     break;
                 case PrimitiveType.Box:
                     return context.Primitives.Box(((BoxDescriptor)descriptor).Settings);
@@ -29,6 +32,9 @@ namespace CraftLie
                     break;
                 case PrimitiveType.Tube:
                     return context.Primitives.SegmentZ(((TubeDescriptor)descriptor).Settings);
+                    break;
+                case PrimitiveType.Line:
+                    return context.Primitives.LineStrip3d(((LineDescriptor)descriptor).Settings, false);
                     break;
                 default:
                     var settings = new Quad() { Size = new SlimDX.Vector2(1) };

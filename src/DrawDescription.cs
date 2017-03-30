@@ -80,9 +80,9 @@ namespace CraftLie
             InstanceCount = Math.Max(Math.Max(instanceTransformations.Count, instanceColors.Count), 1);
         }
 
-        public DX11IndexedGeometry GetGeometry(DX11RenderContext context)
+        public IDX11Geometry GetGeometry(DX11RenderContext context)
         {
-            DX11IndexedGeometry geo;
+            IDX11Geometry geo;
             if (!GeometryCache.TryGetValue(context, out geo))
             {
                 geo = PrimitiveFactory.GetGeometry(context, GeometryDescriptor);
@@ -122,6 +122,6 @@ namespace CraftLie
             }
         }
 
-        readonly Dictionary<DX11RenderContext, DX11IndexedGeometry> GeometryCache = new Dictionary<DX11RenderContext, DX11IndexedGeometry>();
+        readonly Dictionary<DX11RenderContext, IDX11Geometry> GeometryCache = new Dictionary<DX11RenderContext, IDX11Geometry>();
     }
 }

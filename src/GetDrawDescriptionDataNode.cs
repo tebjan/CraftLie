@@ -13,6 +13,7 @@ using FeralTic.DX11.Resources;
 using FeralTic.DX11;
 using CraftLie;
 using SharpDX;
+using VVVV.Utils.VColor;
 
 namespace VVVV.DX11.Nodes
 {
@@ -35,7 +36,7 @@ namespace VVVV.DX11.Nodes
         protected ISpread<bool> FApply;
 
         [Output("Geometry Out")]
-        protected Pin<DX11Resource<DX11IndexedGeometry>> FOutput;
+        protected Pin<DX11Resource<IDX11Geometry>> FOutput;
 
         [Output("Instance Counts")]
         protected ISpread<int> FInstanceCounts;
@@ -57,6 +58,21 @@ namespace VVVV.DX11.Nodes
 
         [Output("Color Counts")]
         protected ISpread<int> FColorCounts;
+
+        [Output("Texts")]
+        protected ISpread<string> FTexts;
+
+        [Output("Text Transformations")]
+        protected ISpread<SlimDXMatrix> FTextTransformations;
+
+        [Output("Text Colors")]
+        protected ISpread<RGBAColor> FTextColors;
+
+        [Output("Text Sizes")]
+        protected ISpread<float> FTextSizes;
+
+        [Output("Font Names")]
+        protected ISpread<string> FFontNames;
 
         DX11BufferUploadType currentBufferType = DX11BufferUploadType.Dynamic;
 
@@ -244,17 +260,7 @@ namespace VVVV.DX11.Nodes
                 var geometry = desc.GetGeometry(context);
 
                 //check drawer
-                //if (geo.InstanceCount > 1)
-                {
-                    if (!(geometry.Drawer is DX11InstancedIndexedDrawer))
-                    {
-                        geometry = (DX11IndexedGeometry)geometry.ShallowCopy();
-                        var drawer = new DX11InstancedIndexedDrawer();
-                        drawer.InstanceCount = desc.InstanceCount;
-                        drawer.StartInstanceLocation = 0;
-                        geometry.AssignDrawer(drawer);  
-                    }
-                }
+                geometry = AssignInstancedDrawer(desc, geometry);
 
                 this.FOutput[geoIndex++][context] = geometry;
 
@@ -269,6 +275,41 @@ namespace VVVV.DX11.Nodes
                     FBufferCol[colIndex++] = col;
                 }
             }
+        }
+
+        private static IDX11Geometry AssignInstancedDrawer(DrawDescription desc, IDX11Geometry geometry)
+        {
+            var indexedGeometry = geometry as DX11IndexedGeometry;
+            if (indexedGeometry != null)
+            {
+                if (!(indexedGeometry.Drawer is DX11InstancedIndexedDrawer))
+                {
+                    indexedGeometry = (DX11IndexedGeometry)indexedGeometry.ShallowCopy();
+                    var drawer = new DX11InstancedIndexedDrawer();
+                    drawer.InstanceCount = desc.InstanceCount;
+                    drawer.StartInstanceLocation = 0;
+                    indexedGeometry.AssignDrawer(drawer);
+                    geometry = indexedGeometry;
+                }
+            }
+            else
+            {
+                var vertexGeometry = geometry as DX11VertexGeometry;
+                if (vertexGeometry != null)
+                {
+                    if (!(vertexGeometry.Drawer is DX11InstancedVertexDrawer))
+                    {
+                        vertexGeometry = (DX11VertexGeometry)vertexGeometry.ShallowCopy();
+                        var drawer = new DX11InstancedVertexDrawer();
+                        drawer.InstanceCount = desc.InstanceCount;
+                        drawer.StartInstanceLocation = 0;
+                        vertexGeometry.AssignDrawer(drawer);
+                        geometry = vertexGeometry;
+                    }
+                }
+            }
+
+            return geometry;
         }
 
         private void CreateBuffer<T>(ISpread<DX11Resource<IDX11ReadableStructureBuffer>> spread, DX11RenderContext context, int count, T[] bufferToCopy) where T : struct
@@ -317,7 +358,7 @@ namespace VVVV.DX11.Nodes
 
                 for (int i = 0; i < outCount; i++)
                 {
-                    this.FOutput[i] = new DX11Resource<DX11IndexedGeometry>();
+                    this.FOutput[i] = new DX11Resource<IDX11Geometry>();
                 }
             }
 
@@ -338,6 +379,32 @@ namespace VVVV.DX11.Nodes
                 FTotalTransformCount += transCount;
                 FTotalColorCount += colCount;
             }
+
+            var textDescriptions = FMainBuffer.TextDescriptions;
+            var textCount = textDescriptions.Count;
+
+            FTexts.SliceCount = textCount;
+            FTextTransformations.SliceCount = textCount;
+            FTextColors.SliceCount = textCount;
+            FTextSizes.SliceCount = textCount;
+            FFontNames.SliceCount = textCount;
+
+            for (int i = 0; i < textCount; i++)
+            {
+                var desc = textDescriptions[i];
+
+
+                FTexts[i] = desc.Text;
+                FTextSizes[i] = desc.Size;
+                FFontNames[i] = desc.FontName;
+                FTextTransformations[i] = ToSlimDXMatrix(desc.Transformation);
+                FTextColors[i] = ToRGBAColor(desc.Color);
+            }
+        }
+
+        private RGBAColor ToRGBAColor(Color4 color)
+        {
+            return new RGBAColor(color.Red, color.Green, color.Blue, color.Alpha);
         }
 
         SlimDXMatrix ToSlimDXMatrix(Matrix m)

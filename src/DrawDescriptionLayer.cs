@@ -13,29 +13,38 @@ namespace CraftLie
     public class DrawDescriptionLayer
     {
         [Node(Hidden = true, IsDefaultValue = true)]
-        public static readonly DrawDescriptionLayer Default = new DrawDescriptionLayer(GetDefault().ToList());
+        public static readonly DrawDescriptionLayer Default = new DrawDescriptionLayer(GetDefaultDrawDescription().ToList(), GetDefaultTextDescriptor().ToList());
 
         public readonly IReadOnlyList<DrawDescription> DrawDescriptions;
+        public readonly IReadOnlyList<TextDescriptor> TextDescriptions;
 
         [Node]
-        public DrawDescriptionLayer(IReadOnlyList<DrawDescription> geometries)
+        public DrawDescriptionLayer(IReadOnlyList<DrawDescription> geometries, IReadOnlyList<TextDescriptor> texts)
         {
             DrawDescriptions = geometries;
+            TextDescriptions = texts;
         }
 
         public static DrawDescriptionLayer Concat(DrawDescriptionLayer input, DrawDescriptionLayer input2)
         {
-            return new DrawDescriptionLayer(input.DrawDescriptions.Concat(input2.DrawDescriptions).ToList());
+            return new DrawDescriptionLayer(input.DrawDescriptions.Concat(input2.DrawDescriptions).ToList(),
+                input.TextDescriptions.Concat(input2.TextDescriptions).ToList());
         }
 
         public static DrawDescriptionLayer Unite(IEnumerable<DrawDescriptionLayer> input)
         {
-            return new DrawDescriptionLayer(input.SelectMany(d => d.DrawDescriptions).ToList());
+            return new DrawDescriptionLayer(input.SelectMany(d => d.DrawDescriptions).ToList(),
+                input.SelectMany(d => d.TextDescriptions).ToList());
         }
 
-        static IEnumerable<DrawDescription> GetDefault()
+        static IEnumerable<DrawDescription> GetDefaultDrawDescription()
         {
             yield return DrawDescription.Default;
+        }
+
+        static IEnumerable<TextDescriptor> GetDefaultTextDescriptor()
+        {
+            yield return TextDescriptor.Default;
         }
     }
 }

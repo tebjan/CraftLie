@@ -80,6 +80,7 @@ float4 PS_Tex(vs2ps In): SV_Target
 {
     float4 col = texture2d.Sample(g_samLinear, In.TexCd) * In.Color;
 	col.a *= saturate(dot(col.rgb, col.rgb));
+	if(col.a <= 0.015) discard;
     return col;
 }
 

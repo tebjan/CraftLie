@@ -1,4 +1,5 @@
 ﻿using FeralTic.DX11.Geometry;
+using System.Collections.Generic;
 using VL.Core;
 
 namespace CraftLie
@@ -6,10 +7,12 @@ namespace CraftLie
     public enum PrimitiveType
     {
         Quad,
+        RoundQuad,
         Box,
         Disc,
         Sphere,
-        Tube
+        Tube,
+        Line,
     }
 
     [Type(IsImmutable = true)]
@@ -23,6 +26,7 @@ namespace CraftLie
 
         public static readonly Quad UnitQuad = new Quad() { Size = new SlimDX.Vector2(1) };
         public static readonly Box UnitBox = new Box() { Size = new SlimDX.Vector3(1) };
+        public static readonly List<SlimDX.Vector3> UnitLine = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(-0.5f, 0, 0), new SlimDX.Vector3(0.5f, 0, 0) };
     }
 
     [Type(IsImmutable = true)]
@@ -35,6 +39,20 @@ namespace CraftLie
             : base(PrimitiveType.Quad)
         {
             Settings = GeometryDescriptor.UnitQuad;
+        }
+    }
+
+    [Type(IsImmutable = true)]
+    public class RoundQuadDescriptor : GeometryDescriptor
+    {
+        public readonly RoundRect Settings;
+
+        [Node]
+        public RoundQuadDescriptor(float cornerRadius = 0.1f, bool enableCenter = true, int cornerResolution = 6)
+            : base(PrimitiveType.RoundQuad)
+        {
+            var size = new SlimDX.Vector2(cornerRadius > 0 ? 0.5f - cornerRadius : 0.5f);
+            Settings = new RoundRect() { InnerRadius = size, OuterRadius = cornerRadius * 0.5f, EnableCenter = enableCenter, CornerResolution = cornerResolution };
         }
     }
 
@@ -89,4 +107,18 @@ namespace CraftLie
             Settings = new SegmentZ() { Phase = phase, Cycles = cycles, InnerRadius = innerRadius, Resolution = resolution, Z = 1 };
         }
     }
+
+    [Type(IsImmutable = true)]
+    public class LineDescriptor : GeometryDescriptor
+    {
+        public readonly List<SlimDX.Vector3> Settings;
+
+        [Node]
+        public LineDescriptor()
+            : base(PrimitiveType.Line)
+        {
+            Settings = GeometryDescriptor.UnitLine;
+        }
+    }
+
 }
