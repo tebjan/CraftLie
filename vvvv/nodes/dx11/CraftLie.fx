@@ -15,15 +15,14 @@ SamplerState g_samLinear : IMMUTABLE
 StructuredBuffer<float4x4> sbWorld;
 StructuredBuffer<float4> sbColor;
 
+uint TransformationCount = 1;
+uint ColorCount = 1;
+
 cbuffer cbPerDraw : register(b0)
 {
-	float4x4 tVP : LAYERVIEWPROJECTION;
-	
-	uint TransformStartIndex;
-	uint TransformationCount = 1;
-	
+	float4x4 tVP : VIEWPROJECTION;	
+	uint TransformStartIndex;	
 	uint ColorStartIndex;
-	uint ColorCount = 1;
 };
 
 cbuffer cbPerObject : register(b1)

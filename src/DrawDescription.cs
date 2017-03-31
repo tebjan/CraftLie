@@ -14,6 +14,7 @@ namespace CraftLie
     public class DrawDescriptionBase : IDisposable
     {
         public GeometryDescriptor GeometryDescriptor;
+        public Matrix Transformation;
         public string TexturePath;
 
         public IDX11Geometry GetGeometry(DX11RenderContext context)
@@ -64,7 +65,6 @@ namespace CraftLie
     [Type]
     public class DrawDescription : DrawDescriptionBase
     {
-        public Matrix Transformation;
         public IReadOnlyList<Matrix> InstanceTransformations;
         public IReadOnlyList<Color4> InstanceColors;
         public int InstanceCount;
@@ -127,7 +127,7 @@ namespace CraftLie
         }      
     }
 
-    [Type(IsImmutable = true)]
+    [Type]
     public class DrawSpritesDescription : DrawDescriptionBase
     {
         public IReadOnlyList<Vector3> Positions;
@@ -136,6 +136,7 @@ namespace CraftLie
 
         [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly DrawSpritesDescription Default = new DrawSpritesDescription(
+            Matrix.Identity,
             new List<Vector3>() { Vector3.Zero },
             new List<Vector2>() { Vector2.One },
             new List<Color4>() { Color4.White });
@@ -143,28 +144,28 @@ namespace CraftLie
         public int SpriteCount;
 
         [Node]
-        public DrawSpritesDescription(SpritesDescriptor geometryDescriptor)
+        public DrawSpritesDescription()
         {
-            GeometryDescriptor = geometryDescriptor ?? new SpritesDescriptor();
+            GeometryDescriptor = new SpritesDescriptor();
         }
 
-        [Node]
-        public DrawSpritesDescription(IReadOnlyList<Vector3> positions, IReadOnlyList<Vector2> sizes, IReadOnlyList<Color4> colors, string texturePath = "")
+        public DrawSpritesDescription(Matrix transformation, IReadOnlyList<Vector3> positions, IReadOnlyList<Vector2> sizes, IReadOnlyList<Color4> colors, string texturePath = "")
         {
-            Positions = positions;
-            Sizes = sizes;
-            Colors = colors;
-            TexturePath = texturePath;
+            GeometryDescriptor = new SpritesDescriptor();
+
+            Update(transformation, positions, sizes, colors, texturePath);
         }
 
         [Node]
         public void Update(
+            Matrix transformation,
             IReadOnlyList<Vector3> positions, 
             IReadOnlyList<Vector2> sizes, 
             IReadOnlyList<Color4> colors, 
             string texturePath = "")
         {
 
+            Transformation = transformation;
             TexturePath = texturePath;
 
             if (positions == null)

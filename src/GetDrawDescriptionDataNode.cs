@@ -14,6 +14,7 @@ using FeralTic.DX11;
 using CraftLie;
 using SharpDX;
 using VVVV.Utils.VColor;
+using VL.Lib.Collections;
 
 namespace VVVV.DX11.Nodes
 {
@@ -23,20 +24,20 @@ namespace VVVV.DX11.Nodes
         [Import()]
         protected IPluginHost2 pluginHost;
 
-        [Input("Buffer", Order=5)]
-        protected IDiffSpread<DrawDescriptionLayer> FDrawerIn;
+        [Input("Layer", Order = 5)]
+        protected IDiffSpread<DrawDescriptionLayer> FLayerIn;
 
-        [Input("Keep In Memory", DefaultValue = 0, Order=6)]
+        [Input("Keep In Memory", DefaultValue = 0, Order = 6)]
         protected ISpread<bool> FKeep;
 
         [Input("Preferred Buffer Type", DefaultValue = 0, Order = 6, Visibility = PinVisibility.OnlyInspector)]
         protected ISpread<DX11BufferUploadType> FBufferType;
 
-        [Input("Apply", IsBang = true, DefaultValue = 1,Order=7)]
+        [Input("Apply", IsBang = true, DefaultValue = 1, Order = 7)]
         protected ISpread<bool> FApply;
 
         [Output("Geometry Out")]
-        protected Pin<DX11Resource<IDX11Geometry>> FOutput;
+        protected Pin<DX11Resource<IDX11Geometry>> FGeometryOutput;
 
         [Output("Instance Counts")]
         protected ISpread<int> FInstanceCounts;
@@ -58,6 +59,12 @@ namespace VVVV.DX11.Nodes
 
         [Output("Color Counts")]
         protected ISpread<int> FColorCounts;
+
+        [Output("Sprites Geometry Out")]
+        protected Pin<DX11Resource<IDX11Geometry>> FSpritesGeometryOutput;
+
+        [Output("Sprites Transformations")]
+        protected ISpread<SlimDXMatrix> FSpritesTransformations;
 
         [Output("Sprites Position Buffer")]
         protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FSpritesPositionOutput;
@@ -102,13 +109,14 @@ namespace VVVV.DX11.Nodes
 
         private bool FInvalidate;
         private bool FFirst = true;
-        private int FGeometrySpreadMax;
+        private int FLayerInSpreadMax;
 
         protected virtual bool NeedConvert { get { return false; } }
 
         DrawDescriptionLayer FMainBuffer;
 
-        protected int oldOutCount = 0;
+        int FOldGeometryOutCount = 0;
+        int FOldSpritesGeometryOutCount = 0;
 
         public void Evaluate(int SpreadMax)
         {
@@ -117,25 +125,33 @@ namespace VVVV.DX11.Nodes
             //buffer outputs
             if (this.FApply[0] || this.FFirst)
             {
-                if (this.FDrawerIn.SliceCount > 0)
+                if (this.FLayerIn.SliceCount > 0)
                 {
                     this.FTransformOutput.SliceCount = 1;
                     this.FColorOutput.SliceCount = 1;
 
                     this.FValid.SliceCount = 1;
 
+                    //create geometry buffer resources
                     if (this.FTransformOutput[0] == null) { this.FTransformOutput[0] = new DX11Resource<IDX11ReadableStructureBuffer>(); }
                     if (this.FColorOutput[0] == null) { this.FColorOutput[0] = new DX11Resource<IDX11ReadableStructureBuffer>(); }
 
-                    if(FDrawerIn.SliceCount > 1)
+                    //creates sprites buffer resources
+                    if (this.FSpritesPositionOutput[0] == null) { this.FSpritesPositionOutput[0] = new DX11Resource<IDX11ReadableStructureBuffer>(); }
+                    if (this.FSpritesSizeOutput[0] == null) { this.FSpritesSizeOutput[0] = new DX11Resource<IDX11ReadableStructureBuffer>(); }
+                    if (this.FSpritesColorOutput[0] == null) { this.FSpritesColorOutput[0] = new DX11Resource<IDX11ReadableStructureBuffer>(); }
+
+                    //multiple layer input?
+                    if (FLayerIn.SliceCount > 1)
                     {
-                        FMainBuffer = DrawDescriptionLayer.Unite(FDrawerIn);
+                        FMainBuffer = DrawDescriptionLayer.Unite(FLayerIn);
                     }
                     else
                     {
-                        FMainBuffer = FDrawerIn[0];
+                        FMainBuffer = FLayerIn[0];
                     }
 
+                    //null connected?
                     if (FMainBuffer == null)
                         FMainBuffer = DrawDescriptionLayer.Default;
                 }
@@ -161,79 +177,233 @@ namespace VVVV.DX11.Nodes
                     this.FValid.SliceCount = 0;
                 }
 
-                this.FGeometrySpreadMax = this.FDrawerIn.SliceCount;
-
+                this.FLayerInSpreadMax = this.FLayerIn.SliceCount;
                 this.FInvalidate = true;
                 this.FFirst = false;
+
+                //mark buffers changed
                 this.FTransformOutput.Stream.IsChanged = true;
                 this.FColorOutput.Stream.IsChanged = true;
 
-                //set all the count output pins and get the total counts
-                UpdatePins();
+                this.FSpritesPositionOutput.Stream.IsChanged = true;
+                this.FSpritesSizeOutput.Stream.IsChanged = true;
+                this.FSpritesColorOutput.Stream.IsChanged = true;
+
+                //set all normal output pins and get the total counts
+                UpdateNormalPins();
             }
 
         }
 
         int FTotalTransformCount;
         int FTotalColorCount;
-        int FTotalSpritesCount;
+
+        int FTotalSpritesPositionCount;
+        int FTotalSpritesSizeCount;
+        int FTotalSpritesColorCount;
 
         protected Matrix[] FBufferTrans = new Matrix[4096];
-        protected Color4[] FBufferCol = new Color4[4096];
+        protected Color4[] FBufferColor = new Color4[4096];
 
         protected Vector3[] FBufferSpritesPosition = new Vector3[8192];
         protected Vector2[] FBufferSpritesSize = new Vector2[8192];
-        protected Color4[] FBufferSpritesCol = new Color4[8192];
+        protected Color4[] FBufferSpritesColor = new Color4[8192];
 
-        public void Update(DX11RenderContext context)
+        private void UpdateNormalPins()
         {
-            if (this.FGeometrySpreadMax == 0) { return; }
+            UpdateNormalGeometryPins();
+            UpdateNormalSpritesPins();
+            UpdateNormalTextPins();
+        }
 
-            if (this.FInvalidate || !this.FTransformOutput[0].Contains(context))
+        private void UpdateNormalGeometryPins()
+        {
+            var descriptions = FMainBuffer.DrawDescriptions;
+            var outCount = descriptions.Count;
+
+            FGeometryOutput.SliceCount = outCount;
+            FTransformation.SliceCount = outCount;
+            FTexturePath.SliceCount = outCount;
+
+            FInstanceCounts.SliceCount = outCount;
+            FTransformCounts.SliceCount = outCount;
+            FColorCounts.SliceCount = outCount;
+
+            FTotalTransformCount = 0;
+            FTotalColorCount = 0;
+
+            //geometry output
+            if (outCount != FOldGeometryOutCount || this.FFirst)
             {
-                var bufferTypeChanged = this.currentBufferType != this.FBufferType[0];
+                this.FInvalidate = true;
 
-                //refresh trans buffer?
-                CheckBufferDispose<Matrix>(context, this.FTransformOutput[0], FTotalTransformCount, bufferTypeChanged);
+                //Dispose old
+                this.FGeometryOutput.SafeDisposeAll();
 
-                //refresh col buffer?
-                CheckBufferDispose<Color4>(context, this.FColorOutput[0], FTotalColorCount, bufferTypeChanged);
+                this.FGeometryOutput.SliceCount = outCount;
+                this.FOldGeometryOutCount = outCount;
 
-                PrepareLocalGeometryBufferData(context);
-
-                //make new buffer?
-                if (!this.FTransformOutput[0].Contains(context))
+                for (int i = 0; i < outCount; i++)
                 {
-                    if (FTotalTransformCount > 0 && FTotalColorCount > 0)
-                    {
-                        CreateBuffer<Matrix>(FTransformOutput, context, FTotalTransformCount, FBufferTrans);
-                        CreateBuffer<Color4>(FColorOutput, context, FTotalColorCount, FBufferCol);
-
-                        this.FValid[0] = true;
-                        this.currentBufferType = this.FBufferType[0];
-                    }
-                    else
-                    {
-                        this.FValid[0] = false;
-                        return;
-                    }
-                }
-
-                bool needContextCopy = this.FBufferType[0] != DX11BufferUploadType.Immutable;
-                if (needContextCopy)
-                {
-                    try
-                    {
-                        WriteToBuffer(FTransformOutput, context, FBufferTrans);
-                        WriteToBuffer(FColorOutput, context, FBufferCol);
-                    }
-                    catch (Exception ex)
-                    {
-                        this.pluginHost.Log(TLogType.Error, ex.Message);
-                    }
+                    this.FGeometryOutput[i] = new DX11Resource<IDX11Geometry>();
                 }
             }
 
+            for (int i = 0; i < outCount; i++)
+            {
+                var desc = descriptions[i];
+
+                FInstanceCounts[i] = desc.InstanceCount;
+
+                var transCount = desc.InstanceTransformations.Count;
+                var colCount = desc.InstanceColors.Count;
+                FTransformCounts[i] = transCount;
+                FColorCounts[i] = colCount;
+
+                FTotalTransformCount += transCount;
+                FTotalColorCount += colCount;
+
+                FTransformation[i] = ToSlimDXMatrix(desc.Transformation);
+                FTexturePath[i] = desc.TexturePath;
+            }
+        }
+
+        private void UpdateNormalSpritesPins()
+        {
+            var descriptions = FMainBuffer.SpritesDescriptions;
+            var spritesCount = descriptions.Count;
+
+            FSpritesGeometryOutput.SliceCount = spritesCount;
+            FSpritesTransformations.SliceCount = spritesCount;
+            FSpritesTexturePath.SliceCount = spritesCount;
+
+            FSpritesPositionCounts.SliceCount = spritesCount;
+            FSpritesSizeCounts.SliceCount = spritesCount;
+            FSpritesColorCounts.SliceCount = spritesCount;
+
+            FTotalSpritesPositionCount = 0;
+            FTotalSpritesSizeCount = 0;
+            FTotalSpritesColorCount = 0;
+
+            //sprites geometry output
+            if (spritesCount != FOldSpritesGeometryOutCount || this.FFirst)
+            {
+                this.FInvalidate = true;
+
+                //Dispose old
+                this.FSpritesGeometryOutput.SafeDisposeAll();
+
+                this.FSpritesGeometryOutput.SliceCount = spritesCount;
+                this.FOldSpritesGeometryOutCount = spritesCount;
+
+                for (int i = 0; i < spritesCount; i++)
+                {
+                    this.FSpritesGeometryOutput[i] = new DX11Resource<IDX11Geometry>();
+                }
+            }
+
+            for (int i = 0; i < spritesCount; i++)
+            {
+                var desc = descriptions[i];
+
+                var transCount = desc.Positions.Count;
+                var sizeCount = desc.Sizes.Count;
+                var colCount = desc.Colors.Count;
+
+                FSpritesPositionCounts[i] = transCount;
+                FSpritesSizeCounts[i] = sizeCount;
+                FSpritesColorCounts[i] = colCount;
+
+                FTotalSpritesPositionCount += transCount;
+                FTotalSpritesSizeCount += sizeCount;
+                FTotalSpritesColorCount += colCount;
+
+                FSpritesTransformations[i] = ToSlimDXMatrix(desc.Transformation);
+                FSpritesTexturePath[i] = desc.TexturePath;
+            }
+        }
+
+        private void UpdateNormalTextPins()
+        {
+            var textDescriptions = FMainBuffer.TextDescriptions;
+            var textCount = textDescriptions.Count;
+
+            FTexts.SliceCount = textCount;
+            FTextTransformations.SliceCount = textCount;
+            FTextColors.SliceCount = textCount;
+            FTextSizes.SliceCount = textCount;
+            FFontNames.SliceCount = textCount;
+
+            for (int i = 0; i < textCount; i++)
+            {
+                var desc = textDescriptions[i];
+
+
+                FTexts[i] = desc.Text;
+                FTextSizes[i] = desc.Size;
+                FFontNames[i] = desc.FontName;
+                FTextTransformations[i] = ToSlimDXMatrix(desc.Transformation);
+                FTextColors[i] = ToRGBAColor(desc.Color);
+            }
+        }
+
+        public void Update(DX11RenderContext context)
+        {
+            if (this.FLayerInSpreadMax == 0) { return; }
+
+            var newContext = !this.FTransformOutput[0].Contains(context);
+
+            if (this.FInvalidate || newContext)
+            {
+                var bufferTypeChanged = this.currentBufferType != this.FBufferType[0];
+
+                //refresh buffers?
+                CheckBufferDispose<Matrix>(context, this.FTransformOutput[0], FTotalTransformCount, bufferTypeChanged);
+                CheckBufferDispose<Color4>(context, this.FColorOutput[0], FTotalColorCount, bufferTypeChanged);
+
+                CheckBufferDispose<Vector3>(context, this.FSpritesPositionOutput[0], FTotalSpritesPositionCount, bufferTypeChanged);
+                CheckBufferDispose<Vector2>(context, this.FSpritesSizeOutput[0], FTotalSpritesSizeCount, bufferTypeChanged);
+                CheckBufferDispose<Color4>(context, this.FSpritesColorOutput[0], FTotalSpritesColorCount, bufferTypeChanged);
+
+                PrepareLocalGeometryBufferData(context);
+                PrepareLocalSpriteBufferData(context);
+
+                //make new buffers?
+                CreateBuffer<Matrix>(FTransformOutput[0], context, FTotalTransformCount, FBufferTrans);
+                CreateBuffer<Color4>(FColorOutput[0], context, FTotalColorCount, FBufferColor);
+
+                CreateBuffer<Vector3>(FSpritesPositionOutput[0], context, FTotalSpritesPositionCount, FBufferSpritesPosition);
+                CreateBuffer<Vector2>(FSpritesSizeOutput[0], context, FTotalSpritesSizeCount, FBufferSpritesSize);
+                CreateBuffer<Color4>(FSpritesColorOutput[0], context, FTotalSpritesColorCount, FBufferSpritesColor);
+
+
+                //if (FTotalTransformCount < 0 || FTotalColorCount < 0)
+                //{
+                //    this.FValid[0] = false;
+                //}
+            }
+
+            this.FValid[0] = true;
+            this.currentBufferType = this.FBufferType[0];
+
+            //write to buffers
+            bool needContextCopy = this.FBufferType[0] != DX11BufferUploadType.Immutable;
+            if (needContextCopy)
+            {
+                try
+                {
+                    WriteToBuffer(FTransformOutput[0], context, FBufferTrans, FTotalTransformCount);
+                    WriteToBuffer(FColorOutput[0], context, FBufferColor, FTotalColorCount);
+
+                    WriteToBuffer(FSpritesPositionOutput[0], context, FBufferSpritesPosition, FTotalSpritesPositionCount);
+                    WriteToBuffer(FSpritesSizeOutput[0], context, FBufferSpritesSize, FTotalSpritesSizeCount);
+                    WriteToBuffer(FSpritesColorOutput[0], context, FBufferSpritesColor, FTotalSpritesColorCount);
+                }
+                catch (Exception ex)
+                {
+                    this.pluginHost.Log(TLogType.Error, ex.Message);
+                }
+            }
         }
 
         private static void CheckBufferDispose<T>(DX11RenderContext context, DX11Resource<IDX11ReadableStructureBuffer> bufferResource, int bufferCount, bool bufferTypeChanged)
@@ -241,7 +411,7 @@ namespace VVVV.DX11.Nodes
         {
             if (bufferResource.Contains(context))
             {
-                if (bufferResource[context].ElementCount != bufferCount
+                if (bufferResource[context].ElementCount < bufferCount
                     || bufferTypeChanged
                     || bufferResource[context] is DX11ImmutableStructuredBuffer<T>)
                 {
@@ -250,31 +420,55 @@ namespace VVVV.DX11.Nodes
             }
         }
 
-        private void WriteToBuffer<T>(ISpread<DX11Resource<IDX11ReadableStructureBuffer>> spread, DX11RenderContext context, T[] bufferToCopy) where T : struct
+        /// <summary>
+        /// Creates a buffer.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="bufferResource">The buffer resource</param>
+        /// <param name="context">The DX11 context.</param>
+        /// <param name="count">The required count. Gets blown up to the next power of 2.</param>
+        /// <param name="bufferToCopy">The buffer to copy in case of immutable buffer type</param>
+        private void CreateBuffer<T>(DX11Resource<IDX11ReadableStructureBuffer> bufferResource, DX11RenderContext context, int count, T[] bufferToCopy)
+            where T : struct
+        {
+            if (!bufferResource.Contains(context))
+            {
+                count = NextUpperPow2(count);
+                if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
+                {
+                    bufferResource[context] = new DX11DynamicStructuredBuffer<T>(context, count);
+                }
+                else if (this.FBufferType[0] == DX11BufferUploadType.Default)
+                {
+                    bufferResource[context] = new DX11CopyDestStructuredBuffer<T>(context, count);
+                }
+                else
+                {
+                    bufferResource[context] = new DX11ImmutableStructuredBuffer<T>(context.Device, bufferToCopy, count);
+                }
+            }
+        }
+
+        private void WriteToBuffer<T>(DX11Resource<IDX11ReadableStructureBuffer> bufferResource, DX11RenderContext context, T[] bufferToCopy, int elementCount)
+            where T : struct
         {
             if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
             {
-                DX11DynamicStructuredBuffer<T> b = (DX11DynamicStructuredBuffer<T>)spread[0][context];
-                b.WriteData(bufferToCopy, 0, b.ElementCount);
+                DX11DynamicStructuredBuffer<T> b = (DX11DynamicStructuredBuffer<T>)bufferResource[context];
+                b.WriteData(bufferToCopy, 0, elementCount);
             }
             else if (this.FBufferType[0] == DX11BufferUploadType.Default)
             {
-                DX11CopyDestStructuredBuffer<T> b = (DX11CopyDestStructuredBuffer<T>)spread[0][context];
-                b.WriteData(bufferToCopy, 0, b.ElementCount);
+                DX11CopyDestStructuredBuffer<T> b = (DX11CopyDestStructuredBuffer<T>)bufferResource[context];
+                b.WriteData(bufferToCopy, 0, elementCount);
             }
         }
 
         private void PrepareLocalGeometryBufferData(DX11RenderContext context)
         {
-            if (this.FBufferTrans.Length < FTotalTransformCount)
-            {
-                Array.Resize(ref this.FBufferTrans, FTotalTransformCount);
-            }
-
-            if (this.FBufferCol.Length < FTotalColorCount)
-            {
-                Array.Resize(ref this.FBufferCol, FTotalColorCount);
-            }
+            //make sure arrays are big enough
+            EnsureArraySize(ref this.FBufferTrans, FTotalTransformCount);
+            EnsureArraySize(ref this.FBufferColor, FTotalColorCount);
 
             var descriptions = FMainBuffer.DrawDescriptions;
 
@@ -288,7 +482,7 @@ namespace VVVV.DX11.Nodes
                 //check drawer
                 geometry = AssignInstancedDrawer(desc, geometry);
 
-                this.FOutput[geoIndex++][context] = geometry;
+                this.FGeometryOutput[geoIndex++][context] = geometry;
 
                 foreach (var trans in desc.InstanceTransformations)
                 {
@@ -296,9 +490,62 @@ namespace VVVV.DX11.Nodes
                     FBufferTrans[transIndex++] = trans;
                 }
 
-                foreach (var col in desc.InstanceColors)
+                CopyToLocalBuffer(desc.InstanceColors, FBufferColor, ref colIndex);
+            }
+        }
+
+        private void PrepareLocalSpriteBufferData(DX11RenderContext context)
+        {
+            //make sure arrays are big enough
+            EnsureArraySize(ref this.FBufferSpritesPosition, FTotalSpritesPositionCount);
+            EnsureArraySize(ref this.FBufferSpritesSize, FTotalSpritesSizeCount);
+            EnsureArraySize(ref this.FBufferSpritesColor, FTotalSpritesColorCount);
+
+            var descriptions = FMainBuffer.SpritesDescriptions;
+
+            var geoIndex = 0;
+            var posIndex = 0;
+            var sizeIndex = 0;
+            var colIndex = 0;
+            foreach (var desc in descriptions)
+            {
+                //null geometry
+                var geometry = desc.GetGeometry(context);
+
+                //drawer gets assigned in get geometry
+
+                this.FSpritesGeometryOutput[geoIndex++][context] = geometry;
+
+                CopyToLocalBuffer(desc.Positions, FBufferSpritesPosition, ref posIndex);
+                CopyToLocalBuffer(desc.Sizes, FBufferSpritesSize, ref sizeIndex);
+                CopyToLocalBuffer(desc.Colors, FBufferSpritesColor, ref colIndex);
+            }
+        }
+
+        /// <summary>
+        /// Copies to local buffer and increments the index. Tries to use Array.Copy();
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="destination">The destination array.</param>
+        /// <param name="destinationStartIndex">Start index in the destination array.</param>
+        private static void CopyToLocalBuffer<T>(IReadOnlyList<T> source, T[] destination, ref int destinationStartIndex)
+            where T : struct
+        {
+            var collection = source as ICollection<T>;
+            if (collection != null)
+            {
+                //direct copy
+                collection.CopyTo(destination, destinationStartIndex);
+                destinationStartIndex += collection.Count;
+                return;
+            }
+            else 
+            {
+                foreach (var pos in source)
                 {
-                    FBufferCol[colIndex++] = col;
+                    //iteration
+                    destination[destinationStartIndex++] = pos;
                 }
             }
         }
@@ -336,97 +583,7 @@ namespace VVVV.DX11.Nodes
             }
 
             return geometry;
-        }
-
-        private void CreateBuffer<T>(ISpread<DX11Resource<IDX11ReadableStructureBuffer>> spread, DX11RenderContext context, int count, T[] bufferToCopy) where T : struct
-        {
-            if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
-            {
-                spread[0][context] = new DX11DynamicStructuredBuffer<T>(context, count);
-            }
-            else if (this.FBufferType[0] == DX11BufferUploadType.Default)
-            {
-                spread[0][context] = new DX11CopyDestStructuredBuffer<T>(context, count);
-            }
-            else
-            {
-                spread[0][context] = new DX11ImmutableStructuredBuffer<T>(context.Device, bufferToCopy, count);
-            }
-        }
-
-        private void UpdatePins()
-        {
-            var descriptions = FMainBuffer.DrawDescriptions;
-            var outCount = descriptions.Count;
-
-            FOutput.SliceCount = outCount;
-
-            FInstanceCounts.SliceCount = outCount;
-            FTransformCounts.SliceCount = outCount;
-            FColorCounts.SliceCount = outCount;
-
-            FTransformation.SliceCount = outCount;
-            FTexturePath.SliceCount = outCount;
-
-            FTotalTransformCount = 0;
-            FTotalColorCount = 0;
-
-            //geometry output
-            if (outCount != oldOutCount || this.FFirst)
-            {
-                this.FInvalidate = true;
-
-                //Dispose old
-                this.FOutput.SafeDisposeAll();
-
-                this.FOutput.SliceCount = outCount;
-                this.oldOutCount = outCount;
-
-                for (int i = 0; i < outCount; i++)
-                {
-                    this.FOutput[i] = new DX11Resource<IDX11Geometry>();
-                }
-            }
-
-            for (int i = 0; i < outCount; i++)
-            {
-                var desc = descriptions[i];
-
-                FInstanceCounts[i] = desc.InstanceCount;
-
-                var transCount = desc.InstanceTransformations.Count;
-                var colCount = desc.InstanceColors.Count;
-                FTransformCounts[i] = transCount;
-                FColorCounts[i] = colCount;
-
-                FTransformation[i] = ToSlimDXMatrix(desc.Transformation);
-                FTexturePath[i] = desc.TexturePath;
-
-                FTotalTransformCount += transCount;
-                FTotalColorCount += colCount;
-            }
-
-            var textDescriptions = FMainBuffer.TextDescriptions;
-            var textCount = textDescriptions.Count;
-
-            FTexts.SliceCount = textCount;
-            FTextTransformations.SliceCount = textCount;
-            FTextColors.SliceCount = textCount;
-            FTextSizes.SliceCount = textCount;
-            FFontNames.SliceCount = textCount;
-
-            for (int i = 0; i < textCount; i++)
-            {
-                var desc = textDescriptions[i];
-
-
-                FTexts[i] = desc.Text;
-                FTextSizes[i] = desc.Size;
-                FFontNames[i] = desc.FontName;
-                FTextTransformations[i] = ToSlimDXMatrix(desc.Transformation);
-                FTextColors[i] = ToRGBAColor(desc.Color);
-            }
-        }
+        }     
 
         RGBAColor ToRGBAColor(Color4 color)
         {
@@ -444,13 +601,40 @@ namespace VVVV.DX11.Nodes
             };
         }
 
+        void EnsureArraySize<T>(ref T[] array, int minimumSize)
+        {
+            var newSize = array.Length;
+            if (newSize < minimumSize)
+            {
+                do
+                {
+                    newSize = newSize << 1;
+                }
+                while (newSize < minimumSize);
+
+                array = new T[newSize];
+            }
+        }
+
+        int NextUpperPow2(int count)
+        {
+            var pow2 = 2;
+            while (pow2 < count)
+            {
+                pow2 = pow2 << 1;
+            }
+            return pow2;
+        }
+
         public void Destroy(DX11RenderContext context, bool force)
         {
             if (force || !this.FKeep[0])
             {
-                this.FOutput.SafeDisposeAll(context);
+                this.FGeometryOutput.SafeDisposeAll(context);
                 this.FTransformOutput.SafeDisposeAll(context);
                 this.FColorOutput.SafeDisposeAll(context);
+
+                this.FSpritesGeometryOutput.SafeDisposeAll(context);
                 this.FSpritesPositionOutput.SafeDisposeAll(context);
                 this.FSpritesSizeOutput.SafeDisposeAll(context);
                 this.FSpritesColorOutput.SafeDisposeAll(context);
@@ -460,9 +644,11 @@ namespace VVVV.DX11.Nodes
         #region IDisposable Members
         public void Dispose()
         {
-            this.FOutput.SafeDisposeAll();
+            this.FGeometryOutput.SafeDisposeAll();
             this.FTransformOutput.SafeDisposeAll();
             this.FColorOutput.SafeDisposeAll();
+
+            this.FSpritesGeometryOutput.SafeDisposeAll();
             this.FSpritesPositionOutput.SafeDisposeAll();
             this.FSpritesSizeOutput.SafeDisposeAll();
             this.FSpritesColorOutput.SafeDisposeAll();
@@ -471,9 +657,11 @@ namespace VVVV.DX11.Nodes
 
         public void OnImportsSatisfied()
         {
-            this.FOutput.SliceCount = 1;
+            this.FGeometryOutput.SliceCount = 1;
             this.FTransformOutput.SliceCount = 1;
             this.FColorOutput.SliceCount = 1;
+
+            this.FSpritesGeometryOutput.SliceCount = 1;
             this.FSpritesPositionOutput.SliceCount = 1;
             this.FSpritesSizeOutput.SliceCount = 1;
             this.FSpritesColorOutput.SliceCount = 1;

@@ -20,10 +20,10 @@ namespace CraftLie
 
         public readonly IReadOnlyList<DrawDescription> DrawDescriptions;
         public readonly IReadOnlyList<TextDescriptor> TextDescriptions;
-        public readonly IReadOnlyList<SpritesDescriptor> SpritesDescriptions;
+        public readonly IReadOnlyList<DrawSpritesDescription> SpritesDescriptions;
 
         [Node]
-        public DrawDescriptionLayer(IReadOnlyList<DrawDescription> geometries, IReadOnlyList<TextDescriptor> texts, IReadOnlyList<SpritesDescriptor> sprites)
+        public DrawDescriptionLayer(IReadOnlyList<DrawDescription> geometries, IReadOnlyList<TextDescriptor> texts, IReadOnlyList<DrawSpritesDescription> sprites)
         {
             DrawDescriptions = geometries;
             TextDescriptions = texts;
@@ -56,9 +56,9 @@ namespace CraftLie
             yield return TextDescriptor.Default;
         }
 
-        static IEnumerable<SpritesDescriptor> GetDefaultSpritesDescriptor()
+        static IEnumerable<DrawSpritesDescription> GetDefaultSpritesDescriptor()
         {
-            yield return SpritesDescriptor.Default;
+            yield return DrawSpritesDescription.Default;
         }
     }
 }

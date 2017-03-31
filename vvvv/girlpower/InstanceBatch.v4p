@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
    <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\InstanceBatch.v4p" filename="C:\vvvv\PROJECTS\2017\03_FactLire\demo patch\InstanceBatch.v4p" systemname="InstanceBatch" scrollx="0" scrolly="2865" locked="0">
-   <BOUNDS height="10770" left="1515" top="6105" type="Window" width="7845">
+   <BOUNDS height="10770" left="1245" top="2325" type="Window" width="7845">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
