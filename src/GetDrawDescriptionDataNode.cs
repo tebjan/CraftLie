@@ -512,7 +512,13 @@ namespace VVVV.DX11.Nodes
                 //null geometry
                 var geometry = desc.GetGeometry(context);
 
-                //drawer gets assigned in get geometry
+                //assign drawer
+                var nullGeometry = (DX11NullGeometry)geometry.ShallowCopy();
+                var drawer = new DX11NullInstancedDrawer();
+                drawer.VertexCount = desc.SpriteCount;
+                drawer.InstanceCount = 1;
+                nullGeometry.AssignDrawer(drawer);
+                geometry = nullGeometry;
 
                 this.FSpritesGeometryOutput[geoIndex++][context] = geometry;
 

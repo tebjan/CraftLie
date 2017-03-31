@@ -89,6 +89,8 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="0">
+   </PIN>
    </NODE>
    <LINK srcnodeid="300" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 6">
    </LINK>
@@ -147,7 +149,7 @@
    <LINK srcnodeid="292" srcpinname="Object Count" dstnodeid="297" dstpinname="Input">
    </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="12840" top="1455" width="15540" height="14445">
+   <BOUNDS type="Window" left="11625" top="1305" width="15540" height="14445">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -190,7 +192,11 @@
    <PIN pinname="Projection" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="VisualSpray2 (3d)" filename="vl\VVVV.VisualSpray.vl" nodename="VisualSpray (3d)" componentmode="Hidden" id="306">
+   <LINK srcnodeid="305" srcpinname="View" dstnodeid="195" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="305" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="VisualSpray2 (3d)" filename="vl\VVVV.VisualSpray.vl" nodename="VisualSpray2 (3d)" componentmode="Hidden" id="306">
    <BOUNDS type="Node" left="1380" top="1725" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Mouse Device" visible="1">
@@ -199,10 +205,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="290" srcpinname="Device" dstnodeid="306" dstpinname="Mouse Device">
-   </LINK>
-   <LINK srcnodeid="305" srcpinname="View" dstnodeid="195" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="305" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
    </LINK>
    <LINK srcnodeid="306" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>

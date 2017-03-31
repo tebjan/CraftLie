@@ -109,9 +109,11 @@ void gsPOINT(point VS_OUT In[1], inout PointStream<VS_OUT>GSOut)
 }
 
 float4 PS(VS_OUT In):SV_Target{
-	float4 c=tex0.SampleLevel(g_samLinear,In.TexCd.xy,0);
-	c=c*In.Color;
-	return c;
+	float4 col = tex0.SampleLevel(g_samLinear,In.TexCd.xy,0);
+	col *= In.Color;
+	col.a *= saturate(dot(col.rgb, col.rgb));
+	if(col.a <= 0.015) discard;
+	return col;
 }
 
 technique10 Sprite{
