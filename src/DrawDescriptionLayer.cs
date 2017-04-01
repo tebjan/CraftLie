@@ -15,35 +15,35 @@ namespace CraftLie
         [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly DrawDescriptionLayer Default = new DrawDescriptionLayer(
             GetDefaultDrawDescription().ToList(),
-            GetDefaultTextDescriptor().ToList(),
-            GetDefaultSpritesDescriptor().ToList());
+            GetDefaultSpritesDescriptor().ToList(),
+            GetDefaultTextDescriptor().ToList());
 
         public readonly IReadOnlyList<DrawDescription> DrawDescriptions;
         public readonly IReadOnlyList<TextDescriptor> TextDescriptions;
         public readonly IReadOnlyList<DrawSpritesDescription> SpritesDescriptions;
 
         [Node]
-        public DrawDescriptionLayer(IReadOnlyList<DrawDescription> geometries, IReadOnlyList<TextDescriptor> texts, IReadOnlyList<DrawSpritesDescription> sprites)
+        public DrawDescriptionLayer(IReadOnlyList<DrawDescription> geometries, IReadOnlyList<DrawSpritesDescription> sprites, IReadOnlyList<TextDescriptor> texts)
         {
             DrawDescriptions = geometries;
-            TextDescriptions = texts;
             SpritesDescriptions = sprites;
+            TextDescriptions = texts;
         }
 
         public static DrawDescriptionLayer Concat(DrawDescriptionLayer input, DrawDescriptionLayer input2)
         {
             return new DrawDescriptionLayer(
                 input.DrawDescriptions.Concat(input2.DrawDescriptions).ToList(),
-                input.TextDescriptions.Concat(input2.TextDescriptions).ToList(),
-                input.SpritesDescriptions.Concat(input2.SpritesDescriptions).ToList());
+                input.SpritesDescriptions.Concat(input2.SpritesDescriptions).ToList(),
+                input.TextDescriptions.Concat(input2.TextDescriptions).ToList());
         }
 
         public static DrawDescriptionLayer Unite(IEnumerable<DrawDescriptionLayer> input)
         {
             return new DrawDescriptionLayer(
                 input.SelectMany(d => d.DrawDescriptions).ToList(),
-                input.SelectMany(d => d.TextDescriptions).ToList(),
-                input.SelectMany(d => d.SpritesDescriptions).ToList());
+                input.SelectMany(d => d.SpritesDescriptions).ToList(),
+                input.SelectMany(d => d.TextDescriptions).ToList());
         }
 
         static IEnumerable<DrawDescription> GetDefaultDrawDescription()

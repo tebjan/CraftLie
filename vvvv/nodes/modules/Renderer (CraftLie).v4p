@@ -1,25 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="705" scrolly="-360">
-   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="6">
-   <BOUNDS type="Node" left="780" top="5175" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Mode" slicecount="1" visible="1" values="BackCullSimple">
-   </PIN>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="19" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="1485" top="4500" width="1590" height="270">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1485" top="4500" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="NoCullSimple">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Mode">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="19" srcpinname="Output Enum" dstnodeid="6" dstpinname="Mode">
-   </LINK>
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="30" scrolly="360">
    <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
@@ -30,7 +10,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="2535" top="2490" width="13575" height="13830">
+   <BOUNDS type="Window" left="2535" top="2490" width="8925" height="13830">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -110,16 +90,6 @@
    </NODE>
    <LINK srcnodeid="46" srcpinname="Layer Out" dstnodeid="24" dstpinname="Input Node">
    </LINK>
-   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="57">
-   <BOUNDS type="Node" left="780" top="4485" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Mode" slicecount="1" values="Blend">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="57" srcpinname="Render State" dstnodeid="6" dstpinname="Render State">
-   </LINK>
    <NODE componentmode="Hidden" filename="%VVVV%\lib\packs\CraftLie.1.0.0\vvvv\nodes\dx11\CraftLie.fx" id="23" nodename="CraftLie (DX11.Effect)" systemname="CraftLie (DX11.Effect)">
    <BOUNDS height="270" left="1215" top="7050" type="Node" width="7860">
    </BOUNDS>
@@ -143,9 +113,9 @@
    </PIN>
    <PIN pinname="TransformStartIndex" visible="1">
    </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="6" srcpinname="Render State" dstnodeid="23" dstpinname="Render State">
-   </LINK>
    <NODE id="36" systemname="GetDrawDescriptionData (DX11.Buffer CraftLie)" filename="%VVVV%\lib\packs\CraftLie.1.0.0\vvvv\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptionData (DX11.Buffer CraftLie)" componentmode="Hidden">
    <BOUNDS type="Node" left="2550" top="2190" width="10245" height="270">
    </BOUNDS>
@@ -479,5 +449,53 @@
    <LINK srcnodeid="36" srcpinname="Sprites Size Counts" dstnodeid="67" dstpinname="SizeCount">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="67" dstpinname="ColorCount">
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState Advanced)" componentmode="Hidden" id="76">
+   <BOUNDS type="Node" left="645" top="5610" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enable MultiSampling" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Enable Line AntiAlias" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Cull Mode" visible="1" slicecount="1" values="Front">
+   </PIN>
+   <PIN pinname="Enable Depth Clip" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Enable Scissor" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Is Front Cull CCW" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Fill Mode" visible="1" slicecount="1" values="Solid">
+   </PIN>
+   <PIN pinname="Depth Bias" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="81">
+   <BOUNDS type="Box" left="240" top="4440" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="240" top="4440" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Solid">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Fill Mode|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="Output Enum" dstnodeid="76" dstpinname="Fill Mode">
+   </LINK>
+   <LINK srcnodeid="76" srcpinname="Render State" dstnodeid="23" dstpinname="Render State">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="82">
+   <BOUNDS type="Box" left="945" top="5025" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="945" top="5025" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Back">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Cull Mode|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="82" srcpinname="Output Enum" dstnodeid="76" dstpinname="Cull Mode">
    </LINK>
    </PATCH>

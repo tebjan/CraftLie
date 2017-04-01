@@ -16,8 +16,13 @@
         <file src="vvvv\girlpower\vl\VVVV.VisualSpray.vl" target="vvvv\girlpower\VVVV.VisualSpray.vl" />
         <file src="vvvv\girlpower\vl\VVVV.VisualSprayNoInstanceing.vl" target="vvvv\girlpower\VVVV.VisualSprayNoInstanceing.vl" />
         <file src="vvvv\nodes\dx11\CraftLie.fx" target="vvvv\nodes\dx11\CraftLie.fx" />
+        <file src="vvvv\nodes\dx11\CraftLieSprites.fx" target="vvvv\nodes\dx11\CraftLieSprites.fx" />
         <file src="vvvv\nodes\modules\Renderer (CraftLie).v4p" target="vvvv\nodes\modules\Renderer (CraftLie).v4p" />
+        <file src="vvvv\nodes\modules\StartIndex.v4p" target="vvvv\nodes\modules\StartIndex.v4p" />
+        <file src="vvvv\nodes\modules\TextureExists.v4p" target="vvvv\nodes\modules\TextureExists.v4p" />
         <file src="vvvv\nodes\plugins\CraftLie.dll" target="vvvv\nodes\plugins\CraftLie.dll" />
+        <file src="vvvv\nodes\plugins\CraftLie.pdb" target="vvvv\nodes\plugins\CraftLie.pdb" />
+        <file src="vvvv\nodes\plugins\CraftLie.XML" target="vvvv\nodes\plugins\CraftLie.XML" />
         <file src="CraftLie.vl" target="CraftLie.vl" />
     </files>
 </package>

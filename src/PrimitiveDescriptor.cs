@@ -11,6 +11,7 @@ namespace CraftLie
         Box,
         Disc,
         Sphere,
+        Cylinder,
         Tube,
         Line,
         Sprites
@@ -76,7 +77,7 @@ namespace CraftLie
         public readonly Segment Settings;
 
         [Node]
-        public DiscDescriptor(float phase, float cycles = 1, float innerRadius = 0, int resolution = 12)
+        public DiscDescriptor(float phase, float cycles = 1, float innerRadius = 0, int resolution = 15)
             : base(PrimitiveType.Disc)
         {
             Settings = new Segment() { Cycles = cycles, Phase = phase, InnerRadius = innerRadius, Resolution = resolution, Flat = false };
@@ -89,10 +90,23 @@ namespace CraftLie
         public readonly Sphere Settings;
 
         [Node]
-        public SphereDescriptor(float cyclesX = 1, float cyclesY = 1, int resolutionX = 12, int resolutionY = 12)
+        public SphereDescriptor(float cyclesX = 1, float cyclesY = 1, int resolutionX = 15, int resolutionY = 15)
             : base(PrimitiveType.Sphere)
         {
             Settings = new Sphere() { CyclesX = cyclesX, CyclesY = cyclesY, Radius = 1, ResX = resolutionX, ResY = resolutionY };
+        }
+    }
+
+    [Type(IsImmutable = true)]
+    public class CylinderDescriptor : GeometryDescriptor
+    {
+        public readonly Cylinder Settings;
+
+        [Node]
+        public CylinderDescriptor(float cycles = 1, float radiusRatio = 0.5f, int resolutionX = 15, int resolutionY = 1, bool centerY = true, bool caps = true)
+            : base(PrimitiveType.Cylinder)
+        {
+            Settings = new Cylinder() { Cycles = cycles, Radius1 = radiusRatio, Radius2 = 1-radiusRatio, ResolutionX = resolutionX, ResolutionY = resolutionY, Length = 1, CenterY = centerY, Caps = caps };
         }
     }
 
@@ -102,7 +116,7 @@ namespace CraftLie
         public readonly SegmentZ Settings;
 
         [Node]
-        public TubeDescriptor(float phase = 0, float cycles = 1, float innerRadius = 0.5f, int resolution = 12)
+        public TubeDescriptor(float phase = 0, float cycles = 1, float innerRadius = 0.5f, int resolution = 15)
             : base(PrimitiveType.Tube)
         {
             Settings = new SegmentZ() { Phase = phase, Cycles = cycles, InnerRadius = innerRadius, Resolution = resolution, Z = 1 };

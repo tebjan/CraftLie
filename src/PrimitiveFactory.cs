@@ -30,6 +30,9 @@ namespace CraftLie
                 case PrimitiveType.Sphere:
                     return context.Primitives.Sphere(((SphereDescriptor)descriptor).Settings);
                     break;
+                case PrimitiveType.Cylinder:
+                    return context.Primitives.Cylinder(((CylinderDescriptor)descriptor).Settings);
+                    break;
                 case PrimitiveType.Tube:
                     return context.Primitives.SegmentZ(((TubeDescriptor)descriptor).Settings);
                     break;
