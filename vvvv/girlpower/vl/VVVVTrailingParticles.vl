@@ -345,7 +345,7 @@
             <Pad Id="QSAhY1HgaKdPIRhC3ajK18" SlotId="Fk8axLJoHITNbePbi5W6JO" Bounds="1024,-400" />
             <Pad Id="CsyIkZzl7SQOhjGS6DScjM" SlotId="Fk8axLJoHITNbePbi5W6JO" Bounds="1011,-249" />
             <Node Bounds="187,370,45,13" Id="PcjZzLNdDerOW4VWt0cPQb">
-              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="OperationNode" Name="+" />
                 <CategoryReference Kind="Category" Name="Adaptive" />
               </p:NodeReference>
@@ -364,7 +364,7 @@
               <Pin Id="OMBpXMdwh0cLyMcI39cPEZ" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="73,756,153,13" Id="OjxUzCuk1FBMJyuWWbl7NX">
-              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="ApplicationFlag, NodeFlag" Name="Vector (Join)" />
                 <CategoryReference Kind="Category" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="Vector2" NeedsToBeDirectParent="true">
@@ -376,7 +376,7 @@
               <Pin Id="Va7RWy3Tv9sOXOlp5lXkE6" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="264,261,119,13" Id="S2CsYInlarwLprsOkErqpM">
-              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="OperationNode" Name="+" />
                 <CategoryReference Kind="Category" Name="Adaptive" NeedsToBeDirectParent="true" />
               </p:NodeReference>
@@ -477,20 +477,20 @@
               <Pin Id="NGdOAHQYQ4bQOJKIDS7zjs" Name="Got Reflected" Kind="OutputPin" />
             </Node>
             <Pad Id="Gi6KrczKewJOM3kJd9IoP0" Comment="Min" Bounds="342,429" ShowValueBox="true" isIOBox="true" Value="new vec(-1.0,-1.0)">
-              <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
               </p:TypeAnnotation>
             </Pad>
             <Pad Id="MXDiKKiNtnsL3qdnHuDaMH" Comment="Max" Bounds="422,429" ShowValueBox="true" isIOBox="true" Value="new vec(1.0,1.0)">
-              <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
               </p:TypeAnnotation>
             </Pad>
             <Pad Id="RLv7Bdt4IYvQdEwQgVpTQx" Bounds="305,364" ShowValueBox="true" isIOBox="true" />
             <Node Bounds="264,229,25,13" Id="BvYNlNgefKvLgDwYlRetTr">
-              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics">
+              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="+" />
                 <CategoryReference Kind="Category" Name="Adaptive" NeedsToBeDirectParent="true" />
@@ -608,15 +608,6 @@
               <Pin Id="UxcrkxgPg1LQWS3B8gz55T" Name="Radius" Kind="InputPin" />
               <Pin Id="Sx8Ku0WzaQ4QX8FGKZ87jG" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="IxCFbI77NUkNUV8GKD8GXl" Comment="Radius" Bounds="333,58" ShowValueBox="true" isIOBox="true" Value="0.000399999961">
-              <p:ValueBoxSettings>
-                <p:precision p:Type="Int32">5</p:precision>
-              </p:ValueBoxSettings>
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
-                <Choice Kind="TypeFlag" Name="Float32" />
-                <CategoryReference Kind="Category" Name="Primitive" />
-              </p:TypeAnnotation>
-            </Pad>
             <Node Bounds="264,115,400,13" Id="CGC1wU8S9t4OkY8AYhmusN">
               <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="VL.CoreLib.dll" LastPackageId="VL.CoreLib">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -815,9 +806,9 @@
         </p:NodeReference>
         <Patch Id="KqwcySkOH6MMrLhWAsBzoS">
           <Canvas Id="IaTDpkFtG1tOvctXJpLq9m" Position="-249,-92">
-            <Pad Id="DXy9UQDem5aOSnxZlkTQvU" Comment="Acceleration" Bounds="772,624,40,31" ShowValueBox="true" isIOBox="true" Value="new vec(0.0,-0.01)">
+            <Pad Id="DXy9UQDem5aOSnxZlkTQvU" Comment="Acceleration" Bounds="670,626,40,31" ShowValueBox="true" isIOBox="true" Value="new vec(0.0,-0.01)">
               <p:ValueBoxSettings />
-              <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="SharpDX.Mathematics" ReferenceKind="App">
+              <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
               </p:TypeAnnotation>
@@ -888,7 +879,7 @@
                 <Patch Id="R2yfmmO8rmsOIEhCdzchBx" Name="Update" />
                 <Patch Id="USBSPuuShzYQByYwhp0xFr" Name="Destroy" />
                 <Node Bounds="587,521,511,22" Id="Rrspb6AlH7QMufnpa85OYj">
-                  <p:NodeReference LastCategoryFullName="VVVV.2d.Particle" LastSymbolSource="VVVVTrailingParticles.vl">
+                  <p:NodeReference LastCategoryFullName="VVVV.2d.Particle" LastSymbolSource="VVVVTrailingParticles.vl" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="Create" />
                     <CategoryReference Kind="Category" Name="Particle" />
@@ -917,7 +908,7 @@
             <Pad Id="EqtJRidFL5eNy8onbgiIPq" SlotId="Tx6GBfbCv8ENsjIbJoXCd5" Bounds="479,561">
               <p:ValueBoxSettings />
             </Pad>
-            <Node Name="ForEach2" Bounds="140,673,508,460" Id="OtVZKEulCAEMxLY3lkvTi8">
+            <Node Name="ForEach2" Bounds="140,673,502,460" Id="OtVZKEulCAEMxLY3lkvTi8">
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="2161727855497576448" Name="ForEach" />
@@ -936,8 +927,8 @@
                   <Pin Id="PGbVekmXNIBLGCT85pzDbd" Name="Index" Kind="InputPin" Bounds="591,675" />
                 </Patch>
                 <Patch Id="C2xwLrNuZdZM2L4fSI76MJ" Name="Destroy" />
-                <Node Bounds="516,727,120,22" Id="MYXddv9hklZPQKjTe8NCj9">
-                  <p:NodeReference LastCategoryFullName="VVVV.2d.Particle" LastSymbolSource="VVVVTrailingParticles.vl">
+                <Node Bounds="516,727,96,22" Id="MYXddv9hklZPQKjTe8NCj9">
+                  <p:NodeReference LastCategoryFullName="VVVV.2d.Particle" LastSymbolSource="VVVVTrailingParticles.vl" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="Update" />
                     <CategoryReference Kind="Category" Name="Particle" NeedsToBeDirectParent="true" />
@@ -968,7 +959,7 @@
                       <Pin Id="RMyAWK4F2cVNiqulA1wfNT" Name="Output" Kind="OutputPin" />
                     </Node>
                     <Node Bounds="196,976,58,22" Id="GVAmQNtEMxtPIllp2fm4Dr">
-                      <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+                      <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <Choice Kind="OperationCallFlag" Name="Add" />
                         <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -979,7 +970,7 @@
                       <Pin Id="TCocR6vqdJIMSvfiogdt5h" Name="Apply" Kind="ApplyPin" />
                     </Node>
                     <Node Bounds="225,861,143,22" Id="VNCFAvreN4dPLLYzdWc0uH">
-                      <p:NodeReference LastCategoryFullName="VVVV.2d.Particle" LastSymbolSource="VVVVTrailingParticles.vl">
+                      <p:NodeReference LastCategoryFullName="VVVV.2d.Particle" LastSymbolSource="VVVVTrailingParticles.vl" LastPackageId="CraftLie">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <Choice Kind="OperationNode" Name="GetPosition" />
                         <CategoryReference Kind="Category" Name="Particle" NeedsToBeDirectParent="true" />
@@ -993,7 +984,7 @@
                       <Pin Id="EmgQZt226MrPqdQ57YITFx" Name="Color" Kind="OutputPin" />
                     </Node>
                     <Node Bounds="388,978,58,22" Id="QuC0ZzXQT2SMKvvFMDe0DR">
-                      <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+                      <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <Choice Kind="OperationCallFlag" Name="Add" />
                         <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -1015,11 +1006,11 @@
             <Pad Id="VkSPmQ5s5h7MDvfkmfKA7i" SlotId="Tx6GBfbCv8ENsjIbJoXCd5" Bounds="496,1255">
               <p:ValueBoxSettings />
             </Pad>
-            <Node Bounds="109,1517,125,13" Id="UNyuU56IAtkNAeNJQhv77H">
-              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+            <Node Bounds="93,1370,125,13" Id="UNyuU56IAtkNAeNJQhv77H">
+              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="Category" Name="CraftLie" />
-                <Choice Kind="ProcessAppFlag" Name="Box" />
+                <Choice Kind="ProcessAppFlag" Name="Quad" />
               </p:NodeReference>
               <Pin Id="DD3TQYY0T8XPvwzXZA86ua" Name="Transformation" Kind="InputPin" />
               <Pin Id="R51B8f2eg0lMfC25lD8A7i" Name="Color" Kind="InputPin" />
@@ -1028,7 +1019,7 @@
               <Pin Id="T0FEAjJZmJSOJDSSTQJJrL" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="FzGZzSb6ho5QLdrFO1mNFA" Name="Layer" Kind="OutputPin" />
             </Node>
-            <Pad Id="JPB5uey2NvEMZJvLWAakf3" SlotId="T3N7l3fg2XOLHtD6XPdOpW" Bounds="375,1263">
+            <Pad Id="JPB5uey2NvEMZJvLWAakf3" SlotId="T3N7l3fg2XOLHtD6XPdOpW" Bounds="377,1250">
               <p:ValueBoxSettings />
             </Pad>
             <Pad Id="R5d3pYOqTsJOFFJLlXBrzM" SlotId="LUErk4gj9gzOOkPrVxENh1" Bounds="185,1255">
@@ -1041,7 +1032,7 @@
               <p:ValueBoxSettings />
             </Pad>
             <Node Bounds="196,622,58,22" Id="D89qWxDRiXnLh4BW7xigH1">
-              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Clear" />
                 <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -1051,7 +1042,7 @@
               <Pin Id="EGWM41M6LwlPNaTZfop3ca" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Node Bounds="390,619,58,22" Id="BuLNl8g05b7OsH8h8cae4C">
-              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Clear" />
                 <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -1060,7 +1051,7 @@
               <Pin Id="K4Ax0o47ffcOMhSTHcxCoa" Name="Apply" Kind="ApplyPin" />
               <Pin Id="KTtrT8CCVZZL9J88Jd1a9x" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="MCBLUJcDOY0NNcAIXSbBDD" Bounds="54,1453" />
+            <ControlPoint Id="MCBLUJcDOY0NNcAIXSbBDD" Bounds="38,1306" />
             <Node Bounds="760,295,64,13" Id="G971pxE4nWxOWBWLRoFvfS">
               <p:NodeReference LastCategoryFullName="Animation.FrameBased" LastSymbolSource="VL.CoreLib.vl" LastPackageId="VL.CoreLib">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1088,17 +1079,17 @@
             <ControlPoint Id="LI0NOMQjaetOupHdc6Fh2v" Bounds="612,156" />
             <ControlPoint Id="GioGPId7WqSPjxU6ofRF2O" Bounds="842,162" />
             <ControlPoint Id="EjZnKaxoFnuPw78gWzctgF" Bounds="851,356" />
-            <Node Bounds="105,1616,67,13" Id="Jtm21vyNvi1LFUrk3BLZtH">
-              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+            <Node Bounds="93,1409,67,13" Id="Jtm21vyNvi1LFUrk3BLZtH">
+              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
               <Pin Id="Gixy9xRQu1ELV3POZTOU8N" Name="Layer" Kind="InputPin" />
               <Pin Id="B5b49ld560eMtvUw4nyVpX" Name="Draw Description Layer" Kind="OutputPin" />
             </Node>
-            <ControlPoint Id="Ud0xEB1Jx6XPTQdOS3E8kI" Bounds="101,1762" />
+            <ControlPoint Id="Ud0xEB1Jx6XPTQdOS3E8kI" Bounds="96,1473" />
             <Node Bounds="476,618,58,22" Id="MvqmMbAmfeQOp47ghPHWD5">
-              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread.SpreadBuilder" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="AddRange" />
                 <CategoryReference Kind="2751463424" Name="SpreadBuilder" NeedsToBeDirectParent="true" />
@@ -1108,14 +1099,14 @@
               <Pin Id="DfYTNfqVV2DMDRNqTaHVlY" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Node Bounds="493,1178,53,22" Id="FZO5DkWShVdQK1U9XObSZo">
-              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Core.dll" LastPackageId="VL.Core">
+              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Core.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="ToBuilder" />
               </p:NodeReference>
               <Pin Id="JfYjpVqpUKPQGmpolQW6UI" Name="Input" Kind="StateInputPin" />
               <Pin Id="IDT8uRo7TYnLMMEePw2AYl" Name="Result" Kind="OutputPin" />
             </Node>
-            <Node Bounds="807,687,25,13" Id="IYt81cnCjbXL2bE3JIs42I">
+            <Node Bounds="667,685,25,13" Id="IYt81cnCjbXL2bE3JIs42I">
               <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="VL.CoreLib.dll" LastPackageId="VL.CoreLib">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="* (Scale)" />
@@ -1125,7 +1116,7 @@
               <Pin Id="DBqU6HEFQqhLEPTFZfObgH" Name="Output" Kind="OutputPin" />
               <Pin Id="CQxtljoUqmsOTTOMUoKGOD" Name="Scalar" Kind="InputPin" />
             </Node>
-            <Pad Id="RvIL84V6ZouOpOhw6MIDr9" Comment="Scalar" Bounds="859,660" ShowValueBox="true" isIOBox="true" Value="0.0100000128">
+            <Pad Id="RvIL84V6ZouOpOhw6MIDr9" Comment="Scalar" Bounds="726,659" ShowValueBox="true" isIOBox="true" Value="0.0100000128">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Float32" />
                 <CategoryReference Kind="Category" Name="Primitive" />
@@ -1230,6 +1221,5 @@
     </Canvas>
   </Patch>
   <NugetDependency Id="VTzeCUFappyOuabUhCeE9h" Location="VL.DevLib" Version="0.49.63-g3a681d5a96" />
-  <DocumentDependency Id="EmlcQvcEzwXNafgZf0xkh5" Location="..\..\nodes\vl\CraftLie.vl" />
-  <DocumentDependency Id="GA5yN9CDSBUPxQvagCCzLG" Location="..\..\..\CraftLie.vl" />
+  <DocumentDependency Id="AAwaqq0OJMmPiSgnOwQLaU" Location="..\..\..\CraftLie.vl" />
 </Document>

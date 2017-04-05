@@ -128,7 +128,7 @@
    <PIN pinname="Maximum Foreground FPS" slicecount="1" values="60">
    </PIN>
    </NODE>
-   <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="Hidden" id="292">
+   <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="InAWindow" id="292">
    <BOUNDS type="Node" left="967" top="2418" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="0" width="11685" height="13830">
