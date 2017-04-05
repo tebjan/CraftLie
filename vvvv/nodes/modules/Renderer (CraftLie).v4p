@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_50beta35.2_x64\packs\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="30" scrolly="360">
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="30" scrolly="360">
    <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
@@ -10,7 +10,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="975" top="4470" width="10770" height="13830">
+   <BOUNDS type="Window" left="2535" top="2490" width="8925" height="13830">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -79,7 +79,7 @@
    </BOUNDS>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
-   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   <PIN pinname="Layer 2" visible="1">
    </PIN>
    <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
    </PIN>
@@ -90,215 +90,33 @@
    </NODE>
    <LINK srcnodeid="46" srcpinname="Layer Out" dstnodeid="24" dstpinname="Input Node">
    </LINK>
-   <NODE id="49" systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden">
-   <BOUNDS type="Node" left="1995" top="3885" width="100" height="100">
+   <NODE componentmode="Hidden" filename="%VVVV%\lib\packs\CraftLie.1.0.0\vvvv\nodes\dx11\CraftLie.fx" id="23" nodename="CraftLie (DX11.Effect)" systemname="CraftLie (DX11.Effect)">
+   <BOUNDS height="270" left="1215" top="7050" type="Node" width="7860">
    </BOUNDS>
-   <PIN pinname="Geometry Out" visible="1">
+   <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
-   </NODE>
-   <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="61">
-   <BOUNDS type="Node" left="10050" top="6990" width="2940" height="270">
-   </BOUNDS>
    <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="String" visible="1" slicecount="1" values="DX11">
-   </PIN>
-   <PIN pinname="Font" visible="1">
-   </PIN>
-   <PIN pinname="Size" visible="1" slicecount="1" values="32">
-   </PIN>
-   <PIN pinname="Horizontal Align" slicecount="1" visible="1" values="Left">
-   </PIN>
-   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
-   </NODE>
-   <NODE systemname="String2Enum (Enumerations)" nodename="String2Enum (Enumerations)" componentmode="Hidden" id="62">
-   <BOUNDS type="Node" left="11955" top="2760" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="String Value" visible="1" slicecount="1" values="(nil)">
+   <PIN pinname="TransformationCount" visible="1" slicecount="1" values="10096">
    </PIN>
-   <PIN pinname="Enum" visible="1">
+   <PIN pinname="ColorCount" visible="1" slicecount="1" values="10096">
    </PIN>
-   </NODE>
-   <LINK srcnodeid="62" srcpinname="Enum" dstnodeid="61" dstpinname="Font">
-   </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="63">
-   <BOUNDS type="Box" left="12150" top="5295" width="1590" height="270">
-   </BOUNDS>
-   <BOUNDS type="Node" left="12150" top="5295" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Left">
+   <PIN pinname="sbWorld" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Horizontal Align|">
+   <PIN pinname="sbColor" visible="1" slicecount="1" values="||">
    </PIN>
-   </NODE>
-   <LINK srcnodeid="63" srcpinname="Output Enum" dstnodeid="61" dstpinname="Horizontal Align">
-   </LINK>
-   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="64">
-   <BOUNDS type="Node" left="4110" top="4320" width="5970" height="270">
-   </BOUNDS>
-   <PIN pinname="Input 2" visible="1">
+   <PIN pinname="texture2d" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Input Count" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Input 3" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="65">
-   <BOUNDS type="Node" left="10035" top="3285" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="44" srcpinname="Output" dstnodeid="64" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="64" srcpinname="Output" dstnodeid="43" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="61" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 3">
-   </LINK>
-   <NODE systemname="TextureExists" filename="TextureExists.v4p" nodename="TextureExists.v4p" componentmode="Hidden" id="68">
-   <BOUNDS type="Node" left="6390" top="6275" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="4593" top="4245" width="3595" height="4060">
-   </BOUNDS>
-   <BOUNDS type="Window" left="10545" top="7755" width="5040" height="5640">
-   </BOUNDS>
-   </NODE>
-   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="69">
-   <BOUNDS type="Node" left="4860" top="6232" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="3310" top="4375" width="3100" height="3715">
-   </BOUNDS>
-   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
-   </BOUNDS>
-   </NODE>
-   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="70">
-   <BOUNDS type="Node" left="3540" top="6247" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="1990" top="4390" width="3100" height="3715">
-   </BOUNDS>
-   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Remainder" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="TextureExists" filename="TextureExists.v4p" nodename="TextureExists.v4p" componentmode="Hidden" id="71">
-   <BOUNDS type="Node" left="9735" top="7685" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="7938" top="5655" width="3595" height="4060">
-   </BOUNDS>
-   <BOUNDS type="Window" left="10545" top="7755" width="5040" height="5640">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Filename" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="72">
-   <BOUNDS type="Node" left="8100" top="2865" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="65" srcpinname="Count" dstnodeid="64" dstpinname="Input 3">
-   </LINK>
-   <LINK srcnodeid="72" srcpinname="Output" dstnodeid="64" dstpinname="Input 2">
-   </LINK>
-   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="73">
-   <BOUNDS type="Node" left="8520" top="6457" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="6970" top="4600" width="3100" height="3715">
-   </BOUNDS>
-   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
-   </BOUNDS>
-   <PIN pinname="Remainder" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="74">
-   <BOUNDS type="Node" left="9720" top="6487" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="8170" top="4630" width="3100" height="3715">
-   </BOUNDS>
-   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
-   </BOUNDS>
-   <PIN pinname="Remainder" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="75">
-   <BOUNDS type="Node" left="10860" top="6517" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="9310" top="4660" width="3100" height="3715">
-   </BOUNDS>
-   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
-   </BOUNDS>
-   <PIN pinname="Remainder" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <NODE systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState Advanced)" componentmode="Hidden" id="76">
-   <BOUNDS type="Node" left="645" top="5610" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Enable MultiSampling" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Enable Line AntiAlias" slicecount="1" values="1">
+   <PIN pinname="TransformStartIndex" visible="1">
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Cull Mode" visible="1" slicecount="1" values="Front">
-   </PIN>
-   <PIN pinname="Enable Depth Clip" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Enable Scissor" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Is Front Cull CCW" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Fill Mode" visible="1" slicecount="1" values="Solid">
-   </PIN>
-   <PIN pinname="Depth Bias" slicecount="1" values="0">
-   </PIN>
    </NODE>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="81">
-   <BOUNDS type="Box" left="240" top="4440" width="1590" height="270">
-   </BOUNDS>
-   <BOUNDS type="Node" left="240" top="4440" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Solid">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Fill Mode|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="81" srcpinname="Output Enum" dstnodeid="76" dstpinname="Fill Mode">
-   </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="82">
-   <BOUNDS type="Box" left="945" top="5025" width="1590" height="270">
-   </BOUNDS>
-   <BOUNDS type="Node" left="945" top="5025" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Back">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Cull Mode|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="82" srcpinname="Output Enum" dstnodeid="76" dstpinname="Cull Mode">
-   </LINK>
-   <NODE id="36" systemname="GetDrawDescriptionData (DX11.Buffer CraftLie)" filename="%VVVV%\packs\CraftLie\vvvv\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptionData (DX11.Buffer CraftLie)" componentmode="Hidden">
+   <NODE id="36" systemname="GetDrawDescriptionData (DX11.Buffer CraftLie)" filename="%VVVV%\lib\packs\CraftLie.1.0.0\vvvv\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptionData (DX11.Buffer CraftLie)" componentmode="Hidden">
    <BOUNDS type="Node" left="2550" top="2190" width="10245" height="270">
    </BOUNDS>
    <PIN pinname="Transformation" visible="1">
@@ -356,72 +174,6 @@
    </LINK>
    <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Buffer">
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Texts" dstnodeid="61" dstpinname="String">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Font Names" dstnodeid="62" dstpinname="String Value">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Colors" dstnodeid="61" dstpinname="Color">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Sizes" dstnodeid="61" dstpinname="Size">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Transformations" dstnodeid="61" dstpinname="Transform In">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Sizes" dstnodeid="65" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Layer">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="68" dstpinname="Filename">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="69" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="70" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Texture Path" dstnodeid="71" dstpinname="Filename">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Position Counts" dstnodeid="72" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Position Counts" dstnodeid="73" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Size Counts" dstnodeid="74" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="75" dstpinname="Input">
-   </LINK>
-   <NODE componentmode="Hidden" filename="%VVVV%\packs\CraftLie\vvvv\nodes\dx11\CraftLie.fx" id="23" nodename="CraftLie (DX11.Effect)" systemname="CraftLie (DX11.Effect)">
-   <BOUNDS height="270" left="1215" top="7050" type="Node" width="7860">
-   </BOUNDS>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="TransformationCount" visible="1" slicecount="1" values="10096">
-   </PIN>
-   <PIN pinname="ColorCount" visible="1" slicecount="1" values="10096">
-   </PIN>
-   <PIN pinname="sbWorld" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="sbColor" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="texture2d" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="TransformStartIndex" visible="1">
-   </PIN>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="23" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 1">
-   </LINK>
-   <LINK srcnodeid="68" srcpinname="Output" dstnodeid="23" dstpinname="texture2d">
-   </LINK>
-   <LINK srcnodeid="69" srcpinname="Remainder" dstnodeid="23" dstpinname="ColorStartIndex">
-   </LINK>
-   <LINK srcnodeid="70" srcpinname="Remainder" dstnodeid="23" dstpinname="TransformStartIndex">
-   </LINK>
-   <LINK srcnodeid="76" srcpinname="Render State" dstnodeid="23" dstpinname="Render State">
-   </LINK>
    <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="23" dstpinname="ColorCount">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="23" dstpinname="TransformationCount">
@@ -434,7 +186,95 @@
    </LINK>
    <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="23" dstpinname="Geometry">
    </LINK>
-   <NODE systemname="CraftLieSprites (DX11.Effect)" filename="%VVVV%\packs\CraftLie\vvvv\nodes\dx11\CraftLieSprites.fx" nodename="CraftLieSprites (DX11.Effect)" componentmode="Hidden" id="67">
+   <NODE id="49" systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1995" top="3885" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="10050" top="6990" width="2940" height="270">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="String" visible="1">
+   </PIN>
+   <PIN pinname="Font" visible="1">
+   </PIN>
+   <PIN pinname="Size" visible="1" slicecount="1" values="32">
+   </PIN>
+   <PIN pinname="Horizontal Align" slicecount="1" visible="1" values="Left">
+   </PIN>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Texts" dstnodeid="61" dstpinname="String">
+   </LINK>
+   <NODE systemname="String2Enum (Enumerations)" nodename="String2Enum (Enumerations)" componentmode="Hidden" id="62">
+   <BOUNDS type="Node" left="11955" top="2760" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="String Value" visible="1">
+   </PIN>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Font Names" dstnodeid="62" dstpinname="String Value">
+   </LINK>
+   <LINK srcnodeid="62" srcpinname="Enum" dstnodeid="61" dstpinname="Font">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="63">
+   <BOUNDS type="Box" left="12150" top="5295" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12150" top="5295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Left">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Horizontal Align|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="63" srcpinname="Output Enum" dstnodeid="61" dstpinname="Horizontal Align">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Text Colors" dstnodeid="61" dstpinname="Color">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Text Sizes" dstnodeid="61" dstpinname="Size">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Text Transformations" dstnodeid="61" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 1">
+   </LINK>
+   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="64">
+   <BOUNDS type="Node" left="4110" top="4320" width="5970" height="270">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 3" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="65">
+   <BOUNDS type="Node" left="10035" top="3285" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Text Sizes" dstnodeid="65" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="44" srcpinname="Output" dstnodeid="64" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="64" srcpinname="Output" dstnodeid="43" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Layer">
+   </LINK>
+   <NODE systemname="CraftLieSprites (DX11.Effect)" filename="dx11\CraftLieSprites.fx" nodename="CraftLieSprites (DX11.Effect)" componentmode="Hidden" id="67">
    <BOUNDS type="Node" left="5955" top="8460" width="4065" height="270">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1">
@@ -470,21 +310,15 @@
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="67" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 2">
-   </LINK>
-   <LINK srcnodeid="71" srcpinname="Output" dstnodeid="67" dstpinname="Texture">
-   </LINK>
-   <LINK srcnodeid="73" srcpinname="Remainder" dstnodeid="67" dstpinname="PositionStartIndex">
-   </LINK>
-   <LINK srcnodeid="74" srcpinname="Remainder" dstnodeid="67" dstpinname="SizeStartIndex">
-   </LINK>
-   <LINK srcnodeid="75" srcpinname="Remainder" dstnodeid="67" dstpinname="ColorStartIndex">
-   </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Geometry Out" dstnodeid="67" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Transformations" dstnodeid="67" dstpinname="Transform In">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Size Counts" dstnodeid="67" dstpinname="sbSizeCount">
+   </LINK>
+   <LINK srcnodeid="61" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 3">
+   </LINK>
+   <LINK srcnodeid="67" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 2">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="67" dstpinname="sbColorCount">
    </LINK>
@@ -494,20 +328,174 @@
    </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Color Buffer" dstnodeid="67" dstpinname="sbColor">
    </LINK>
+   <NODE systemname="TextureExists" filename="TextureExists.v4p" nodename="TextureExists.v4p" componentmode="Hidden" id="68">
+   <BOUNDS type="Node" left="6390" top="6275" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4593" top="4245" width="3595" height="4060">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10545" top="7755" width="5040" height="5640">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="68" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="68" srcpinname="Output" dstnodeid="23" dstpinname="texture2d">
+   </LINK>
+   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="69">
+   <BOUNDS type="Node" left="4860" top="6232" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3310" top="4375" width="3100" height="3715">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="69" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="69" srcpinname="Remainder" dstnodeid="23" dstpinname="ColorStartIndex">
+   </LINK>
+   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="70">
+   <BOUNDS type="Node" left="3540" top="6247" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1990" top="4390" width="3100" height="3715">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Remainder" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="70" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="70" srcpinname="Remainder" dstnodeid="23" dstpinname="TransformStartIndex">
+   </LINK>
+   <NODE systemname="TextureExists" filename="TextureExists.v4p" nodename="TextureExists.v4p" componentmode="Hidden" id="71">
+   <BOUNDS type="Node" left="9735" top="7685" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7938" top="5655" width="3595" height="4060">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10545" top="7755" width="5040" height="5640">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="71" srcpinname="Output" dstnodeid="67" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Sprites Texture Path" dstnodeid="71" dstpinname="Filename">
+   </LINK>
+   <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="72">
+   <BOUNDS type="Node" left="8100" top="2865" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Sprites Position Counts" dstnodeid="72" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="65" srcpinname="Count" dstnodeid="64" dstpinname="Input 3">
+   </LINK>
+   <LINK srcnodeid="72" srcpinname="Output" dstnodeid="64" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="73">
+   <BOUNDS type="Node" left="8520" top="6457" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6970" top="4600" width="3100" height="3715">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
+   </BOUNDS>
+   <PIN pinname="Remainder" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="73" srcpinname="Remainder" dstnodeid="67" dstpinname="PositionStartIndex">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Sprites Position Counts" dstnodeid="73" dstpinname="Input">
+   </LINK>
+   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="74">
+   <BOUNDS type="Node" left="9720" top="6487" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8170" top="4630" width="3100" height="3715">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
+   </BOUNDS>
+   <PIN pinname="Remainder" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Sprites Size Counts" dstnodeid="74" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="74" srcpinname="Remainder" dstnodeid="67" dstpinname="SizeStartIndex">
+   </LINK>
+   <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="75">
+   <BOUNDS type="Node" left="10860" top="6517" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9310" top="4660" width="3100" height="3715">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
+   </BOUNDS>
+   <PIN pinname="Remainder" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="75" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="75" srcpinname="Remainder" dstnodeid="67" dstpinname="ColorStartIndex">
+   </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Size Counts" dstnodeid="67" dstpinname="SizeCount">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="67" dstpinname="ColorCount">
    </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="84">
-   <BOUNDS type="Box" left="300" top="3360" width="795" height="240">
+   <NODE systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState Advanced)" componentmode="Hidden" id="76">
+   <BOUNDS type="Node" left="645" top="5610" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Node" left="300" top="3360" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   <PIN pinname="Enable MultiSampling" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Render State|">
+   <PIN pinname="Enable Line AntiAlias" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Cull Mode" visible="1" slicecount="1" values="Front">
+   </PIN>
+   <PIN pinname="Enable Depth Clip" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Enable Scissor" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Is Front Cull CCW" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Fill Mode" visible="1" slicecount="1" values="Solid">
+   </PIN>
+   <PIN pinname="Depth Bias" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="84" srcpinname="Output Node" dstnodeid="76" dstpinname="Render State">
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="81">
+   <BOUNDS type="Box" left="240" top="4440" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="240" top="4440" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Solid">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Fill Mode|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="Output Enum" dstnodeid="76" dstpinname="Fill Mode">
+   </LINK>
+   <LINK srcnodeid="76" srcpinname="Render State" dstnodeid="23" dstpinname="Render State">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="82">
+   <BOUNDS type="Box" left="945" top="5025" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="945" top="5025" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Back">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Cull Mode|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="82" srcpinname="Output Enum" dstnodeid="76" dstpinname="Cull Mode">
    </LINK>
    </PATCH>
