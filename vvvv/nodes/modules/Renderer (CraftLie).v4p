@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0" locked="0">
    <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
@@ -10,14 +10,14 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="2535" top="2490" width="8925" height="13830">
+   <BOUNDS type="Window" left="975" top="4470" width="10770" height="13830">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="26" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="2550" top="705" width="1365" height="390">
+   <BOUNDS type="Box" left="2550" top="900" width="1365" height="390">
    </BOUNDS>
-   <BOUNDS type="Node" left="2550" top="705" width="0" height="0">
+   <BOUNDS type="Node" left="2550" top="900" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -263,9 +263,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="81">
-   <BOUNDS type="Box" left="240" top="4440" width="1590" height="270">
+   <BOUNDS type="Box" left="825" top="4380" width="1590" height="270">
    </BOUNDS>
-   <BOUNDS type="Node" left="240" top="4440" width="0" height="0">
+   <BOUNDS type="Node" left="825" top="4380" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="Solid">
    </PIN>
@@ -336,11 +336,7 @@
    </NODE>
    <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="41" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Buffer Drawer">
-   </LINK>
    <LINK srcnodeid="36" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Buffer">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Texts" dstnodeid="61" dstpinname="String">
    </LINK>
@@ -470,10 +466,6 @@
    </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Transformations" dstnodeid="67" dstpinname="Transform In">
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Size Counts" dstnodeid="67" dstpinname="sbSizeCount">
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="67" dstpinname="sbColorCount">
-   </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Position Buffer" dstnodeid="67" dstpinname="sbPos">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Sprites Size Buffer" dstnodeid="67" dstpinname="sbSize">
@@ -485,9 +477,9 @@
    <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="67" dstpinname="ColorCount">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="84">
-   <BOUNDS type="Box" left="300" top="3360" width="795" height="240">
+   <BOUNDS type="Box" left="645" top="3615" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="300" top="3360" width="0" height="0">
+   <BOUNDS type="Node" left="645" top="3615" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
