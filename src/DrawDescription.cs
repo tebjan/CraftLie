@@ -15,6 +15,7 @@ namespace CraftLie
     {
         public GeometryDescriptor GeometryDescriptor;
         public Matrix Transformation;
+        public Color4 Color;
         public string TexturePath;
 
         public IDX11Geometry GetGeometry(DX11RenderContext context)
@@ -113,17 +114,24 @@ namespace CraftLie
             IReadOnlyList<Color4> instanceColors)
         {
             Transformation = transformation;
+            Color = color;
             TexturePath = texturePath;
 
             if (instanceColors == null)
-                instanceColors = new List<Color4>();
+                instanceColors = new List<Color4>(1) { Color4.White };
 
             if (instanceTransformations == null)
-                instanceTransformations = Enumerable.Repeat(Matrix.Identity, 1).ToList();
+                instanceTransformations =  new List<Matrix>(1) { Matrix.Identity };
 
             InstanceTransformations = instanceTransformations;
-            InstanceColors = instanceColors.Count > 0 ? instanceColors : Enumerable.Repeat(color, 1).ToList();
+            InstanceColors = instanceColors;
             InstanceCount = Math.Max(Math.Max(instanceTransformations.Count, instanceColors.Count), 1);
+        }
+        
+        [Node]
+        public void Transform(Matrix transformation)
+        {
+            Matrix.Multiply(ref Transformation, ref transformation, out Transformation);
         }      
     }
 

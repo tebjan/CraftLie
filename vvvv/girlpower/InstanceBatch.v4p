@@ -21,9 +21,11 @@
    </PIN>
    <PIN pinname="Layer 7" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Layer 4" visible="1">
+   <PIN pinname="Layer 4" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layer 6" visible="1">
+   </PIN>
+   <PIN pinname="Layer 5" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="PerfMeter (DX11.Debug)" filename="%VVVV%\packs\dx11\nodes\modules\PerfMeter (DX11.Debug).v4p" nodename="PerfMeter (DX11.Debug)" componentmode="Hidden" id="284">
@@ -48,32 +50,6 @@
    </NODE>
    <PACK Name="dx11" Version="33.0">
    </PACK>
-   <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="296">
-   <BOUNDS type="Node" left="1440" top="4050" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="String" visible="1">
-   </PIN>
-   <PIN pinname="Size" slicecount="1" values="100">
-   </PIN>
-   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="296" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 4">
-   </LINK>
-   <NODE systemname="AsString (Value)" nodename="AsString (Value)" componentmode="Hidden" id="297">
-   <BOUNDS type="Node" left="2400" top="2835" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="2882">
-   </PIN>
-   <PIN pinname="SubType" slicecount="1" values="|Integer (MinInt .. MaxInt)|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="297" srcpinname="Output" dstnodeid="296" dstpinname="String">
-   </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="298">
    <BOUNDS type="Node" left="2085" top="5235" width="100" height="100">
    </BOUNDS>
@@ -128,7 +104,7 @@
    <PIN pinname="Maximum Foreground FPS" slicecount="1" values="60">
    </PIN>
    </NODE>
-   <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="InAWindow" id="292">
+   <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="Hidden" id="292">
    <BOUNDS type="Node" left="967" top="2418" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="0" width="11685" height="13830">
@@ -145,11 +121,9 @@
    </PIN>
    <PIN pinname="Mode" slicecount="1" values="NoCullWireframe">
    </PIN>
+   <PIN pinname="Object Count" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
-   </LINK>
-   <LINK srcnodeid="292" srcpinname="Object Count" dstnodeid="297" dstpinname="Input">
-   </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
    <BOUNDS type="Window" left="12090" top="1395" width="15540" height="14445">
    </BOUNDS>
@@ -194,10 +168,6 @@
    <PIN pinname="Projection" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="305" srcpinname="View" dstnodeid="195" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="305" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
-   </LINK>
    <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="308">
    <BOUNDS type="Node" left="720" top="840" width="100" height="100">
    </BOUNDS>
@@ -205,7 +175,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Overview (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="Girlpower (3d)" componentmode="Hidden" id="307">
-   <BOUNDS type="Node" left="1155" top="1650" width="100" height="100">
+   <BOUNDS type="Node" left="1590" top="1740" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Draw Description Layer" visible="1">
    </PIN>
@@ -232,4 +202,22 @@
    <BOUNDS type="Node" left="5445" top="8025" width="100" height="100">
    </BOUNDS>
    </NODE>
+   <NODE systemname="drawText" filename="drawText.v4p" nodename="drawText.v4p" componentmode="Hidden" id="311">
+   <BOUNDS type="Node" left="1605" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="292" srcpinname="Object Count" dstnodeid="311" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="311" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 5">
+   </LINK>
+   <LINK srcnodeid="305" srcpinname="View" dstnodeid="195" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="305" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
+   </LINK>
    </PATCH>

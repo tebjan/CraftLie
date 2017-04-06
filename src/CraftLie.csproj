@@ -70,7 +70,7 @@
     <Compile Include="PrimitiveDescriptor.cs" />
     <Compile Include="PrimitiveFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextDescriptor.cs" />
+    <Compile Include="DrawTextDescription.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

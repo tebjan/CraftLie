@@ -1,13 +1,13 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
    <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\01_Overview.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\01_Overview.v4p" systemname="01_Overview" scrollx="0" scrolly="2865" locked="0">
-   <BOUNDS height="10770" left="1245" top="2325" type="Window" width="7845">
+   <BOUNDS height="8055" left="1245" top="2325" type="Window" width="7845">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="Group (DX11.Layer)" id="283" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS type="Node" left="780" top="7605" width="0" height="0">
+   <BOUNDS type="Node" left="810" top="5460" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="780" top="7605" width="2400" height="1800">
+   <BOUNDS type="Box" left="810" top="5460" width="2400" height="1800">
    </BOUNDS>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
@@ -21,13 +21,15 @@
    </PIN>
    <PIN pinname="Layer 7" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Layer 4" visible="1">
+   <PIN pinname="Layer 4" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Layer 6" visible="1">
+   <PIN pinname="Layer 6" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 5" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="PerfMeter (DX11.Debug)" filename="%VVVV%\packs\dx11\nodes\modules\PerfMeter (DX11.Debug).v4p" nodename="PerfMeter (DX11.Debug)" componentmode="Hidden" id="284">
-   <BOUNDS type="Node" left="1095" top="2925" width="100" height="100">
+   <BOUNDS type="Node" left="1110" top="4080" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -35,105 +37,19 @@
    <LINK srcnodeid="284" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 2">
    </LINK>
    <NODE systemname="Mouse (Devices Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Window)" componentmode="Hidden" id="290">
-   <BOUNDS type="Node" left="2025" top="780" width="100" height="100">
+   <BOUNDS type="Node" left="1590" top="690" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Device" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="AxisAndGrid (DX11)" filename="%VVVV%\packs\dx11\nodes\modules\AxisAndGrid\AxisAndGrid (DX11).v4p" nodename="AxisAndGrid (DX11)" componentmode="Hidden" id="293">
-   <BOUNDS type="Node" left="3735" top="5940" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   </NODE>
    <PACK Name="dx11" Version="33.0">
    </PACK>
-   <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="296">
-   <BOUNDS type="Node" left="1440" top="4050" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="String" visible="1">
-   </PIN>
-   <PIN pinname="Size" slicecount="1" values="100">
-   </PIN>
-   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="296" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 4">
-   </LINK>
-   <NODE systemname="AsString (Value)" nodename="AsString (Value)" componentmode="Hidden" id="297">
-   <BOUNDS type="Node" left="2400" top="2835" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="2882">
-   </PIN>
-   <PIN pinname="SubType" slicecount="1" values="|Integer (MinInt .. MaxInt)|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="297" srcpinname="Output" dstnodeid="296" dstpinname="String">
-   </LINK>
-   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="298">
-   <BOUNDS type="Node" left="2085" top="5235" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Period" slicecount="1" values="3">
-   </PIN>
-   </NODE>
-   <NODE systemname="Quad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="300">
-   <BOUNDS type="Node" left="1755" top="7005" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="300" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 6">
-   </LINK>
-   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="301">
-   <BOUNDS type="Node" left="1920" top="6435" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="TranslateX" visible="1">
-   </PIN>
-   <PIN pinname="TranslateY" slicecount="1" values="-1.2">
-   </PIN>
-   <PIN pinname="ScaleX" slicecount="1" values="0.04">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="301" srcpinname="Transform Out" dstnodeid="300" dstpinname="Transform">
-   </LINK>
-   <NODE systemname="Map (Value)" nodename="Map (Value)" componentmode="Hidden" id="302">
-   <BOUNDS type="Node" left="2085" top="5775" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Destination Minimum" slicecount="1" values="-1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="298" srcpinname="Output" dstnodeid="302" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="302" srcpinname="Output" dstnodeid="301" dstpinname="TranslateX">
-   </LINK>
-   <NODE systemname="MainLoop (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
-   <BOUNDS type="Node" left="3585" top="6720" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Maximum Foreground FPS" slicecount="1" values="60">
-   </PIN>
-   </NODE>
    <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="Hidden" id="292">
    <BOUNDS type="Node" left="967" top="2418" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="0" width="11685" height="13830">
    </BOUNDS>
-   <BOUNDS type="Window" left="2535" top="2490" width="13575" height="13830">
+   <BOUNDS type="Window" left="2535" top="2490" width="8925" height="13830">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -143,19 +59,19 @@
    </PIN>
    <PIN pinname="Horizontal Align" slicecount="1" values="Left">
    </PIN>
+   <PIN pinname="Mode" slicecount="1" values="NoCullWireframe">
+   </PIN>
+   <PIN pinname="Object Count" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
-   </LINK>
-   <LINK srcnodeid="292" srcpinname="Object Count" dstnodeid="297" dstpinname="Input">
-   </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="11625" top="1305" width="15540" height="14445">
+   <BOUNDS type="Window" left="12090" top="1395" width="15540" height="14445">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS type="Node" height="270" left="594" top="8169" width="1800">
+   <BOUNDS type="Node" height="270" left="624" top="6024" width="1800">
    </BOUNDS>
-   <BOUNDS type="Box" height="12825" left="594" top="8169" width="13740">
+   <BOUNDS type="Box" height="12825" left="624" top="6024" width="13740">
    </BOUNDS>
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
@@ -185,33 +101,53 @@
    <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers">
    </LINK>
    <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.49.63-g3a681d5a96\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="305">
-   <BOUNDS type="Node" left="2910" top="7305" width="100" height="100">
+   <BOUNDS type="Node" left="2940" top="5160" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="305" srcpinname="View" dstnodeid="195" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="305" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
-   </LINK>
    <NODE systemname="SystemFolder (File)" nodename="SystemFolder (File)" componentmode="Hidden" id="308">
-   <BOUNDS type="Node" left="720" top="840" width="100" height="100">
+   <BOUNDS type="Node" left="2445" top="1260" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="310">
-   <BOUNDS type="Node" left="4785" top="5220" width="100" height="100">
+   <NODE systemname="Overview (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="Girlpower (3d)" componentmode="Hidden" id="307">
+   <BOUNDS type="Node" left="1590" top="1740" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="4785" top="5220" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="7425" top="7695" width="18870" height="5085">
-   </BOUNDS>
+   <PIN pinname="Draw Description Layer" visible="1">
+   </PIN>
+   <PIN pinname="Mouse Device" visible="1">
+   </PIN>
+   <PIN pinname="VVVV Folder" visible="1">
+   </PIN>
    </NODE>
-   <NODE systemname="Girlpower (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="Girlpower (3d)" componentmode="Hidden" id="315">
-   <BOUNDS type="Node" left="975" top="1560" width="100" height="100">
+   <LINK srcnodeid="307" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="290" srcpinname="Device" dstnodeid="307" dstpinname="Mouse Device">
+   </LINK>
+   <LINK srcnodeid="308" srcpinname="Output" dstnodeid="307" dstpinname="VVVV Folder">
+   </LINK>
+   <NODE systemname="drawText" filename="drawText.v4p" nodename="drawText.v4p" componentmode="Hidden" id="311">
+   <BOUNDS type="Node" left="1605" top="4665" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
    </NODE>
+   <LINK srcnodeid="292" srcpinname="Object Count" dstnodeid="311" dstpinname="Input">
+   <LINKPOINT x="2175" y="3555">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="311" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 5">
+   </LINK>
+   <LINK srcnodeid="305" srcpinname="View" dstnodeid="195" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="305" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
+   </LINK>
    </PATCH>

@@ -10,7 +10,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="975" top="4470" width="10770" height="13830">
+   <BOUNDS type="Window" left="2535" top="2490" width="8925" height="13830">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -279,7 +279,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="945" top="5025" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Back">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="None">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Cull Mode|">
    </PIN>

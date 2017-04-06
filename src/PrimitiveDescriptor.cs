@@ -93,7 +93,7 @@ namespace CraftLie
         public SphereDescriptor(float cyclesX = 1, float cyclesY = 1, int resolutionX = 15, int resolutionY = 15)
             : base(PrimitiveType.Sphere)
         {
-            Settings = new Sphere() { CyclesX = cyclesX, CyclesY = cyclesY, Radius = 1, ResX = resolutionX, ResY = resolutionY };
+            Settings = new Sphere() { CyclesX = cyclesX, CyclesY = cyclesY, Radius = 0.5f, ResX = resolutionX, ResY = resolutionY };
         }
     }
 
@@ -119,7 +119,7 @@ namespace CraftLie
         public TubeDescriptor(float phase = 0, float cycles = 1, float innerRadius = 0.5f, int resolution = 15)
             : base(PrimitiveType.Tube)
         {
-            Settings = new SegmentZ() { Phase = phase, Cycles = cycles, InnerRadius = innerRadius, Resolution = resolution, Z = 1 };
+            Settings = new SegmentZ() { Phase = phase, Cycles = cycles, InnerRadius = innerRadius, Resolution = resolution, Z = 0.5f };
         }
     }
 

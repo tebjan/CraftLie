@@ -67,6 +67,12 @@ namespace CraftLie
             Colors = colors;
             SpriteCount = Math.Max(Math.Max(Positions.Count, Sizes.Count), Colors.Count);
         }
+
+        [Node]
+        public void Transform(Matrix transformation)
+        {
+            Matrix.Multiply(ref Transformation, ref transformation, out Transformation);
+        }
     }
 
 }
