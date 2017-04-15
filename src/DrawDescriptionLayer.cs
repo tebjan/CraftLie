@@ -18,12 +18,12 @@ namespace CraftLie
             GetDefaultSpritesDescriptor().ToList(),
             GetDefaultTextDescriptor().ToList());
 
-        public readonly IReadOnlyList<DrawDescription> DrawDescriptions;
+        public readonly IReadOnlyList<DrawGeometryDescription> DrawDescriptions;
         public readonly IReadOnlyList<DrawTextDescription> TextDescriptions;
         public readonly IReadOnlyList<DrawSpritesDescription> SpritesDescriptions;
 
         [Node]
-        public DrawDescriptionLayer(IReadOnlyList<DrawDescription> geometries, IReadOnlyList<DrawSpritesDescription> sprites, IReadOnlyList<DrawTextDescription> texts)
+        public DrawDescriptionLayer(IReadOnlyList<DrawGeometryDescription> geometries, IReadOnlyList<DrawSpritesDescription> sprites, IReadOnlyList<DrawTextDescription> texts)
         {
             DrawDescriptions = geometries;
             SpritesDescriptions = sprites;
@@ -46,9 +46,9 @@ namespace CraftLie
                 input.SelectMany(d => d.TextDescriptions).ToList());
         }
 
-        static IEnumerable<DrawDescription> GetDefaultDrawDescription()
+        static IEnumerable<DrawGeometryDescription> GetDefaultDrawDescription()
         {
-            yield return DrawDescription.Default;
+            yield return DrawGeometryDescription.Default;
         }
 
         static IEnumerable<DrawTextDescription> GetDefaultTextDescriptor()

@@ -10,7 +10,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="2535" top="2490" width="8925" height="13830">
+   <BOUNDS type="Window" left="2670" top="3015" width="7335" height="13830">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -28,24 +28,10 @@
    </NODE>
    <PACK Name="dx11" Version="33.0">
    </PACK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="41" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="7260" top="3360" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="7260" top="3360" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4110" top="4785" width="795" height="240">
+   <BOUNDS type="Box" left="10365" top="5820" width="885" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4110" top="4785" width="0" height="0">
+   <BOUNDS type="Node" left="10365" top="5820" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -59,7 +45,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="44">
-   <BOUNDS type="Node" left="4095" top="3915" width="100" height="100">
+   <BOUNDS type="Node" left="9960" top="4770" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
@@ -67,7 +53,7 @@
    </PIN>
    </NODE>
    <NODE nodename="Group (DX11.Layer)" id="46" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS type="Node" left="900" top="9135" width="9555" height="270">
+   <BOUNDS type="Node" left="900" top="9135" width="22215" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="900" top="9135" width="2400" height="1800">
    </BOUNDS>
@@ -85,7 +71,7 @@
    <LINK srcnodeid="46" srcpinname="Layer Out" dstnodeid="24" dstpinname="Input Node">
    </LINK>
    <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="61">
-   <BOUNDS type="Node" left="10050" top="6990" width="2940" height="270">
+   <BOUNDS type="Node" left="18315" top="6210" width="2940" height="270">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -103,7 +89,7 @@
    </PIN>
    </NODE>
    <NODE systemname="String2Enum (Enumerations)" nodename="String2Enum (Enumerations)" componentmode="Hidden" id="62">
-   <BOUNDS type="Node" left="11955" top="2760" width="100" height="100">
+   <BOUNDS type="Node" left="18720" top="5190" width="100" height="100">
    </BOUNDS>
    <PIN pinname="String Value" visible="1" slicecount="1" values="(nil)">
    </PIN>
@@ -113,9 +99,9 @@
    <LINK srcnodeid="62" srcpinname="Enum" dstnodeid="61" dstpinname="Font">
    </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="63">
-   <BOUNDS type="Box" left="12150" top="5295" width="1590" height="270">
+   <BOUNDS type="Box" left="20400" top="4995" width="1590" height="270">
    </BOUNDS>
-   <BOUNDS type="Node" left="12150" top="5295" width="0" height="0">
+   <BOUNDS type="Node" left="20400" top="4995" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="Left">
    </PIN>
@@ -125,7 +111,7 @@
    <LINK srcnodeid="63" srcpinname="Output Enum" dstnodeid="61" dstpinname="Horizontal Align">
    </LINK>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="64">
-   <BOUNDS type="Node" left="4110" top="4320" width="5970" height="270">
+   <BOUNDS type="Node" left="10365" top="5355" width="450" height="270">
    </BOUNDS>
    <PIN pinname="Input 2" visible="1">
    </PIN>
@@ -139,7 +125,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="65">
-   <BOUNDS type="Node" left="10035" top="3285" width="100" height="100">
+   <BOUNDS type="Node" left="11040" top="4770" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
@@ -153,25 +139,25 @@
    <LINK srcnodeid="61" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 3">
    </LINK>
    <NODE systemname="TextureExists" filename="TextureExists.v4p" nodename="TextureExists.v4p" componentmode="Hidden" id="68">
-   <BOUNDS type="Node" left="6390" top="6275" width="0" height="0">
+   <BOUNDS type="Node" left="7380" top="6485" width="1185" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="4593" top="4245" width="3595" height="4060">
+   <BOUNDS type="Box" left="5583" top="4455" width="3595" height="4060">
    </BOUNDS>
    <BOUNDS type="Window" left="10545" top="7755" width="5040" height="5640">
    </BOUNDS>
    </NODE>
    <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="69">
-   <BOUNDS type="Node" left="4860" top="6232" width="0" height="0">
+   <BOUNDS type="Node" left="6465" top="6982" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3310" top="4375" width="3100" height="3715">
+   <BOUNDS type="Box" left="4915" top="5125" width="3100" height="3715">
    </BOUNDS>
    <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
    </BOUNDS>
    </NODE>
    <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="70">
-   <BOUNDS type="Node" left="3540" top="6247" width="0" height="0">
+   <BOUNDS type="Node" left="5265" top="6952" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="1990" top="4390" width="3100" height="3715">
+   <BOUNDS type="Box" left="3715" top="5095" width="3100" height="3715">
    </BOUNDS>
    <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
    </BOUNDS>
@@ -181,9 +167,9 @@
    </PIN>
    </NODE>
    <NODE systemname="TextureExists" filename="TextureExists.v4p" nodename="TextureExists.v4p" componentmode="Hidden" id="71">
-   <BOUNDS type="Node" left="9735" top="7685" width="0" height="0">
+   <BOUNDS type="Node" left="15855" top="6890" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="7938" top="5655" width="3595" height="4060">
+   <BOUNDS type="Box" left="14058" top="4860" width="3595" height="4060">
    </BOUNDS>
    <BOUNDS type="Window" left="10545" top="7755" width="5040" height="5640">
    </BOUNDS>
@@ -193,7 +179,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="72">
-   <BOUNDS type="Node" left="8100" top="2865" width="100" height="100">
+   <BOUNDS type="Node" left="10530" top="4785" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
@@ -205,9 +191,9 @@
    <LINK srcnodeid="72" srcpinname="Output" dstnodeid="64" dstpinname="Input 2">
    </LINK>
    <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="73">
-   <BOUNDS type="Node" left="8520" top="6457" width="0" height="0">
+   <BOUNDS type="Node" left="12780" top="6247" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="6970" top="4600" width="3100" height="3715">
+   <BOUNDS type="Box" left="11230" top="4390" width="3100" height="3715">
    </BOUNDS>
    <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
    </BOUNDS>
@@ -217,9 +203,9 @@
    </PIN>
    </NODE>
    <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="74">
-   <BOUNDS type="Node" left="9720" top="6487" width="0" height="0">
+   <BOUNDS type="Node" left="13980" top="6277" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="8170" top="4630" width="3100" height="3715">
+   <BOUNDS type="Box" left="12430" top="4420" width="3100" height="3715">
    </BOUNDS>
    <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
    </BOUNDS>
@@ -229,9 +215,9 @@
    </PIN>
    </NODE>
    <NODE systemname="StartIndex" filename="StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="75">
-   <BOUNDS type="Node" left="10860" top="6517" width="0" height="0">
+   <BOUNDS type="Node" left="15105" top="6232" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="9310" top="4660" width="3100" height="3715">
+   <BOUNDS type="Box" left="13555" top="4375" width="3100" height="3715">
    </BOUNDS>
    <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
    </BOUNDS>
@@ -287,7 +273,7 @@
    <LINK srcnodeid="82" srcpinname="Output Enum" dstnodeid="76" dstpinname="Cull Mode">
    </LINK>
    <NODE id="36" systemname="GetDrawDescriptionData (DX11.Buffer CraftLie)" filename="%VVVV%\packs\CraftLie\vvvv\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptionData (DX11.Buffer CraftLie)" componentmode="Hidden">
-   <BOUNDS type="Node" left="2550" top="2190" width="10245" height="270">
+   <BOUNDS type="Node" left="2550" top="2190" width="18825" height="270">
    </BOUNDS>
    <PIN pinname="Transformation" visible="1">
    </PIN>
@@ -333,9 +319,11 @@
    </PIN>
    <PIN pinname="Sprites Position Counts" visible="1">
    </PIN>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Material Index" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="41" dstpinname="Y Input Value">
-   </LINK>
    <LINK srcnodeid="36" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Texts" dstnodeid="61" dstpinname="String">
@@ -369,7 +357,7 @@
    <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="75" dstpinname="Input">
    </LINK>
    <NODE componentmode="Hidden" filename="%VVVV%\packs\CraftLie\vvvv\nodes\dx11\CraftLie.fx" id="23" nodename="CraftLie (DX11.Effect)" systemname="CraftLie (DX11.Effect)">
-   <BOUNDS height="270" left="1215" top="7050" type="Node" width="7860">
+   <BOUNDS height="270" left="1260" top="7500" type="Node" width="9180">
    </BOUNDS>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
@@ -392,6 +380,14 @@
    <PIN pinname="TransformStartIndex" visible="1">
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="MaterialIndex" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Constant">
+   </PIN>
+   <PIN pinname="Specular Color" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    </NODE>
    <LINK srcnodeid="23" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 1">
@@ -417,7 +413,7 @@
    <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="23" dstpinname="Geometry">
    </LINK>
    <NODE systemname="CraftLieSprites (DX11.Effect)" filename="%VVVV%\packs\CraftLie\vvvv\nodes\dx11\CraftLieSprites.fx" nodename="CraftLieSprites (DX11.Effect)" componentmode="Hidden" id="67">
-   <BOUNDS type="Node" left="5955" top="8460" width="4065" height="270">
+   <BOUNDS type="Node" left="11880" top="8055" width="4065" height="270">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1">
    </PIN>
@@ -487,5 +483,9 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="84" srcpinname="Output Node" dstnodeid="76" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Color" dstnodeid="23" dstpinname="Color">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Material Index" dstnodeid="23" dstpinname="MaterialIndex">
    </LINK>
    </PATCH>

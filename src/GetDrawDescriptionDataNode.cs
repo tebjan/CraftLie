@@ -36,6 +36,8 @@ namespace VVVV.DX11.Nodes
         [Input("Apply", IsBang = true, DefaultValue = 1, Order = 7)]
         protected ISpread<bool> FApply;
 
+        //geometry
+
         [Output("Geometry Out")]
         protected Pin<DX11Resource<IDX11Geometry>> FGeometryOutput;
 
@@ -45,8 +47,14 @@ namespace VVVV.DX11.Nodes
         [Output("Transformation")]
         protected ISpread<SlimDXMatrix> FTransformation;
 
+        [Output("Color")]
+        protected ISpread<RGBAColor> FColor;
+
         [Output("Texture Path")]
         protected ISpread<string> FTexturePath;
+
+        [Output("Material Index")]
+        protected ISpread<int> FMaterialIndex;
 
         [Output("Transform Buffer")]
         protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FTransformOutput;
@@ -59,6 +67,8 @@ namespace VVVV.DX11.Nodes
 
         [Output("Color Counts")]
         protected ISpread<int> FColorCounts;
+
+        //sprites
 
         [Output("Sprites Geometry Out")]
         protected Pin<DX11Resource<IDX11Geometry>> FSpritesGeometryOutput;
@@ -86,6 +96,8 @@ namespace VVVV.DX11.Nodes
 
         [Output("Sprites Texture Path")]
         protected ISpread<string> FSpritesTexturePath;
+
+        //text
 
         [Output("Texts")]
         protected ISpread<string> FTexts;
@@ -171,6 +183,8 @@ namespace VVVV.DX11.Nodes
 
                     this.FInstanceCounts.SliceCount = 0;
                     this.FTexturePath.SliceCount = 0;
+                    this.FColor.SliceCount = 0;
+                    this.FMaterialIndex.SliceCount = 0;
                     this.FTransformCounts.SliceCount = 0;
                     this.FColorCounts.SliceCount = 0;
 
@@ -224,6 +238,8 @@ namespace VVVV.DX11.Nodes
             FGeometryOutput.SliceCount = outCount;
             FTransformation.SliceCount = outCount;
             FTexturePath.SliceCount = outCount;
+            FColor.SliceCount = outCount;
+            FMaterialIndex.SliceCount = outCount;
 
             FInstanceCounts.SliceCount = outCount;
             FTransformCounts.SliceCount = outCount;
@@ -265,6 +281,8 @@ namespace VVVV.DX11.Nodes
 
                 FTransformation[i] = ToSlimDXMatrix(desc.Transformation);
                 FTexturePath[i] = desc.TexturePath;
+                FColor[i] = ToRGBAColor(desc.Color);
+                FMaterialIndex[i] = (int)desc.Shading;
             }
         }
 
@@ -556,7 +574,7 @@ namespace VVVV.DX11.Nodes
             }
         }
 
-        private static IDX11Geometry AssignInstancedDrawer(DrawDescription desc, IDX11Geometry geometry)
+        private static IDX11Geometry AssignInstancedDrawer(DrawGeometryDescription desc, IDX11Geometry geometry)
         {
             var indexedGeometry = geometry as DX11IndexedGeometry;
             if (indexedGeometry != null)

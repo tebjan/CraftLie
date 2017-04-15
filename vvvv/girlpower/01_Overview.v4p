@@ -49,7 +49,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="0" width="11685" height="13830">
    </BOUNDS>
-   <BOUNDS type="Window" left="2535" top="2490" width="8925" height="13830">
+   <BOUNDS type="Window" left="2670" top="3015" width="7335" height="13830">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -63,9 +63,11 @@
    </PIN>
    <PIN pinname="Object Count" visible="1">
    </PIN>
+   <PIN pinname="Fill Mode" slicecount="1" values="Solid">
+   </PIN>
    </NODE>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="12090" top="1395" width="15540" height="14445">
+   <BOUNDS type="Window" left="12675" top="2235" width="15540" height="14445">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -114,24 +116,8 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Overview (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="Girlpower (3d)" componentmode="Hidden" id="307">
-   <BOUNDS type="Node" left="1590" top="1740" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Draw Description Layer" visible="1">
-   </PIN>
-   <PIN pinname="Mouse Device" visible="1">
-   </PIN>
-   <PIN pinname="VVVV Folder" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="307" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="290" srcpinname="Device" dstnodeid="307" dstpinname="Mouse Device">
-   </LINK>
-   <LINK srcnodeid="308" srcpinname="Output" dstnodeid="307" dstpinname="VVVV Folder">
-   </LINK>
    <NODE systemname="drawText" filename="drawText.v4p" nodename="drawText.v4p" componentmode="Hidden" id="311">
-   <BOUNDS type="Node" left="1605" top="4665" width="100" height="100">
+   <BOUNDS type="Node" left="1815" top="4755" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -139,8 +125,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="292" srcpinname="Object Count" dstnodeid="311" dstpinname="Input">
-   <LINKPOINT x="2175" y="3555">
-   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="311" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 5">
    </LINK>
@@ -149,5 +133,21 @@
    <LINK srcnodeid="305" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
    </LINK>
    <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
+   </LINK>
+   <NODE id="307" systemname="Overview (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="Girlpower (3d)" componentmode="Hidden">
+   <PIN pinname="Draw Description Layer" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="1590" top="1740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mouse Device" visible="1">
+   </PIN>
+   <PIN pinname="VVVV Folder" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="290" srcpinname="Device" dstnodeid="307" dstpinname="Mouse Device">
+   </LINK>
+   <LINK srcnodeid="308" srcpinname="Output" dstnodeid="307" dstpinname="VVVV Folder">
+   </LINK>
+   <LINK srcnodeid="307" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
    </PATCH>

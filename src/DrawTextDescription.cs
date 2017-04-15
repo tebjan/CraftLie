@@ -9,7 +9,7 @@ namespace CraftLie
 {
 
     [Type]
-    public class DrawTextDescription : DrawDescriptionBase
+    public class DrawTextDescription : DrawDescription
     {
         public readonly string Text;
         public readonly float Size;

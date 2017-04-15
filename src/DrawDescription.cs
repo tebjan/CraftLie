@@ -11,7 +11,7 @@ using VL.Core;
 
 namespace CraftLie
 {
-    public class DrawDescriptionBase : IDisposable
+    public class DrawDescription : IDisposable
     {
         public GeometryDescriptor GeometryDescriptor;
         public Matrix Transformation;
@@ -64,35 +64,44 @@ namespace CraftLie
     }
 
     [Type]
-    public class DrawDescription : DrawDescriptionBase
+    public enum ShadingType
     {
+        Constant,
+        PhongDirectional
+    }
+
+    [Type]
+    public class DrawGeometryDescription : DrawDescription
+    {
+        public ShadingType Shading;
         public IReadOnlyList<Matrix> InstanceTransformations;
         public IReadOnlyList<Color4> InstanceColors;
         public int InstanceCount;
 
         [Node(Hidden = true, IsDefaultValue = true)]
-        public static readonly DrawDescription Default = new DrawDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", new List<Matrix>(), new List<Color4>());
+        public static readonly DrawGeometryDescription Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", ShadingType.Constant, new List<Matrix>(), new List<Color4>());
 
-        public DrawDescription()
+        public DrawGeometryDescription()
             : this(null)
         {
         }
 
         [Node]
-        public DrawDescription(GeometryDescriptor geometryDescriptor)
+        public DrawGeometryDescription(GeometryDescriptor geometryDescriptor)
         {
             GeometryDescriptor = geometryDescriptor ?? new BoxDescriptor();
         }
 
-        public DrawDescription(GeometryDescriptor geometryDescriptor, 
+        public DrawGeometryDescription(GeometryDescriptor geometryDescriptor, 
             Matrix transformation, 
             Color4 color,
             string texturePath,
+            ShadingType shading,
             IReadOnlyList<Matrix> instanceTransformations,
             IReadOnlyList<Color4> instanceColors)
             : this(geometryDescriptor)
         {
-            Update(transformation, color, texturePath, instanceTransformations, instanceColors);
+            Update(transformation, color, texturePath, shading, instanceTransformations, instanceColors);
         }
 
         [Node]
@@ -110,12 +119,14 @@ namespace CraftLie
             Matrix transformation,
             Color4 color,
             string texturePath,
+            ShadingType shading,
             IReadOnlyList<Matrix> instanceTransformations,
             IReadOnlyList<Color4> instanceColors)
         {
             Transformation = transformation;
             Color = color;
             TexturePath = texturePath;
+            Shading = shading;
 
             if (instanceColors == null)
                 instanceColors = new List<Color4>(1) { Color4.White };

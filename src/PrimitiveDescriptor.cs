@@ -29,6 +29,7 @@ namespace CraftLie
         public static readonly Quad UnitQuad = new Quad() { Size = new SlimDX.Vector2(1) };
         public static readonly Box UnitBox = new Box() { Size = new SlimDX.Vector3(1) };
         public static readonly List<SlimDX.Vector3> UnitLine = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(-0.5f, 0, 0), new SlimDX.Vector3(0.5f, 0, 0) };
+        public static readonly List<SlimDX.Vector3> UnitLineNormals = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(0, 0, -1), new SlimDX.Vector3(0, 0, -1) };
     }
 
     [Type(IsImmutable = true)]
@@ -126,13 +127,15 @@ namespace CraftLie
     [Type(IsImmutable = true)]
     public class LineDescriptor : GeometryDescriptor
     {
-        public readonly List<SlimDX.Vector3> Settings;
+        public readonly List<SlimDX.Vector3> Positions;
+        public readonly List<SlimDX.Vector3> Directions;
 
         [Node]
         public LineDescriptor()
             : base(PrimitiveType.Line)
         {
-            Settings = GeometryDescriptor.UnitLine;
+            Positions = GeometryDescriptor.UnitLine;
+            Directions = GeometryDescriptor.UnitLineNormals;
         }
     }
 

@@ -25,9 +25,6 @@ cbuffer cbPerDraw : register(b0)
 	uint PositionStartIndex;
 	uint SizeStartIndex;
 	uint ColorStartIndex;
-	
-	float4x4 tTex <string uiname="Texture Transform";>;
-	float3 UpVector={0,1,0};
 };
 
 cbuffer cbPerObject : register(b1)
@@ -75,7 +72,7 @@ VS_OUT VS(VS_IN In)
 	float4 PosW = mul(float4(p, 1),tW);
 	
 	Out.PosW = PosW;
-	Out.PosWVP = mul(PosW,tVP);
+	Out.PosWVP = mul(PosW, tVP);
 	Out.TexCd = 0;
 	Out.Size = sbSize[SizeIndex(vi)];
 	Out.Color = sbColor[ColorIndex(vi)];
@@ -92,8 +89,7 @@ void gsSPRITE(point VS_OUT In[1], inout TriangleStream<VS_OUT> SpriteStream)
 	
 	for(int i=0;i<4;i++)
 	{
-		//Out.TexCd=g_texcoords[i];
-		Out.TexCd = (float4((g_texcoords[i].xy*2-1)*float2(1,-1),0,1)).xy*float2(1,-1)*.5+.5;
+		Out.TexCd = g_texcoords[i];
 		Out.PosWVP = mul(float4(In[0].PosW.xyz+mul(float4(g_positions[i]*In[0].Size,0, 1).xyz, (float3x3)tVI),1), tVP);
 		SpriteStream.Append(Out);
 	}
@@ -104,15 +100,13 @@ void gsPOINT(point VS_OUT In[1], inout PointStream<VS_OUT>GSOut)
 {
 	VS_OUT Out;	
 	Out = In[0];
-	Out.TexCd = mul(float4(0.5,0.5,0,1),tTex).xy*float2(1,-1)*.5+.5;
+	Out.TexCd = float2(0.5, 0.5);
 	GSOut.Append(Out);
 }
 
 float4 PS(VS_OUT In):SV_Target{
 	float4 col = tex0.SampleLevel(g_samLinear,In.TexCd.xy,0);
 	col *= In.Color;
-	col.a *= saturate(dot(col.rgb, col.rgb));
-	if(col.a <= 0.015) discard;
 	return col;
 }
 

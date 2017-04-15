@@ -132,7 +132,7 @@
           <Patch Id="TW0JO1dQLWeLlCvuRZ8gNV" Name="AddDrawDescription">
             <Pin Id="Egdi34akoJ4MuzuZuLtFsU" Name="Draw Description" Kind="InputPin" Bounds="603,151">
               <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie" ReferenceKind="App">
-                <Choice Kind="TypeFlag" Name="DrawDescription" />
+                <Choice Kind="TypeFlag" Name="DrawGeometryDescription" />
               </p:TypeAnnotation>
             </Pin>
           </Patch>
@@ -373,29 +373,30 @@
           <Canvas Id="FJtIirBJ67xMijOdBGicDm" Position="-367,59">
             <ControlPoint Id="KJsmszFDCeoPE9G9A5kuXG" Bounds="472,276" />
             <ControlPoint Id="ELM3uuBjLUFPRFm91Wn1wX" Bounds="143,724" />
-            <Node Bounds="242,500,575,22" Id="F3NvT3JAdLzLFP4DfO6jXT">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <Node Bounds="244,499,575,22" Id="F3NvT3JAdLzLFP4DfO6jXT">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="PU8sIpEqYM3OXFGBVm00tm" Name="Input" Kind="StateInputPin" />
               <Pin Id="CJC4dCYjkysOuVh5Uc1g7e" Name="Transformation" Kind="InputPin" />
               <Pin Id="MJCo4X6oj6yPJNRp6ehRsN" Name="Color" Kind="InputPin" />
               <Pin Id="FEbDZlJqsyYNScHQw35tTa" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="N2ORDeIAMZRMQ9lKjdCNsO" Name="Shading" Kind="InputPin" />
               <Pin Id="JBI1Crt9OGUP4UQDuKo1dv" Name="Instance Transformations" Kind="InputPin" />
               <Pin Id="OPQ1R08wrx4OKD46EZhNSp" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="PaS8i1lPUqUMrAQtFW6lZ7" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="N3cPdX8SMc4OqGviSul9NC" Bounds="854,273" />
-            <ControlPoint Id="OgsGqjYsvmSPJtujjJiTwZ" Bounds="698,273" />
+            <ControlPoint Id="N3cPdX8SMc4OqGviSul9NC" Bounds="952,275" />
+            <ControlPoint Id="OgsGqjYsvmSPJtujjJiTwZ" Bounds="796,275" />
             <ControlPoint Id="O12HquscFIiMnZbAP6mHql" Bounds="360,279" />
             <ControlPoint Id="JyFTqA0hcO3LeglohG9ts7" Bounds="583,276" />
-            <Node Bounds="167,272,69,22" Id="Fj6h9OIpKcaMBqFwk3L3se">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <Node Bounds="167,272,104,22" Id="Fj6h9OIpKcaMBqFwk3L3se">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="OaxKSQe48HFLNplcIu706I" Name="Output" Kind="StateOutputPin" />
               <Pin Id="OlCgOoVo1cdOHqbyv7GTo5" Name="Geometry Descriptor" Kind="InputPin" />
@@ -435,6 +436,7 @@
               </p:NodeReference>
               <Pin Id="GJk5xRmGvsbNfFHKtLaDaS" Name="Output" Kind="StateOutputPin" />
             </Node>
+            <ControlPoint Id="VRIfTq5uJQkNgL2CoQmK9J" Bounds="691,276" />
           </Canvas>
           <Patch Id="SlV3CSzx1tnMVieYkY5KPr" Name="Create" ParticipatingElements="Fj6h9OIpKcaMBqFwk3L3se" />
           <Patch Id="CIDLVtrKGLFQDbKmKuFzFF" Name="Update" ParticipatingElements="NNlggVVczPOPfPtFhjIzmm">
@@ -444,6 +446,12 @@
             <Pin Id="UnlCtLR3JICN8oMaOs98UA" Name="Instance Transformations" Kind="InputPin" Bounds="664,272" />
             <Pin Id="RLRcv00FPLDPfWXoMQNcSp" Name="Transformation" Kind="InputPin" Bounds="447,267" />
             <Pin Id="FVO0d93nKBEPIp76NrRPjM" Name="Texture Path" Kind="InputPin" Bounds="677,330" />
+            <Pin Id="RpkYTi9xHvCOlZTL0Nm1WJ" Name="Shading" Kind="InputPin" Bounds="644,361" DefaultValue="&quot;PhongDirectional&quot;">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="ShadingType" />
+                <CategoryReference Kind="Category" Name="CraftLie" />
+              </p:TypeAnnotation>
+            </Pin>
           </Patch>
           <ProcessDefinition Id="SxwiBfCptuzLSWbUEsc8ZU">
             <Fragment Id="BXnwzAneAxsM7kx4LK6PuY" Patch="SlV3CSzx1tnMVieYkY5KPr" Enabled="true" />
@@ -470,6 +478,8 @@
           <Link Id="HyFIomX4ORDOGQieJDYMd8" Ids="GJk5xRmGvsbNfFHKtLaDaS,OlCgOoVo1cdOHqbyv7GTo5" />
           <Link Id="V6q2UTjqW7lNlMWivB0oq7" Ids="PaS8i1lPUqUMrAQtFW6lZ7,BklfBFR5C9VOevEV5klfFr" />
           <Link Id="UGnVzmEwjrYPs6IjW3nbrp" Ids="MsFiLq3LZePNzEHJJtW891,ELM3uuBjLUFPRFm91Wn1wX" />
+          <Link Id="ArtQJ6vidYeQDD2dtY7jwR" Ids="VRIfTq5uJQkNgL2CoQmK9J,N2ORDeIAMZRMQ9lKjdCNsO" />
+          <Link Id="ExlajTLfBAoM6FIjFe7aJf" Ids="RpkYTi9xHvCOlZTL0Nm1WJ,VRIfTq5uJQkNgL2CoQmK9J" IsHidden="true" />
         </Patch>
       </Node>
       <!--
@@ -1447,30 +1457,31 @@
         <Patch Id="VI8tbHLDQU2NQDqRDPvteW" IsGeneric="true">
           <Canvas Id="R8WV5h9y4SqOqq4lXTuFXB" Position="-172,60">
             <ControlPoint Id="H55zdzaUK80LAaE5jrRfFe" Bounds="472,276" />
-            <ControlPoint Id="TP3ZJ6WBqTnM28bVkYf0Et" Bounds="67,750" />
+            <ControlPoint Id="TP3ZJ6WBqTnM28bVkYf0Et" Bounds="68,750" />
             <Node Bounds="167,495,575,22" Id="UnA4S4sJWMMN61HFEbUqbr">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="B32ULKv3kMdPg6gESc0tM8" Name="Input" Kind="StateInputPin" />
               <Pin Id="S1xMWhFNOHXPUWGeMsgMD7" Name="Transformation" Kind="InputPin" />
               <Pin Id="UeA1NMwBGtNMLxlPNLxwYh" Name="Color" Kind="InputPin" />
               <Pin Id="NwYzXEHQy08QLcoWmXQJo7" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="SRY5WqQqxhOMLgHYKsaIvq" Name="Shading" Kind="InputPin" />
               <Pin Id="OoCUsWyJDVGNwTDEliYuS3" Name="Instance Transformations" Kind="InputPin" />
               <Pin Id="H1c2tnbvJKcPFTVhb6vGxL" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="ChQoivUtpRJO8vzZz3jMh2" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="FrB1frBYnvVLU4kUa7Mt0w" Bounds="844,274" />
-            <ControlPoint Id="I1AbJZBKn7BL25PdFqQIV0" Bounds="698,274" />
-            <ControlPoint Id="AJlvEI6Nu5LLEnqOiDrIpY" Bounds="360,279" />
+            <ControlPoint Id="FrB1frBYnvVLU4kUa7Mt0w" Bounds="949,276" />
+            <ControlPoint Id="I1AbJZBKn7BL25PdFqQIV0" Bounds="803,276" />
+            <ControlPoint Id="AJlvEI6Nu5LLEnqOiDrIpY" Bounds="360,276" />
             <ControlPoint Id="IbT5JshhZffMIYSrfKBX4B" Bounds="583,276" />
-            <Node Bounds="-88,63,69,22" Id="JGMdnN6mF2VOxOQ252eUPw">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <Node Bounds="-88,63,104,22" Id="JGMdnN6mF2VOxOQ252eUPw">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="QJ8B2aztL4JNuseCCeqaso" Name="Output" Kind="StateOutputPin" />
               <Pin Id="Bz1IBuy0LpoQPFD6MAQg2a" Name="Geometry Descriptor" Kind="InputPin" />
@@ -1568,8 +1579,8 @@
               </p:NodeReference>
               <Pin Id="MhefZofrOwULC47n160GBY" Name="Condition" Kind="InputPin" />
               <Patch Id="NEiPB0fQs1RLiEB3f3lql6" Name="Then">
-                <Node Bounds="168,382,87,22" Id="Ng1SGKusUNXMk4cGZt4wBo">
-                  <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+                <Node Bounds="168,382,104,22" Id="Ng1SGKusUNXMk4cGZt4wBo">
+                  <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="UpdateGeometry" />
                   </p:NodeReference>
@@ -1600,6 +1611,7 @@
             <Pad Id="PQ8JGhCtgNRMoaVo370ahl" SlotId="DqB1fkBXY04OsrKN6zRLhJ" Bounds="169,559">
               <p:ValueBoxSettings />
             </Pad>
+            <ControlPoint Id="NzwXtN5Zl9ELXi99Uq3BIz" Bounds="701,276" />
           </Canvas>
           <Patch Id="SSyKElkrX0GLpepeiI3l3x" Name="Create" ParticipatingElements="JGMdnN6mF2VOxOQ252eUPw" />
           <Patch Id="KtuSMIUEcTWQXr1lDp0GKL" Name="Update" ParticipatingElements="UAhMlogK4nLPyMIL0Hquat">
@@ -1613,6 +1625,12 @@
             <Pin Id="VfAGLiJoGegPMwAXwBd2sh" Name="Cycles Y" Kind="InputPin" Bounds="690,195" />
             <Pin Id="FDXP4rxn67jM2en7IUFjCA" Name="Resolution X" Kind="InputPin" Bounds="781,203" />
             <Pin Id="T65THoejuraPfXKuz9e52g" Name="Resolution Y" Kind="InputPin" Bounds="785,236" />
+            <Pin Id="LzJmFrwlaAjLQW8D1JNBcn" Name="Shading" Kind="InputPin" Bounds="644,361" DefaultValue="&quot;PhongDirectional&quot;">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="ShadingType" />
+                <CategoryReference Kind="Category" Name="CraftLie" />
+              </p:TypeAnnotation>
+            </Pin>
           </Patch>
           <ProcessDefinition Id="Al022LLe2KgPg3pXnblMjp">
             <Fragment Id="BJmilpFquvNOB3xjx7VGbE" Patch="SSyKElkrX0GLpepeiI3l3x" Enabled="true" />
@@ -1662,6 +1680,8 @@
           <Link Id="HHnk4xbiyxgOqpEmmevWj6" Ids="ChQoivUtpRJO8vzZz3jMh2,PQ8JGhCtgNRMoaVo370ahl" />
           <Link Id="Mj25v5YQbTfPyrqmdJSDRQ" Ids="PQ8JGhCtgNRMoaVo370ahl,V30hDzCm7CUQLu3dt6an0j" />
           <Link Id="CBI8sJgyM4xQElljXoM2d4" Ids="Kb4v313tUJiN8RNVNxTukQ,TP3ZJ6WBqTnM28bVkYf0Et" />
+          <Link Id="HtTWF86vVU6PjMhGzFdVs3" Ids="LzJmFrwlaAjLQW8D1JNBcn,NzwXtN5Zl9ELXi99Uq3BIz" IsHidden="true" />
+          <Link Id="DFmUHKmqed6PVgWRSO1h64" Ids="NzwXtN5Zl9ELXi99Uq3BIz,SRY5WqQqxhOMLgHYKsaIvq" />
         </Patch>
       </Node>
       <!--
@@ -1678,15 +1698,16 @@
             <ControlPoint Id="JI4VyGVH16PNzKn84YT7D7" Bounds="472,276" />
             <ControlPoint Id="AuVfPdw1yKaN7NMAkZ253C" Bounds="141,708" />
             <Node Bounds="240,482,575,22" Id="NYVuLvOmt98PAPQ1YUSFyX">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="SxIqhfYGDfQPDfSCjpWOi3" Name="Input" Kind="StateInputPin" />
               <Pin Id="DH5EiGo7vhoNRMfNkc09en" Name="Transformation" Kind="InputPin" />
               <Pin Id="PvaIantFlrHLu64pqf8ckU" Name="Color" Kind="InputPin" />
               <Pin Id="EfwSu2F7X0cOwVWqo8uzex" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="Lc3nJdkTEOGNxZS4qIEP6E" Name="Shading" Kind="InputPin" />
               <Pin Id="HFm6OT0Mt36PBYSi26nHzy" Name="Instance Transformations" Kind="InputPin" />
               <Pin Id="BWglgxYTQ80L8T7lrQNcNr" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="B7KSwA5nxAxOsyuOqFTrSa" Name="Output" Kind="StateOutputPin" />
@@ -1695,11 +1716,11 @@
             <ControlPoint Id="AQs59eW3bdmO8BVsop1bYq" Bounds="698,273" />
             <ControlPoint Id="RxtQHCDZYUnNR60uxJo4HD" Bounds="354,279" />
             <ControlPoint Id="PkFhFdLwKX2Lg9ysCiWq0q" Bounds="583,276" />
-            <Node Bounds="158,246,69,22" Id="RBMuLl3Nj8JQByuytlzmCk">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <Node Bounds="158,246,104,22" Id="RBMuLl3Nj8JQByuytlzmCk">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="IfsnC000RowNnN9Ei2j7V6" Name="Output" Kind="StateOutputPin" />
               <Pin Id="RWBs573l1V7NL3w7zqq2vm" Name="Geometry Descriptor" Kind="InputPin" />
@@ -1790,15 +1811,16 @@
             <ControlPoint Id="URcdMukeNIZOQYTgnNDTyI" Bounds="472,276" />
             <ControlPoint Id="F3zrKvQM10VP90bvXqBwpC" Bounds="68,750" />
             <Node Bounds="167,495,575,22" Id="Dxwntizz7BNObAyAziUGYb">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="OwHejLbatV7QUQfTD7HMKS" Name="Input" Kind="StateInputPin" />
               <Pin Id="TNl7T92b9ZhLOSvwmuH4aa" Name="Transformation" Kind="InputPin" />
               <Pin Id="TA5jkN0njPsNeCKoP7pFs9" Name="Color" Kind="InputPin" />
               <Pin Id="SAA5jOmJjZYMtvdjFeiYqU" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="JAeu21eDOefPLYVpgpfAY6" Name="Shading" Kind="InputPin" />
               <Pin Id="Djc5IMDFHp1QOP7X1B0pY1" Name="Instance Transformations" Kind="InputPin" />
               <Pin Id="AC4wBiJbwTxPeB78ST4z2K" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="IGN4G5mqjJWMXmivjZTINV" Name="Output" Kind="StateOutputPin" />
@@ -1807,11 +1829,11 @@
             <ControlPoint Id="JTkSgUY0Ew0OR0lfUW70e9" Bounds="698,274" />
             <ControlPoint Id="QoMhkRb2cGIL5PVYAqGBQj" Bounds="360,279" />
             <ControlPoint Id="RYhzj3tpe5YMnlcDmlWYeY" Bounds="583,276" />
-            <Node Bounds="-88,63,69,22" Id="Fz2nfwu2XSbNLgq0JQtsP2">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <Node Bounds="-88,63,104,22" Id="Fz2nfwu2XSbNLgq0JQtsP2">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="QXkvn2RUwjfQTxuGbUpCbJ" Name="Output" Kind="StateOutputPin" />
               <Pin Id="PZfNlDSSc5bLvXvYRHl9nZ" Name="Geometry Descriptor" Kind="InputPin" />
@@ -1909,8 +1931,8 @@
               </p:NodeReference>
               <Pin Id="KDeE2XYvs9iN1aCnPtA6Hz" Name="Condition" Kind="InputPin" />
               <Patch Id="Cnll1VeORvNMOCSHZ8yEV6" Name="Then">
-                <Node Bounds="142,385,87,22" Id="TRRwSed4KukNqqcidemLOf">
-                  <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+                <Node Bounds="142,385,104,22" Id="TRRwSed4KukNqqcidemLOf">
+                  <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="UpdateGeometry" />
                   </p:NodeReference>
@@ -2016,31 +2038,32 @@
         </p:NodeReference>
         <Patch Id="OxauWbPztZNNvGZcejuRkb" IsGeneric="true">
           <Canvas Id="SHU9g2fPu28P5dz6Vi5lvB" Position="327,60">
-            <ControlPoint Id="IbVuwo1atEeQCFkvX0MBPV" Bounds="472,276" />
+            <ControlPoint Id="IbVuwo1atEeQCFkvX0MBPV" Bounds="474,303" />
             <ControlPoint Id="SiBa91O3HOFP6cPNgL91Rq" Bounds="68,750" />
             <Node Bounds="167,495,575,22" Id="G1wwGsXNszzPGR4m8lFv1X">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="VETkxVWzADeOil1u97shhT" Name="Input" Kind="StateInputPin" />
               <Pin Id="BmhLS1ypP9JNc67a6m9MTK" Name="Transformation" Kind="InputPin" />
               <Pin Id="A8jdyTtbCfkNR2DZ5kcLPt" Name="Color" Kind="InputPin" />
               <Pin Id="I3LeVq1bI8uOGILKsaAFP7" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="Tihn4EKRBAqNyScLC0llyx" Name="Shading" Kind="InputPin" />
               <Pin Id="KtzeRl8ifWjMbw3O3Zq6wA" Name="Instance Transformations" Kind="InputPin" />
               <Pin Id="IYfidTgpBj0NlykKTBOc1V" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="REmyVjxoJvZPIcLtFFhWXJ" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="KV29fFdP4esQIxATQYHPgc" Bounds="844,274" />
-            <ControlPoint Id="ThSgnZIkPMpOoTd4DmhLLs" Bounds="698,274" />
-            <ControlPoint Id="U32kgkcuYIjOMTCuARxmCg" Bounds="360,279" />
-            <ControlPoint Id="GpGxKAZdugpQOUneoMoYev" Bounds="583,276" />
-            <Node Bounds="-88,63,69,22" Id="Q9gy4Eg2PJNNu9js9XNX3L">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <ControlPoint Id="KV29fFdP4esQIxATQYHPgc" Bounds="942,303" />
+            <ControlPoint Id="ThSgnZIkPMpOoTd4DmhLLs" Bounds="796,303" />
+            <ControlPoint Id="U32kgkcuYIjOMTCuARxmCg" Bounds="362,303" />
+            <ControlPoint Id="GpGxKAZdugpQOUneoMoYev" Bounds="585,303" />
+            <Node Bounds="-88,63,104,22" Id="Q9gy4Eg2PJNNu9js9XNX3L">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="ODPhhxtDA1aOhs8wnxTvR6" Name="Output" Kind="StateOutputPin" />
               <Pin Id="GJ2HBVaFQBrMIgYWqFmRtm" Name="Geometry Descriptor" Kind="InputPin" />
@@ -2129,8 +2152,8 @@
               </p:NodeReference>
               <Pin Id="AEsrsmY541YPfGQJHCqFTN" Name="Condition" Kind="InputPin" />
               <Patch Id="JCMhu6YDBQ5PCozpzU7aoW" Name="Then">
-                <Node Bounds="142,385,87,22" Id="Si12nchejWNL8KcvYmhJaS">
-                  <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+                <Node Bounds="142,385,104,22" Id="Si12nchejWNL8KcvYmhJaS">
+                  <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="UpdateGeometry" />
                   </p:NodeReference>
@@ -2170,6 +2193,7 @@
               <Pin Id="ANNe4KdjiRuP6zkRUyTfPl" Name="Result" Kind="OutputPin" />
               <Pin Id="UvjR3PZh7GFOtI8RnygnU4" Name="Unchanged" Kind="OutputPin" />
             </Node>
+            <ControlPoint Id="UlCijv4SMmZMCIrzLkEFFU" Bounds="694,303" />
           </Canvas>
           <Patch Id="O5vJcTC2wpML5t7Xbvosae" Name="Create" ParticipatingElements="Q9gy4Eg2PJNNu9js9XNX3L" />
           <Patch Id="RoahK4oINcQLfvFuNxiJnO" Name="Update" ParticipatingElements="K93EpL8y67INWXR5yypT5c">
@@ -2183,6 +2207,12 @@
             <Pin Id="AzqwZEHS102MHx4KR9pTN4" Name="Inner Radius" Kind="InputPin" Bounds="748,0" />
             <Pin Id="SAJ3uRfJhqKMxmdGxZqvHU" Name="Resolution" Kind="InputPin" Bounds="748,0" />
             <Pin Id="MrmOCRBZTqhLvnJQxMbel9" Name="Cycles" Kind="InputPin" Bounds="139,36" />
+            <Pin Id="BorzBDQfUS6MMjCuBHAOFP" Name="Shading" Kind="InputPin" Bounds="644,361" DefaultValue="&quot;PhongDirectional&quot;">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="ShadingType" />
+                <CategoryReference Kind="Category" Name="CraftLie" />
+              </p:TypeAnnotation>
+            </Pin>
           </Patch>
           <ProcessDefinition Id="LWYeVgCiqeMLcot2T3h8Yv">
             <Fragment Id="HrFzQE5b4TTL7s3YLtfAYB" Patch="O5vJcTC2wpML5t7Xbvosae" Enabled="true" />
@@ -2232,6 +2262,8 @@
           <Link Id="Sz7raRwArLXOEzWoy7z2wz" Ids="UXTiry1sBkYMA09ZrWJFqp,RZrnKtoNs6MMVtwCV0zkdA" />
           <Link Id="UpQa4U8Dh4NMUV47eWN6ej" Ids="IdipeUZRZaVNhcm6XWx6pM,KJWWjKbFIZMLDJV84IbjFh" />
           <Link Id="PD3ZeYqmZvZPoc4jyP8po8" Ids="ANNe4KdjiRuP6zkRUyTfPl,CX6u6juuiAoMW8gpnvOHBe" />
+          <Link Id="AOjPlCu91UfOjmM0ZYUGMI" Ids="BorzBDQfUS6MMjCuBHAOFP,UlCijv4SMmZMCIrzLkEFFU" IsHidden="true" />
+          <Link Id="PLd8sL9VBOWMvBJE65iZCe" Ids="UlCijv4SMmZMCIrzLkEFFU,Tihn4EKRBAqNyScLC0llyx" />
         </Patch>
       </Node>
       <!--
@@ -2248,15 +2280,16 @@
             <ControlPoint Id="BpPEnI1zKLBNRVc00SilJ0" Bounds="472,276" />
             <ControlPoint Id="OPskG8DJUQvOHRYlOhMBBd" Bounds="68,750" />
             <Node Bounds="165,496,575,22" Id="EOpffdQWvz8PkbzfHJy5ir">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="IENqtL1xoELQBSr9Z4jyw8" Name="Input" Kind="StateInputPin" />
               <Pin Id="TJuUUHL38BANLkOgzFFKHG" Name="Transformation" Kind="InputPin" />
               <Pin Id="MDFu1tsrJEiOGX5T3ANGK7" Name="Color" Kind="InputPin" />
               <Pin Id="MPdFnS0IT5nLbyfT8IsDp0" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="JjTxb29FWPtNcDr3pNttzu" Name="Shading" Kind="InputPin" />
               <Pin Id="ULizSKstVkcPiFM55brLMB" Name="Instance Transformations" Kind="InputPin" />
               <Pin Id="S4dUmIoFPA4NXaBWk8ioNZ" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="CfuQhZAW3MaMxyhvC8gGoS" Name="Output" Kind="StateOutputPin" />
@@ -2265,11 +2298,11 @@
             <ControlPoint Id="B0wtavQOD4CLIreXea7JLW" Bounds="698,274" />
             <ControlPoint Id="S3ZZjKBXYv0Nh9w7mAO3vL" Bounds="360,279" />
             <ControlPoint Id="MKk5aX6IBgIMboltYlqO4E" Bounds="583,276" />
-            <Node Bounds="-23,111,69,22" Id="CJXiyDERy8nMU04j0e9AUs">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <Node Bounds="-23,111,104,22" Id="CJXiyDERy8nMU04j0e9AUs">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="A6eu61vWtKEO0FncxrMzAZ" Name="Output" Kind="StateOutputPin" />
               <Pin Id="PtmMMZKXsTxQPTItflfZhJ" Name="Geometry Descriptor" Kind="InputPin" />
@@ -2356,8 +2389,8 @@
               </p:NodeReference>
               <Pin Id="ExPpq98soMFPDnqreSML0P" Name="Condition" Kind="InputPin" />
               <Patch Id="N2g8lNOb106LtsD3lG9of4" Name="Then">
-                <Node Bounds="142,385,87,22" Id="U6o8OXaRYp6MyVQZ5h4aR4">
-                  <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+                <Node Bounds="142,385,104,22" Id="U6o8OXaRYp6MyVQZ5h4aR4">
+                  <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="UpdateGeometry" />
                   </p:NodeReference>
@@ -2459,26 +2492,27 @@
             <ControlPoint Id="OOwVXD4Da4PMJkqIF8W3cY" Bounds="472,276" />
             <ControlPoint Id="GcKVAXFySn0PkwvKbfzG05" Bounds="144,724" />
             <Node Bounds="242,500,575,22" Id="HODngpxZk17NQ8WLM2swjH">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="NpTci3y5LQ8OrMikHD2U3x" Name="Input" Kind="StateInputPin" />
               <Pin Id="Fj6jucuJrGSPZYOv5uHa1i" Name="Transformation" Kind="InputPin" />
               <Pin Id="UnJ0ZYINEL6NJ8mE98p6ja" Name="Color" Kind="InputPin" />
               <Pin Id="IRWfB3X8tVRLcv3flnsQvn" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="N7OqZZBW4goQVPpqR7TF9U" Name="Shading" Kind="InputPin" />
               <Pin Id="Jq3mlWHWeCSMjNREOTr7sG" Name="Instance Transformations" Kind="InputPin" />
               <Pin Id="NUipamIWkn5MzGrYkuh5om" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="PtUsbMnDES8MRaJW3Cc5Ws" Name="Output" Kind="StateOutputPin" />
             </Node>
             <ControlPoint Id="DLiVnBlkbOtOuhbTS3x9ml" Bounds="820,271" />
             <ControlPoint Id="J4tgVZdmoUULBXuAS42EkO" Bounds="583,276" />
-            <Node Bounds="167,272,69,22" Id="Tn0XooDfNu2PgPonmH6GV2">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <Node Bounds="167,272,104,22" Id="Tn0XooDfNu2PgPonmH6GV2">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="P7Zfs23jSH0Mi2R3wq61Yz" Name="Output" Kind="StateOutputPin" />
               <Pin Id="MKIM7mJZo9dQcHPNTmQvJT" Name="Geometry Descriptor" Kind="InputPin" />
@@ -2486,7 +2520,7 @@
             <Pad Id="IlmVmOFfzovPjC0z5a4KM3" SlotId="V6FPjhOwk2hMQzYsUkYILl" Bounds="246,393">
               <p:ValueBoxSettings />
             </Pad>
-            <Node Name="Create" Bounds="139,558,145,106" Id="SPA0oXaCC4BMDXWgMo454Q">
+            <Node Name="Create" Bounds="140,558,145,106" Id="SPA0oXaCC4BMDXWgMo454Q">
               <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="OperationCallFlag" Name="Create" />
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -2498,7 +2532,7 @@
                 <Pin Id="EQx05dpbO8qPlBvNcWkVE3" Name="Buffer" Kind="OutputPin" Bounds="-210,0" />
                 <ControlPoint Id="CXYICOal8hbPaXBB3URSBi" Bounds="154,565" />
                 <ControlPoint Id="V0EuHagryibMgEEod8PYjN" Bounds="153,656" />
-                <Node Bounds="151,602,121,22" Id="FokxPANZzA7LeZz8GbuEOz">
+                <Node Bounds="152,600,121,22" Id="FokxPANZzA7LeZz8GbuEOz">
                   <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionBuffer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="Category" Name="DrawDescriptionBuffer" NeedsToBeDirectParent="true" />
@@ -2730,7 +2764,7 @@
               </Patch>
             </Node>
             <ControlPoint Id="KhhC9vazGwhO3EQavApCLx" Bounds="439,273" />
-            <Node Bounds="270,368,85,13" Id="R6LAUnPoPuZNCx8JMMM0af">
+            <Node Bounds="270,368,85,22" Id="R6LAUnPoPuZNCx8JMMM0af">
               <p:NodeReference LastCategoryFullName="CraftLie.DrawTextDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
@@ -2892,31 +2926,32 @@
         </p:NodeReference>
         <Patch Id="S48QuSCGvmnM3NKY9qZfjy" IsGeneric="true">
           <Canvas Id="DvQCtDHfsdzOyGCRoTbQKr" Position="76,59">
-            <ControlPoint Id="LqF8MjHfhfxN9EmE9WSvu5" Bounds="556,287" />
+            <ControlPoint Id="LqF8MjHfhfxN9EmE9WSvu5" Bounds="556,285" />
             <ControlPoint Id="QPRV5qLMJifNtwmLScduJx" Bounds="68,750" />
             <Node Bounds="305,483,575,22" Id="Dp8E3fsFJ4fNAIkRm1X5ZJ">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Update" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="LF5H3uQBCofLo1tgPrfAuY" Name="Input" Kind="StateInputPin" />
               <Pin Id="Bef6g7UZDdYLl7WGdPGWdc" Name="Transformation" Kind="InputPin" />
               <Pin Id="EATA8GzgYGAMLQtM8DNExX" Name="Color" Kind="InputPin" />
               <Pin Id="UyE7JlgESYtMWEp6H8MHFo" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="HkCJBOx8jnWMWtg7nQrJJz" Name="Shading" Kind="InputPin" />
               <Pin Id="DO9b3OqRutVORzolEOtOMy" Name="Instance Transformations" Kind="InputPin" />
               <Pin Id="FYZx5ri588QM7ruQxHXemS" Name="Instance Colors" Kind="InputPin" />
               <Pin Id="GKpkz340SydLsk7RrrgcAK" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="PBv7iEUNvNMM77owZK1Zt9" Bounds="928,285" />
-            <ControlPoint Id="CfH72cXBt8oP1vqNmZpmbD" Bounds="782,285" />
-            <ControlPoint Id="IVQxNChQ1BnNMWiANS3EYs" Bounds="444,290" />
-            <ControlPoint Id="HTCwFIu6ODDNoXg9nI8DlV" Bounds="667,287" />
-            <Node Bounds="-88,63,69,22" Id="OHywiKkHraDQP0bwBLWPqj">
-              <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+            <ControlPoint Id="PBv7iEUNvNMM77owZK1Zt9" Bounds="984,285" />
+            <ControlPoint Id="CfH72cXBt8oP1vqNmZpmbD" Bounds="838,285" />
+            <ControlPoint Id="IVQxNChQ1BnNMWiANS3EYs" Bounds="444,285" />
+            <ControlPoint Id="HTCwFIu6ODDNoXg9nI8DlV" Bounds="667,285" />
+            <Node Bounds="-88,63,104,22" Id="OHywiKkHraDQP0bwBLWPqj">
+              <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Create" />
-                <CategoryReference Kind="2751463424" Name="DrawDescription" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
               </p:NodeReference>
               <Pin Id="O4w7HMJZPOeQPwEj5i4lPy" Name="Output" Kind="StateOutputPin" />
               <Pin Id="QbK001ZxRO7PRZ5Ob0AQPc" Name="Geometry Descriptor" Kind="InputPin" />
@@ -3009,8 +3044,8 @@
               </p:NodeReference>
               <Pin Id="FD0aWrfhHVGNiOzHFmMtZT" Name="Condition" Kind="InputPin" />
               <Patch Id="KmZXUpdn8edMxM8Zo9PKMc" Name="Then">
-                <Node Bounds="56,383,87,22" Id="EDmWc1n7mwTQB3X2PiXZxa">
-                  <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+                <Node Bounds="56,383,104,22" Id="EDmWc1n7mwTQB3X2PiXZxa">
+                  <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="UpdateGeometry" />
                   </p:NodeReference>
@@ -3072,6 +3107,7 @@
               <Pin Id="Bsm7TJLLPXAMIbvXIl8X5l" Name="Result" Kind="OutputPin" />
               <Pin Id="EWAvhOjI8eoQI1ToZqPSBn" Name="Unchanged" Kind="OutputPin" />
             </Node>
+            <ControlPoint Id="L2CP4lIGIEDPlKXwx8vCTI" Bounds="760,285" />
           </Canvas>
           <Patch Id="Ng7pc8zQM3YMsr8Ol7UZHI" Name="Create" ParticipatingElements="OHywiKkHraDQP0bwBLWPqj" />
           <Patch Id="ORmIn9IpqueO0xpgoEFcq1" Name="Update" ParticipatingElements="EVjOfnxsHfSMqhKryqFGBp">
@@ -3087,6 +3123,12 @@
             <Pin Id="Vsj754G2t2WMdjdcAuu8YX" Name="Resolution Y" Kind="InputPin" Bounds="397,26" />
             <Pin Id="RUoZ7Og9mpjNGO2todQWsY" Name="Center Y" Kind="InputPin" Bounds="482,26" />
             <Pin Id="HswEPkdJ6S0McuZc7vU5Ah" Name="Caps" Kind="InputPin" Bounds="556,20" />
+            <Pin Id="Krrdun02Z6uM1dQi0bxwur" Name="Shading" Kind="InputPin" Bounds="644,361" DefaultValue="&quot;PhongDirectional&quot;">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="ShadingType" />
+                <CategoryReference Kind="Category" Name="CraftLie" />
+              </p:TypeAnnotation>
+            </Pin>
           </Patch>
           <ProcessDefinition Id="SIXJrihj9BiLL1GvHu9lYP">
             <Fragment Id="Dryv24QXketNVjTKZZCBT9" Patch="Ng7pc8zQM3YMsr8Ol7UZHI" Enabled="true" />
@@ -3144,6 +3186,8 @@
           <Link Id="G85Vx3Rd6eUQQ5LgvNbopf" Ids="QYRoLxVpAXMNTYVRqsTUuq,FIAOUQt58NwN4E3x1h4o8H" />
           <Link Id="O2z2Tji5JzTMyZyzQ3D3Hf" Ids="AozqwE5s7XaLJbkPS89mEL,VElDnnS754rPDMlSXLoi8M" />
           <Link Id="POX2iprEexGQJGMnbUr7pD" Ids="Bsm7TJLLPXAMIbvXIl8X5l,STKfODmldYpMNcFYfJDiQ3" />
+          <Link Id="SLiQr0njAC4QNDfrpn1PjT" Ids="Krrdun02Z6uM1dQi0bxwur,L2CP4lIGIEDPlKXwx8vCTI" IsHidden="true" />
+          <Link Id="NZHxYaXalssNZ3GDg0elWh" Ids="L2CP4lIGIEDPlKXwx8vCTI,HkCJBOx8jnWMWtg7nQrJJz" />
         </Patch>
       </Node>
       <!--
@@ -3171,7 +3215,7 @@
               <Pin Id="ODFRHhHLoagOSrmqcOwG1y" Name="Buffer" Kind="OutputPin" Bounds="-626,0" />
               <ControlPoint Id="Hsj2qTDtWpcPDd94v25pM6" Bounds="88,1005" />
               <ControlPoint Id="H4UUN9OYNWAOoRKcunCyjo" Bounds="90,1283" />
-              <Node Name="ForEach2" Bounds="279,1173,93,90" Id="JC3tOlst1bqPMWg2aDtLTN">
+              <Node Name="ForEach2" Bounds="279,1173,128,90" Id="JC3tOlst1bqPMWg2aDtLTN">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="2161727855497576448" Name="ForEach" />
@@ -3182,11 +3226,11 @@
                   <Patch Id="SuZ0hFwxEuDLoH4xChQ6VU" Name="Create" />
                   <Patch Id="BharBPrYHecODBxHe92GHi" Name="Update" />
                   <Patch Id="ESWS2eQXEdqOj7OoyBb5g9" Name="Destroy" />
-                  <Node Bounds="291,1212,69,22" Id="DuvHa93tlJWLxmSg4bMPLE">
-                    <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
+                  <Node Bounds="291,1212,104,22" Id="DuvHa93tlJWLxmSg4bMPLE">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="2751463424" Name="DrawDescription" />
                       <Choice Kind="OperationCallFlag" Name="Transform" />
+                      <CategoryReference Kind="2751463424" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
                     </p:NodeReference>
                     <Pin Id="KZ0XiBEU1QXO7YiWTDj6II" Name="Input" Kind="StateInputPin" />
                     <Pin Id="AoBzPphsWEvOqIPwnquZla" Name="Transformation" Kind="InputPin" />

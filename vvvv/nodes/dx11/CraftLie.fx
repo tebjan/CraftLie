@@ -1,6 +1,6 @@
 //@author: vux, tonfilm
-//@help: standard constant shader with instancing
-//@tags: color
+//@help: standard constant or phong shader with instancing
+//@tags: color, phong
 //@credits: 
 
 Texture2D texture2d; 
@@ -20,33 +20,42 @@ uint ColorCount = 1;
 
 cbuffer cbPerDraw : register(b0)
 {
-	float4x4 tVP : VIEWPROJECTION;	
-	uint TransformStartIndex;	
-	uint ColorStartIndex;
+	float4x4 tVP : LAYERVIEWPROJECTION;	
+	float4x4 tV : LAYERVIEW;
 };
 
 cbuffer cbPerObject : register(b1)
 {
-    float4x4 tW : WORLD;
-    uint di : DRAWINDEX;
+    float4x4 tW : WORLDLAYER;
+	float4 Color  <bool color=true;>  = {1, 1, 1, 1};
+	uint TransformStartIndex;	
+	uint ColorStartIndex;
 }
+
+interface IShading
+{
+	float3 Shade(float3 DiffuseColor, float3 NormV, float3 ViewDirV, float3 LightDirV);
+};
+
+#include "PhongDirectional.fxh"
 
 struct VS_IN
 {
 	uint ii : SV_InstanceID;
 	float4 PosO : POSITION;
+	float3 NormO : NORMAL;
 	float2 TexCd : TEXCOORD0;
-
 };
 
 struct vs2ps
 {
     float4 PosWVP: SV_POSITION;	
 	float4 Color: TEXCOORD0;
-    float2 TexCd: TEXCOORD1;	
+    float2 TexCd: TEXCOORD1;
+    float3 LightDirV: TEXCOORD2;
+    float3 NormV: TEXCOORD3;
+    float3 ViewDirV: TEXCOORD4;
 };
-
-
 
 int TransformIndex(uint ii)
 {
@@ -58,44 +67,106 @@ int ColorIndex(uint ii)
 	return (ii % ColorCount) + ColorStartIndex;
 }
 
-vs2ps VS(VS_IN input)
+int MaterialIndex;
+
+vs2ps VS(VS_IN In)
 {
     //inititalize all fields of output struct with 0
     vs2ps Out = (vs2ps)0;
 	
-	uint ii = input.ii;
-	ii = max(ii, 1);
+	//instance id
+	uint ii = max(In.ii, 1);
 	
 	float4x4 w = sbWorld[TransformIndex(ii)];
-	w = mul(w,tW);
-    Out.PosWVP  = mul(input.PosO,mul(w,tVP));
-	Out.Color = sbColor[ColorIndex(ii)];
-    Out.TexCd = input.TexCd;
+	w = mul(w, tW);
+	
+	if(MaterialIndex > 0)
+	{
+		//normal in view space
+		float4x4 WorldView = mul(w, tV);
+		
+		//inverse light direction in view space
+	    Out.LightDirV = normalize(-mul(float4(lDir, 0.0f), tV).xyz);
+		
+		
+	    Out.NormV = normalize(mul(In.NormO, (float3x3)WorldView));
+		
+		//view direction
+		Out.ViewDirV = normalize(mul(In.PosO.xyz, (float3x3)WorldView));		
+	}
+	
+	//position (projected)
+    Out.PosWVP  = mul(In.PosO, mul(w, tVP));
+	
+	Out.Color = Color * sbColor[ColorIndex(ii)];
+    Out.TexCd = In.TexCd;
     return Out;
 }
 
+class ConstantColor : IShading
+{
+	float3 Shade(float3 DiffuseColor, float3 NormV, float3 ViewDirV, float3 LightDirV)
+	{
+		return DiffuseColor;
+	}
+};
 
-float4 PS_Tex(vs2ps In): SV_Target
+ConstantColor cConstantColor;
+PhongDir cPhongDir;
+
+float3 Shading(vs2ps In)
+{
+	float3 col;
+	switch (MaterialIndex)
+	{
+		case 0:
+			col = cConstantColor.Shade(In.Color.rgb, In.NormV, In.ViewDirV, In.LightDirV);
+		break;
+		case 1:
+			col = cPhongDir.Shade(In.Color.rgb, In.NormV, In.ViewDirV, In.LightDirV);
+		break;
+		default:
+			col = cConstantColor.Shade(In.Color.rgb, In.NormV, In.ViewDirV, In.LightDirV);
+		break;
+		
+	};
+	
+	return col;
+}
+
+float4 PS(vs2ps In): SV_Target
 {
     float4 col = texture2d.Sample(g_samLinear, In.TexCd) * In.Color;
-	col.a *= saturate(dot(col.rgb, col.rgb));
-	if(col.a <= 0.015) discard;
+	
+	col.rgb *= Shading(In);
+	
+    return col;
+}
+
+float4 PS_NoTex(vs2ps In): SV_Target
+{
+    float4 col = In.Color;
+	
+	col.rgb *= Shading(In);
+	
     return col;
 }
 
 
-
-
-
-technique10 Constant
+technique10 Constant <string noTexCdFallback="ConstantNoTexture"; >
 {
 	pass P0
 	{
 		SetVertexShader( CompileShader( vs_4_0, VS() ) );
-		SetPixelShader( CompileShader( ps_4_0, PS_Tex() ) );
+		SetPixelShader( CompileShader( ps_4_0, PS() ) );
 	}
 }
 
-
-
-
+technique10 ConstantNoTexture
+{
+	pass P0
+	{
+		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+		SetPixelShader( CompileShader( ps_4_0, PS_NoTex() ) );
+	}
+}

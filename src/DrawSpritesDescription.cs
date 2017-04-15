@@ -13,7 +13,7 @@ namespace CraftLie
 {
 
     [Type]
-    public class DrawSpritesDescription : DrawDescriptionBase
+    public class DrawSpritesDescription : DrawDescription
     {
         public IReadOnlyList<Vector3> Positions;
         public IReadOnlyList<Vector2> Sizes;
