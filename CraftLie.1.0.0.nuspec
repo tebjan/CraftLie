@@ -13,10 +13,16 @@
         <tags>VL DirectX-11 VVVV Graphics</tags>
     </metadata>
     <files>
-        <file src="vvvv\girlpower\vl\VVVV.VisualSpray.vl" target="vvvv\girlpower\VVVV.VisualSpray.vl" />
-        <file src="vvvv\girlpower\vl\VVVV.VisualSprayNoInstanceing.vl" target="vvvv\girlpower\VVVV.VisualSprayNoInstanceing.vl" />
+        <file src="vvvv\girlpower\vl\VVVV.CraftLie.Girlpower.vl" target="vvvv\girlpower\vl\VVVV.CraftLie.Girlpower.vl" />
+        <file src="vvvv\girlpower\vl\VVVV.TrailingParticles.vl" target="vvvv\girlpower\vl\VVVV.TrailingParticles.vl" />
+        <file src="vvvv\girlpower\01_Overview.v4p" target="vvvv\girlpower\01_Overview.v4p" />
+        <file src="vvvv\girlpower\02_Instancing.v4p" target="vvvv\girlpower\02_Instancing.v4p" />
+        <file src="vvvv\girlpower\03_TrailingParticles.v4p" target="vvvv\girlpower\03_TrailingParticles.v4p" />
+        <file src="vvvv\girlpower\04_CPUCoreRace.v4p" target="vvvv\girlpower\04_CPUCoreRace.v4p" />
+        <file src="vvvv\girlpower\DisplayObjectCount.v4p" target="vvvv\girlpower\DisplayObjectCount.v4p" />
         <file src="vvvv\nodes\dx11\CraftLie.fx" target="vvvv\nodes\dx11\CraftLie.fx" />
         <file src="vvvv\nodes\dx11\CraftLieSprites.fx" target="vvvv\nodes\dx11\CraftLieSprites.fx" />
+        <file src="vvvv\nodes\dx11\PhongDirectional.fxh" target="vvvv\nodes\dx11\PhongDirectional.fxh" />
         <file src="vvvv\nodes\modules\Renderer (CraftLie).v4p" target="vvvv\nodes\modules\Renderer (CraftLie).v4p" />
         <file src="vvvv\nodes\modules\StartIndex.v4p" target="vvvv\nodes\modules\StartIndex.v4p" />
         <file src="vvvv\nodes\modules\TextureExists.v4p" target="vvvv\nodes\modules\TextureExists.v4p" />

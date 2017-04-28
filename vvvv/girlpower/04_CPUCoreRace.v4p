@@ -1,13 +1,13 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.6.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
    <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\04_CPUCoreRace.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\04_CPUCoreRace.v4p" systemname="04_CPUCoreRace" scrollx="0" scrolly="0" locked="0">
-   <BOUNDS height="11835" left="0" top="0" type="Window" width="10515">
+   <BOUNDS height="9720" left="0" top="0" type="Window" width="7515">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="Group (DX11.Layer)" id="283" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS type="Node" left="915" top="5340" width="0" height="0">
+   <BOUNDS type="Node" left="825" top="6255" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="915" top="5340" width="2400" height="1800">
+   <BOUNDS type="Box" left="825" top="6255" width="2400" height="1800">
    </BOUNDS>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
@@ -29,7 +29,7 @@
    </PIN>
    </NODE>
    <NODE systemname="PerfMeter (DX11.Debug)" filename="%VVVV%\packs\dx11\nodes\modules\PerfMeter (DX11.Debug).v4p" nodename="PerfMeter (DX11.Debug)" componentmode="Hidden" id="284">
-   <BOUNDS type="Node" left="1215" top="3960" width="100" height="100">
+   <BOUNDS type="Node" left="1125" top="4875" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -39,9 +39,9 @@
    <PACK Name="dx11" Version="33.0">
    </PACK>
    <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="Hidden" id="292">
-   <BOUNDS type="Node" left="1087" top="3318" width="0" height="0">
+   <BOUNDS type="Node" left="997" top="4233" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="135" top="900" width="11685" height="13830">
+   <BOUNDS type="Box" left="45" top="1815" width="11685" height="13830">
    </BOUNDS>
    <BOUNDS type="Window" left="2670" top="3015" width="7335" height="13830">
    </BOUNDS>
@@ -61,7 +61,7 @@
    </PIN>
    </NODE>
    <NODE systemname="DisplayObjectCount" filename="DisplayObjectCount.v4p" nodename="DisplayObjectCount.v4p" componentmode="Hidden" id="311">
-   <BOUNDS type="Node" left="1920" top="4635" width="100" height="100">
+   <BOUNDS type="Node" left="1830" top="5550" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -75,13 +75,13 @@
    <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
    </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="17790" top="525" width="9870" height="10245">
+   <BOUNDS type="Window" left="18540" top="0" width="9870" height="10245">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS type="Node" height="270" left="759" top="6519" width="1950">
+   <BOUNDS type="Node" height="270" left="669" top="7434" width="1950">
    </BOUNDS>
-   <BOUNDS type="Box" height="12825" left="759" top="6519" width="13740">
+   <BOUNDS type="Box" height="12825" left="669" top="7434" width="13740">
    </BOUNDS>
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
@@ -113,7 +113,7 @@
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <PIN pinname="Background Color" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   <PIN pinname="Background Color" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    </NODE>
    <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers">
@@ -121,9 +121,9 @@
    <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layer">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="313" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="4365" top="2595" width="1215" height="270">
+   <BOUNDS type="Node" left="2970" top="3555" width="1215" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="4365" top="2595" width="1215" height="270">
+   <BOUNDS type="Box" left="2970" top="3555" width="1215" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;- look inside|">
    </PIN>
@@ -135,9 +135,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="314" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="525" top="315" width="1365" height="270">
+   <BOUNDS type="Node" left="420" top="270" width="1365" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="525" top="315" width="3150" height="510">
+   <BOUNDS type="Box" left="420" top="270" width="3150" height="510">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|CraftLie CPU Race|">
    </PIN>
@@ -151,9 +151,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="315" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4335" top="1470" width="480" height="480">
+   <BOUNDS type="Box" left="1635" top="1890" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="4335" top="1470" width="0" height="0">
+   <BOUNDS type="Node" left="1635" top="1890" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -167,31 +167,13 @@
    </PIN>
    <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Rebuild">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Race!">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="316" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="1710" top="2160" width="945" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1710" top="2160" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="1" values="|..\..\..\..\..\..\vvvv_50beta35.5_x64\lib\assets\images\halo dot.bmp|">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="String Type" slicecount="1" values="Filename">
-   </PIN>
-   <PIN pinname="Output String" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="317">
-   <BOUNDS type="Node" left="4335" top="2130" width="100" height="100">
+   <BOUNDS type="Node" left="1635" top="2550" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Simulate" visible="1">
    </PIN>
@@ -201,15 +183,15 @@
    <LINK srcnodeid="315" srcpinname="Y Output Value" dstnodeid="317" dstpinname="Simulate">
    </LINK>
    <NODE systemname="MainLoop (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
-   <BOUNDS type="Node" left="3975" top="4620" width="100" height="100">
+   <BOUNDS type="Node" left="3885" top="5535" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Maximum Foreground FPS" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="318" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3990" top="4215" width="795" height="240">
+   <BOUNDS type="Box" left="3900" top="5130" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="3990" top="4215" width="0" height="0">
+   <BOUNDS type="Node" left="3900" top="5130" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="60">
    </PIN>
@@ -223,7 +205,7 @@
    <LINK srcnodeid="318" srcpinname="Y Output Value" dstnodeid="-6" dstpinname="Maximum Foreground FPS">
    </LINK>
    <NODE systemname="Camera (Transform Orbit)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.49.229-g30fb9f349f\vvvv\nodes\modules\Camera (Transform Orbit).v4p" nodename="Camera (Transform Orbit)" componentmode="Hidden" id="305">
-   <BOUNDS type="Node" left="1995" top="6075" width="100" height="100">
+   <BOUNDS type="Node" left="1905" top="6990" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
@@ -237,11 +219,11 @@
    <LINK srcnodeid="305" srcpinname="Projection" dstnodeid="195" dstpinname="Projection">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="320" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="390" top="840" width="4755" height="270">
+   <BOUNDS type="Node" left="375" top="780" width="4755" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="390" top="840" width="3120" height="525">
+   <BOUNDS type="Box" left="375" top="780" width="5190" height="510">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|Start a thread for each CPU core and see which one wins :)|">
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Start a thread for each CPU core and see which one wins. Open the windows task manager to see whether all cores are doing their work.|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -253,21 +235,67 @@
    <NODE id="307" systemname="CPURace (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="CPURace (3d)" componentmode="Hidden">
    <PIN pinname="Draw Description Layer" visible="1">
    </PIN>
-   <BOUNDS type="Node" left="1710" top="2640" width="2400" height="270">
+   <BOUNDS type="Node" left="1620" top="3555" width="1260" height="270">
    </BOUNDS>
    <PIN pinname="Mouse Device" visible="1">
    </PIN>
    <PIN pinname="VVVV Folder" visible="1">
    </PIN>
-   <PIN pinname="Rebuild" visible="1">
+   <PIN pinname="Rebuild" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Texture Path" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Thread Count" visible="1">
+   </PIN>
+   <PIN pinname="Race" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="307" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="317" srcpinname="Bang" dstnodeid="307" dstpinname="Rebuild">
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="321">
+   <BOUNDS type="Node" left="1635" top="2910" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="317" srcpinname="Bang" dstnodeid="321" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="316" srcpinname="Output String" dstnodeid="307" dstpinname="Texture Path">
+   <LINK srcnodeid="321" srcpinname="Output 1" dstnodeid="307" dstpinname="Rebuild">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="322">
+   <BOUNDS type="Box" left="2835" top="2940" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2835" top="2940" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="7">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Thread Count|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="322" srcpinname="Y Output Value" dstnodeid="307" dstpinname="Thread Count">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="323">
+   <BOUNDS type="Node" left="3990" top="2745" width="4365" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3990" top="2745" width="2715" height="525">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Set to 3 for 4 cores, 7 for 8 cores to leave one core for the mainloop|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="321" srcpinname="Output 1" dstnodeid="307" dstpinname="Race">
    </LINK>
    </PATCH>

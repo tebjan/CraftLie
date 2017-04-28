@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
    <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\02_Instancing.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\01_Instancing.v4p" systemname="01_Instancing" scrollx="0" scrolly="0" locked="0">
-   <BOUNDS height="11835" left="0" top="0" type="Window" width="10515">
+   <BOUNDS height="10515" left="0" top="0" type="Window" width="6885">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -75,7 +75,7 @@
    <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
    </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="9015" top="180" width="9870" height="10245">
+   <BOUNDS type="Window" left="6885" top="0" width="9870" height="10245">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>

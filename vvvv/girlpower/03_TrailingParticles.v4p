@@ -60,7 +60,7 @@
    <BOUNDS type="Window" left="11880" top="10125" width="16710" height="5085">
    </BOUNDS>
    </NODE>
-   <NODE systemname="DisplayObjectCount" filename="DisplayObjectCount.v4p" nodename="DisplayObjectCount.v4p" componentmode="InAWindow" id="305">
+   <NODE systemname="DisplayObjectCount" filename="DisplayObjectCount.v4p" nodename="DisplayObjectCount.v4p" componentmode="Hidden" id="305">
    <BOUNDS type="Node" left="2085" top="4935" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="1">
