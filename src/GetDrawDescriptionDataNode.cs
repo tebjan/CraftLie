@@ -196,9 +196,7 @@ namespace VVVV.DX11.Nodes
                     this.FTransformCounts.SliceCount = 0;
                     this.FColorCounts.SliceCount = 0;
 
-
                     //sprites
-
                     this.FSpritesPositionOutput.SafeDisposeAll();
                     this.FSpritesPositionOutput.SliceCount = 0;
 
