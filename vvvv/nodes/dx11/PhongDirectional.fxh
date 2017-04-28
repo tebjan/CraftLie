@@ -19,9 +19,9 @@ class PhongDir : IShading
 	    float3 H = normalize(ViewDirV + LightDirV);
 	
 	    //compute blinn lighting
-	    float3 shades = lit(dot(NormV, LightDirV), dot(NormV, H), lPower);
+	    float shades = lit(dot(NormV, LightDirV), dot(NormV, H), lPower).y;
 	
-	    float3 diff = lDiff * shades.y;
+	    float3 diff = lDiff * shades;
 	
 	    //reflection vector (view space)
 	    float3 R = normalize(2 * dot(NormV, LightDirV) * NormV - LightDirV);

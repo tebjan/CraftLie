@@ -18,10 +18,14 @@ StructuredBuffer<float4> sbColor;
 uint TransformationCount = 1;
 uint ColorCount = 1;
 
+uint MaterialIndex;
+uint SpaceIndex;
+
 cbuffer cbPerDraw : register(b0)
 {
-	float4x4 tVP : LAYERVIEWPROJECTION;	
 	float4x4 tV : LAYERVIEW;
+	float4x4 tP : PROJECTION;
+	float4x4 tVP : LAYERVIEWPROJECTION;	
 };
 
 cbuffer cbPerObject : register(b1)
@@ -67,36 +71,57 @@ int ColorIndex(uint ii)
 	return (ii % ColorCount) + ColorStartIndex;
 }
 
-int MaterialIndex;
+static float4x4 Identity =
+{
+    { 1, 0, 0, 0 },
+    { 0, 1, 0, 0 },
+    { 0, 0, 1, 0 },
+    { 0, 0, 0, 1 }
+};
 
 vs2ps VS(VS_IN In)
 {
     //inititalize all fields of output struct with 0
     vs2ps Out = (vs2ps)0;
 	
+	//setup spaces
+	float4x4 view = tV;
+	float4x4 viewProj = tVP;
+	
+	if(SpaceIndex == 1)
+	{
+		view = Identity;
+		viewProj = tP;
+	}
+	else if (SpaceIndex == 2)
+	{
+		view = Identity;
+		viewProj = Identity;
+	}
+	
 	//instance id
 	uint ii = max(In.ii, 1);
 	
-	float4x4 w = sbWorld[TransformIndex(ii)];
-	w = mul(w, tW);
+	float4x4 world = sbWorld[TransformIndex(ii)];
+	world = mul(world, tW);
 	
 	if(MaterialIndex > 0)
 	{
 		//normal in view space
-		float4x4 WorldView = mul(w, tV);
+		float4x4 worldView = mul(world, view);
 		
 		//inverse light direction in view space
-	    Out.LightDirV = normalize(-mul(float4(lDir, 0.0f), tV).xyz);
+	    Out.LightDirV = normalize(-mul(float4(lDir, 0.0f), view).xyz);
 		
 		
-	    Out.NormV = normalize(mul(In.NormO, (float3x3)WorldView));
+	    Out.NormV = normalize(mul(In.NormO, (float3x3)worldView));
 		
 		//view direction
-		Out.ViewDirV = normalize(mul(In.PosO.xyz, (float3x3)WorldView));		
+		Out.ViewDirV = normalize(mul(In.PosO.xyz, (float3x3)worldView));		
 	}
 	
 	//position (projected)
-    Out.PosWVP  = mul(In.PosO, mul(w, tVP));
+    Out.PosWVP  = mul(In.PosO, mul(world, viewProj));
 	
 	Out.Color = Color * sbColor[ColorIndex(ii)];
     Out.TexCd = In.TexCd;

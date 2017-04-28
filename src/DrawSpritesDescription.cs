@@ -59,6 +59,7 @@ namespace CraftLie
 
             Transformation = transformation;
             TexturePath = texturePath;
+            Space = TransformationSpace.World; //always set default, can be changed by Within node
 
             if (positions == null)
                 positions = NoPositions;
@@ -83,12 +84,6 @@ namespace CraftLie
             Sizes = sizes;
             Colors = colors;
             SpriteCount = Math.Max(Math.Max(Positions.Count, Sizes.Count), Colors.Count);
-        }
-
-        [Node] //defined on sub classes so base class doesn't need to be imported
-        public void Transform(Matrix transformation)
-        {
-            Matrix.Multiply(ref Transformation, ref transformation, out Transformation);
         }
     }
 

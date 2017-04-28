@@ -11,11 +11,21 @@ using VL.Core;
 
 namespace CraftLie
 {
+    [Type]
+    public enum TransformationSpace
+    {
+        World,
+        View,
+        Projection
+    }
+
+    [Type]
     public class DrawDescription : IDisposable
     {
         public GeometryDescriptor GeometryDescriptor;
         public Matrix Transformation;
         public Color4 Color;
+        public TransformationSpace Space = TransformationSpace.World;
         public string TexturePath;
 
         public IDX11Geometry GetGeometry(DX11RenderContext context)
@@ -28,6 +38,18 @@ namespace CraftLie
             }
 
             return geo;
+        }
+
+        [Node] 
+        public void SetSpace(TransformationSpace space)
+        {
+            Space = space;
+        }
+
+        [Node] 
+        public void Transform(Matrix transformation)
+        {
+            Matrix.Multiply(ref Transformation, ref transformation, out Transformation);
         }
 
         [Node]
@@ -61,89 +83,6 @@ namespace CraftLie
         }
 
         readonly Dictionary<DX11RenderContext, IDX11Geometry> GeometryCache = new Dictionary<DX11RenderContext, IDX11Geometry>();
-    }
-
-    [Type]
-    public enum ShadingType
-    {
-        Constant,
-        PhongDirectional
-    }
-
-    [Type]
-    public class DrawGeometryDescription : DrawDescription
-    {
-        public ShadingType Shading;
-        public IReadOnlyList<Matrix> InstanceTransformations;
-        public IReadOnlyList<Color4> InstanceColors;
-        public int InstanceCount;
-
-        [Node(Hidden = true, IsDefaultValue = true)]
-        public static readonly DrawGeometryDescription Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", ShadingType.Constant, new List<Matrix>(), new List<Color4>());
-
-        public DrawGeometryDescription()
-            : this(null)
-        {
-        }
-
-        [Node]
-        public DrawGeometryDescription(GeometryDescriptor geometryDescriptor)
-        {
-            GeometryDescriptor = geometryDescriptor ?? new BoxDescriptor();
-        }
-
-        public DrawGeometryDescription(GeometryDescriptor geometryDescriptor, 
-            Matrix transformation, 
-            Color4 color,
-            string texturePath,
-            ShadingType shading,
-            IReadOnlyList<Matrix> instanceTransformations,
-            IReadOnlyList<Color4> instanceColors)
-            : this(geometryDescriptor)
-        {
-            Update(transformation, color, texturePath, shading, instanceTransformations, instanceColors);
-        }
-
-        [Node]
-        public void UpdateGeometry(GeometryDescriptor geometryDescriptor)
-        {
-            if (geometryDescriptor != GeometryDescriptor)
-            {
-                DisposeGeometry();
-                GeometryDescriptor = geometryDescriptor;
-            }
-        }
-
-        [Node]
-        public void Update(
-            Matrix transformation,
-            Color4 color,
-            string texturePath,
-            ShadingType shading,
-            IReadOnlyList<Matrix> instanceTransformations,
-            IReadOnlyList<Color4> instanceColors)
-        {
-            Transformation = transformation;
-            Color = color;
-            TexturePath = texturePath;
-            Shading = shading;
-
-            if (instanceColors == null)
-                instanceColors = new List<Color4>(1) { Color4.White };
-
-            if (instanceTransformations == null)
-                instanceTransformations =  new List<Matrix>(1) { Matrix.Identity };
-
-            InstanceTransformations = instanceTransformations;
-            InstanceColors = instanceColors;
-            InstanceCount = Math.Max(Math.Max(instanceTransformations.Count, instanceColors.Count), 1);
-        }
-        
-        [Node] //defined on sub classes so base class doesn't need to be imported
-        public void Transform(Matrix transformation)
-        {
-            Matrix.Multiply(ref Transformation, ref transformation, out Transformation);
-        }      
     }
 
 }

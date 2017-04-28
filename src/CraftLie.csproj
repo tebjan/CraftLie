@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="DrawDescriptionLayer.cs" />
     <Compile Include="DrawDescription.cs" />
+    <Compile Include="DrawGeometryDescription.cs" />
     <Compile Include="DrawSpritesDescription.cs" />
     <Compile Include="GetDrawDescriptionDataNode.cs" />
     <Compile Include="PrimitiveDescriptor.cs" />

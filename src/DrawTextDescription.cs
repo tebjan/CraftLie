@@ -27,12 +27,6 @@ namespace CraftLie
             Color = color;
             Transformation = transformation;
         }
-
-        [Node] //defined on sub classes so base class doesn't need to be imported
-        public void Transform(Matrix transformation)
-        {
-            Matrix.Multiply(ref Transformation, ref transformation, out Transformation);
-        }
     }
 
 }

@@ -18,7 +18,7 @@
         </p:NodeReference>
         <Patch Id="B3wjDiKSnnuOM7ooOPvX4a">
           <Canvas Id="Rv5w8hzE9JuO8rcuQWuBmO" Position="-14,-32">
-            <Pad Id="UScLZTPmDIwNWSl023R7dp" Comment="Texture Path" Bounds="346,194,-5,-16" ShowValueBox="true" isIOBox="true" Value="&quot;lib\\assets\\images\\ring thin.bmp&quot;">
+            <Pad Id="UScLZTPmDIwNWSl023R7dp" Comment="Texture Path" Bounds="345,193,-5,-16" ShowValueBox="true" isIOBox="true" Value="&quot;lib\\assets\\images\\ring thin.bmp&quot;">
               <p:ValueBoxSettings>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">String</p:stringtype>
               </p:ValueBoxSettings>
@@ -74,7 +74,7 @@
               <Pin Id="HQMN3RsO4IBMfai3zFowhk" Name="Translation" Kind="InputPin" />
               <Pin Id="FPncpex78KtOvLAlmxlCyX" Name="Result" Kind="OutputPin" />
             </Node>
-            <Pad Id="JAEvFmuwsA6MxDqGgeUqjZ" Bounds="542,410" ShowValueBox="true" isIOBox="true" Value="new vec(-7.450581E-09,-0.549999654,4.47034836E-08)">
+            <Pad Id="JAEvFmuwsA6MxDqGgeUqjZ" Bounds="542,416" ShowValueBox="true" isIOBox="true" Value="new vec(-7.450581E-09,-0.549999654,4.47034836E-08)">
               <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector3" />
                 <CategoryReference Kind="Category" Name="3D" />
@@ -98,13 +98,13 @@
               <Pin Id="QWR3jqqvbPSLeIEBsKcd0p" Name="Translation" Kind="InputPin" />
               <Pin Id="NiB9HupubRbOBkssysbli9" Name="Result" Kind="OutputPin" />
             </Node>
-            <Pad Id="DZW5kTod4TSP89NnWgrpfT" Bounds="342,404" ShowValueBox="true" isIOBox="true" Value="new vec(0.0,0.549999952,0.0)">
+            <Pad Id="DZW5kTod4TSP89NnWgrpfT" Bounds="341,403" ShowValueBox="true" isIOBox="true" Value="new vec(0.0,0.549999952,0.0)">
               <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector3" />
                 <CategoryReference Kind="Category" Name="3D" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="JxvLAPmoMmgLSHx89KnQ6d" Bounds="546,495" ShowValueBox="true" isIOBox="true" Value="&quot;you can transform a layer&quot;">
+            <Pad Id="JxvLAPmoMmgLSHx89KnQ6d" Bounds="545,494" ShowValueBox="true" isIOBox="true" Value="&quot;you can transform a layer&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -114,7 +114,7 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="D3qsKz9lTuWOKyksgxbOtv" Bounds="473,519" ShowValueBox="true" isIOBox="true" Value="&quot;this is like connecting the transformation to all objects&quot;">
+            <Pad Id="D3qsKz9lTuWOKyksgxbOtv" Bounds="472,518" ShowValueBox="true" isIOBox="true" Value="&quot;this is like connecting the transformation to all objects&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -137,7 +137,7 @@
               </p:NodeReference>
               <Pin Id="JxnOHlZlihyLM4WEZIYRIM" Name="Result" Kind="OutputPin" />
             </Node>
-            <Pad Id="Mh205ANPv1XQYe4UsHV3Zy" Bounds="436,635" ShowValueBox="true" isIOBox="true" Value="&quot;this node collects all objects to draw into a buffer&quot;">
+            <Pad Id="Mh205ANPv1XQYe4UsHV3Zy" Bounds="435,634" ShowValueBox="true" isIOBox="true" Value="&quot;this node collects all objects to draw into a buffer&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -147,7 +147,7 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="FQFkws24nroQAhR527zJCl" Bounds="436,654" ShowValueBox="true" isIOBox="true" Value="&quot;to pass it on to vvvv, similar to a renderer&quot;">
+            <Pad Id="FQFkws24nroQAhR527zJCl" Bounds="435,653" ShowValueBox="true" isIOBox="true" Value="&quot;to pass it on to vvvv&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -157,13 +157,48 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="ABTnKaCgg1RO4XFh1WSZbl" Bounds="344,326" ShowValueBox="true" isIOBox="true" Value="&quot;&lt;- look inside -&gt;&quot;">
+            <Pad Id="ABTnKaCgg1RO4XFh1WSZbl" Bounds="343,325" ShowValueBox="true" isIOBox="true" Value="&quot;&lt;- look inside -&gt;&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
               </p:ValueBoxSettings>
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="String" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Node Bounds="472,369,55,13" Id="T3ZjIFdanHVONXhDbn4hLn">
+              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="Within" />
+              </p:NodeReference>
+              <Pin Id="GHfM361VODpPOmv3VqKcn1" Name="Input" Kind="InputPin" />
+              <Pin Id="NFWuj9nBV7dLvMHRp9XTrA" Name="Space" Kind="InputPin" />
+              <Pin Id="DiFepex3OJCMzKarfIdK4p" Name="Output" Kind="OutputPin" />
+            </Node>
+            <Pad Id="J9Tm8LydMNUOAuiaET1DsY" Comment="Space" Bounds="625,317" ShowValueBox="true" isIOBox="true" Value="&quot;World&quot;">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="TransformationSpace" />
+                <CategoryReference Kind="Category" Name="CraftLie" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="ANk2ZEemIj7OeM7ARaaufT" Bounds="601,349" ShowValueBox="true" isIOBox="true" Value="&quot;the within node can change the space&quot;">
+              <p:ValueBoxSettings>
+                <p:fontsize p:Type="Int32">9</p:fontsize>
+                <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+              </p:ValueBoxSettings>
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="String" />
+                <CategoryReference Kind="Category" Name="Primitive" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="JrgsNejmgRiOwf5GcnuAG6" Bounds="600,365,-20,2" ShowValueBox="true" isIOBox="true" Value="&quot;in which the objects are placed, i.e. for making UIs&quot;">
+              <p:ValueBoxSettings>
+                <p:fontsize p:Type="Int32">9</p:fontsize>
+                <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+              </p:ValueBoxSettings>
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="String" />
+                <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
           </Canvas>
@@ -183,14 +218,16 @@
           <Link Id="GmqM2UYMsrNN3J52CuJYAC" Ids="RPG1lIIR7K0QSvgventtNY,CQRgdORkemzQd1XSbvXtEA" IsHidden="true" />
           <Link Id="DpNyW2zDT2PNXVo7O3FNKn" Ids="DZW5kTod4TSP89NnWgrpfT,QWR3jqqvbPSLeIEBsKcd0p" />
           <Link Id="R0YeYJq82cPNJI7RGuXiTH" Ids="JAEvFmuwsA6MxDqGgeUqjZ,HQMN3RsO4IBMfai3zFowhk" />
-          <Link Id="ADaMpWQegJFLZIpIvmffTu" Ids="AirLKqdvlOzOlaSyu0gijr,LOnV8QwubwqO3TqCYbM8IB" />
           <Link Id="LmmlCbBKEYOPIXXhGrmmey" Ids="CU98SE8V9h8LdB8sWfMfuE,Lo9uplO2sb4QVBTPJVYb5K" />
           <Link Id="TF8LVKDJFsnQY8svE32Ms2" Ids="FPncpex78KtOvLAlmxlCyX,FzEw01P0TJdOSi71QjftKH" />
           <Link Id="EkuJaLUDyTbMZOnF7JNj0J" Ids="NiB9HupubRbOBkssysbli9,S8n5zF3Y4AaOirgRdkpLf4" />
-          <Link Id="KutRxzQeo2nLmQzAPuAduS" Ids="DMLy6JSpKMDLvhJzyOn8aD,FQbe4kRkvEeNgnKLhDVRkE" />
-          <Link Id="T7PdTf5IkxrNeXuQOiLeW4" Ids="JxnOHlZlihyLM4WEZIYRIM,Ug2P17ra1hzLyBmxSrPIuc" />
           <Link Id="Pv6b8JzRIdeNQGDnbrGqbm" Ids="RPysKUzHl83Mq0EN9LGA0H,DmdmMkH4oe2MkgiXA2xk4o" />
           <Link Id="CrkxR7bEh06L1vNWDbYJlo" Ids="BpilQS66gC1QFPKRqkykwG,R7tEZOEreioLF9Yl6E2aBb" />
+          <Link Id="BNQROiZv9vhMWMmbtGyLeQ" Ids="J9Tm8LydMNUOAuiaET1DsY,NFWuj9nBV7dLvMHRp9XTrA" />
+          <Link Id="N2HiTy9n3mkMDj5nZf3ACs" Ids="DMLy6JSpKMDLvhJzyOn8aD,FQbe4kRkvEeNgnKLhDVRkE" />
+          <Link Id="QvXeqZfQuThNuGMd3hY5I6" Ids="JxnOHlZlihyLM4WEZIYRIM,GHfM361VODpPOmv3VqKcn1" />
+          <Link Id="Uaiwtp7aujcPhRvTADV3Sh" Ids="DiFepex3OJCMzKarfIdK4p,Ug2P17ra1hzLyBmxSrPIuc" />
+          <Link Id="Q8MxMZS9gNIPf2d1MYdgBx" Ids="AirLKqdvlOzOlaSyu0gijr,LOnV8QwubwqO3TqCYbM8IB" />
         </Patch>
       </Node>
       <!--
@@ -843,7 +880,7 @@
               <Pin Id="Coh3eLZJkLtMiTkntnpy7V" Name="Translation" Kind="InputPin" />
               <Pin Id="NtNchBWtjTIL4MZDYtg1YD" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="B6Fh41wALNTLcYH8cYuMYJ" Bounds="636,309" ShowValueBox="true" isIOBox="true" Value="new vec(2.5331974E-07,0.0)">
+            <Pad Id="B6Fh41wALNTLcYH8cYuMYJ" Bounds="635,308" ShowValueBox="true" isIOBox="true" Value="new vec(2.5331974E-07,0.0)">
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
@@ -877,7 +914,7 @@
               <Pin Id="ODqivGhuit7M0Yq5z0dmRI" Name="Translation" Kind="InputPin" />
               <Pin Id="GNlOeMyu74VQZFxPmxKpT2" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="KLQ23Kxtzy8OsEtb5xw15F" Bounds="833,304" ShowValueBox="true" isIOBox="true" Value="new vec(1.0999999,0.0)">
+            <Pad Id="KLQ23Kxtzy8OsEtb5xw15F" Bounds="832,303" ShowValueBox="true" isIOBox="true" Value="new vec(1.0999999,0.0)">
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
@@ -907,7 +944,7 @@
               <Pin Id="GeAzbrYuGNWPjwUL2Tn38H" Name="Translation" Kind="InputPin" />
               <Pin Id="RwFsOINH7NeLCkeiAUnefL" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="T4uDi6ibXosOzT9TvrFLK2" Bounds="287,311" ShowValueBox="true" isIOBox="true" Value="new vec(-2.19999981,0.0)">
+            <Pad Id="T4uDi6ibXosOzT9TvrFLK2" Bounds="286,310" ShowValueBox="true" isIOBox="true" Value="new vec(-2.19999981,0.0)">
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
@@ -949,7 +986,7 @@
               <Pin Id="BVnqi6ROwXVMp5gZGdXYvH" Name="Translation" Kind="InputPin" />
               <Pin Id="FfHLbY6fG61LMAWxp4JOAk" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="Ezn7Rttl6vvPcF2cM2Jq5W" Bounds="443,304" ShowValueBox="true" isIOBox="true" Value="new vec(-1.1,0.0)">
+            <Pad Id="Ezn7Rttl6vvPcF2cM2Jq5W" Bounds="442,303" ShowValueBox="true" isIOBox="true" Value="new vec(-1.1,0.0)">
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
@@ -969,13 +1006,13 @@
               <Pin Id="VKP43l7wNkNL5JsHQ3eYPE" Name="Translation" Kind="InputPin" />
               <Pin Id="CNDJqWmt4E7MvxBDylZF2e" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="MG9rXpYRweoN4xw7LGR5ch" Bounds="1055,292" ShowValueBox="true" isIOBox="true" Value="new vec(1.75000048,0.0)">
+            <Pad Id="MG9rXpYRweoN4xw7LGR5ch" Bounds="1054,291" ShowValueBox="true" isIOBox="true" Value="new vec(1.75000048,0.0)">
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="RbTQpdFCftHQUW9ETWWDrl" Bounds="979,290" ShowValueBox="true" isIOBox="true" Value="new vec(5.0,5.0)">
+            <Pad Id="RbTQpdFCftHQUW9ETWWDrl" Bounds="978,289" ShowValueBox="true" isIOBox="true" Value="new vec(5.0,5.0)">
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
                 <CategoryReference Kind="Category" Name="2D" />
@@ -1016,7 +1053,7 @@
               <Pin Id="O7Iuvm0MTMzOAtAwJ3NK2F" Name="Reset" Kind="ApplyPin" />
               <Pin Id="SMMmgwpbJvPPDyluA7YidX" Name="Value" Kind="OutputPin" />
             </Node>
-            <Pad Id="HDYUktTFuhuOmqdXYvYR2b" Bounds="463,182" ShowValueBox="true" isIOBox="true" Value="&quot;toggle texture path&quot;">
+            <Pad Id="HDYUktTFuhuOmqdXYvYR2b" Bounds="462,181" ShowValueBox="true" isIOBox="true" Value="&quot;toggle texture path&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -1025,7 +1062,7 @@
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="BflFo9gdNZSLYojnhLPuDK" Bounds="357,180,21,-8" ShowValueBox="true" isIOBox="true" />
+            <Pad Id="BflFo9gdNZSLYojnhLPuDK" Bounds="356,179,21,-8" ShowValueBox="true" isIOBox="true" />
           </Canvas>
           <Patch Id="OnIrX8DQt2RQLlXmfTkxoZ" Name="Create" />
           <Patch Id="JpCekM7GI2VLHGXkERRBqc" Name="Update" ParticipatingElements="TbDC7APCuH5QJjPbLphfgU">

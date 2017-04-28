@@ -56,6 +56,9 @@ namespace VVVV.DX11.Nodes
         [Output("Material Index")]
         protected ISpread<int> FMaterialIndex;
 
+        [Output("Space Index")]
+        protected ISpread<int> FSpaceIndex;
+
         [Output("Transform Buffer")]
         protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FTransformOutput;
 
@@ -75,6 +78,9 @@ namespace VVVV.DX11.Nodes
 
         [Output("Sprites Transformations")]
         protected ISpread<SlimDXMatrix> FSpritesTransformations;
+
+        [Output("Sprites Space Index")]
+        protected ISpread<int> FSpritesSpaceIndex;
 
         [Output("Sprites Position Buffer")]
         protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FSpritesPositionOutput;
@@ -105,6 +111,9 @@ namespace VVVV.DX11.Nodes
         [Output("Text Transformations")]
         protected ISpread<SlimDXMatrix> FTextTransformations;
 
+        [Output("Text Space Index")]
+        protected ISpread<int> FTextSpaceIndex;
+
         [Output("Text Colors")]
         protected ISpread<RGBAColor> FTextColors;
 
@@ -112,13 +121,12 @@ namespace VVVV.DX11.Nodes
         protected ISpread<float> FTextSizes;
 
         [Output("Font Names")]
-        protected ISpread<string> FFontNames;
-
-        DX11BufferUploadType currentBufferType = DX11BufferUploadType.Dynamic;
+        protected ISpread<string> FTextFontNames;
 
         [Output("Is Valid")]
         protected ISpread<bool> FValid;
 
+        DX11BufferUploadType currentBufferType = DX11BufferUploadType.Dynamic;
         private bool FInvalidate;
         private bool FFirst = true;
         private int FLayerInSpreadMax;
@@ -167,26 +175,53 @@ namespace VVVV.DX11.Nodes
                     if (FMainBuffer == null)
                         FMainBuffer = DrawDescriptionLayer.Default;
                 }
-                else
+                else //no output
                 {
-                    if (this.FTransformOutput.SliceCount > 0 && this.FTransformOutput[0] != null)
-                    {
-                        this.FTransformOutput[0].Dispose();
-                    }
+                    //geos
+                    this.FGeometryOutput.SafeDisposeAll();
+                    this.FGeometryOutput.SliceCount = 0;
+
+                    this.FTransformOutput.SafeDisposeAll();
                     this.FTransformOutput.SliceCount = 0;
 
-                    if (this.FColorOutput.SliceCount > 0 && this.FColorOutput[0] != null)
-                    {
-                        this.FColorOutput[0].Dispose();
-                    }
+                    this.FColorOutput.SafeDisposeAll();
                     this.FColorOutput.SliceCount = 0;
 
                     this.FInstanceCounts.SliceCount = 0;
+                    this.FTransformation.SliceCount = 0;
                     this.FTexturePath.SliceCount = 0;
                     this.FColor.SliceCount = 0;
                     this.FMaterialIndex.SliceCount = 0;
+                    this.FSpaceIndex.SliceCount = 0;
                     this.FTransformCounts.SliceCount = 0;
                     this.FColorCounts.SliceCount = 0;
+
+
+                    //sprites
+
+                    this.FSpritesPositionOutput.SafeDisposeAll();
+                    this.FSpritesPositionOutput.SliceCount = 0;
+
+                    this.FSpritesSizeOutput.SafeDisposeAll();
+                    this.FSpritesSizeOutput.SliceCount = 0;
+
+                    this.FSpritesColorOutput.SafeDisposeAll();
+                    this.FSpritesColorOutput.SliceCount = 0;
+
+                    this.FSpritesTransformations.SliceCount = 0;
+                    this.FSpritesPositionCounts.SliceCount = 0;
+                    this.FSpritesSizeCounts.SliceCount = 0;
+                    this.FSpritesColorCounts.SliceCount = 0;
+                    this.FSpritesTexturePath.SliceCount = 0;
+                    this.FSpritesSpaceIndex.SliceCount = 0;
+
+                    //text
+                    this.FTextSpaceIndex.SliceCount = 0;
+                    this.FTextTransformations.SliceCount = 0;
+                    this.FTextColors.SliceCount = 0;
+                    this.FTextSizes.SliceCount = 0;
+                    this.FTexts.SliceCount = 0;
+                    this.FTextFontNames.SliceCount = 0;
 
                     this.FValid.SliceCount = 0;
                 }
@@ -240,6 +275,7 @@ namespace VVVV.DX11.Nodes
             FTexturePath.SliceCount = outCount;
             FColor.SliceCount = outCount;
             FMaterialIndex.SliceCount = outCount;
+            FSpaceIndex.SliceCount = outCount;
 
             FInstanceCounts.SliceCount = outCount;
             FTransformCounts.SliceCount = outCount;
@@ -283,6 +319,7 @@ namespace VVVV.DX11.Nodes
                 FTexturePath[i] = desc.TexturePath;
                 FColor[i] = ToRGBAColor(desc.Color);
                 FMaterialIndex[i] = (int)desc.Shading;
+                FSpaceIndex[i] = (int)desc.Space;
             }
         }
 
@@ -293,6 +330,7 @@ namespace VVVV.DX11.Nodes
 
             FSpritesGeometryOutput.SliceCount = spritesCount;
             FSpritesTransformations.SliceCount = spritesCount;
+            FSpritesSpaceIndex.SliceCount = spritesCount;
             FSpritesTexturePath.SliceCount = spritesCount;
 
             FSpritesPositionCounts.SliceCount = spritesCount;
@@ -337,6 +375,7 @@ namespace VVVV.DX11.Nodes
                 FTotalSpritesColorCount += colCount;
 
                 FSpritesTransformations[i] = ToSlimDXMatrix(desc.Transformation);
+                FSpritesSpaceIndex[i] = (int)desc.Space;
                 FSpritesTexturePath[i] = desc.TexturePath;
             }
         }
@@ -348,19 +387,20 @@ namespace VVVV.DX11.Nodes
 
             FTexts.SliceCount = textCount;
             FTextTransformations.SliceCount = textCount;
+            FTextSpaceIndex.SliceCount = textCount;
             FTextColors.SliceCount = textCount;
             FTextSizes.SliceCount = textCount;
-            FFontNames.SliceCount = textCount;
+            FTextFontNames.SliceCount = textCount;
 
             for (int i = 0; i < textCount; i++)
             {
                 var desc = textDescriptions[i];
 
-
                 FTexts[i] = desc.Text;
                 FTextSizes[i] = desc.Size;
-                FFontNames[i] = desc.FontName;
+                FTextFontNames[i] = desc.FontName;
                 FTextTransformations[i] = ToSlimDXMatrix(desc.Transformation);
+                FTextSpaceIndex[i] = (int)desc.Space;
                 FTextColors[i] = ToRGBAColor(desc.Color);
             }
         }
