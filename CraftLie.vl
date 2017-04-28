@@ -275,6 +275,7 @@
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="1297036696977670144" Name="If" />
+                <FullNameCategoryReference ID="Primitive" />
               </p:NodeReference>
               <Pin Id="PDr1eIMcfo2NtcJIdsEG6z" Name="Condition" Kind="InputPin" />
               <Patch Id="OLTZ0JaMWBKPCEqVGTp4Zj" Name="Then" />
@@ -510,6 +511,7 @@
               <Node Name="ForEach2" Bounds="268,591,109,116" Id="Bu0wy53xOsiLUVgPEyUnN7">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="ForEachLoop" Name="ForEach" />
+                  <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="SKsIsvidlaQPkOOmdl5icB" Name="Break" Kind="OutputPin" />
                 <ControlPoint Id="A50DtJe54K9PrXKg6ky5GX" Bounds="283,597" Alignment="Top" />
@@ -893,6 +895,7 @@
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="1297036696977670144" Name="If" />
+                  <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="M5gBuhDE5KMQaoE36YB4Ov" Name="Condition" Kind="InputPin" />
                 <Patch Id="PKERA6op61RLchZAsi9sHP" Name="Then" />
@@ -937,6 +940,7 @@
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="1297036696977670144" Name="If" />
+                  <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="FpDcuAaC6BWQaDlkKQyiTE" Name="Condition" Kind="InputPin" />
                 <Patch Id="MMsLRSqsAzwNqV8pLRi7v7" Name="Then" />
@@ -1108,6 +1112,7 @@
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="2161727855497576448" Name="ForEach" />
+                  <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="MnhJpVUiMb7P5rAziDHfrn" Name="Break" Kind="OutputPin" />
                 <ControlPoint Id="GKI9c40NIoYLYZF6tFhz7G" Bounds="310,281" Alignment="Top" />
@@ -1290,6 +1295,7 @@
                 <Node Name="ForEach2" Bounds="562,282,176,162" Id="HAllWCT1S0ZMiv6QefiR43">
                   <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                     <Choice Kind="ForEachLoop" Name="ForEach" />
+                    <FullNameCategoryReference ID="Primitive" />
                   </p:NodeReference>
                   <Pin Id="ACWg04R44ZLOV5lZcbROh9" Name="Break" Kind="OutputPin" />
                   <ControlPoint Id="At2UBKIu6aHMaZU5RzXuGh" Bounds="578,288" Alignment="Top" />
@@ -1399,6 +1405,7 @@
           <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
           <Choice Kind="ContainerType, HasMasterPatchFlag, DefinitionFlag" Name="Patch" />
         </p:NodeReference>
+        <p:Info Summary="Collect all draw descriptions to pass it on to vvvv" />
         <Patch Id="HQwtMOSCy8oNogq1QkLfBb" IsGeneric="true">
           <Canvas Id="GaL7SjGzlV2M9B4MtFTbaY" Position="372,449">
             <ControlPoint Id="Qm56KAMkRHqPyRRW0RjV2l" Bounds="483,523" />
@@ -1425,7 +1432,7 @@
               <Pin Id="GkVq63WRWWjOvvNAqha0t1" Name="Apply" Kind="ApplyPin" />
               <Pin Id="Rsrd3cLiVfLLbFuwKogsBk" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="BQhJW5a2r49NYtTYbHGzAn" Bounds="365,349" />
+            <ControlPoint Id="BQhJW5a2r49NYtTYbHGzAn" Bounds="366,350" />
           </Canvas>
           <Patch Id="EfSdzCpQtOdPjedld4ir7q" Name="Create" />
           <Patch Id="Iyh0BcXvKJ1MZbEb3MVaLo" Name="Update">
@@ -1436,7 +1443,9 @@
             <Fragment Id="SxRaj5IeIk4N4xrCBzwzJ2" Patch="EfSdzCpQtOdPjedld4ir7q" Enabled="true" />
             <Fragment Id="PX3qeH3YxAzLsSBgPqFPD9" Patch="Iyh0BcXvKJ1MZbEb3MVaLo" Enabled="true" />
           </ProcessDefinition>
-          <Slot Id="FjnJWtyPT90QFGtNMwQiMb" Name="Buffer" />
+          <Slot Id="FjnJWtyPT90QFGtNMwQiMb" Name="Buffer">
+            <p:Info />
+          </Slot>
           <Link Id="VU8EYlkCYFkLVPXhJjYnNd" Ids="Qm56KAMkRHqPyRRW0RjV2l,LFc6krAvItZONmZh6CuvcN" IsHidden="true" />
           <Link Id="MSyfXk6539OLtln23qbXLN" Ids="LrRsQ5BGQVuPH8AwsFtgXw,Qm56KAMkRHqPyRRW0RjV2l" />
           <Link Id="IKOoWVVZ5cxQJoeLNbpGK3" Ids="D9vWG3IFzrUO4hrnVCFH6C,JkAA0drLJrDNDlfIrHx8bJ" />
@@ -1576,6 +1585,7 @@
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="1297036696977670144" Name="If" />
+                <FullNameCategoryReference ID="Primitive" />
               </p:NodeReference>
               <Pin Id="MhefZofrOwULC47n160GBY" Name="Condition" Kind="InputPin" />
               <Patch Id="NEiPB0fQs1RLiEB3f3lql6" Name="Then">
@@ -1928,6 +1938,7 @@
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="1297036696977670144" Name="If" />
+                <FullNameCategoryReference ID="Primitive" />
               </p:NodeReference>
               <Pin Id="KDeE2XYvs9iN1aCnPtA6Hz" Name="Condition" Kind="InputPin" />
               <Patch Id="Cnll1VeORvNMOCSHZ8yEV6" Name="Then">
@@ -2149,6 +2160,7 @@
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="1297036696977670144" Name="If" />
+                <FullNameCategoryReference ID="Primitive" />
               </p:NodeReference>
               <Pin Id="AEsrsmY541YPfGQJHCqFTN" Name="Condition" Kind="InputPin" />
               <Patch Id="JCMhu6YDBQ5PCozpzU7aoW" Name="Then">
@@ -2386,6 +2398,7 @@
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="1297036696977670144" Name="If" />
+                <FullNameCategoryReference ID="Primitive" />
               </p:NodeReference>
               <Pin Id="ExPpq98soMFPDnqreSML0P" Name="Condition" Kind="InputPin" />
               <Patch Id="N2g8lNOb106LtsD3lG9of4" Name="Then">
@@ -3041,6 +3054,7 @@
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="1297036696977670144" Name="If" />
+                <FullNameCategoryReference ID="Primitive" />
               </p:NodeReference>
               <Pin Id="FD0aWrfhHVGNiOzHFmMtZT" Name="Condition" Kind="InputPin" />
               <Patch Id="KmZXUpdn8edMxM8Zo9PKMc" Name="Then">
@@ -3219,6 +3233,7 @@
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="2161727855497576448" Name="ForEach" />
+                  <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="SQo6MiIuAB8MLKE5JLLbmj" Name="Break" Kind="OutputPin" />
                 <ControlPoint Id="IPSLQs2yhUbQGMZvstayXO" Bounds="294,1179" Alignment="Top" />
@@ -3275,6 +3290,7 @@
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="2161727855497576448" Name="ForEach" />
+                  <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="NVHBzhp9x0lQMRwctXJUal" Name="Break" Kind="OutputPin" />
                 <ControlPoint Id="EgYnvvotKbcMyCETyqpTBu" Bounds="451,1186" Alignment="Top" />
@@ -3298,6 +3314,7 @@
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="2161727855497576448" Name="ForEach" />
+                  <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="IcyPmC2h1JoLEi2w2ADjxG" Name="Break" Kind="OutputPin" />
                 <ControlPoint Id="JKZXmADTaqhOkQhoPf5om3" Bounds="640,1182" Alignment="Top" />

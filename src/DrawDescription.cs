@@ -139,7 +139,7 @@ namespace CraftLie
             InstanceCount = Math.Max(Math.Max(instanceTransformations.Count, instanceColors.Count), 1);
         }
         
-        [Node]
+        [Node] //defined on sub classes so base class doesn't need to be imported
         public void Transform(Matrix transformation)
         {
             Matrix.Multiply(ref Transformation, ref transformation, out Transformation);

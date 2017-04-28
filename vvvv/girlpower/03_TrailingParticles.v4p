@@ -1,10 +1,10 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\TrailingParticles.v4p" filename="C:\vvvv\PROJECTS\2017\03_FactLire\demo patch\InstanceBatch.v4p" systemname="InstanceBatch" scrollx="60" scrolly="0" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\03_TrailingParticles.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\03_TrailingParticles.v4p" systemname="03_TrailingParticles" scrollx="60" scrolly="0" locked="0">
    <BOUNDS height="11010" left="240" top="195" type="Window" width="10440">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
-   <NODE nodename="Group (DX11.Layer)" id="283">
+   <NODE nodename="Group (DX11.Layer)" id="283" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
    <BOUNDS type="Node" left="1455" top="6375" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="1455" top="6375" width="2400" height="1800">
@@ -49,7 +49,7 @@
    </PIN>
    <PIN pinname="Maximum Background FPS" visible="1">
    </PIN>
-   <PIN pinname="Time Mode" visible="1">
+   <PIN pinname="Time Mode" visible="1" slicecount="1" values="Raw">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="304">
@@ -60,7 +60,7 @@
    <BOUNDS type="Window" left="11880" top="10125" width="16710" height="5085">
    </BOUNDS>
    </NODE>
-   <NODE systemname="drawText" filename="%VVVV%\packs\CraftLie\vvvv\girlpower\drawText.v4p" nodename="%VVVV%\packs\CraftLie\vvvv\girlpower\drawText.v4p" componentmode="Hidden" id="305">
+   <NODE systemname="DisplayObjectCount" filename="DisplayObjectCount.v4p" nodename="DisplayObjectCount.v4p" componentmode="InAWindow" id="305">
    <BOUNDS type="Node" left="2085" top="4935" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="1">
@@ -70,7 +70,7 @@
    </NODE>
    <LINK srcnodeid="305" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 4">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="306">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="306" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7620" top="375" width="330" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="7620" top="375" width="0" height="0">
@@ -90,16 +90,6 @@
    </LINK>
    <LINK srcnodeid="306" srcpinname="Y Output Value" dstnodeid="-6" dstpinname="Maximum Background FPS">
    </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="307">
-   <BOUNDS type="Box" left="8115" top="345" width="1035" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="8115" top="345" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Filtered">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="307" srcpinname="Output Enum" dstnodeid="-6" dstpinname="Time Mode">
-   </LINK>
    <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="Hidden" id="308">
    <BOUNDS type="Node" left="1237" top="3993" width="0" height="0">
    </BOUNDS>
@@ -114,7 +104,7 @@
    </LINK>
    <LINK srcnodeid="308" srcpinname="Object Count" dstnodeid="305" dstpinname="Input">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="309">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="309" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2535" top="1770" width="795" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="2535" top="1770" width="0" height="0">
@@ -130,7 +120,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Creation Count|">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="310">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="310" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3705" top="1770" width="795" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="3705" top="1770" width="0" height="0">
@@ -144,7 +134,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="size">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="311">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="311" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="5625" top="1770" width="795" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="5625" top="1770" width="0" height="0">
@@ -158,7 +148,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="Saturation">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="312">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="312" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="6540" top="1770" width="705" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="6540" top="1770" width="0" height="0">
@@ -174,7 +164,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Lifetime Minimum|">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="313">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="313" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="8130" top="1770" width="795" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="8130" top="1770" width="0" height="0">
@@ -190,7 +180,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Lifetime Maximum|">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="314">
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="314" systemname="IOBox (String)">
    <BOUNDS type="Box" left="840" top="1770" width="1140" height="255">
    </BOUNDS>
    <BOUNDS type="Node" left="840" top="1770" width="0" height="0">
@@ -211,7 +201,7 @@
    </PIN>
    </NODE>
    <NODE systemname="FullscreenQuad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\modules\FullscreenQuad (DX11.Layer).v4p" nodename="FullscreenQuad (DX11.Layer)" componentmode="Hidden" id="315">
-   <BOUNDS type="Node" left="3330" top="5670" width="100" height="100">
+   <BOUNDS type="Node" left="2925" top="5820" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Color" visible="1">
    </PIN>
@@ -221,7 +211,7 @@
    </PIN>
    </NODE>
    <NODE systemname="SetAlpha (Color)" nodename="SetAlpha (Color)" componentmode="Hidden" id="316">
-   <BOUNDS type="Node" left="4395" top="5205" width="100" height="100">
+   <BOUNDS type="Node" left="3990" top="5355" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -233,7 +223,7 @@
    <LINK srcnodeid="315" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 3">
    </LINK>
    <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="317">
-   <BOUNDS type="Node" left="3210" top="5190" width="100" height="100">
+   <BOUNDS type="Node" left="2910" top="5460" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Mode" slicecount="1" values="Blend">
    </PIN>
@@ -242,7 +232,7 @@
    </NODE>
    <LINK srcnodeid="317" srcpinname="Render State" dstnodeid="315" dstpinname="Render State">
    </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="318">
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="318" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="3375" top="7845" width="405" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="3375" top="7845" width="0" height="0">
@@ -254,7 +244,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|AA Samples per Pixel|">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="319">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="319" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="4560" top="1770" width="795" height="240">
    </BOUNDS>
    <BOUNDS type="Node" left="4560" top="1770" width="0" height="0">
@@ -308,7 +298,7 @@
    <PIN pinname="AA Samples per Pixel" visible="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="325">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="325" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2655" top="6930" width="795" height="480">
    </BOUNDS>
    <BOUNDS type="Node" left="2655" top="6930" width="0" height="0">
@@ -342,7 +332,7 @@
    </NODE>
    <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="324" dstpinname="Layer">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="328">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="328" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2040" top="6930" width="480" height="480">
    </BOUNDS>
    <BOUNDS type="Node" left="2040" top="6930" width="0" height="0">
@@ -362,7 +352,7 @@
    </NODE>
    <LINK srcnodeid="328" srcpinname="Y Output Value" dstnodeid="324" dstpinname="Clear">
    </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="329">
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="329" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="1305" top="7635" width="1875" height="255">
    </BOUNDS>
    <BOUNDS type="Node" left="1305" top="7635" width="0" height="0">
@@ -376,8 +366,8 @@
    </LINK>
    <LINK srcnodeid="318" srcpinname="Output Enum" dstnodeid="324" dstpinname="AA Samples per Pixel">
    </LINK>
-   <NODE id="333" systemname="TrailingParticles (2d)" filename="%VVVV%\packs\CraftLie\vvvv\girlpower\vl\VVVVTrailingParticles.vl" nodename="TrailingParticles (2d)" componentmode="Hidden">
-   <BOUNDS type="Node" left="1545" top="2985" width="5070" height="270">
+   <NODE id="333" systemname="TrailingParticles (2d)" filename="vl\VVVV.TrailingParticles.vl" nodename="TrailingParticles (2d)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1620" top="3000" width="5070" height="270">
    </BOUNDS>
    <PIN pinname="Texture Path" visible="1" slicecount="1" values="|C:\vvvv\vvvv_50beta35.2_x64\lib\assets\images\halo dot.bmp|">
    </PIN>
@@ -410,7 +400,7 @@
    </LINK>
    <LINK srcnodeid="314" srcpinname="Output String" dstnodeid="333" dstpinname="Texture Path">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="336">
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="336" systemname="IOBox (String)">
    <BOUNDS type="Node" left="6090" top="5790" width="1815" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="6090" top="5790" width="3960" height="480">

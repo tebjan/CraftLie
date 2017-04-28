@@ -19,12 +19,19 @@ namespace CraftLie
         public IReadOnlyList<Vector2> Sizes;
         public IReadOnlyList<Color4> Colors;
 
+        static readonly IReadOnlyList<Vector3> NoPositions = new List<Vector3>(0);
+        static readonly IReadOnlyList<Vector2> NoSizes = new List<Vector2>(0);
+        static readonly IReadOnlyList<Color4> NoColors = new List<Color4>(0);
+
+        static readonly IReadOnlyList<Vector2> DefaultSizes = new List<Vector2>(1) { new Vector2(0.01f) };
+        static readonly IReadOnlyList<Color4> DefaultColors = new List<Color4>(1) { Color4.White };
+
         [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly DrawSpritesDescription Default = new DrawSpritesDescription(
             Matrix.Identity,
-            new List<Vector3>(),
-            new List<Vector2>(),
-            new List<Color4>());
+            NoPositions,
+            NoSizes,
+            NoColors);
 
         public int SpriteCount;
 
@@ -54,13 +61,23 @@ namespace CraftLie
             TexturePath = texturePath;
 
             if (positions == null)
-                positions = new List<Vector3>();
+                positions = NoPositions;
 
             if (sizes == null)
-                sizes = new List<Vector2>();
+            {
+                if (positions.Count > 0)
+                    sizes = DefaultSizes;
+                else
+                    sizes = NoSizes;
+            }
 
             if (colors == null)
-                colors = new List<Color4>();
+            {
+                if (positions.Count > 0)
+                    colors = DefaultColors;
+                else
+                    colors = NoColors;
+            }
 
             Positions = positions;
             Sizes = sizes;
@@ -68,7 +85,7 @@ namespace CraftLie
             SpriteCount = Math.Max(Math.Max(Positions.Count, Sizes.Count), Colors.Count);
         }
 
-        [Node]
+        [Node] //defined on sub classes so base class doesn't need to be imported
         public void Transform(Matrix transformation)
         {
             Matrix.Multiply(ref Transformation, ref transformation, out Transformation);

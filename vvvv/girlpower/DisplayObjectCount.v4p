@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.2.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\ObjectCount.v4p" systemname="ObjectCount" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\ObjectCount.v4p" scrollx="195" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\DisplayObjectCount.v4p" systemname="DisplayObjectCount" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\DisplayObjectCount.v4p">
    <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="2535" top="4020" width="100" height="100">
    </BOUNDS>
@@ -7,7 +7,7 @@
    </PIN>
    <PIN pinname="String" visible="1">
    </PIN>
-   <PIN pinname="Transform In" visible="1">
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Enabled" visible="1">
    </PIN>
@@ -34,26 +34,16 @@
    <PIN pinname="Enabled" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Translate (Transform)" nodename="Translate (Transform)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="1455" top="2430" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="Y" slicecount="1" values="0.63" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Scale (Transform)" nodename="Scale (Transform)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="900" top="3705" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="Y" slicecount="1" values="0.06">
+   <PIN pinname="Y" slicecount="1" values="0.07">
    </PIN>
-   <PIN pinname="X" slicecount="1" values="0.24">
+   <PIN pinname="X" slicecount="1" values="0.35">
    </PIN>
-   <PIN pinname="Transform In" visible="1">
-   </PIN>
-   <PIN pinname="Z" slicecount="1" values="1">
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="5">
@@ -68,14 +58,12 @@
    </NODE>
    <LINK srcnodeid="5" srcpinname="Output" dstnodeid="0" dstpinname="String">
    </LINK>
-   <LINK srcnodeid="3" srcpinname="Transform Out" dstnodeid="0" dstpinname="Transform In">
-   </LINK>
    <NODE id="6" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
-   <BOUNDS type="Box" left="570" top="5925" width="750" height="240">
+   <BOUNDS type="Box" left="525" top="5925" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="570" top="5925" width="750" height="240">
+   <BOUNDS type="Node" left="525" top="5925" width="750" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
@@ -83,9 +71,9 @@
    <NODE id="7" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Input">
    </PIN>
-   <BOUNDS type="Box" left="2580" top="410" width="750" height="240">
+   <BOUNDS type="Box" left="2700" top="410" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2580" top="410" width="750" height="240">
+   <BOUNDS type="Node" left="2700" top="410" width="750" height="240">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Input">
@@ -93,8 +81,6 @@
    <LINK srcnodeid="1" srcpinname="Output" dstnodeid="5" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="4" srcpinname="Transform Out" dstnodeid="2" dstpinname="Transform">
-   </LINK>
-   <LINK srcnodeid="3" srcpinname="Transform Out" dstnodeid="4" dstpinname="Transform In">
    </LINK>
    <BOUNDS type="Window" left="7590" top="5610" width="5205" height="7185">
    </BOUNDS>
@@ -109,9 +95,9 @@
    </PIN>
    <PIN pinname="Enabled" visible="1">
    </PIN>
-   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
-   </PIN>
    </NODE>
+   <LINK srcnodeid="2" srcpinname="Layer" dstnodeid="9" dstpinname="Layer 1">
+   </LINK>
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="9" dstpinname="Layer 2">
    </LINK>
    <PACK Name="addonpack" Version="35.0.0">
@@ -142,24 +128,28 @@
    </LINK>
    <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Enabled" hiddenwhenlocked="1">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="11">
-   <BOUNDS type="Box" left="1425" top="465" width="795" height="240">
+   <NODE systemname="Translate (Transform)" nodename="Translate (Transform)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="1455" top="2430" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Node" left="1425" top="465" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.75">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Y">
+   <PIN pinname="Y" slicecount="1" values="0.9">
    </PIN>
    </NODE>
-   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Y">
+   <LINK srcnodeid="12" srcpinname="Transform Out" dstnodeid="0" dstpinname="Transform In">
    </LINK>
-   <LINK srcnodeid="2" srcpinname="Layer" dstnodeid="9" dstpinname="Layer 1">
+   <LINK srcnodeid="12" srcpinname="Transform Out" dstnodeid="4" dstpinname="Transform In">
    </LINK>
-   <LINK srcnodeid="9" srcpinname="Layer Out" dstnodeid="6" dstpinname="Input Node">
+   <NODE systemname="WithinProjection (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="WithinProjection (DX11.Layer)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="540" top="5370" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Preserve Aspect" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Layer Out" dstnodeid="11" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Layer Out" dstnodeid="6" dstpinname="Input Node">
    </LINK>
    </PATCH>
