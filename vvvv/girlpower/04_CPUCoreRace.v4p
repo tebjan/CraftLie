@@ -75,13 +75,13 @@
    <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
    </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="18540" top="0" width="9870" height="10245">
+   <BOUNDS type="Window" left="7620" top="0" width="9870" height="10245">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS type="Node" height="270" left="669" top="7434" width="1950">
+   <BOUNDS type="Node" height="270" left="669" top="7614" width="1950">
    </BOUNDS>
-   <BOUNDS type="Box" height="12825" left="669" top="7434" width="13740">
+   <BOUNDS type="Box" height="12825" left="669" top="7614" width="13740">
    </BOUNDS>
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
@@ -205,7 +205,7 @@
    <LINK srcnodeid="318" srcpinname="Y Output Value" dstnodeid="-6" dstpinname="Maximum Foreground FPS">
    </LINK>
    <NODE systemname="Camera (Transform Orbit)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.49.229-g30fb9f349f\vvvv\nodes\modules\Camera (Transform Orbit).v4p" nodename="Camera (Transform Orbit)" componentmode="Hidden" id="305">
-   <BOUNDS type="Node" left="1905" top="6990" width="100" height="100">
+   <BOUNDS type="Node" left="1905" top="7170" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>

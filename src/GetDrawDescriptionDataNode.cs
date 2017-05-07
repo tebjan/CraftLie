@@ -38,6 +38,9 @@ namespace VVVV.DX11.Nodes
 
         //geometry
 
+        [Output("Blend Index")]
+        protected ISpread<int> FBlendIndex;
+
         [Output("Geometry Out")]
         protected Pin<DX11Resource<IDX11Geometry>> FGeometryOutput;
 
@@ -73,6 +76,9 @@ namespace VVVV.DX11.Nodes
 
         //sprites
 
+        [Output("Sprites Blend Index")]
+        protected ISpread<int> FSpritesBlendIndex;
+
         [Output("Sprites Geometry Out")]
         protected Pin<DX11Resource<IDX11Geometry>> FSpritesGeometryOutput;
 
@@ -104,6 +110,9 @@ namespace VVVV.DX11.Nodes
         protected ISpread<string> FSpritesTexturePath;
 
         //text
+
+        [Output("Text Blend Index")]
+        protected ISpread<int> FTextBlendIndex;
 
         [Output("Texts")]
         protected ISpread<string> FTexts;
@@ -178,6 +187,7 @@ namespace VVVV.DX11.Nodes
                 else //no output
                 {
                     //geos
+                    this.FBlendIndex.SliceCount = 0;
                     this.FGeometryOutput.SafeDisposeAll();
                     this.FGeometryOutput.SliceCount = 0;
 
@@ -197,6 +207,7 @@ namespace VVVV.DX11.Nodes
                     this.FColorCounts.SliceCount = 0;
 
                     //sprites
+                    this.FSpritesBlendIndex.SliceCount = 0;
                     this.FSpritesPositionOutput.SafeDisposeAll();
                     this.FSpritesPositionOutput.SliceCount = 0;
 
@@ -214,6 +225,7 @@ namespace VVVV.DX11.Nodes
                     this.FSpritesSpaceIndex.SliceCount = 0;
 
                     //text
+                    this.FTextBlendIndex.SliceCount = 0;
                     this.FTextSpaceIndex.SliceCount = 0;
                     this.FTextTransformations.SliceCount = 0;
                     this.FTextColors.SliceCount = 0;
@@ -268,6 +280,7 @@ namespace VVVV.DX11.Nodes
             var descriptions = FMainBuffer.DrawDescriptions;
             var outCount = descriptions.Count;
 
+            FBlendIndex.SliceCount = outCount;
             FGeometryOutput.SliceCount = outCount;
             FTransformation.SliceCount = outCount;
             FTexturePath.SliceCount = outCount;
@@ -316,6 +329,7 @@ namespace VVVV.DX11.Nodes
                 FTransformation[i] = ToSlimDXMatrix(desc.Transformation);
                 FTexturePath[i] = desc.TexturePath;
                 FColor[i] = ToRGBAColor(desc.Color);
+                FBlendIndex[i] = (int)desc.Blending;
                 FMaterialIndex[i] = (int)desc.Shading;
                 FSpaceIndex[i] = (int)desc.Space;
             }
@@ -326,6 +340,7 @@ namespace VVVV.DX11.Nodes
             var descriptions = FMainBuffer.SpritesDescriptions;
             var spritesCount = descriptions.Count;
 
+            FSpritesBlendIndex.SliceCount = spritesCount;
             FSpritesGeometryOutput.SliceCount = spritesCount;
             FSpritesTransformations.SliceCount = spritesCount;
             FSpritesSpaceIndex.SliceCount = spritesCount;
@@ -375,6 +390,7 @@ namespace VVVV.DX11.Nodes
                 FSpritesTransformations[i] = ToSlimDXMatrix(desc.Transformation);
                 FSpritesSpaceIndex[i] = (int)desc.Space;
                 FSpritesTexturePath[i] = desc.TexturePath;
+                FSpritesBlendIndex[i] = (int)desc.Blending;
             }
         }
 
@@ -383,6 +399,7 @@ namespace VVVV.DX11.Nodes
             var textDescriptions = FMainBuffer.TextDescriptions;
             var textCount = textDescriptions.Count;
 
+            FTextBlendIndex.SliceCount = textCount;
             FTexts.SliceCount = textCount;
             FTextTransformations.SliceCount = textCount;
             FTextSpaceIndex.SliceCount = textCount;
@@ -400,6 +417,7 @@ namespace VVVV.DX11.Nodes
                 FTextTransformations[i] = ToSlimDXMatrix(desc.Transformation);
                 FTextSpaceIndex[i] = (int)desc.Space;
                 FTextColors[i] = ToRGBAColor(desc.Color);
+                FTextBlendIndex[i] = (int)desc.Blending;
             }
         }
 

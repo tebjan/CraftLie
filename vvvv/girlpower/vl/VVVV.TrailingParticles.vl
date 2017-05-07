@@ -528,7 +528,7 @@
         </p:NodeReference>
         <Patch Id="KqwcySkOH6MMrLhWAsBzoS">
           <Canvas Id="IaTDpkFtG1tOvctXJpLq9m" Position="-160,-80">
-            <Pad Id="DXy9UQDem5aOSnxZlkTQvU" Comment="Acceleration" Bounds="667,623,40,31" ShowValueBox="true" isIOBox="true" Value="new vec(0.0,-0.01)">
+            <Pad Id="DXy9UQDem5aOSnxZlkTQvU" Comment="Acceleration" Bounds="666,622,40,31" ShowValueBox="true" isIOBox="true" Value="new vec(0.0,-0.01)">
               <p:ValueBoxSettings />
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Vector2" />
@@ -596,7 +596,7 @@
               </p:NodeReference>
               <Pin Id="K4avn4JHo6KLGOAVBxvs4m" Name="Iteration Count" Kind="InputPin" />
               <Pin Id="RwTYpgMNXqrMCMiKkFhqDZ" Name="Break" Kind="OutputPin" />
-              <ControlPoint Id="THkv0n6EUUCNfGIhZVDl4J" Bounds="593,563" Alignment="Bottom" />
+              <ControlPoint Id="THkv0n6EUUCNfGIhZVDl4J" Bounds="594,563" Alignment="Bottom" />
               <Patch Id="CN5ezyPGMojNt5piQuJXYE">
                 <Patch Id="Ptr33yGubo7NxE9UXAy1qR" Name="Create" />
                 <Patch Id="R2yfmmO8rmsOIEhCdzchBx" Name="Update" />
@@ -638,12 +638,12 @@
                 <FullNameCategoryReference ID="Primitive" />
               </p:NodeReference>
               <Pin Id="Se4SSaN0L4YLLWY187i3gl" Name="Break" Kind="OutputPin" />
-              <ControlPoint Id="FHAtkleMIsbMAfooKvlCtl" Bounds="519,682" Alignment="Top" />
-              <ControlPoint Id="RF3qfbAFqWbLnVOMSLeLwA" Bounds="200,682" Alignment="Top" />
-              <ControlPoint Id="H1xq5cedYqAO0hngqHYTYQ" Bounds="189,1127" Alignment="Bottom" />
-              <ControlPoint Id="Vm9BHWdmxBeNMe4xDzjRIu" Bounds="380,1127" Alignment="Bottom" />
-              <ControlPoint Id="R54LxrY6zKGMKx2ZwupoD5" Bounds="395,682" Alignment="Top" />
-              <ControlPoint Id="P4aZjRnSVYqM6zUSRWOXLa" Bounds="516,1127" Alignment="Bottom" />
+              <ControlPoint Id="FHAtkleMIsbMAfooKvlCtl" Bounds="520,682" Alignment="Top" />
+              <ControlPoint Id="RF3qfbAFqWbLnVOMSLeLwA" Bounds="201,682" Alignment="Top" />
+              <ControlPoint Id="H1xq5cedYqAO0hngqHYTYQ" Bounds="190,1127" Alignment="Bottom" />
+              <ControlPoint Id="Vm9BHWdmxBeNMe4xDzjRIu" Bounds="381,1127" Alignment="Bottom" />
+              <ControlPoint Id="R54LxrY6zKGMKx2ZwupoD5" Bounds="396,682" Alignment="Top" />
+              <ControlPoint Id="P4aZjRnSVYqM6zUSRWOXLa" Bounds="517,1127" Alignment="Bottom" />
               <Patch Id="FkQnGvxQts8OmlZ1s8ZC3F">
                 <Patch Id="C00sjryo4l2Pp2PzTBUr3R" Name="Create" />
                 <Patch Id="OYMomcTN2blNc8wwiM3gkM" Name="Update">
@@ -720,10 +720,10 @@
                       <Pin Id="Mp5qAcBP57FPQVqDopEcnh" Name="Apply" Kind="ApplyPin" />
                     </Node>
                   </Patch>
-                  <ControlPoint Id="NFp5ITMrkyPMdlMqp2r5VE" Bounds="201,1045" Alignment="Bottom" />
-                  <ControlPoint Id="IIBbiTX5wRiQViPybl9eZO" Bounds="200,825" Alignment="Top" />
-                  <ControlPoint Id="IEzAenkWenyPs1q2Ygl1ry" Bounds="393,1045" Alignment="Bottom" />
-                  <ControlPoint Id="CLdC9b6KJg6PxExrjn2jZd" Bounds="393,825" Alignment="Top" />
+                  <ControlPoint Id="NFp5ITMrkyPMdlMqp2r5VE" Bounds="202,1045" Alignment="Bottom" />
+                  <ControlPoint Id="IIBbiTX5wRiQViPybl9eZO" Bounds="201,825" Alignment="Top" />
+                  <ControlPoint Id="IEzAenkWenyPs1q2Ygl1ry" Bounds="394,1045" Alignment="Bottom" />
+                  <ControlPoint Id="CLdC9b6KJg6PxExrjn2jZd" Bounds="394,825" Alignment="Top" />
                 </Node>
                 <ControlPoint Id="M5TbztIcMP1NKDagbsARBG" Bounds="230,789" />
               </Patch>
@@ -737,6 +737,7 @@
                 <CategoryReference Kind="Category" Name="CraftLie" />
                 <Choice Kind="ProcessAppFlag" Name="Quad" />
               </p:NodeReference>
+              <Pin Id="CnSNIsndthPQCTvrmcAzur" Name="Blend Mode" Kind="InputPin" />
               <Pin Id="DD3TQYY0T8XPvwzXZA86ua" Name="Transformation" Kind="InputPin" />
               <Pin Id="R51B8f2eg0lMfC25lD8A7i" Name="Color" Kind="InputPin" />
               <Pin Id="OccFvj3bbaWOfRSx402zcR" Name="Texture Path" Kind="InputPin" />
@@ -776,7 +777,7 @@
               <Pin Id="K4Ax0o47ffcOMhSTHcxCoa" Name="Apply" Kind="ApplyPin" />
               <Pin Id="KTtrT8CCVZZL9J88Jd1a9x" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="MCBLUJcDOY0NNcAIXSbBDD" Bounds="38,1306" />
+            <ControlPoint Id="MCBLUJcDOY0NNcAIXSbBDD" Bounds="101,1288" />
             <Node Bounds="760,295,64,13" Id="G971pxE4nWxOWBWLRoFvfS">
               <p:NodeReference LastCategoryFullName="Animation.FrameBased" LastSymbolSource="VL.CoreLib.vl" LastPackageId="VL.CoreLib">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -841,13 +842,13 @@
               <Pin Id="DBqU6HEFQqhLEPTFZfObgH" Name="Output" Kind="OutputPin" />
               <Pin Id="CQxtljoUqmsOTTOMUoKGOD" Name="Scalar" Kind="InputPin" />
             </Node>
-            <Pad Id="RvIL84V6ZouOpOhw6MIDr9" Comment="Scalar" Bounds="723,656" ShowValueBox="true" isIOBox="true" Value="0.0100000128">
+            <Pad Id="RvIL84V6ZouOpOhw6MIDr9" Comment="Scalar" Bounds="722,655" ShowValueBox="true" isIOBox="true" Value="0.0100000128">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="Float32" />
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="JzT2YJBNmp7NliNxKgmfyk" Bounds="106,491" ShowValueBox="true" isIOBox="true" Value="&quot;for very high spreadcounts that change dynamically in every frame &quot;">
+            <Pad Id="JzT2YJBNmp7NliNxKgmfyk" Bounds="105,490" ShowValueBox="true" isIOBox="true" Value="&quot;for very high spreadcounts that change dynamically in every frame &quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -857,7 +858,7 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="JyBTGCy9gwzOH2DlTf21nA" Bounds="106,506" ShowValueBox="true" isIOBox="true" Value="&quot;its better to re-use mutable spreadbuilders to not stress the .NET&quot;">
+            <Pad Id="JyBTGCy9gwzOH2DlTf21nA" Bounds="105,505" ShowValueBox="true" isIOBox="true" Value="&quot;its better to re-use mutable spreadbuilders to not stress the .NET&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -867,7 +868,7 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="NOD8934Am04QTAUBZB37Xp" Bounds="105,522" ShowValueBox="true" isIOBox="true" Value="&quot;garbage collector with large objects which can lead to short freezes.&quot;">
+            <Pad Id="NOD8934Am04QTAUBZB37Xp" Bounds="104,521" ShowValueBox="true" isIOBox="true" Value="&quot;garbage collector with large objects which can lead to short freezes.&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -875,6 +876,12 @@
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
                 <Choice Kind="TypeFlag" Name="String" />
                 <CategoryReference Kind="Category" Name="Primitive" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="LJGun9jeMbwMxJUvU2jnli" Comment="Blend Mode" Bounds="24,1331" ShowValueBox="true" isIOBox="true" Value="&quot;Add&quot;">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll" LastPackageId="CraftLie" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="BlendMode" />
+                <CategoryReference Kind="Category" Name="CraftLie" />
               </p:TypeAnnotation>
             </Pad>
           </Canvas>
@@ -977,6 +984,7 @@
           <Link Id="V4DNghFbQFALUAvNQyC57C" Ids="DXy9UQDem5aOSnxZlkTQvU,JAKJsdxK5TtNtYaGu1B5xH" />
           <Link Id="T74toAmDq5FLuUoiQITQMr" Ids="DBqU6HEFQqhLEPTFZfObgH,OEmYWBTdGjGNtAIjn1ZyNm" />
           <Link Id="SlB3q3oPWcFMZh2HObrwKb" Ids="RvIL84V6ZouOpOhw6MIDr9,CQxtljoUqmsOTTOMUoKGOD" />
+          <Link Id="Vff1UuglsQaQS2lhRymsZl" Ids="LJGun9jeMbwMxJUvU2jnli,CnSNIsndthPQCTvrmcAzur" />
         </Patch>
       </Node>
     </Canvas>

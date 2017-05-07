@@ -20,12 +20,25 @@ namespace CraftLie
     }
 
     [Type]
+    public enum BlendMode
+    {
+        Disabled,
+        Add,
+        Blend,
+        Multiply,
+        AlphaAdd,
+        TextDefault,
+        Keep
+    }
+
+    [Type]
     public class DrawDescription : IDisposable
     {
         public GeometryDescriptor GeometryDescriptor;
         public Matrix Transformation;
         public Color4 Color;
         public TransformationSpace Space = TransformationSpace.World;
+        public BlendMode Blending = BlendMode.Blend;
         public string TexturePath;
 
         public IDX11Geometry GetGeometry(DX11RenderContext context)

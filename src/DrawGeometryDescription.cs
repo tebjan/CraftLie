@@ -27,7 +27,7 @@ namespace CraftLie
         public int InstanceCount;
 
         [Node(Hidden = true, IsDefaultValue = true)]
-        public static readonly DrawGeometryDescription Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", ShadingType.Constant, new List<Matrix>(), new List<Color4>());
+        public static readonly DrawGeometryDescription Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", BlendMode.Blend, ShadingType.Constant, new List<Matrix>(), new List<Color4>());
 
         public DrawGeometryDescription()
             : this(null)
@@ -44,12 +44,13 @@ namespace CraftLie
             Matrix transformation, 
             Color4 color,
             string texturePath,
+            BlendMode blendMode,
             ShadingType shading,
             IReadOnlyList<Matrix> instanceTransformations,
             IReadOnlyList<Color4> instanceColors)
             : this(geometryDescriptor)
         {
-            Update(transformation, color, texturePath, shading, instanceTransformations, instanceColors);
+            Update(transformation, color, texturePath, blendMode, shading, instanceTransformations, instanceColors);
         }
 
         [Node]
@@ -67,13 +68,15 @@ namespace CraftLie
             Matrix transformation,
             Color4 color,
             string texturePath,
-            ShadingType shading,
-            IReadOnlyList<Matrix> instanceTransformations,
-            IReadOnlyList<Color4> instanceColors)
+            BlendMode blendMode = BlendMode.Blend,
+            ShadingType shading = ShadingType.Constant,
+            IReadOnlyList<Matrix> instanceTransformations = null,
+            IReadOnlyList<Color4> instanceColors = null)
         {
             Transformation = transformation;
             Color = color;
             TexturePath = texturePath;
+            Blending = blendMode;
             Shading = shading;
             Space = TransformationSpace.World; //always set default, can be changed by Within node
 

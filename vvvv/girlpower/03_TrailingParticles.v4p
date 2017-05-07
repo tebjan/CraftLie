@@ -95,12 +95,16 @@
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="255" width="11685" height="13830">
    </BOUNDS>
-   <BOUNDS type="Window" left="975" top="4470" width="10770" height="13830">
+   <BOUNDS type="Window" left="975" top="4470" width="21585" height="13830">
    </BOUNDS>
-   <PIN pinname="Render State" visible="1">
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="308" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
+   <LINK srcnodeid="308" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1" linkstyle="Bezier">
+   <LINKPOINT x="1260" y="5318">
+   </LINKPOINT>
+   <LINKPOINT x="1635" y="5318">
+   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="308" srcpinname="Object Count" dstnodeid="305" dstpinname="Input">
    </LINK>
@@ -220,7 +224,11 @@
    </NODE>
    <LINK srcnodeid="316" srcpinname="Output" dstnodeid="315" dstpinname="Color">
    </LINK>
-   <LINK srcnodeid="315" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 3">
+   <LINK srcnodeid="315" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 3" linkstyle="Bezier">
+   <LINKPOINT x="2925" y="6218">
+   </LINKPOINT>
+   <LINKPOINT x="1995" y="6218">
+   </LINKPOINT>
    </LINK>
    <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="317">
    <BOUNDS type="Node" left="2910" top="5460" width="100" height="100">
@@ -387,16 +395,6 @@
    <LINK srcnodeid="313" srcpinname="Y Output Value" dstnodeid="333" dstpinname="Lifetime Maximum">
    </LINK>
    <LINK srcnodeid="319" srcpinname="Y Output Value" dstnodeid="333" dstpinname="noise Amount">
-   </LINK>
-   <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="335">
-   <BOUNDS type="Node" left="585" top="3060" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Mode" slicecount="1" values="Add">
-   </PIN>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="335" srcpinname="Render State" dstnodeid="308" dstpinname="Render State">
    </LINK>
    <LINK srcnodeid="314" srcpinname="Output String" dstnodeid="333" dstpinname="Texture Path">
    </LINK>

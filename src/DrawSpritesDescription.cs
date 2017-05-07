@@ -29,6 +29,7 @@ namespace CraftLie
         [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly DrawSpritesDescription Default = new DrawSpritesDescription(
             Matrix.Identity,
+            BlendMode.Blend,
             NoPositions,
             NoSizes,
             NoColors);
@@ -41,25 +42,27 @@ namespace CraftLie
             GeometryDescriptor = new SpritesDescriptor();
         }
 
-        public DrawSpritesDescription(Matrix transformation, IReadOnlyList<Vector3> positions, IReadOnlyList<Vector2> sizes, IReadOnlyList<Color4> colors, string texturePath = "")
+        public DrawSpritesDescription(Matrix transformation, BlendMode blendMode, IReadOnlyList<Vector3> positions, IReadOnlyList<Vector2> sizes, IReadOnlyList<Color4> colors, string texturePath = "")
         {
             GeometryDescriptor = new SpritesDescriptor();
 
-            Update(transformation, positions, sizes, colors, texturePath);
+            Update(transformation, blendMode, positions, sizes, colors, texturePath);
         }
 
         [Node]
         public void Update(
             Matrix transformation,
-            IReadOnlyList<Vector3> positions, 
-            IReadOnlyList<Vector2> sizes, 
-            IReadOnlyList<Color4> colors, 
+            BlendMode blendMode = BlendMode.Blend,
+            IReadOnlyList<Vector3> positions = null, 
+            IReadOnlyList<Vector2> sizes = null, 
+            IReadOnlyList<Color4> colors = null, 
             string texturePath = "")
         {
 
             Transformation = transformation;
             TexturePath = texturePath;
             Space = TransformationSpace.World; //always set default, can be changed by Within node
+            Blending = blendMode;
 
             if (positions == null)
                 positions = NoPositions;
