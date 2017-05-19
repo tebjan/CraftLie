@@ -33,6 +33,8 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="284" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 2">
    </LINK>
@@ -181,5 +183,25 @@
    <LINK srcnodeid="307" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="308" srcpinname="Output" dstnodeid="307" dstpinname="VVVV Folder">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="315">
+   <BOUNDS type="Box" left="2505" top="3510" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2505" top="3510" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="315" srcpinname="Y Output Value" dstnodeid="284" dstpinname="Enabled">
    </LINK>
    </PATCH>

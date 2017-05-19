@@ -1,5 +1,6 @@
 ﻿using FeralTic.DX11.Geometry;
 using System.Collections.Generic;
+using System.Linq;
 using VL.Core;
 
 namespace CraftLie
@@ -29,7 +30,7 @@ namespace CraftLie
         public static readonly Quad UnitQuad = new Quad() { Size = new SlimDX.Vector2(1) };
         public static readonly Box UnitBox = new Box() { Size = new SlimDX.Vector3(1) };
         public static readonly List<SlimDX.Vector3> UnitLine = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(-0.5f, 0, 0), new SlimDX.Vector3(0.5f, 0, 0) };
-        public static readonly List<SlimDX.Vector3> UnitLineNormals = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(0, 0, -1), new SlimDX.Vector3(0, 0, -1) };
+        public static readonly List<SlimDX.Vector3> UnitLineNormals = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0) };
     }
 
     [Type(IsImmutable = true)]
@@ -129,6 +130,7 @@ namespace CraftLie
     {
         public readonly List<SlimDX.Vector3> Positions;
         public readonly List<SlimDX.Vector3> Directions;
+        public readonly bool IsClosed;
 
         [Node]
         public LineDescriptor()
@@ -136,6 +138,24 @@ namespace CraftLie
         {
             Positions = GeometryDescriptor.UnitLine;
             Directions = GeometryDescriptor.UnitLineNormals;
+        }
+
+        [Node(Version = "Poly")]
+        public LineDescriptor(IReadOnlyList<SharpDX.Vector3> positions, bool isClosed)
+            : base(PrimitiveType.Line)
+        {
+            IsClosed = isClosed;
+
+            if (positions != null && positions.Count > 1)
+            {
+                Positions = positions.Select(v => new SlimDX.Vector3(v.X, v.Y, v.Z)).ToList();
+                Directions = positions.Select(_ => new SlimDX.Vector3(0, 1, 0)).ToList();
+            }
+            else
+            {
+                Positions = GeometryDescriptor.UnitLine;
+                Directions = GeometryDescriptor.UnitLineNormals;
+            }
         }
     }
 

@@ -40,7 +40,7 @@ namespace CraftLie
                     break;
                 case PrimitiveType.Line:
                     var lineDesc = (LineDescriptor)descriptor;
-                    return LineStrip3d(context, lineDesc.Positions, lineDesc.Directions, false);
+                    return LineStrip3d(context, lineDesc.Positions, lineDesc.Directions, lineDesc.IsClosed);
                     break;
                 case PrimitiveType.Sprites:
                     return CreateNullGeometry(context);
