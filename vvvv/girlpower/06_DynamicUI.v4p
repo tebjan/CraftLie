@@ -33,7 +33,7 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1" visible="1">
+   <PIN pinname="Enabled" slicecount="1" visible="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="284" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 2">
@@ -210,22 +210,6 @@
    </LINK>
    <LINK srcnodeid="321" srcpinname="Space" dstnodeid="318" dstpinname="Input 1">
    </LINK>
-   <NODE id="322" systemname="DynamicUI (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="DynamicUI (3d)" componentmode="Hidden">
-   <BOUNDS type="Node" left="1725" top="2940" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Reset" visible="1">
-   </PIN>
-   <PIN pinname="Mouse Device" visible="1">
-   </PIN>
-   <PIN pinname="Draw Description Layer" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="318" srcpinname="Output" dstnodeid="322" dstpinname="Reset">
-   </LINK>
-   <LINK srcnodeid="315" srcpinname="Device" dstnodeid="322" dstpinname="Mouse Device">
-   </LINK>
-   <LINK srcnodeid="322" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="323">
    <BOUNDS type="Box" left="2640" top="3690" width="480" height="480">
    </BOUNDS>
@@ -243,5 +227,15 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="323" srcpinname="Y Output Value" dstnodeid="284" dstpinname="Enabled">
+   </LINK>
+   <NODE id="324" systemname="DynamicUI (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="DynamicUI (3d)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1725" top="2940" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="318" srcpinname="Output" dstnodeid="324" dstpinname="Reset">
+   </LINK>
+   <LINK srcnodeid="315" srcpinname="Device" dstnodeid="324" dstpinname="Mouse Device">
+   </LINK>
+   <LINK srcnodeid="324" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
    </PATCH>
