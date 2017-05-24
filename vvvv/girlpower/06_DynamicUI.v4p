@@ -282,10 +282,10 @@
    <BOUNDS type="Node" left="1710" top="3285" width="100" height="100">
    </BOUNDS>
    </NODE>
-   <LINK srcnodeid="329" srcpinname="Bang" dstnodeid="324" dstpinname="Reset">
+   <LINK srcnodeid="324" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="315" srcpinname="Device" dstnodeid="324" dstpinname="Mouse Device">
    </LINK>
-   <LINK srcnodeid="324" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
+   <LINK srcnodeid="329" srcpinname="Bang" dstnodeid="324" dstpinname="Reset">
    </LINK>
    </PATCH>
