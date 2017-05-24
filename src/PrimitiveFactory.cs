@@ -9,6 +9,17 @@ using FeralTic.DX11.Geometry;
 using SlimDX;
 using SlimDX.Direct3D11;
 
+using SharpDX.DirectWrite;
+using DWriteFactory = SharpDX.DirectWrite.Factory;
+using D2DFactory = SharpDX.Direct2D1.Factory;
+using D2DGeometry = SharpDX.Direct2D1.Geometry;
+
+using SharpDX.Direct2D1;
+
+using InputElement = SlimDX.Direct3D11.InputElement;
+using VVVV.DX11.Text3d;
+using System.Runtime.InteropServices;
+
 namespace CraftLie
 {
     public static class PrimitiveFactory
@@ -45,6 +56,10 @@ namespace CraftLie
                 case PrimitiveType.Sprites:
                     return CreateNullGeometry(context);
                     break;
+                case PrimitiveType.Text:
+                    var textDesc = (TextDescriptor)descriptor;
+                    return Text3d(context, textDesc.Text, textDesc.FontName, textDesc.FontSize, textDesc.Extrude, textDesc.TextAlignment, textDesc.ParagraphAlignment);
+                    break;
                 default:
                     var settings = new Quad() { Size = new SlimDX.Vector2(1) };
                     return context.Primitives.QuadNormals(settings);
@@ -71,7 +86,7 @@ namespace CraftLie
 
             int vcount = loop ? ptcnt + 1 : ptcnt;
 
-            Pos3Norm3Tex2Vertex[] verts = new Pos3Norm3Tex2Vertex[vcount];
+            FeralTic.DX11.Geometry.Pos3Norm3Tex2Vertex[] verts = new FeralTic.DX11.Geometry.Pos3Norm3Tex2Vertex[vcount];
 
             float inc = loop ? 1.0f / (float)vcount : 1.0f / ((float)vcount + 1.0f);
 
@@ -94,7 +109,7 @@ namespace CraftLie
             }
 
 
-            DataStream ds = new DataStream(vcount * Pos3Norm3Tex2Vertex.VertexSize, true, true);
+            DataStream ds = new DataStream(vcount * FeralTic.DX11.Geometry.Pos3Norm3Tex2Vertex.VertexSize, true, true);
             ds.Position = 0;
             ds.WriteRange(verts);
             ds.Position = 0;
@@ -111,14 +126,84 @@ namespace CraftLie
             ds.Dispose();
 
             geom.VertexBuffer = vbuffer;
-            geom.InputLayout = Pos3Norm3Tex2Vertex.Layout;
+            geom.InputLayout = FeralTic.DX11.Geometry.Pos3Norm3Tex2Vertex.Layout;
             geom.Topology = PrimitiveTopology.LineStrip;
             geom.VerticesCount = vcount;
-            geom.VertexSize = Pos3Norm3Tex2Vertex.VertexSize;
+            geom.VertexSize = FeralTic.DX11.Geometry.Pos3Norm3Tex2Vertex.VertexSize;
 
             geom.HasBoundingBox = false;
 
             return geom;
         }
+
+        private static D2DFactory d2dFactory;
+        private static DWriteFactory dwFactory;
+
+        public static DX11VertexGeometry Text3d(DX11RenderContext device, string text, string fontName, float fontSize, float extrude, TextAlignment textAlignment, ParagraphAlignment paragraphAlignment)
+        {
+            if (d2dFactory == null)
+            {
+                d2dFactory = new D2DFactory();
+                dwFactory = new DWriteFactory(SharpDX.DirectWrite.FactoryType.Shared);
+            }
+
+            TextFormat fmt = new TextFormat(dwFactory, fontName, fontSize);
+
+            TextLayout tl = new TextLayout(dwFactory, text, fmt, 0.0f, .0f);
+            tl.WordWrapping = WordWrapping.NoWrap;
+            tl.TextAlignment = (SharpDX.DirectWrite.TextAlignment)textAlignment;
+            tl.ParagraphAlignment = (SharpDX.DirectWrite.ParagraphAlignment)paragraphAlignment;
+
+            OutlineRenderer renderer = new OutlineRenderer(d2dFactory);
+            Extruder ex = new Extruder(d2dFactory);
+
+            tl.Draw(renderer, 0.0f, 0.0f);
+
+            var result = ex.GetVertices(renderer.GetGeometry(), extrude);
+
+            Vector3 min = new Vector3(float.MaxValue);
+            Vector3 max = new Vector3(float.MinValue);
+
+            result.ForEach(pn =>
+            {
+                min.X = pn.Position.X < min.X ? pn.Position.X : min.X;
+                min.Y = pn.Position.Y < min.Y ? pn.Position.Y : min.Y;
+                min.Z = pn.Position.Z < min.Z ? pn.Position.Z : min.Z;
+
+                max.X = pn.Position.X > max.X ? pn.Position.X : max.X;
+                max.Y = pn.Position.Y > max.Y ? pn.Position.Y : max.Y;
+                max.Z = pn.Position.Z > max.Z ? pn.Position.Z : max.Z;
+            });
+
+            SlimDX.DataStream ds = new SlimDX.DataStream(result.Count * Pos3Norm3VertexSDX.VertexSize, true, true);
+            ds.Position = 0;
+
+            ds.WriteRange(result.ToArray());
+
+            ds.Position = 0;
+
+            var vbuffer = new SlimDX.Direct3D11.Buffer(device.Device, ds, new SlimDX.Direct3D11.BufferDescription()
+            {
+                BindFlags = SlimDX.Direct3D11.BindFlags.VertexBuffer,
+                CpuAccessFlags = SlimDX.Direct3D11.CpuAccessFlags.None,
+                OptionFlags = SlimDX.Direct3D11.ResourceOptionFlags.None,
+                SizeInBytes = (int)ds.Length,
+                Usage = SlimDX.Direct3D11.ResourceUsage.Default
+            });
+
+            ds.Dispose();
+
+            DX11VertexGeometry vg = new DX11VertexGeometry(device);
+            vg.InputLayout = Pos3Norm3VertexSDX.Layout;
+            vg.Topology = SlimDX.Direct3D11.PrimitiveTopology.TriangleList;
+            vg.VertexBuffer = vbuffer;
+            vg.VertexSize = Pos3Norm3VertexSDX.VertexSize;
+            vg.VerticesCount = result.Count;
+            vg.HasBoundingBox = false;
+            //vg.BoundingBox = new SlimDX.BoundingBox(new SlimDX.Vector3(min.X, min.Y, min.Z), new SlimDX.Vector3(max.X, max.Y, max.Z));
+
+            return vg;
+        }
+
     }
 }
