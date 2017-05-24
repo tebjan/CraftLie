@@ -17,7 +17,6 @@ using D2DGeometry = SharpDX.Direct2D1.Geometry;
 using SharpDX.Direct2D1;
 
 using InputElement = SlimDX.Direct3D11.InputElement;
-using VVVV.DX11.Text3d;
 using System.Runtime.InteropServices;
 
 namespace CraftLie
@@ -138,9 +137,21 @@ namespace CraftLie
 
         private static D2DFactory d2dFactory;
         private static DWriteFactory dwFactory;
+        private static Dictionary<string, Dictionary<DX11RenderContext, DX11VertexGeometry>> TextGeometryCache = new Dictionary<string, Dictionary<DX11RenderContext, DX11VertexGeometry>>();
 
         public static DX11VertexGeometry Text3d(DX11RenderContext device, string text, string fontName, float fontSize, float extrude, TextAlignment textAlignment, ParagraphAlignment paragraphAlignment)
         {
+
+            //Dictionary<DX11RenderContext, DX11VertexGeometry> deviceDict = null;
+            //if (TextGeometryCache.TryGetValue(text, out deviceDict))
+            //{
+            //    DX11VertexGeometry geom;
+            //    if(deviceDict.TryGetValue(device, out geom))
+            //    {
+            //        return geom;
+            //    }
+            //}
+
             if (d2dFactory == null)
             {
                 d2dFactory = new D2DFactory();
@@ -199,8 +210,20 @@ namespace CraftLie
             vg.VertexBuffer = vbuffer;
             vg.VertexSize = Pos3Norm3VertexSDX.VertexSize;
             vg.VerticesCount = result.Count;
-            vg.HasBoundingBox = false;
-            //vg.BoundingBox = new SlimDX.BoundingBox(new SlimDX.Vector3(min.X, min.Y, min.Z), new SlimDX.Vector3(max.X, max.Y, max.Z));
+            vg.HasBoundingBox = true;
+            vg.BoundingBox = new SlimDX.BoundingBox(new SlimDX.Vector3(min.X, min.Y, min.Z), new SlimDX.Vector3(max.X, max.Y, max.Z));
+
+
+            //if(deviceDict != null)
+            //{
+            //    deviceDict[device] = vg;
+            //}
+            //else
+            //{
+            //    deviceDict = new Dictionary<DX11RenderContext, DX11VertexGeometry>();
+            //    deviceDict[device] = vg;
+            //    TextGeometryCache[text] = deviceDict;
+            //}
 
             return vg;
         }

@@ -40,6 +40,12 @@ namespace CraftLie
             GeometryDescriptor = geometryDescriptor ?? new BoxDescriptor();
         }
 
+        [Node]
+        public void SetLayerOrder(int layerOrder)
+        {
+            LayerOrder = layerOrder;
+        }
+
         public DrawGeometryDescription(GeometryDescriptor geometryDescriptor, 
             Matrix transformation, 
             Color4 color,

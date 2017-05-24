@@ -28,6 +28,12 @@ namespace CraftLie
             Transformation = transformation;
             Blending = blendMode;
         }
+
+        [Node]
+        public void SetLayerOrder(int layerOrder)
+        {
+            LayerOrder = layerOrder;
+        }
     }
 
 }

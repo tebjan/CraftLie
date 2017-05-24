@@ -1,23 +1,23 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0" locked="0">
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="-360" locked="0">
    <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
-   <BOUNDS type="Box" left="900" top="9890" width="750" height="240">
+   <BOUNDS type="Box" left="885" top="10685" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="900" top="9890" width="750" height="240">
+   <BOUNDS type="Node" left="885" top="10685" width="750" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="2670" top="3015" width="19575" height="13830">
+   <BOUNDS type="Window" left="2715" top="4170" width="18315" height="13830">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="26" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="2550" top="900" width="1365" height="390">
+   <BOUNDS type="Box" left="2550" top="1080" width="1365" height="390">
    </BOUNDS>
-   <BOUNDS type="Node" left="2550" top="900" width="0" height="0">
+   <BOUNDS type="Node" left="2550" top="1080" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
@@ -68,12 +68,6 @@
    <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="46" srcpinname="Layer Out" dstnodeid="24" dstpinname="Input Node" linkstyle="Bezier">
-   <LINKPOINT x="930" y="9645">
-   </LINKPOINT>
-   <LINKPOINT x="930" y="9645">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="61">
    <BOUNDS type="Node" left="18315" top="6210" width="2940" height="270">
    </BOUNDS>
@@ -375,9 +369,11 @@
    </PIN>
    <PIN pinname="Text Blend Index" visible="1">
    </PIN>
+   <PIN pinname="Layer Order" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="36" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="5385" y="3600">
+   <LINKPOINT x="6570" y="3630">
    </LINKPOINT>
    <LINKPOINT x="9960" y="3600">
    </LINKPOINT>
@@ -419,9 +415,9 @@
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Layer" linkstyle="Bezier">
-   <LINKPOINT x="2580" y="1740">
+   <LINKPOINT x="2580" y="1860">
    </LINKPOINT>
-   <LINKPOINT x="2580" y="1740">
+   <LINKPOINT x="2580" y="1800">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="69" dstpinname="Input" linkstyle="Bezier">
@@ -632,16 +628,10 @@
    <LINKPOINT x="18750" y="7433">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="89" srcpinname="Output" dstnodeid="46" dstpinname="Layer 3" linkstyle="Bezier">
-   <LINKPOINT x="18150" y="8558">
-   </LINKPOINT>
-   <LINKPOINT x="17565" y="8558">
-   </LINKPOINT>
-   </LINK>
    <LINK srcnodeid="36" srcpinname="Text Space Index" dstnodeid="89" dstpinname="Switch" linkstyle="Bezier">
-   <LINKPOINT x="18555" y="5093">
+   <LINKPOINT x="18555" y="5100">
    </LINKPOINT>
-   <LINKPOINT x="18180" y="5093">
+   <LINKPOINT x="18165" y="5025">
    </LINKPOINT>
    </LINK>
    <NODE systemname="CraftLieSprites (DX11.Effect)" filename="%VVVV%\packs\CraftLie\vvvv\nodes\dx11\CraftLieSprites.fx" nodename="CraftLieSprites (DX11.Effect)" componentmode="Hidden" id="93">
@@ -845,5 +835,13 @@
    </LINKPOINT>
    <LINKPOINT x="7725" y="4305">
    </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="Output" dstnodeid="46" dstpinname="Layer 3" linkstyle="Bezier">
+   <LINKPOINT x="18150" y="8558">
+   </LINKPOINT>
+   <LINKPOINT x="17565" y="8558">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Layer Out" dstnodeid="24" dstpinname="Input Node">
    </LINK>
    </PATCH>

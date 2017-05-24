@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InputElement = SlimDX.Direct3D11.InputElement;
 
-namespace VVVV.DX11.Text3d
+namespace CraftLie
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Pos3Norm3VertexSDX
@@ -43,6 +43,12 @@ namespace VVVV.DX11.Text3d
         internal Pos3Norm3VertexSDX Scale(float scaling)
         {
             Vector3.Multiply(ref Position, scaling, out Position);
+            return this;
+        }
+
+        internal Pos3Norm3VertexSDX AssignTexCd()
+        {
+            TexCoord = (Vector2)Position;
             return this;
         }
     }

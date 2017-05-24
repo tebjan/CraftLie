@@ -40,6 +40,7 @@ namespace CraftLie
         public TransformationSpace Space = TransformationSpace.World;
         public BlendMode Blending = BlendMode.Blend;
         public string TexturePath;
+        public int LayerOrder;
 
         public IDX11Geometry GetGeometry(DX11RenderContext context)
         {

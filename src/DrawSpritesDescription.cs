@@ -42,6 +42,12 @@ namespace CraftLie
             GeometryDescriptor = new SpritesDescriptor();
         }
 
+        [Node]
+        public void SetLayerOrder(int layerOrder)
+        {
+            LayerOrder = layerOrder;
+        }
+
         public DrawSpritesDescription(Matrix transformation, BlendMode blendMode, IReadOnlyList<Vector3> positions, IReadOnlyList<Vector2> sizes, IReadOnlyList<Color4> colors, string texturePath = "")
         {
             GeometryDescriptor = new SpritesDescriptor();

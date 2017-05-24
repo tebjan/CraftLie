@@ -12,7 +12,7 @@ using SharpDX;
 using VVVV.DX11.Nodes;
 using SharpDX.Direct2D1;
 
-namespace VVVV.DX11.Text3d
+namespace CraftLie
 {
     public class Extruder
     {
@@ -72,11 +72,11 @@ namespace VVVV.DX11.Text3d
 
             //Add snap here
 
-            var sink = new FlatSink(vertices);
+            var sink = new ExtrudingSink(vertices, height);
             outlinedGeometry.Simplify(GeometrySimplificationOption.Lines, sink);
 
             var bounds = geometry.GetBounds();
-            var scaling = 1 / Math.Abs(bounds.Bottom - bounds.Top);
+            var scaling = Math.Min(1 / Math.Abs(bounds.Bottom - bounds.Top), 1);
 
             outlinedGeometry.Tessellate(sink);
 
@@ -88,7 +88,7 @@ namespace VVVV.DX11.Text3d
             //    vertices[i] = vertices[i].Scale(scaling);
             //}
 
-            vertices = vertices.Select(v => v.Scale(scaling)).Reverse().ToList();
+            vertices = vertices.Select(v => v.Scale(scaling).AssignTexCd()).Reverse().ToList();
 
             return vertices;
         }

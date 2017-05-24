@@ -13,7 +13,7 @@ using SharpDX;
 
 
 
-namespace VVVV.DX11.Text3d
+namespace CraftLie
 {
     public class OutlineRenderer : SharpDX.DirectWrite.TextRendererBase
     {

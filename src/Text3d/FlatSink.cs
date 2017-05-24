@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VVVV.DX11.Nodes;
 
-namespace VVVV.DX11.Text3d
+namespace CraftLie
 {
     public class FlatSink : GeometrySink, TessellationSink
     {

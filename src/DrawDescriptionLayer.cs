@@ -18,14 +18,14 @@ namespace CraftLie
             GetDefaultSpritesDescriptor().ToList(),
             GetDefaultTextDescriptor().ToList());
 
-        public readonly IReadOnlyList<DrawGeometryDescription> DrawDescriptions;
+        public readonly IReadOnlyList<DrawGeometryDescription> GeometryDescriptions;
         public readonly IReadOnlyList<DrawTextDescription> TextDescriptions;
         public readonly IReadOnlyList<DrawSpritesDescription> SpritesDescriptions;
 
         [Node]
         public DrawDescriptionLayer(IReadOnlyList<DrawGeometryDescription> geometries, IReadOnlyList<DrawSpritesDescription> sprites, IReadOnlyList<DrawTextDescription> texts)
         {
-            DrawDescriptions = geometries;
+            GeometryDescriptions = geometries;
             SpritesDescriptions = sprites;
             TextDescriptions = texts;
         }
@@ -33,7 +33,7 @@ namespace CraftLie
         public static DrawDescriptionLayer Concat(DrawDescriptionLayer input, DrawDescriptionLayer input2)
         {
             return new DrawDescriptionLayer(
-                input.DrawDescriptions.Concat(input2.DrawDescriptions).ToList(),
+                input.GeometryDescriptions.Concat(input2.GeometryDescriptions).ToList(),
                 input.SpritesDescriptions.Concat(input2.SpritesDescriptions).ToList(),
                 input.TextDescriptions.Concat(input2.TextDescriptions).ToList());
         }
@@ -41,7 +41,7 @@ namespace CraftLie
         public static DrawDescriptionLayer Unite(IEnumerable<DrawDescriptionLayer> input)
         {
             return new DrawDescriptionLayer(
-                input.SelectMany(d => d.DrawDescriptions).ToList(),
+                input.SelectMany(d => d.GeometryDescriptions).ToList(),
                 input.SelectMany(d => d.SpritesDescriptions).ToList(),
                 input.SelectMany(d => d.TextDescriptions).ToList());
         }

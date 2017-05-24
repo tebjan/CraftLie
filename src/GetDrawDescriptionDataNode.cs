@@ -15,6 +15,7 @@ using CraftLie;
 using SharpDX;
 using VVVV.Utils.VColor;
 using VL.Lib.Collections;
+using System.Diagnostics;
 
 namespace VVVV.DX11.Nodes
 {
@@ -35,6 +36,9 @@ namespace VVVV.DX11.Nodes
 
         [Input("Apply", IsBang = true, DefaultValue = 1, Order = 7)]
         protected ISpread<bool> FApply;
+
+        [Output("Layer Order")]
+        protected ISpread<int> FLayerOrder;
 
         //geometry
 
@@ -268,16 +272,25 @@ namespace VVVV.DX11.Nodes
         protected Vector2[] FBufferSpritesSize = new Vector2[8192];
         protected Color4[] FBufferSpritesColor = new Color4[8192];
 
+        int FLayerOrderSlice = 0;
         private void UpdateNormalPins()
         {
+            FLayerOrder.SliceCount = FMainBuffer.GeometryDescriptions.Count +
+                FMainBuffer.SpritesDescriptions.Count +
+                FMainBuffer.TextDescriptions.Count;
+
+            FLayerOrderSlice = 0;
+
             UpdateNormalGeometryPins();
             UpdateNormalSpritesPins();
             UpdateNormalTextPins();
+
+            Debug.Assert(FLayerOrderSlice == FLayerOrder.SliceCount);
         }
 
         private void UpdateNormalGeometryPins()
         {
-            var descriptions = FMainBuffer.DrawDescriptions;
+            var descriptions = FMainBuffer.GeometryDescriptions;
             var outCount = descriptions.Count;
 
             FBlendIndex.SliceCount = outCount;
@@ -295,8 +308,9 @@ namespace VVVV.DX11.Nodes
             FTotalTransformCount = 0;
             FTotalColorCount = 0;
 
-            //geometry output
-            if (outCount != FOldGeometryOutCount || this.FFirst)
+            //geometry output, always recreate resources since had a bug with changing slices of different geometry types
+            //took about 2 days to find the place where to put two slashes... yea :)
+            //if (outCount != FOldGeometryOutCount || this.FFirst)
             {
                 this.FInvalidate = true;
 
@@ -332,6 +346,8 @@ namespace VVVV.DX11.Nodes
                 FBlendIndex[i] = (int)desc.Blending;
                 FMaterialIndex[i] = (int)desc.Shading;
                 FSpaceIndex[i] = (int)desc.Space;
+
+                FLayerOrder[FLayerOrderSlice++] = desc.LayerOrder;
             }
         }
 
@@ -391,6 +407,8 @@ namespace VVVV.DX11.Nodes
                 FSpritesSpaceIndex[i] = (int)desc.Space;
                 FSpritesTexturePath[i] = desc.TexturePath;
                 FSpritesBlendIndex[i] = (int)desc.Blending;
+
+                FLayerOrder[FLayerOrderSlice++] = desc.LayerOrder;
             }
         }
 
@@ -418,6 +436,8 @@ namespace VVVV.DX11.Nodes
                 FTextSpaceIndex[i] = (int)desc.Space;
                 FTextColors[i] = ToRGBAColor(desc.Color);
                 FTextBlendIndex[i] = (int)desc.Blending;
+
+                FLayerOrder[FLayerOrderSlice++] = desc.LayerOrder;
             }
         }
 
@@ -544,7 +564,7 @@ namespace VVVV.DX11.Nodes
             EnsureArraySize(ref this.FBufferTrans, FTotalTransformCount);
             EnsureArraySize(ref this.FBufferColor, FTotalColorCount);
 
-            var descriptions = FMainBuffer.DrawDescriptions;
+            var descriptions = FMainBuffer.GeometryDescriptions;
 
             var geoIndex = 0;
             var transIndex = 0;
