@@ -52,7 +52,7 @@ namespace CraftLie
         }
 
 
-        public List<Pos3Norm3VertexSDX> GetVertices(D2DGeometry geometry, float height = 24.0f)
+        public IEnumerable<Pos3Norm3VertexSDX> GetVertices(D2DGeometry geometry, float height = 1f)
         {
 
             List<Pos3Norm3VertexSDX> vertices = new List<Pos3Norm3VertexSDX>();
@@ -67,30 +67,43 @@ namespace CraftLie
                 return vertices;
             }
 
-            D2DGeometry flattenedGeometry = this.FlattenGeometry(geometry, sc_flatteningTolerance);
-            D2DGeometry outlinedGeometry = this.OutlineGeometry(flattenedGeometry);
+            if (height > 0)
+            {
+                D2DGeometry flattenedGeometry = this.FlattenGeometry(geometry, sc_flatteningTolerance);
+                D2DGeometry outlinedGeometry = this.OutlineGeometry(flattenedGeometry);
 
-            //Add snap here
+                //Add snap here
 
-            var sink = new ExtrudingSink(vertices, height);
-            outlinedGeometry.Simplify(GeometrySimplificationOption.Lines, sink);
+                var sink = new ExtrudingSink(vertices, height);
 
-            var bounds = geometry.GetBounds();
-            var scaling = Math.Min(1 / Math.Abs(bounds.Bottom - bounds.Top), 1);
+                outlinedGeometry.Simplify(GeometrySimplificationOption.Lines, sink);
 
-            outlinedGeometry.Tessellate(sink);
+                var bounds = flattenedGeometry.GetBounds();
+                var scaling = Math.Min(1 / Math.Abs(bounds.Bottom - bounds.Top), 1);
 
-            flattenedGeometry.Dispose();
-            outlinedGeometry.Dispose();
+                outlinedGeometry.Tessellate(sink);
 
-            //for (int i = 0; i < vertices.Count; i++)
-            //{
-            //    vertices[i] = vertices[i].Scale(scaling);
-            //}
+                flattenedGeometry.Dispose();
+                outlinedGeometry.Dispose();
 
-            vertices = vertices.Select(v => v.Scale(scaling).AssignTexCd()).Reverse().ToList();
+                return vertices.Select(v => v.Scale(scaling).AssignTexCd()).Reverse(); 
+            }
+            else
+            {
+                D2DGeometry flattenedGeometry = this.FlattenGeometry(geometry, sc_flatteningTolerance);
 
-            return vertices;
+                //Add snap here
+                var sink = new FlatSink(vertices);
+
+                var bounds = flattenedGeometry.GetBounds();
+                var scaling = Math.Min(1 / Math.Abs(bounds.Bottom - bounds.Top), 1);
+
+                flattenedGeometry.Tessellate(sink);
+
+                flattenedGeometry.Dispose();
+
+                return vertices.Select(v => v.Scale(scaling).AssignTexCd()).Reverse();
+            }
         }
     }
 

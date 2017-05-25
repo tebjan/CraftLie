@@ -42,7 +42,8 @@ namespace CraftLie
 
         internal Pos3Norm3VertexSDX Scale(float scaling)
         {
-            Vector3.Multiply(ref Position, scaling, out Position);
+            var factor = new Vector3(scaling, scaling, 1);
+            Vector3.Multiply(ref Position, ref factor, out Position);
             return this;
         }
 

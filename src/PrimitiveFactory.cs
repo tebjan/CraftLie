@@ -170,12 +170,12 @@ namespace CraftLie
 
             tl.Draw(renderer, 0.0f, 0.0f);
 
-            var result = ex.GetVertices(renderer.GetGeometry(), extrude);
+            var result = ex.GetVertices(renderer.GetGeometry(), extrude).ToArray();
 
             Vector3 min = new Vector3(float.MaxValue);
             Vector3 max = new Vector3(float.MinValue);
 
-            result.ForEach(pn =>
+            foreach (var pn in result)
             {
                 min.X = pn.Position.X < min.X ? pn.Position.X : min.X;
                 min.Y = pn.Position.Y < min.Y ? pn.Position.Y : min.Y;
@@ -184,12 +184,12 @@ namespace CraftLie
                 max.X = pn.Position.X > max.X ? pn.Position.X : max.X;
                 max.Y = pn.Position.Y > max.Y ? pn.Position.Y : max.Y;
                 max.Z = pn.Position.Z > max.Z ? pn.Position.Z : max.Z;
-            });
+            }
 
-            SlimDX.DataStream ds = new SlimDX.DataStream(result.Count * Pos3Norm3VertexSDX.VertexSize, true, true);
+            SlimDX.DataStream ds = new SlimDX.DataStream(result.Length * Pos3Norm3VertexSDX.VertexSize, true, true);
             ds.Position = 0;
 
-            ds.WriteRange(result.ToArray());
+            ds.WriteRange(result);
 
             ds.Position = 0;
 
@@ -199,7 +199,7 @@ namespace CraftLie
                 CpuAccessFlags = SlimDX.Direct3D11.CpuAccessFlags.None,
                 OptionFlags = SlimDX.Direct3D11.ResourceOptionFlags.None,
                 SizeInBytes = (int)ds.Length,
-                Usage = SlimDX.Direct3D11.ResourceUsage.Default
+                Usage = SlimDX.Direct3D11.ResourceUsage.Default,
             });
 
             ds.Dispose();
@@ -209,7 +209,7 @@ namespace CraftLie
             vg.Topology = SlimDX.Direct3D11.PrimitiveTopology.TriangleList;
             vg.VertexBuffer = vbuffer;
             vg.VertexSize = Pos3Norm3VertexSDX.VertexSize;
-            vg.VerticesCount = result.Count;
+            vg.VerticesCount = result.Length;
             vg.HasBoundingBox = true;
             vg.BoundingBox = new SlimDX.BoundingBox(new SlimDX.Vector3(min.X, min.Y, min.Z), new SlimDX.Vector3(max.X, max.Y, max.Z));
 
