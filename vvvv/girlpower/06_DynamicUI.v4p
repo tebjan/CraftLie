@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
    <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\06_DynamicUI.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\06_DynamicUI.v4p" systemname="06_DynamicUI" scrollx="0" scrolly="0" locked="0">
-   <BOUNDS height="11835" left="570" top="1965" type="Window" width="10185">
+   <BOUNDS height="9825" left="570" top="1965" type="Window" width="6765">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -83,7 +83,7 @@
    <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
    </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="14835" top="255" width="13755" height="8190">
+   <BOUNDS type="Window" left="15630" top="780" width="13170" height="8580">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -209,28 +209,10 @@
    </PIN>
    <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="323" srcpinname="Y Output Value" dstnodeid="284" dstpinname="Enabled">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="326">
-   <BOUNDS type="Box" left="3540" top="4275" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3540" top="4275" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="326" srcpinname="Y Output Value" dstnodeid="311" dstpinname="Enabled">
    </LINK>
    <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers">
    </LINK>
@@ -276,16 +258,18 @@
    </NODE>
    <LINK srcnodeid="318" srcpinname="Output" dstnodeid="329" dstpinname="Simulate">
    </LINK>
+   <LINK srcnodeid="323" srcpinname="Y Output Value" dstnodeid="311" dstpinname="Enabled">
+   </LINK>
    <NODE id="324" systemname="DynamicUI (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="DynamicUI (3d)" componentmode="Hidden">
    <PIN pinname="Reset" visible="1" slicecount="1" values="0">
    </PIN>
    <BOUNDS type="Node" left="1710" top="3285" width="100" height="100">
    </BOUNDS>
    </NODE>
-   <LINK srcnodeid="324" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
+   <LINK srcnodeid="329" srcpinname="Bang" dstnodeid="324" dstpinname="Reset">
    </LINK>
    <LINK srcnodeid="315" srcpinname="Device" dstnodeid="324" dstpinname="Mouse Device">
    </LINK>
-   <LINK srcnodeid="329" srcpinname="Bang" dstnodeid="324" dstpinname="Reset">
+   <LINK srcnodeid="324" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
    </PATCH>

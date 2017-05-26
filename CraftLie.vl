@@ -380,8 +380,8 @@
               </p:NodeReference>
               <Pin Id="PDr1eIMcfo2NtcJIdsEG6z" Name="Condition" Kind="InputPin" />
               <Patch Id="OLTZ0JaMWBKPCEqVGTp4Zj" Name="Then" />
-              <ControlPoint Id="F0w35FI37SVLxlCfJ7XMg4" Bounds="562,413" Alignment="Top" />
-              <ControlPoint Id="OggkwKNvLEMM6FMDhoACA3" Bounds="547,462" Alignment="Bottom" />
+              <ControlPoint Id="F0w35FI37SVLxlCfJ7XMg4" Bounds="563,413" Alignment="Top" />
+              <ControlPoint Id="OggkwKNvLEMM6FMDhoACA3" Bounds="548,462" Alignment="Bottom" />
             </Node>
             <Node Bounds="529,361,32,22" Id="ThVjLrxH8XUOZ6sPITFGLv">
               <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="VL.CoreLib.dll" LastPackageId="VL.CoreLib">
@@ -393,7 +393,7 @@
               <Pin Id="BNWsSiAsgD1OccAou4EQNy" Name="Input 2" Kind="InputPin" />
               <Pin Id="GCAXtjmMqmOPtc8CfIiynJ" Name="Result" Kind="OutputPin" />
             </Node>
-            <Pad Id="UpCA8achALfLJVBJMCQZ86" Bounds="576,420" ShowValueBox="true" isIOBox="true" Value="&quot;unconnected layer pins will return a new buffer on invoke&quot;">
+            <Pad Id="UpCA8achALfLJVBJMCQZ86" Bounds="575,419" ShowValueBox="true" isIOBox="true" Value="&quot;unconnected layer pins will return a new buffer on invoke&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -403,7 +403,7 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="QktK6nQFEsYP27YY44Udou" Bounds="576,439" ShowValueBox="true" isIOBox="true" Value="&quot;so return the input buffer if that happens&quot;">
+            <Pad Id="QktK6nQFEsYP27YY44Udou" Bounds="575,438" ShowValueBox="true" isIOBox="true" Value="&quot;so return the input buffer if that happens&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -594,7 +594,7 @@
     ************************ Group (Spectral) ************************
 
 -->
-      <Node Name="Group (Spectral)" Bounds="162,518,262,321" Id="R1Uccr4ISRFL1KdHiMrGh2">
+      <Node Name="Group (Spectral)" Bounds="162,518,258,321" Id="R1Uccr4ISRFL1KdHiMrGh2">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
           <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
           <Choice Kind="2305843013508669440" Name="Operation" />
@@ -602,7 +602,7 @@
         <Patch Id="KKajk4XwcBlNAzD7pfQNBY" IsGeneric="true">
           <ControlPoint Id="BFWnH7TbsiqNcrAGLABb8M" Bounds="282,536" />
           <ControlPoint Id="B3kBrTloENdNq9qPBrvqH0" Bounds="214,822" />
-          <Node Name="Create" Bounds="212,558,200,193" Id="JMGU5zCalCLL5i9fV5wUhw">
+          <Node Name="Create" Bounds="212,555,196,195" Id="JMGU5zCalCLL5i9fV5wUhw">
             <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
               <Choice Kind="OperationCallFlag" Name="Create" />
               <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -612,17 +612,17 @@
             <Patch Id="MCC1KXmSuXGNrCqLfP40YH" Name="Draw">
               <Pin Id="UxKCvUz0FzGPyxafme8rwc" Name="Buffer" Kind="InputPin" Bounds="-311,0" />
               <Pin Id="QRKr7PYXwBnLxMaeUNzTu0" Name="Buffer" Kind="OutputPin" Bounds="-311,0" />
-              <ControlPoint Id="EKan09ic6FPMxae7O61IyY" Bounds="360,565" />
-              <ControlPoint Id="Uz2iKn1PIbqNqYkQRkc6Ls" Bounds="362,743" />
-              <Node Name="ForEach2" Bounds="268,591,129,116" Id="Bu0wy53xOsiLUVgPEyUnN7">
+              <ControlPoint Id="EKan09ic6FPMxae7O61IyY" Bounds="356,562" />
+              <ControlPoint Id="Uz2iKn1PIbqNqYkQRkc6Ls" Bounds="358,742" />
+              <Node Name="ForEach2" Bounds="268,590,117,117" Id="Bu0wy53xOsiLUVgPEyUnN7">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="ForEachLoop" Name="ForEach" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="SKsIsvidlaQPkOOmdl5icB" Name="Break" Kind="OutputPin" />
-                <ControlPoint Id="A50DtJe54K9PrXKg6ky5GX" Bounds="293,597" Alignment="Top" />
-                <ControlPoint Id="VeKTT74gu6fQcUdsWWVGAe" Bounds="372,701" Alignment="Bottom" />
-                <ControlPoint Id="UbD0jEksxN6Mkf7lSI2bKg" Bounds="371,597" Alignment="Top" />
+                <ControlPoint Id="A50DtJe54K9PrXKg6ky5GX" Bounds="283,596" Alignment="Top" />
+                <ControlPoint Id="VeKTT74gu6fQcUdsWWVGAe" Bounds="360,701" Alignment="Bottom" />
+                <ControlPoint Id="UbD0jEksxN6Mkf7lSI2bKg" Bounds="359,596" Alignment="Top" />
                 <Patch Id="RxIB65pdIKwMXYpzxnZfv2">
                   <Patch Id="C9U3ViNtId4PiJYDwLMZ2l" Name="Create" />
                   <Patch Id="KLfk5NRQgjiNvpN1Zfb5wB" Name="Update" />
@@ -2745,7 +2745,7 @@
     ************************ LineTransformation ************************
 
 -->
-      <Node Name="LineTransformation" Bounds="799,519,479,332" Id="H4LcudL7gQsOZRoMxqfBzr">
+      <Node Name="LineTransformation" Bounds="799,519,478,332" Id="H4LcudL7gQsOZRoMxqfBzr">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
           <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
           <Choice Kind="2305843013508669440" Name="Operation" />
@@ -2769,7 +2769,7 @@
             <Pin Id="Dw9hXBsXULkMw512rUjLxO" Name="Translation" Kind="InputPin" />
             <Pin Id="GzIdMOEtYFVNbR47SaU9cN" Name="Result" Kind="OutputPin" />
           </Node>
-          <Pad Id="DSlP6AX2TmJO4mQ9UQpQNQ" Comment="Translation" Bounds="1164,667" ShowValueBox="true" isIOBox="true" Value="new vec(0.5,0.0,0.0)">
+          <Pad Id="DSlP6AX2TmJO4mQ9UQpQNQ" Comment="Translation" Bounds="1163,666" ShowValueBox="true" isIOBox="true" Value="new vec(0.5,0.0,0.0)">
             <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="SharpDX.Mathematics.dll" LastPackageId="CraftLie" ReferenceKind="App">
               <Choice Kind="TypeFlag" Name="Vector3" />
               <CategoryReference Kind="Category" Name="3D" />
@@ -2787,7 +2787,7 @@
           </Node>
           <ControlPoint Id="SCeQ1MwFTFpLAgV50wpbnq" Bounds="951,536,-143,0" />
           <ControlPoint Id="TmE6OQBO2BVOQTZ42GA8yi" Bounds="868,540,-143,0" />
-          <Pad Id="PRhysmfLwsFL92FL9f6C44" Bounds="1004,560,-143,-30" ShowValueBox="true" isIOBox="true" Value="1.0">
+          <Pad Id="PRhysmfLwsFL92FL9f6C44" Bounds="1003,559,-143,-30" ShowValueBox="true" isIOBox="true" Value="1.0">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
               <Choice Kind="TypeFlag" Name="Float32" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -3382,7 +3382,7 @@
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="SQo6MiIuAB8MLKE5JLLbmj" Name="Break" Kind="OutputPin" />
-                <ControlPoint Id="IPSLQs2yhUbQGMZvstayXO" Bounds="302,1177" Alignment="Top" />
+                <ControlPoint Id="IPSLQs2yhUbQGMZvstayXO" Bounds="303,1177" Alignment="Top" />
                 <Patch Id="PdBdjgBKPY4PFq8ZCUHjWd">
                   <Patch Id="SuZ0hFwxEuDLoH4xChQ6VU" Name="Create" />
                   <Patch Id="BharBPrYHecODBxHe92GHi" Name="Update" />
@@ -3439,7 +3439,7 @@
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="NVHBzhp9x0lQMRwctXJUal" Name="Break" Kind="OutputPin" />
-                <ControlPoint Id="EgYnvvotKbcMyCETyqpTBu" Bounds="481,1173" Alignment="Top" />
+                <ControlPoint Id="EgYnvvotKbcMyCETyqpTBu" Bounds="482,1173" Alignment="Top" />
                 <Patch Id="MQQ1MEEjxeTPnFnTSewXwx">
                   <Patch Id="KUxiVSYfmlwLnq9LvhtyuL" Name="Create" />
                   <Patch Id="JMaqPZWPVaeMnIA1yYaKb3" Name="Update" />
@@ -3463,7 +3463,7 @@
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="IcyPmC2h1JoLEi2w2ADjxG" Name="Break" Kind="OutputPin" />
-                <ControlPoint Id="JKZXmADTaqhOkQhoPf5om3" Bounds="651,1170" Alignment="Top" />
+                <ControlPoint Id="JKZXmADTaqhOkQhoPf5om3" Bounds="652,1170" Alignment="Top" />
                 <Patch Id="TFUIeGBrm2gOlqVZqICDin">
                   <Patch Id="SmNmEEGYSkoLIZ7fjXra2q" Name="Create" />
                   <Patch Id="CshcFj1MzCzPvwEUJvuREO" Name="Update" />
@@ -3597,14 +3597,14 @@
               <Pin Id="Q5YnYDoPf4ULGkHODUp2rq" Name="Buffer" Kind="OutputPin" Bounds="-627,0" />
               <ControlPoint Id="LWZ2z5cBqqYLXkgYoLhJDX" Bounds="91,1481" />
               <ControlPoint Id="HZzI7DVYO6TPBOkQPdxpOl" Bounds="89,1799" />
-              <Node Name="ForEach2" Bounds="287,1687,130,90" Id="IgIPRrrhm4VM5tH9ZjnX9J">
+              <Node Name="ForEach2" Bounds="288,1687,129,90" Id="IgIPRrrhm4VM5tH9ZjnX9J">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="2161727855497576448" Name="ForEach" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="UOesy3Iz0QOPJefomQJnUu" Name="Break" Kind="OutputPin" />
-                <ControlPoint Id="JfF5pV9bZskNSdgUoABosV" Bounds="302,1693" Alignment="Top" />
+                <ControlPoint Id="JfF5pV9bZskNSdgUoABosV" Bounds="303,1693" Alignment="Top" />
                 <Patch Id="IgXj6dK9tOTPpWt9Ma5WSz">
                   <Patch Id="EqTghKydgzxLOIRubUHPSY" Name="Create" />
                   <Patch Id="OlufU7pQCEeNxck6t6kq60" Name="Update" />
@@ -3660,7 +3660,7 @@
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="HZBXPNpXKjtQR3xD8iNA8q" Name="Break" Kind="OutputPin" />
-                <ControlPoint Id="S455aLqZwEVNhmjaqlxbYw" Bounds="491,1686" Alignment="Top" />
+                <ControlPoint Id="S455aLqZwEVNhmjaqlxbYw" Bounds="492,1686" Alignment="Top" />
                 <Patch Id="FcAcOrl72s3M5LYdRVFsDA">
                   <Patch Id="Hiidrq7TYLsPR7WnFjVYGh" Name="Create" />
                   <Patch Id="EClztuo8gt7OxvD0YA6RaX" Name="Update" />
@@ -3683,7 +3683,7 @@
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="CfAF6kUBLJyM5zhMFsykVX" Name="Break" Kind="OutputPin" />
-                <ControlPoint Id="AXv591dSj7POb44SteteMT" Bounds="662,1683" Alignment="Top" />
+                <ControlPoint Id="AXv591dSj7POb44SteteMT" Bounds="663,1683" Alignment="Top" />
                 <Patch Id="SkFChjONhONMxcmnG1xzJF">
                   <Patch Id="FfyIuOphSLUMsWS4WqGuoL" Name="Create" />
                   <Patch Id="FXjixMlfvF7NodyHDxVo4M" Name="Update" />
@@ -3836,8 +3836,8 @@
                   <Pin Id="Clfle4Q8gnyPrsduI94X6g" Name="Is Closed" Kind="InputPin" />
                 </Node>
               </Patch>
-              <ControlPoint Id="F6Hf9UZyVoDPc0qn8oNNPu" Bounds="176,301" Alignment="Top" />
-              <ControlPoint Id="TpKmxULNLZKMa9LIgGcNdz" Bounds="175,428" Alignment="Bottom" />
+              <ControlPoint Id="F6Hf9UZyVoDPc0qn8oNNPu" Bounds="177,301" Alignment="Top" />
+              <ControlPoint Id="TpKmxULNLZKMa9LIgGcNdz" Bounds="176,428" Alignment="Bottom" />
             </Node>
             <Pad Id="HROb1azi98zLrrQs3OEwqu" SlotId="Hb9z6oTsnYHP4EiGlrXZLA" Bounds="169,559">
               <p:ValueBoxSettings />
