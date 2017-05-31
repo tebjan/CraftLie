@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
    <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\06_DynamicUI.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\06_DynamicUI.v4p" systemname="06_DynamicUI" scrollx="0" scrolly="0" locked="0">
-   <BOUNDS height="9825" left="570" top="1965" type="Window" width="6765">
+   <BOUNDS height="9825" left="510" top="405" type="Window" width="6765">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -83,13 +83,13 @@
    <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
    </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="15630" top="780" width="13170" height="8580">
+   <BOUNDS type="Window" left="7245" top="435" width="13170" height="8580">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS type="Node" height="270" left="729" top="6774" width="1800">
+   <BOUNDS type="Node" height="270" left="759" top="6759" width="1800">
    </BOUNDS>
-   <BOUNDS type="Box" height="12825" left="729" top="6774" width="13740">
+   <BOUNDS type="Box" height="12825" left="759" top="6759" width="13740">
    </BOUNDS>
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
@@ -216,14 +216,6 @@
    </LINK>
    <LINK srcnodeid="283" srcpinname="Layer Out" dstnodeid="195" dstpinname="Layers">
    </LINK>
-   <NODE id="316" systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow">
-   <BOUNDS type="Node" left="1815" top="7665" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="1815" top="7665" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="6075" top="12015" width="19710" height="5085">
-   </BOUNDS>
-   </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="327">
    <BOUNDS type="Box" left="930" top="3315" width="645" height="240">
    </BOUNDS>
@@ -266,10 +258,10 @@
    <BOUNDS type="Node" left="1710" top="3285" width="100" height="100">
    </BOUNDS>
    </NODE>
-   <LINK srcnodeid="329" srcpinname="Bang" dstnodeid="324" dstpinname="Reset">
+   <LINK srcnodeid="324" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="315" srcpinname="Device" dstnodeid="324" dstpinname="Mouse Device">
    </LINK>
-   <LINK srcnodeid="324" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
+   <LINK srcnodeid="329" srcpinname="Bang" dstnodeid="324" dstpinname="Reset">
    </LINK>
    </PATCH>
