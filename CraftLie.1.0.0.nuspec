@@ -13,12 +13,15 @@
         <tags>VL DirectX-11 VVVV Graphics</tags>
     </metadata>
     <files>
+        <file src="vvvv\girlpower\assets\windows_xp_bliss-wide.jpg" target="vvvv\girlpower\assets\windows_xp_bliss-wide.jpg" />
         <file src="vvvv\girlpower\vl\VVVV.CraftLie.Girlpower.vl" target="vvvv\girlpower\vl\VVVV.CraftLie.Girlpower.vl" />
         <file src="vvvv\girlpower\vl\VVVV.TrailingParticles.vl" target="vvvv\girlpower\vl\VVVV.TrailingParticles.vl" />
         <file src="vvvv\girlpower\01_Overview.v4p" target="vvvv\girlpower\01_Overview.v4p" />
         <file src="vvvv\girlpower\02_Instancing.v4p" target="vvvv\girlpower\02_Instancing.v4p" />
         <file src="vvvv\girlpower\03_TrailingParticles.v4p" target="vvvv\girlpower\03_TrailingParticles.v4p" />
         <file src="vvvv\girlpower\04_CPUCoreRace.v4p" target="vvvv\girlpower\04_CPUCoreRace.v4p" />
+        <file src="vvvv\girlpower\05_Sprites.v4p" target="vvvv\girlpower\05_Sprites.v4p" />
+        <file src="vvvv\girlpower\06_DynamicUI.v4p" target="vvvv\girlpower\06_DynamicUI.v4p" />
         <file src="vvvv\girlpower\DisplayObjectCount.v4p" target="vvvv\girlpower\DisplayObjectCount.v4p" />
         <file src="vvvv\nodes\dx11\CraftLie.fx" target="vvvv\nodes\dx11\CraftLie.fx" />
         <file src="vvvv\nodes\dx11\CraftLieSprites.fx" target="vvvv\nodes\dx11\CraftLieSprites.fx" />
@@ -30,5 +33,7 @@
         <file src="vvvv\nodes\plugins\CraftLie.pdb" target="vvvv\nodes\plugins\CraftLie.pdb" />
         <file src="vvvv\nodes\plugins\CraftLie.XML" target="vvvv\nodes\plugins\CraftLie.XML" />
         <file src="CraftLie.vl" target="CraftLie.vl" />
+        <file src="LICENSE.md" target="LICENSE.md" />
+        <file src="README.md" target="README.md" />
     </files>
 </package>
