@@ -100,7 +100,7 @@ vs2ps VS(VS_IN In)
 	}
 	
 	//instance id
-	uint ii = max(In.ii, 1);
+	uint ii = In.ii;
 	
 	float4x4 world = sbWorld[TransformIndex(ii)];
 	world = mul(world, tW);
