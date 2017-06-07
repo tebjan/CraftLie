@@ -346,7 +346,7 @@
               <Pin Id="UlD0FlIk57fMJS5K7nivTF" Name="Result" Kind="OutputPin" />
               <Pin Id="OogSN1Mdj66OttpzTZ16Ws" Name="Arg" Kind="InputPin" />
             </Node>
-            <ControlPoint Id="VylDhxfuIhNLtFHA2swdVT" Bounds="427,257" />
+            <ControlPoint Id="VylDhxfuIhNLtFHA2swdVT" Bounds="452,256" />
             <Node Bounds="330,360,99,22" Id="RVu6FJoeUeBL8KtyGswkUK">
               <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionBuffer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -372,7 +372,7 @@
               <Pin Id="HBHWj1ahLWSOagirCtG3PU" Name="Texts" Kind="InputPin" />
               <Pin Id="IQlv4xibvgnOou1hVok67j" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <Node Name="If2" Bounds="532,407,56,61" Id="HTctqGhxVNKP5V8b0ffB1Q">
+            <Node Name="If2" Bounds="534,407,56,61" Id="HTctqGhxVNKP5V8b0ffB1Q">
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="1297036696977670144" Name="If" />
@@ -380,8 +380,8 @@
               </p:NodeReference>
               <Pin Id="PDr1eIMcfo2NtcJIdsEG6z" Name="Condition" Kind="InputPin" />
               <Patch Id="OLTZ0JaMWBKPCEqVGTp4Zj" Name="Then" />
-              <ControlPoint Id="F0w35FI37SVLxlCfJ7XMg4" Bounds="563,413" Alignment="Top" />
-              <ControlPoint Id="OggkwKNvLEMM6FMDhoACA3" Bounds="548,462" Alignment="Bottom" />
+              <ControlPoint Id="F0w35FI37SVLxlCfJ7XMg4" Bounds="564,413" Alignment="Top" />
+              <ControlPoint Id="OggkwKNvLEMM6FMDhoACA3" Bounds="549,462" Alignment="Bottom" />
             </Node>
             <Node Bounds="529,361,32,22" Id="ThVjLrxH8XUOZ6sPITFGLv">
               <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="VL.CoreLib.dll" LastPackageId="VL.CoreLib">
@@ -393,7 +393,7 @@
               <Pin Id="BNWsSiAsgD1OccAou4EQNy" Name="Input 2" Kind="InputPin" />
               <Pin Id="GCAXtjmMqmOPtc8CfIiynJ" Name="Result" Kind="OutputPin" />
             </Node>
-            <Pad Id="UpCA8achALfLJVBJMCQZ86" Bounds="575,419" ShowValueBox="true" isIOBox="true" Value="&quot;unconnected layer pins will return a new buffer on invoke&quot;">
+            <Pad Id="UpCA8achALfLJVBJMCQZ86" Bounds="574,418" ShowValueBox="true" isIOBox="true" Value="&quot;unconnected layer pins will return a new buffer on invoke&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -403,7 +403,7 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="QktK6nQFEsYP27YY44Udou" Bounds="575,438" ShowValueBox="true" isIOBox="true" Value="&quot;so return the input buffer if that happens&quot;">
+            <Pad Id="QktK6nQFEsYP27YY44Udou" Bounds="574,437" ShowValueBox="true" isIOBox="true" Value="&quot;so return the input buffer if that happens&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -413,6 +413,7 @@
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
+            <ControlPoint Id="FHfsGDcbHt3QKu0CLYEWdp" Bounds="454,462" />
           </Canvas>
           <Patch Id="M3NiK1jmIVtOeqPDUjjbTe" Name="Create">
             <Pin Id="FVKTd3YqsOrOoL2P3sgxd7" Name="Draw" Kind="InputPin" Bounds="-430,0" />
@@ -442,6 +443,7 @@
           <Patch Id="R2uURaRVk7NNdQeWrdnHV8" Name="InvokeAndGetLayer">
             <Pin Id="NL7xry4PPUwLdrKkkgQaQm" Name="Buffer" Kind="InputPin" Bounds="950,294" />
             <Pin Id="IRG0DgmFvXBL840Z7jZqbW" Name="Data" Kind="OutputPin" Bounds="894,446" />
+            <Pin Id="Qw9zgNJqQD1NeC87KYgkyd" Name="Buffer" Kind="OutputPin" Bounds="454,462" />
           </Patch>
           <Link Id="MP5K42sIghLQDJ9As5chL8" Ids="Kd4NyfTLhPlPwiJObMVtL1,MI3pzBWcqMcOx6ibgeXigX" />
           <Link Id="SjVwBGmA4W2OuUzsuoUjl8" Ids="VylDhxfuIhNLtFHA2swdVT,OogSN1Mdj66OttpzTZ16Ws" />
@@ -460,6 +462,8 @@
           <Link Id="FXwVOaW4vRMPq11eL6RiQr" Ids="GCAXtjmMqmOPtc8CfIiynJ,PDr1eIMcfo2NtcJIdsEG6z" />
           <Link Id="VnL5KT4IrLMOneXmTaLcbj" Ids="EVR43cnP0d7PFgSAh0nPFj,OggkwKNvLEMM6FMDhoACA3" />
           <Link Id="APGxS1wamZWOqGUlFYXoA4" Ids="OPLS4Dzrm6vPAL13bTqTRa,F0w35FI37SVLxlCfJ7XMg4" />
+          <Link Id="MCktQXPfkhcP0GYHksNteE" Ids="VylDhxfuIhNLtFHA2swdVT,FHfsGDcbHt3QKu0CLYEWdp" />
+          <Link Id="B5XfdYJqUQZO6zb8JSvGcL" Ids="FHfsGDcbHt3QKu0CLYEWdp,Qw9zgNJqQD1NeC87KYgkyd" IsHidden="true" />
         </Patch>
       </Node>
       <!--
@@ -1514,7 +1518,7 @@
         <p:Info Summary="Collect all draw descriptions to pass it on to vvvv" />
         <Patch Id="HQwtMOSCy8oNogq1QkLfBb" IsGeneric="true">
           <Canvas Id="GaL7SjGzlV2M9B4MtFTbaY" Position="372,449">
-            <ControlPoint Id="Qm56KAMkRHqPyRRW0RjV2l" Bounds="483,523" />
+            <ControlPoint Id="Qm56KAMkRHqPyRRW0RjV2l" Bounds="424,572" />
             <Node Bounds="361,446,124,22" Id="QFtWtoMIBnSQLyfEQdUXDp">
               <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1524,11 +1528,12 @@
               <Pin Id="L9uy3YgiP7ONxmJp3YzXGm" Name="Buffer" Kind="InputPin" />
               <Pin Id="M8ROf0NLoQWLougec0eUzf" Name="Output" Kind="StateOutputPin" />
               <Pin Id="LrRsQ5BGQVuPH8AwsFtgXw" Name="Data" Kind="OutputPin" />
+              <Pin Id="L1pKXWlFnWwOdV2AKoIJ75" Name="Buffer" Kind="OutputPin" />
             </Node>
-            <Pad Id="D9vWG3IFzrUO4hrnVCFH6C" SlotId="FjnJWtyPT90QFGtNMwQiMb" Bounds="483,351">
+            <Pad Id="D9vWG3IFzrUO4hrnVCFH6C" SlotId="FjnJWtyPT90QFGtNMwQiMb" Bounds="481,306">
               <p:ValueBoxSettings />
             </Pad>
-            <Node Bounds="480,399,91,22" Id="SrevBL3tZrQLZiXJ3TYkKT">
+            <Node Bounds="480,359,91,22" Id="SrevBL3tZrQLZiXJ3TYkKT">
               <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionBuffer" LastSymbolSource="CraftLie.vl" LastPackageId="CraftLie">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Clear" />
@@ -1538,10 +1543,38 @@
               <Pin Id="GkVq63WRWWjOvvNAqha0t1" Name="Apply" Kind="ApplyPin" />
               <Pin Id="Rsrd3cLiVfLLbFuwKogsBk" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <ControlPoint Id="BQhJW5a2r49NYtTYbHGzAn" Bounds="366,350" />
+            <ControlPoint Id="BQhJW5a2r49NYtTYbHGzAn" Bounds="365,365" />
+            <Pad Id="HscBSInyKd7OqSlGSk4K3E" SlotId="Ewr0yLQUUaoP7iIYydNLKl" Bounds="707,307">
+              <p:ValueBoxSettings />
+            </Pad>
+            <Pad Id="PyaCqM5bZZbO6Frq14ruQ8" SlotId="Ewr0yLQUUaoP7iIYydNLKl" Bounds="483,511">
+              <p:ValueBoxSettings />
+            </Pad>
+            <Pad Id="Re8trrqty3ONWStzB5Y3LR" SlotId="FjnJWtyPT90QFGtNMwQiMb" Bounds="707,511">
+              <p:ValueBoxSettings />
+            </Pad>
+            <Pad Id="E0af9fPUElUMqVLT99jQIg" Bounds="493,426" ShowValueBox="true" isIOBox="true" Value="&quot;double buffer the layers &quot;">
+              <p:ValueBoxSettings>
+                <p:fontsize p:Type="Int32">9</p:fontsize>
+                <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+              </p:ValueBoxSettings>
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="String" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="HTmAuZjAMfHMWT33wtvePF" Bounds="494,447" ShowValueBox="true" isIOBox="true" Value="&quot;so DX11 can render the other&quot;">
+              <p:ValueBoxSettings>
+                <p:fontsize p:Type="Int32">9</p:fontsize>
+                <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+              </p:ValueBoxSettings>
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CommonLanguageRuntimeLibrary" ReferenceKind="App">
+                <Choice Kind="TypeFlag" Name="String" />
+                <CategoryReference Kind="Category" Name="Primitive" />
+              </p:TypeAnnotation>
+            </Pad>
           </Canvas>
           <Patch Id="EfSdzCpQtOdPjedld4ir7q" Name="Create" />
-          <Patch Id="Iyh0BcXvKJ1MZbEb3MVaLo" Name="Update">
+          <Patch Id="Iyh0BcXvKJ1MZbEb3MVaLo" Name="Update" ParticipatingElements="U09uE9dfk79N88qWN7ltnV">
             <Pin Id="LFc6krAvItZONmZh6CuvcN" Name="Draw Description Layer" Kind="OutputPin" Bounds="507,940" />
             <Pin Id="U6wRDuJM1wnOEZb3l6zI7h" Name="Layer" Kind="InputPin" Bounds="739,346" />
           </Patch>
@@ -1549,7 +1582,7 @@
             <Fragment Id="SxRaj5IeIk4N4xrCBzwzJ2" Patch="EfSdzCpQtOdPjedld4ir7q" Enabled="true" />
             <Fragment Id="PX3qeH3YxAzLsSBgPqFPD9" Patch="Iyh0BcXvKJ1MZbEb3MVaLo" Enabled="true" />
           </ProcessDefinition>
-          <Slot Id="FjnJWtyPT90QFGtNMwQiMb" Name="Buffer">
+          <Slot Id="FjnJWtyPT90QFGtNMwQiMb" Name="Buffer A">
             <p:Info />
           </Slot>
           <Link Id="VU8EYlkCYFkLVPXhJjYnNd" Ids="Qm56KAMkRHqPyRRW0RjV2l,LFc6krAvItZONmZh6CuvcN" IsHidden="true" />
@@ -1558,6 +1591,9 @@
           <Link Id="LNlWlm4liUIOGQi2FZGyRP" Ids="Rsrd3cLiVfLLbFuwKogsBk,L9uy3YgiP7ONxmJp3YzXGm" />
           <Link Id="JVxvxnBYNciOnlgerWhoBa" Ids="BQhJW5a2r49NYtTYbHGzAn,HnFY3K1om6YMMpr6Z1nWoL" />
           <Link Id="GNy8U6jqAj0ObBzHaYkkUH" Ids="U6wRDuJM1wnOEZb3l6zI7h,BQhJW5a2r49NYtTYbHGzAn" IsHidden="true" />
+          <Slot Id="Ewr0yLQUUaoP7iIYydNLKl" Name="Buffer B" />
+          <Link Id="U09uE9dfk79N88qWN7ltnV" Ids="HscBSInyKd7OqSlGSk4K3E,Re8trrqty3ONWStzB5Y3LR" />
+          <Link Id="QRdU8hnpoXJMD9jJ31C2ir" Ids="L1pKXWlFnWwOdV2AKoIJ75,PyaCqM5bZZbO6Frq14ruQ8" />
         </Patch>
       </Node>
       <!--
