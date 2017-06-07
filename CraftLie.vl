@@ -4222,5 +4222,5 @@
     </Canvas>
   </Patch>
   <NugetDependency Id="VTzeCUFappyOuabUhCeE9h" Location="VL.DevLib" Version="0.49.63-g3a681d5a96" />
-  <PlatformDependency Id="APeASG2AmKpMmLhE4129LU" Location="..\..\..\..\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\plugins\CraftLie.dll" IsForward="true" />
+  <PlatformDependency Id="APeASG2AmKpMmLhE4129LU" Location="./vvvv/nodes/plugins/CraftLie.dll" IsForward="true" />
 </Document>
