@@ -147,14 +147,13 @@ namespace VVVV.DX11.Nodes
         protected virtual bool NeedConvert { get { return false; } }
 
         DrawDescriptionLayer FMainBuffer;
+        DrawDescriptionLayer FMainBufferUpdate;
 
         int FOldGeometryOutCount = 0;
         int FOldSpritesGeometryOutCount = 0;
 
         public void Evaluate(int SpreadMax)
         {
-            this.FInvalidate = false;
-
             //buffer outputs
             if (this.FApply[0] || this.FFirst)
             {
@@ -443,6 +442,7 @@ namespace VVVV.DX11.Nodes
 
         public void Update(DX11RenderContext context)
         {
+            FMainBufferUpdate = FMainBuffer;
             if (this.FLayerInSpreadMax == 0) { return; }
 
             var newContext = !this.FTransformOutput[0].Contains(context);
@@ -469,7 +469,6 @@ namespace VVVV.DX11.Nodes
                 CreateBuffer<Vector3>(FSpritesPositionOutput[0], context, FTotalSpritesPositionCount, FBufferSpritesPosition);
                 CreateBuffer<Vector2>(FSpritesSizeOutput[0], context, FTotalSpritesSizeCount, FBufferSpritesSize);
                 CreateBuffer<Color4>(FSpritesColorOutput[0], context, FTotalSpritesColorCount, FBufferSpritesColor);
-
 
                 //if (FTotalTransformCount < 0 || FTotalColorCount < 0)
                 //{
@@ -498,6 +497,8 @@ namespace VVVV.DX11.Nodes
                     this.pluginHost.Log(TLogType.Error, ex.Message);
                 }
             }
+
+            FInvalidate = false;
         }
 
         private static void CheckBufferDispose<T>(DX11RenderContext context, DX11Resource<IDX11ReadableStructureBuffer> bufferResource, int bufferCount, bool bufferTypeChanged)
@@ -564,7 +565,7 @@ namespace VVVV.DX11.Nodes
             EnsureArraySize(ref this.FBufferTrans, FTotalTransformCount);
             EnsureArraySize(ref this.FBufferColor, FTotalColorCount);
 
-            var descriptions = FMainBuffer.GeometryDescriptions;
+            var descriptions = FMainBufferUpdate.GeometryDescriptions;
 
             var geoIndex = 0;
             var transIndex = 0;
@@ -595,7 +596,7 @@ namespace VVVV.DX11.Nodes
             EnsureArraySize(ref this.FBufferSpritesSize, FTotalSpritesSizeCount);
             EnsureArraySize(ref this.FBufferSpritesColor, FTotalSpritesColorCount);
 
-            var descriptions = FMainBuffer.SpritesDescriptions;
+            var descriptions = FMainBufferUpdate.SpritesDescriptions;
 
             var geoIndex = 0;
             var posIndex = 0;
