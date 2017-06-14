@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\06_DynamicUI.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\06_DynamicUI.v4p" systemname="06_DynamicUI" scrollx="0" scrolly="0" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.7.dtd" >
+   <PATCH nodename="C:\Dev\vvvv\vvvv\public\vvvv45\lib\packs\CraftLie.1.0.0\vvvv\girlpower\06_DynamicUI.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\06_DynamicUI.v4p" systemname="06_DynamicUI" scrollx="0" scrolly="0" locked="0">
    <BOUNDS height="9825" left="510" top="405" type="Window" width="6765">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
@@ -87,9 +87,9 @@
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS type="Node" height="270" left="759" top="6759" width="1800">
+   <BOUNDS type="Node" height="270" left="744" top="6729" width="1800">
    </BOUNDS>
-   <BOUNDS type="Box" height="12825" left="759" top="6759" width="13740">
+   <BOUNDS type="Box" height="12825" left="744" top="6729" width="13740">
    </BOUNDS>
    <PIN pinname="Back Buffer Format" slicecount="1" values="R8G8B8A8_UNorm">
    </PIN>
@@ -248,4 +248,6 @@
    </LINK>
    <LINK srcnodeid="329" srcpinname="Bang" dstnodeid="331" dstpinname="Reset">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.6">
+   </PACK>
    </PATCH>

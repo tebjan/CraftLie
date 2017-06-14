@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\01_Overview.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\01_Overview.v4p" systemname="01_Overview" scrollx="0" scrolly="0" locked="0">
-   <BOUNDS height="11835" left="0" top="0" type="Window" width="8775">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.7.dtd" >
+   <PATCH nodename="C:\Dev\vvvv\vvvv\public\vvvv45\lib\packs\CraftLie.1.0.0\vvvv\girlpower\01_Overview.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\01_Overview.v4p" systemname="01_Overview" scrollx="0" scrolly="0" locked="0">
+   <BOUNDS height="8580" left="0" top="0" type="Window" width="8775">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -63,7 +63,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.49.63-g3a681d5a96\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="305">
-   <BOUNDS type="Node" left="3090" top="5310" width="100" height="100">
+   <BOUNDS type="Node" left="2940" top="5400" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
@@ -204,4 +204,6 @@
    </NODE>
    <LINK srcnodeid="315" srcpinname="Y Output Value" dstnodeid="284" dstpinname="Enabled">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.6">
+   </PACK>
    </PATCH>

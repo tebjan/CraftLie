@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\05_Sprites.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\05_Sprites.v4p" systemname="05_Sprites" scrollx="0" scrolly="0" locked="0">
-   <BOUNDS height="11835" left="0" top="0" type="Window" width="8775">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.7.dtd" >
+   <PATCH nodename="C:\Dev\vvvv\vvvv\public\vvvv45\lib\packs\CraftLie.1.0.0\vvvv\girlpower\05_Sprites.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\05_Sprites.v4p" systemname="05_Sprites" scrollx="0" scrolly="0" locked="0">
+   <BOUNDS height="9570" left="0" top="0" type="Window" width="8775">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.0.0">
    </PACK>
@@ -194,14 +194,6 @@
    </NODE>
    <LINK srcnodeid="317" srcpinname="Y Output Value" dstnodeid="284" dstpinname="Enabled">
    </LINK>
-   <NODE systemname="MainLoop (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
-   <BOUNDS type="Node" left="3045" top="6870" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Maximum Foreground FPS" slicecount="1" values="60">
-   </PIN>
-   <PIN pinname="Maximum Background FPS" slicecount="1" values="60">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="318">
    <BOUNDS type="Node" left="330" top="735" width="4875" height="270">
    </BOUNDS>
@@ -239,6 +231,8 @@
    </PIN>
    <PIN pinname="Render State" visible="1">
    </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="284" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 3">
    </LINK>
@@ -259,7 +253,7 @@
    <LINK srcnodeid="321" srcpinname="Color Output" dstnodeid="320" dstpinname="Color">
    </LINK>
    <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="322">
-   <BOUNDS type="Node" left="585" top="5145" width="100" height="100">
+   <BOUNDS type="Node" left="300" top="5130" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
@@ -308,4 +302,6 @@
    </LINK>
    <LINK srcnodeid="324" srcpinname="Device" dstnodeid="325" dstpinname="Mouse Device">
    </LINK>
+   <PACK Name="vvvv-Message" Version="2.9.6">
+   </PACK>
    </PATCH>
