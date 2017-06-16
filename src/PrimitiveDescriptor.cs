@@ -75,7 +75,7 @@ namespace CraftLie
         public static readonly List<SlimDX.Vector3> UnitLineNormals = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0) };
 
         public static readonly List<SlimDX.Vector3> UnitTri = new List<SlimDX.Vector3>(3) { new SlimDX.Vector3(-0.5f, -0.5f, 0), new SlimDX.Vector3(0.5f, -0.5f, 0), new SlimDX.Vector3(0, 0.5f, 0) };
-        public static readonly List<SlimDX.Vector3> UnitTriNormals = new List<SlimDX.Vector3>(3) { new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0) };
+        public static readonly List<SlimDX.Vector3> UnitTriNormals = new List<SlimDX.Vector3>(3) { new SlimDX.Vector3(0, -1, 0), new SlimDX.Vector3(0, -1, 0), new SlimDX.Vector3(0, -1, 0) };
         public static readonly List<SlimDX.Vector2> UnitTriTex = new List<SlimDX.Vector2>(3) { new SlimDX.Vector2(0, 1), new SlimDX.Vector2(1, 1), new SlimDX.Vector2(0.5f, 0) };
         public static readonly int[] UnitTriIndices = new int[] { 0, 1, 2 };
     }
