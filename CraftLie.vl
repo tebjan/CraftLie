@@ -3552,7 +3552,7 @@
               <Pad Id="T8XD4tE4GkRLhLaIQkesNR" SlotId="MUQYcsgRKuGM4l4kFozBBm" Bounds="106,259">
                 <p:ValueBoxSettings />
               </Pad>
-              <Node Bounds="-88,8,79,22" Id="T49bDpRrYdJN2Eaha7jT9R">
+              <Node Bounds="-88,8,85,22" Id="T49bDpRrYdJN2Eaha7jT9R">
                 <p:NodeReference LastCategoryFullName="CraftLie.MeshJoinDescriptor" LastSymbolSource="CraftLie.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="TypeFlag" Name="MeshJoinDescriptor" />
@@ -3563,8 +3563,9 @@
                 <Pin Id="QyPFK2YrDgXPzcW0jsYjyR" Name="Normals" Kind="InputPin" />
                 <Pin Id="DOECRLSA6WIL5YGF1twLYB" Name="Texture Coords" Kind="InputPin" />
                 <Pin Id="ECmacyxYWsxOJIDpNU1Whm" Name="Indices" Kind="InputPin" />
+                <Pin Id="VGscdItHiH3QCa7fStZEUW" Name="Topology" Kind="InputPin" />
               </Node>
-              <Node Name="If2" Bounds="159,295,155,139" Id="KhB83SJZMgQLaAlQ1ZgjTF">
+              <Node Name="If2" Bounds="161,295,158,139" Id="KhB83SJZMgQLaAlQ1ZgjTF">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="If" Name="If" />
@@ -3572,7 +3573,7 @@
                 </p:NodeReference>
                 <Pin Id="BX2d182BsYrNWyHDlkP6Cw" Name="Condition" Kind="InputPin" />
                 <Patch Id="RAipTzV6I84QDHAnIROLcO" Name="Then">
-                  <Node Bounds="171,378,104,22" Id="EjURcv8AvZcNeRni63zjZB">
+                  <Node Bounds="174,377,104,22" Id="EjURcv8AvZcNeRni63zjZB">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationNode" Name="UpdateGeometry" />
@@ -3581,7 +3582,7 @@
                     <Pin Id="F3vrMrxU7DYQJS6ukW9D1V" Name="Geometry Descriptor" Kind="InputPin" />
                     <Pin Id="V3GhR4nmuS4PV63FZzyHv5" Name="Output" Kind="StateOutputPin" />
                   </Node>
-                  <Node Bounds="223,324,79,22" Id="MOvSCSmeWh9QdjkUK39JUS">
+                  <Node Bounds="223,324,85,22" Id="MOvSCSmeWh9QdjkUK39JUS">
                     <p:NodeReference LastCategoryFullName="CraftLie.MeshJoinDescriptor" LastSymbolSource="CraftLie.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <CategoryReference Kind="TypeFlag" Name="MeshJoinDescriptor" />
@@ -3592,6 +3593,7 @@
                     <Pin Id="EaDvIszETDsOol0s2lM9DM" Name="Texture Coords" Kind="InputPin" />
                     <Pin Id="A2loERbbHONOp48zFLdGS5" Name="Indices" Kind="InputPin" />
                     <Pin Id="IqfVBRD1n3yPylw51e8a1c" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="L64OmVqOk0PMkRimI4Yxu0" Name="Topology" Kind="InputPin" />
                   </Node>
                 </Patch>
                 <ControlPoint Id="FkPYwBv0Kk8N80VnABzyP2" Bounds="177,301" Alignment="Top" />
@@ -3601,8 +3603,8 @@
                 <p:ValueBoxSettings />
               </Pad>
               <ControlPoint Id="G9fiVQJdKiALcUtxPAb1fV" Bounds="844,268" />
-              <ControlPoint Id="Fie8vfNgUunNaXckBitoxy" Bounds="415,268" />
-              <Node Bounds="157,232,65,13" Id="QFmR6JQLk6jMWjre803Rdc">
+              <ControlPoint Id="Fie8vfNgUunNaXckBitoxy" Bounds="419,268" />
+              <Node Bounds="157,232,85,13" Id="QFmR6JQLk6jMWjre803Rdc">
                 <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CommonLanguageRuntimeLibrary">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationNode" Name="OR" />
@@ -3612,8 +3614,9 @@
                 <Pin Id="AmvN3sWGRZDL0UGUYJ12TP" Name="Output" Kind="OutputPin" />
                 <Pin Id="SfRGdyvXb4UPCuT4QotYOy" Name="Input 3" Kind="InputPin" />
                 <Pin Id="CgtNBuocLrLOZhnze6Yy01" Name="Input 4" Kind="InputPin" />
+                <Pin Id="Sz957oe7WTOQVybwoDn9Zq" Name="Input 5" Kind="InputPin" />
               </Node>
-              <ControlPoint Id="BdGt3kwDtxPLGd5xSXg4SS" Bounds="155,89" />
+              <ControlPoint Id="BdGt3kwDtxPLGd5xSXg4SS" Bounds="86,98" />
               <Node Bounds="156,178,50,13" Id="BT8s42S8MrxNr3gFlLzg32">
                 <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3632,9 +3635,9 @@
                 <Pin Id="JzNl4R1rwVbQHuZyX6Lm8L" Name="Result" Kind="OutputPin" />
                 <Pin Id="IW66UGM8yaaPZgq0N0GoGd" Name="Unchanged" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="BOybj3fmdfuQQtyXrIoKSF" Bounds="219,87" />
-              <ControlPoint Id="DerImCX1JAXL8uw1HBosp1" Bounds="280,88" />
-              <ControlPoint Id="EzaPKLucyYOQK5MAIKxWib" Bounds="377,89" />
+              <ControlPoint Id="BOybj3fmdfuQQtyXrIoKSF" Bounds="150,96" />
+              <ControlPoint Id="DerImCX1JAXL8uw1HBosp1" Bounds="211,97" />
+              <ControlPoint Id="EzaPKLucyYOQK5MAIKxWib" Bounds="308,98" />
               <Node Bounds="270,178,50,13" Id="MTG0DYpr5rFMYH9roQDolU">
                 <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3652,6 +3655,16 @@
                 <Pin Id="CgSMdCuzdOnNh0oqOVeGmB" Name="Value" Kind="InputPin" />
                 <Pin Id="NqAkgcoaPQCOEufQHD4l3j" Name="Result" Kind="OutputPin" />
                 <Pin Id="TtZcjFrX5ugPhXGya1i9S9" Name="Unchanged" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="Dn4HSlgMHE6Ldt9E9q7mw7" Bounds="388,98" />
+              <Node Bounds="388,177,50,13" Id="E6K0hcncpJgLfSI1iQ2oap">
+                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessNode" Name="Changed" />
+                </p:NodeReference>
+                <Pin Id="HeSQaG8x5m1MaDhaNYffIz" Name="Value" Kind="InputPin" />
+                <Pin Id="Ck5SjAazkMNMcoBtvcJAza" Name="Result" Kind="OutputPin" />
+                <Pin Id="GTr2JLxBTlXO3INSoVSV6c" Name="Unchanged" Kind="OutputPin" />
               </Node>
             </Canvas>
             <Patch Id="IhxTcFT5BMPLSE74njoihU" Name="Create" ParticipatingElements="AbtXtZyBJzQL71Dn8jpEnY" />
@@ -3673,6 +3686,7 @@
               <Pin Id="GH6zFtkbt55LymYNZkKSNO" Name="Normals" Kind="InputPin" />
               <Pin Id="TUVwwAZOpWqL7eli6TV3Lu" Name="Texture Coords" Kind="InputPin" />
               <Pin Id="Cv87iZluDrRNvuEIemANZP" Name="Indices" Kind="InputPin" />
+              <Pin Id="LMg7NvX6f20O8EokbbBtU5" Name="Topology" Kind="InputPin" />
             </Patch>
             <ProcessDefinition Id="M41ESBDYhk9MgiKxmWI5kV">
               <Fragment Id="LevnSoNhb2FQbb4bv7a1Eh" Patch="IhxTcFT5BMPLSE74njoihU" Enabled="true" />
@@ -3726,6 +3740,10 @@
             <Link Id="MUlUG3yUWPsNmMu9iS0dEq" Ids="EzaPKLucyYOQK5MAIKxWib,CgSMdCuzdOnNh0oqOVeGmB" />
             <Link Id="A0rAPwzqd2iLWWy0OUA6WU" Ids="C99QS5C5H3iN3Ujj32ICRc,SfRGdyvXb4UPCuT4QotYOy" />
             <Link Id="IZMLWYbNKsxMVT55bqeLAu" Ids="NqAkgcoaPQCOEufQHD4l3j,CgtNBuocLrLOZhnze6Yy01" />
+            <Link Id="LE7wnyk7FeJNcQXV3AcxND" Ids="LMg7NvX6f20O8EokbbBtU5,Dn4HSlgMHE6Ldt9E9q7mw7" IsHidden="true" />
+            <Link Id="FqmR3Ra2nbRMItiB0NJ7c3" Ids="Dn4HSlgMHE6Ldt9E9q7mw7,L64OmVqOk0PMkRimI4Yxu0" />
+            <Link Id="PIUcwTf0wO0PQr4vq2AM46" Ids="Dn4HSlgMHE6Ldt9E9q7mw7,HeSQaG8x5m1MaDhaNYffIz" />
+            <Link Id="IOlWuod1xs3NWDAph63GuF" Ids="Ck5SjAazkMNMcoBtvcJAza,Sz957oe7WTOQVybwoDn9Zq" />
           </Patch>
         </Node>
       </Canvas>

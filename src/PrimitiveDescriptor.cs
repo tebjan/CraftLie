@@ -60,6 +60,40 @@ namespace CraftLie
         Justified = 3
     }
 
+    [Type]
+    //
+    // Summary:
+    //     Specifies how the pipeline should interpret vertex data bound to the input assembler
+    //     stage.
+    public enum MeshTopology
+    {
+        //
+        // Summary:
+        //     The IA stage has not been initialized with a primitive topology. The IA stage
+        //     will not function properly unless a primitive topology is defined.
+        Undefined = 0,
+        //
+        // Summary:
+        //     Interpret the vertex data as a list of points.
+        PointList = 1,
+        //
+        // Summary:
+        //     Interpret the vertex data as a list of lines.
+        LineList = 2,
+        //
+        // Summary:
+        //     Interpret the vertex data as a line strip.
+        LineStrip = 3,
+        //
+        // Summary:
+        //     Interpret the vertex data as a list of triangles.
+        TriangleList = 4,
+        //
+        // Summary:
+        //     Interpret the vertex data as a triangle strip.
+        TriangleStrip = 5
+    }
+
     [Type(IsImmutable = true)]
     public abstract class GeometryDescriptor
     {
@@ -213,6 +247,7 @@ namespace CraftLie
         public readonly List<SlimDX.Vector3> Directions;
         public readonly List<SlimDX.Vector2> Tex;
         public readonly int[] Indices;
+        public readonly MeshTopology Topology;
 
         //[Node]
         //public MeshJoinDescriptor()
@@ -225,7 +260,7 @@ namespace CraftLie
         //}
 
         [Node]
-        public MeshJoinDescriptor(IReadOnlyList<SharpDX.Vector3> positions, IReadOnlyList<SharpDX.Vector3> normals, IReadOnlyList<SharpDX.Vector2> textureCoords, IReadOnlyList<int> indices)
+        public MeshJoinDescriptor(IReadOnlyList<SharpDX.Vector3> positions, IReadOnlyList<SharpDX.Vector3> normals, IReadOnlyList<SharpDX.Vector2> textureCoords, IReadOnlyList<int> indices, MeshTopology topology = MeshTopology.TriangleList)
             : base(PrimitiveType.MeshJoin)
         {
 
@@ -243,6 +278,8 @@ namespace CraftLie
                 Tex = GeometryDescriptor.UnitTriTex;
                 Indices = GeometryDescriptor.UnitTriIndices;
             }
+
+            Topology = topology;
         }
     }
 
