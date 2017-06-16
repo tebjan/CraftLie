@@ -34,6 +34,7 @@ namespace CraftLie
             geometry.Simplify(GeometrySimplificationOption.Lines, tolerance, sink);
 
             sink.Close();
+            sink.Dispose();
 
             return path;
         }
@@ -47,6 +48,7 @@ namespace CraftLie
             geometry.Outline(sink);
 
             sink.Close();
+            sink.Dispose();
 
             return path;
         }
@@ -83,8 +85,10 @@ namespace CraftLie
 
                 outlinedGeometry.Tessellate(sink);
 
-                flattenedGeometry.Dispose();
                 outlinedGeometry.Dispose();
+                flattenedGeometry.Dispose();
+
+                sink.Dispose();
 
                 return vertices.Select(v => v.Scale(scaling).AssignTexCd()).Reverse(); 
             }
@@ -101,6 +105,7 @@ namespace CraftLie
                 flattenedGeometry.Tessellate(sink);
 
                 flattenedGeometry.Dispose();
+                sink.Dispose();
 
                 return vertices.Select(v => v.Scale(scaling).AssignTexCd()).Reverse();
             }

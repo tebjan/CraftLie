@@ -60,7 +60,7 @@ namespace CraftLie
 
         public void Dispose()
         {
-
+            Shadow.Dispose();
         }
 
         public void AddTriangles(Triangle[] triangles)

@@ -49,7 +49,7 @@ namespace CraftLie
                 TransformedGeometry tg = new TransformedGeometry(this.factory, pg, Matrix3x2.Translation(baselineOriginX, baselineOriginY) * Matrix3x2.Scaling(1.0f, -1.0f));
 
                 pg.Dispose();
-
+                sink.Dispose();
                 //Transform from baseline
 
                 this.AddGeometry(tg);
@@ -82,6 +82,7 @@ namespace CraftLie
 
             TransformedGeometry tg = new TransformedGeometry(this.factory, pg, Matrix3x2.Translation(baselineOriginX, baselineOriginY) * Matrix3x2.Scaling(1.0f, -1.0f));
             pg.Dispose();
+            sink.Dispose();
 
             this.AddGeometry(tg);
             return Result.Ok;
@@ -106,6 +107,7 @@ namespace CraftLie
 
             TransformedGeometry tg = new TransformedGeometry(this.factory, pg, Matrix3x2.Translation(baselineOriginX, baselineOriginY) * Matrix3x2.Scaling(1.0f, -1.0f));
             pg.Dispose();
+            sink.Dispose();
 
             this.AddGeometry(tg);
             return Result.Ok;
@@ -147,6 +149,7 @@ namespace CraftLie
                 this.geometry.Combine(geom, CombineMode.Union, sink);
 
                 sink.Close();
+                sink.Dispose();
 
                 this.geometry = pg;
             }
