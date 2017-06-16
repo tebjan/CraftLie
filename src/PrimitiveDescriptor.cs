@@ -15,6 +15,7 @@ namespace CraftLie
         Cylinder,
         Tube,
         Line,
+        MeshJoin,
         Sprites,
         Text
     }
@@ -72,6 +73,11 @@ namespace CraftLie
         public static readonly Box UnitBox = new Box() { Size = new SlimDX.Vector3(1) };
         public static readonly List<SlimDX.Vector3> UnitLine = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(-0.5f, 0, 0), new SlimDX.Vector3(0.5f, 0, 0) };
         public static readonly List<SlimDX.Vector3> UnitLineNormals = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0) };
+
+        public static readonly List<SlimDX.Vector3> UnitTri = new List<SlimDX.Vector3>(3) { new SlimDX.Vector3(-0.5f, -0.5f, 0), new SlimDX.Vector3(0.5f, -0.5f, 0), new SlimDX.Vector3(0, 0.5f, 0) };
+        public static readonly List<SlimDX.Vector3> UnitTriNormals = new List<SlimDX.Vector3>(3) { new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0) };
+        public static readonly List<SlimDX.Vector2> UnitTriTex = new List<SlimDX.Vector2>(3) { new SlimDX.Vector2(0, 1), new SlimDX.Vector2(1, 1), new SlimDX.Vector2(0.5f, 0) };
+        public static readonly int[] UnitTriIndices = new int[] { 0, 1, 2 };
     }
 
     [Type(IsImmutable = true)]
@@ -196,6 +202,46 @@ namespace CraftLie
             {
                 Positions = GeometryDescriptor.UnitLine;
                 Directions = GeometryDescriptor.UnitLineNormals;
+            }
+        }
+    }
+
+    [Type(IsImmutable = true)]
+    public class MeshJoinDescriptor : GeometryDescriptor
+    {
+        public readonly List<SlimDX.Vector3> Positions;
+        public readonly List<SlimDX.Vector3> Directions;
+        public readonly List<SlimDX.Vector2> Tex;
+        public readonly int[] Indices;
+
+        //[Node]
+        //public MeshJoinDescriptor()
+        //    : base(PrimitiveType.MeshJoin)
+        //{
+        //    Positions = GeometryDescriptor.UnitTri;
+        //    Directions = GeometryDescriptor.UnitTriNormals;
+        //    Tex = GeometryDescriptor.UnitTriTex;
+        //    Indices = GeometryDescriptor.UnitTriIndices;
+        //}
+
+        [Node]
+        public MeshJoinDescriptor(IReadOnlyList<SharpDX.Vector3> positions, IReadOnlyList<SharpDX.Vector3> normals, IReadOnlyList<SharpDX.Vector2> textureCoords, IReadOnlyList<int> indices)
+            : base(PrimitiveType.MeshJoin)
+        {
+
+            if (positions != null && positions.Count > 1)
+            {
+                Positions = positions.Select(v => new SlimDX.Vector3(v.X, v.Y, v.Z)).ToList();
+                Directions = normals?.Select(v => new SlimDX.Vector3(v.X, v.Y, v.Z)).ToList() ?? GeometryDescriptor.UnitTriNormals;
+                Tex = textureCoords?.Select(v => new SlimDX.Vector2(v.X, v.Y)).ToList() ?? GeometryDescriptor.UnitTriTex;
+                Indices = indices?.ToArray() ?? GeometryDescriptor.UnitTriIndices;
+            }
+            else
+            {
+                Positions = GeometryDescriptor.UnitTri;
+                Directions = GeometryDescriptor.UnitTriNormals;
+                Tex = GeometryDescriptor.UnitTriTex;
+                Indices = GeometryDescriptor.UnitTriIndices;
             }
         }
     }

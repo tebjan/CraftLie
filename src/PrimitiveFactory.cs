@@ -52,6 +52,10 @@ namespace CraftLie
                     var lineDesc = (LineDescriptor)descriptor;
                     return LineStrip3d(context, lineDesc.Positions, lineDesc.Directions, lineDesc.IsClosed);
                     break;
+                case PrimitiveType.MeshJoin:
+                    var meshDesc = (MeshJoinDescriptor)descriptor;
+                    return CreateIndexedGeometry(context, meshDesc.Positions, meshDesc.Directions, meshDesc.Tex, meshDesc.Indices);
+                    break;
                 case PrimitiveType.Sprites:
                     return CreateNullGeometry(context);
                     break;
@@ -71,6 +75,58 @@ namespace CraftLie
             DX11NullGeometry geom = new DX11NullGeometry(context);
             geom.Topology = SlimDX.Direct3D11.PrimitiveTopology.PointList;
             geom.InputLayout = new SlimDX.Direct3D11.InputElement[0];
+            geom.HasBoundingBox = false;
+
+            return geom;
+        }
+
+
+
+        public static IDX11Geometry CreateIndexedGeometry(DX11RenderContext context, List<Vector3> points, List<Vector3> normals, List<Vector2> tex, int[] indices)
+        {
+            var count = points.Count;
+            Pos3Norm3Tex2Vertex[] vertices = new Pos3Norm3Tex2Vertex[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                vertices[i] = new Pos3Norm3Tex2Vertex()
+                {
+                    Position = points[i],
+                    Normals = normals[i % normals.Count],
+                    TexCoords = tex[i % tex.Count]
+                };
+            }
+
+            DataStream ds = new DataStream(vertices.Length * Pos3Norm3Tex2Vertex.VertexSize, true, true);
+            ds.Position = 0;
+
+            ds.WriteRange(vertices);
+
+            ds.Position = 0;
+
+            var vbuffer = new SlimDX.Direct3D11.Buffer(context.Device, ds, new BufferDescription()
+            {
+                BindFlags = BindFlags.VertexBuffer,
+                CpuAccessFlags = CpuAccessFlags.None,
+                OptionFlags = ResourceOptionFlags.None,
+                SizeInBytes = (int)ds.Length,
+                Usage = ResourceUsage.Default
+            });
+
+            ds.Dispose();
+
+            var indexstream = new DataStream(indices.Length * 4, true, true);
+            indexstream.WriteRange(indices);
+            indexstream.Position = 0;
+
+            DX11IndexedGeometry geom = new DX11IndexedGeometry(context);
+            geom.VertexBuffer = vbuffer;
+            geom.IndexBuffer = new DX11IndexBuffer(context, indexstream, false, true);
+            geom.InputLayout = Pos3Norm3Tex2Vertex.Layout;
+            geom.Topology = PrimitiveTopology.TriangleList;
+            geom.VerticesCount = vertices.Length;
+            geom.VertexSize = Pos3Norm3Tex2Vertex.VertexSize;
+
             geom.HasBoundingBox = false;
 
             return geom;
@@ -170,7 +226,13 @@ namespace CraftLie
 
             tl.Draw(renderer, 0.0f, 0.0f);
 
-            var result = ex.GetVertices(renderer.GetGeometry(), extrude).ToArray();
+            var geo = renderer.GetGeometry();
+            var result = ex.GetVertices(geo, extrude).ToArray();           
+            
+            renderer.Dispose();
+            geo.Dispose();
+            fmt.Dispose();
+            tl.Dispose();
 
             Vector3 min = new Vector3(float.MaxValue);
             Vector3 max = new Vector3(float.MinValue);
