@@ -11,6 +11,7 @@ namespace CraftLie
         RoundQuad,
         Box,
         Disc,
+        Polygon,
         Sphere,
         Cylinder,
         Tube,
@@ -105,6 +106,9 @@ namespace CraftLie
 
         public static readonly Quad UnitQuad = new Quad() { Size = new SlimDX.Vector2(1) };
         public static readonly Box UnitBox = new Box() { Size = new SlimDX.Vector3(1) };
+
+        public static readonly List<SlimDX.Vector2> UnitTri2D = new List<SlimDX.Vector2>(3) { new SlimDX.Vector2(-0.5f, -0.5f), new SlimDX.Vector2(0.5f, -0.5f), new SlimDX.Vector2(0, 0.5f) };
+
         public static readonly List<SlimDX.Vector3> UnitLine = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(-0.5f, 0, 0), new SlimDX.Vector3(0.5f, 0, 0) };
         public static readonly List<SlimDX.Vector3> UnitLineNormals = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0) };
 
@@ -236,6 +240,26 @@ namespace CraftLie
             {
                 Positions = GeometryDescriptor.UnitLine;
                 Directions = GeometryDescriptor.UnitLineNormals;
+            }
+        }
+    }
+
+    [Type(IsImmutable = true)]
+    public class PolygonDescriptor : GeometryDescriptor
+    {
+        public readonly List<SlimDX.Vector2> Positions;
+
+        [Node]
+        public PolygonDescriptor(IReadOnlyList<SharpDX.Vector2> positions)
+            : base(PrimitiveType.Polygon)
+        {
+            if (positions != null && positions.Count > 1)
+            {
+                Positions = positions.Select(v => new SlimDX.Vector2(v.X, v.Y)).ToList();
+            }
+            else
+            {
+                Positions = GeometryDescriptor.UnitTri2D;
             }
         }
     }

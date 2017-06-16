@@ -39,6 +39,9 @@ namespace CraftLie
                 case PrimitiveType.Disc:
                     return context.Primitives.Segment(((DiscDescriptor)descriptor).Settings);
                     break;
+                case PrimitiveType.Polygon:
+                    return Polygon2D(context, ((PolygonDescriptor)descriptor).Positions);
+                    break;
                 case PrimitiveType.Sphere:
                     return context.Primitives.Sphere(((SphereDescriptor)descriptor).Settings);
                     break;
@@ -88,8 +91,6 @@ namespace CraftLie
             return geom;
         }
 
-
-
         public static IDX11Geometry CreateIndexedGeometry(DX11RenderContext context, List<Vector3> points, List<Vector3> normals, List<Vector2> tex, int[] indices)
         {
             var count = points.Count;
@@ -104,6 +105,99 @@ namespace CraftLie
                     TexCoords = tex[i % tex.Count]
                 };
             }
+
+            DataStream ds = new DataStream(vertices.Length * Pos3Norm3Tex2Vertex.VertexSize, true, true);
+            ds.Position = 0;
+
+            ds.WriteRange(vertices);
+
+            ds.Position = 0;
+
+            var vbuffer = new SlimDX.Direct3D11.Buffer(context.Device, ds, new BufferDescription()
+            {
+                BindFlags = BindFlags.VertexBuffer,
+                CpuAccessFlags = CpuAccessFlags.None,
+                OptionFlags = ResourceOptionFlags.None,
+                SizeInBytes = (int)ds.Length,
+                Usage = ResourceUsage.Default
+            });
+
+            ds.Dispose();
+
+            var indexstream = new DataStream(indices.Length * 4, true, true);
+            indexstream.WriteRange(indices);
+            indexstream.Position = 0;
+
+            DX11IndexedGeometry geom = new DX11IndexedGeometry(context);
+            geom.VertexBuffer = vbuffer;
+            geom.IndexBuffer = new DX11IndexBuffer(context, indexstream, false, true);
+            geom.InputLayout = Pos3Norm3Tex2Vertex.Layout;
+            geom.Topology = PrimitiveTopology.TriangleList;
+            geom.VerticesCount = count;
+            geom.VertexSize = Pos3Norm3Tex2Vertex.VertexSize;
+
+            geom.HasBoundingBox = false;
+
+            return geom;
+        }
+
+        public static IDX11Geometry Polygon2D(DX11RenderContext context, List<Vector2> points)
+        {
+            var count = points.Count;
+            float cx = 0;
+            float cy = 0;
+            float x, y;
+
+            float minx = float.MaxValue, miny = float.MaxValue;
+            float maxx = float.MinValue, maxy = float.MinValue;
+
+            Pos3Norm3Tex2Vertex[] vertices = new Pos3Norm3Tex2Vertex[count + 1];
+
+            for (int j = 0; j < count; j++)
+            {
+                var point = points[j];
+                x = point.X;
+                y = point.Y;
+                vertices[j + 1].Position = new Vector3(x, y, 0);
+                vertices[j + 1].Normals = new Vector3(0, 0, -1);
+                vertices[j + 1].TexCoords = new Vector2(0.0f, 0.0f);
+                cx += x;
+                cy += y;
+
+                if (x < minx) { minx = x; }
+                if (x > maxx) { maxx = x; }
+                if (y < miny) { miny = y; }
+                if (y > maxy) { maxy = y; }
+            }
+
+            vertices[0].Position = new Vector3(cx / count, cy / count, 0);
+            vertices[0].Normals = new Vector3(0, 0, -1);
+
+            float w = maxx - minx;
+            float h = maxy - miny;
+            for (int j = 0; j <= count; j++)
+            {
+                vertices[j].TexCoords = new Vector2((vertices[j].Position.X - minx) / w,
+                     (vertices[j].Position.Y - miny) / h);
+            }
+
+            List<int> inds = new List<int>();
+
+            var indices = new int[count * 3];
+
+            var outerJ = 0;
+            for (int j = 0; j < count - 1; j++)
+            {
+                outerJ = j * 3;
+                indices[outerJ] = 0;
+                indices[outerJ + 1] = j + 1;
+                indices[outerJ + 2] = j + 2;
+            }
+
+            outerJ = count - 1;
+            indices[outerJ] = 0;
+            indices[outerJ + 1] = count - 1;
+            indices[outerJ + 2] = 1;
 
             DataStream ds = new DataStream(vertices.Length * Pos3Norm3Tex2Vertex.VertexSize, true, true);
             ds.Position = 0;
