@@ -137,10 +137,11 @@ namespace CraftLie
         public readonly RoundRect Settings;
 
         [Node]
-        public RoundQuadDescriptor(float cornerRadius = 0.1f, bool enableCenter = true, int cornerResolution = 6)
+        public RoundQuadDescriptor(float cornerRadius = 0.1f, float aspect = 1, bool enableCenter = true, int cornerResolution = 6)
             : base(PrimitiveType.RoundQuad)
         {
-            var size = new SlimDX.Vector2(cornerRadius > 0 ? 0.5f - cornerRadius : 0.5f);
+            var radius = cornerRadius > 0 ? 0.5f - cornerRadius : 0.5f;
+            var size = aspect > 1 ? new SlimDX.Vector2(radius, radius / aspect) : new SlimDX.Vector2(radius * aspect, radius);
             Settings = new RoundRect() { InnerRadius = size, OuterRadius = cornerRadius * 0.5f, EnableCenter = enableCenter, CornerResolution = cornerResolution };
         }
     }

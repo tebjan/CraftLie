@@ -39,6 +39,7 @@ namespace CraftLie
         public Color4 Color;
         public TransformationSpace Space = TransformationSpace.World;
         public BlendMode Blending = BlendMode.Blend;
+        public RectangleF ClipRect = new RectangleF { Left = -1, Top = -1, Right = 1, Bottom = 1 };
         public string TexturePath;
         public int LayerOrder;
 
@@ -58,6 +59,12 @@ namespace CraftLie
         public void SetSpace(TransformationSpace space)
         {
             Space = space;
+        }
+
+        [Node]
+        public void SetClipRect(RectangleF clipRect)
+        {
+            ClipRect = clipRect;
         }
 
         [Node] 

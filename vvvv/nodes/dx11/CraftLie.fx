@@ -22,7 +22,8 @@ uint MaterialIndex;
 uint SpaceIndex;
 
 cbuffer cbPerDraw : register(b0)
-{
+{	
+    float2 InvRendererSize : INVTARGETSIZE;
 	float4x4 tV : LAYERVIEW;
 	float4x4 tP : PROJECTION;
 	float4x4 tVP : LAYERVIEWPROJECTION;	
@@ -32,6 +33,7 @@ cbuffer cbPerObject : register(b1)
 {
     float4x4 tW : WORLDLAYER;
 	float4 Color  <bool color=true;>  = {1, 1, 1, 1};
+	float4 ClipRect = {-1, -1, 1, 1};
 	uint TransformStartIndex;	
 	uint ColorStartIndex;
 }
@@ -159,8 +161,17 @@ float3 Shading(vs2ps In)
 	return col;
 }
 
+void DoClipRect(float2 pixPos)
+{
+	float2 p = (pixPos * InvRendererSize) * 2 - 1;
+	if (p.x < ClipRect.x || p.y < ClipRect.y || p.x > ClipRect.z || p.y > ClipRect.w)
+		discard;
+}
+
 float4 PS(vs2ps In): SV_Target
 {
+	DoClipRect(In.PosWVP.xy);
+
     float4 col = texture2d.Sample(g_samLinear, In.TexCd) * In.Color;
 	
 	col.rgb *= Shading(In);
@@ -170,6 +181,8 @@ float4 PS(vs2ps In): SV_Target
 
 float4 PS_NoTex(vs2ps In): SV_Target
 {
+	DoClipRect(In.PosWVP.xy);
+	
     float4 col = In.Color;
 	
 	col.rgb *= Shading(In);

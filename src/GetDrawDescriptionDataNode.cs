@@ -16,6 +16,7 @@ using SharpDX;
 using VVVV.Utils.VColor;
 using VL.Lib.Collections;
 using System.Diagnostics;
+using VVVV.Utils.VMath;
 
 namespace VVVV.DX11.Nodes
 {
@@ -66,6 +67,9 @@ namespace VVVV.DX11.Nodes
         [Output("Space Index")]
         protected ISpread<int> FSpaceIndex;
 
+        [Output("Clip Rect")]
+        protected ISpread<Vector4D> FClipRect;
+
         [Output("Transform Buffer")]
         protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FTransformOutput;
 
@@ -112,6 +116,9 @@ namespace VVVV.DX11.Nodes
 
         [Output("Sprites Texture Path")]
         protected ISpread<string> FSpritesTexturePath;
+
+        [Output("Sprites Clip Rect")]
+        protected ISpread<Vector4D> FSpritesClipRect;
 
         //text
 
@@ -206,6 +213,7 @@ namespace VVVV.DX11.Nodes
                     this.FColor.SliceCount = 0;
                     this.FMaterialIndex.SliceCount = 0;
                     this.FSpaceIndex.SliceCount = 0;
+                    this.FClipRect.SliceCount = 0;
                     this.FTransformCounts.SliceCount = 0;
                     this.FColorCounts.SliceCount = 0;
 
@@ -224,6 +232,7 @@ namespace VVVV.DX11.Nodes
                     this.FSpritesPositionCounts.SliceCount = 0;
                     this.FSpritesSizeCounts.SliceCount = 0;
                     this.FSpritesColorCounts.SliceCount = 0;
+                    this.FSpritesClipRect.SliceCount = 0;
                     this.FSpritesTexturePath.SliceCount = 0;
                     this.FSpritesSpaceIndex.SliceCount = 0;
 
@@ -299,6 +308,7 @@ namespace VVVV.DX11.Nodes
             FColor.SliceCount = outCount;
             FMaterialIndex.SliceCount = outCount;
             FSpaceIndex.SliceCount = outCount;
+            FClipRect.SliceCount = outCount;
 
             FInstanceCounts.SliceCount = outCount;
             FTransformCounts.SliceCount = outCount;
@@ -339,12 +349,13 @@ namespace VVVV.DX11.Nodes
                 FTotalTransformCount += transCount;
                 FTotalColorCount += colCount;
 
-                FTransformation[i] = ToSlimDXMatrix(desc.Transformation);
+                FTransformation[i] = ToSlimDXMatrix(ref desc.Transformation);
                 FTexturePath[i] = desc.TexturePath;
                 FColor[i] = ToRGBAColor(desc.Color);
                 FBlendIndex[i] = (int)desc.Blending;
                 FMaterialIndex[i] = (int)desc.Shading;
                 FSpaceIndex[i] = (int)desc.Space;
+                FClipRect[i] = ToVector4(ref desc.ClipRect);
 
                 FLayerOrder[FLayerOrderSlice++] = desc.LayerOrder;
             }
@@ -360,6 +371,7 @@ namespace VVVV.DX11.Nodes
             FSpritesTransformations.SliceCount = spritesCount;
             FSpritesSpaceIndex.SliceCount = spritesCount;
             FSpritesTexturePath.SliceCount = spritesCount;
+            FSpritesClipRect.SliceCount = spritesCount;
 
             FSpritesPositionCounts.SliceCount = spritesCount;
             FSpritesSizeCounts.SliceCount = spritesCount;
@@ -402,10 +414,11 @@ namespace VVVV.DX11.Nodes
                 FTotalSpritesSizeCount += sizeCount;
                 FTotalSpritesColorCount += colCount;
 
-                FSpritesTransformations[i] = ToSlimDXMatrix(desc.Transformation);
+                FSpritesTransformations[i] = ToSlimDXMatrix(ref desc.Transformation);
                 FSpritesSpaceIndex[i] = (int)desc.Space;
                 FSpritesTexturePath[i] = desc.TexturePath;
                 FSpritesBlendIndex[i] = (int)desc.Blending;
+                FSpritesClipRect[i] = ToVector4(ref desc.ClipRect);
 
                 FLayerOrder[FLayerOrderSlice++] = desc.LayerOrder;
             }
@@ -431,7 +444,7 @@ namespace VVVV.DX11.Nodes
                 FTexts[i] = desc.Text;
                 FTextSizes[i] = desc.Size;
                 FTextFontNames[i] = desc.FontName;
-                FTextTransformations[i] = ToSlimDXMatrix(desc.Transformation);
+                FTextTransformations[i] = ToSlimDXMatrix(ref desc.Transformation);
                 FTextSpaceIndex[i] = (int)desc.Space;
                 FTextColors[i] = ToRGBAColor(desc.Color);
                 FTextBlendIndex[i] = (int)desc.Blending;
@@ -691,7 +704,7 @@ namespace VVVV.DX11.Nodes
             return new RGBAColor(color.Red, color.Green, color.Blue, color.Alpha);
         }
 
-        SlimDXMatrix ToSlimDXMatrix(Matrix m)
+        SlimDXMatrix ToSlimDXMatrix(ref Matrix m)
         {
             return new SlimDXMatrix()
             {
@@ -700,6 +713,11 @@ namespace VVVV.DX11.Nodes
                 M31 = m.M31, M32 = m.M32, M33 = m.M33, M34 = m.M34,
                 M41 = m.M41, M42 = m.M42, M43 = m.M43, M44 = m.M44
             };
+        }
+
+        private Vector4D ToVector4(ref RectangleF clipRect)
+        {
+            return new Vector4D(clipRect.Left, clipRect.Top, clipRect.Right, clipRect.Bottom);
         }
 
         void EnsureArraySize<T>(ref T[] array, int minimumSize)
