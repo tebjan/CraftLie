@@ -46,17 +46,17 @@ namespace CraftLie
                 input.SelectMany(d => d.TextDescriptions).ToList());
         }
 
-        static IEnumerable<DrawGeometryDescription> GetDefaultDrawDescription()
+        public static IEnumerable<DrawGeometryDescription> GetDefaultDrawDescription()
         {
             yield return DrawGeometryDescription.Default;
         }
 
-        static IEnumerable<DrawTextDescription> GetDefaultTextDescriptor()
+        public static IEnumerable<DrawTextDescription> GetDefaultTextDescriptor()
         {
             yield return DrawTextDescription.Default;
         }
 
-        static IEnumerable<DrawSpritesDescription> GetDefaultSpritesDescriptor()
+        public static IEnumerable<DrawSpritesDescription> GetDefaultSpritesDescriptor()
         {
             yield return DrawSpritesDescription.Default;
         }

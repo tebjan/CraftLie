@@ -292,9 +292,9 @@ namespace CraftLie
             if (positions != null && positions.Count > 1)
             {
                 Positions = positions.Select(v => new SlimDX.Vector3(v.X, v.Y, v.Z)).ToList();
-                Directions = normals?.Select(v => new SlimDX.Vector3(v.X, v.Y, v.Z)).ToList() ?? GeometryDescriptor.UnitTriNormals;
-                Tex = textureCoords?.Select(v => new SlimDX.Vector2(v.X, v.Y)).ToList() ?? GeometryDescriptor.UnitTriTex;
-                Indices = indices?.ToArray() ?? GeometryDescriptor.UnitTriIndices;
+                Directions = normals != null && normals.Any() ? normals.Select(v => new SlimDX.Vector3(v.X, v.Y, v.Z)).ToList() : GeometryDescriptor.UnitTriNormals;
+                Tex = textureCoords != null && textureCoords.Any() ? textureCoords.Select(v => new SlimDX.Vector2(v.X, v.Y)).ToList() : GeometryDescriptor.UnitTriTex;
+                Indices = indices != null && indices.Any() ? indices.ToArray() : GeometryDescriptor.UnitTriIndices;
             }
             else
             {

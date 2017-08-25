@@ -86,10 +86,10 @@ namespace CraftLie
             Shading = shading;
             Space = TransformationSpace.World; //always set default, can be changed by Within node
 
-            if (instanceColors == null)
+            if (instanceColors == null || instanceColors.None())
                 instanceColors = new List<Color4>(1) { Color4.White };
 
-            if (instanceTransformations == null)
+            if (instanceTransformations == null || instanceTransformations.None())
                 instanceTransformations =  new List<Matrix>(1) { Matrix.Identity };
 
             InstanceTransformations = instanceTransformations;
