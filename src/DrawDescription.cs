@@ -71,6 +71,14 @@ namespace CraftLie
         public void Transform(Matrix transformation)
         {
             Matrix.Multiply(ref Transformation, ref transformation, out Transformation);
+
+            //var pos = new Vector4(ClipRect.X, ClipRect.Y, 0, 1);
+            //var size = new Vector4(ClipRect.Width, ClipRect.Height, 0, 0);
+
+            //Vector4.Transform(ref pos, ref transformation, out pos);
+            //Vector4.Transform(ref size, ref transformation, out size);
+
+            //ClipRect = new RectangleF(pos.X, pos.Y, size.X, size.Y);
         }
 
         [Node]

@@ -3293,7 +3293,7 @@
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
-          <Patch Id="LEMGGdOEKnJQYG72ACIoQC" IsGeneric="true">
+          <Patch Id="LEMGGdOEKnJQYG72ACIoQC">
             <ControlPoint Id="RLVm2oC0DqLPnmyhajj6SV" Bounds="-49,514" />
             <Pin Id="ENBbg9C3P86MB7yWvMXjka" Name="Input" Kind="InputPin" Bounds="890,986" />
             <Link Id="KGSUbwH6Yz0ONu7tunI85P" Ids="ENBbg9C3P86MB7yWvMXjka,RLVm2oC0DqLPnmyhajj6SV" IsHidden="true" />
@@ -3355,7 +3355,7 @@
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
-          <Patch Id="QjEqTDeuyPOPFfU70yRa4A" IsGeneric="true">
+          <Patch Id="QjEqTDeuyPOPFfU70yRa4A">
             <ControlPoint Id="TARQHw86xDXOVYrmOgDiFi" Bounds="388,640" />
             <ControlPoint Id="FmKNLrtLQ8oLo8TCz3pd71" Bounds="424,846" />
             <Pin Id="IkR3n939D6KM9ceuMcb0VE" Name="Input" Kind="InputPin" Bounds="-738,0" />
@@ -3460,7 +3460,7 @@
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
-          <Patch Id="HAR53NRkZu1NJuxRC6uD12" IsGeneric="true">
+          <Patch Id="HAR53NRkZu1NJuxRC6uD12">
             <ControlPoint Id="Ehs2LVeyP4FLYBZhoIA3Bw" Bounds="-10,916" />
             <ControlPoint Id="SoD3jdqS4TdML4YGSsbWJ9" Bounds="-13,1216" />
             <Node Name="Create" Bounds="-14,968,144,207" Id="Bs1KkxucaY2NDVwdfzcXIu">
@@ -3521,15 +3521,15 @@
     ************************ Group (Spectral) ************************
 
 -->
-        <Node Name="Group (Spectral)" Bounds="356,998,259,321" Id="LXVctU4GuSfMChdiKi0UIa">
+        <Node Name="Group (Spectral)" Bounds="347,973,259,321" Id="LXVctU4GuSfMChdiKi0UIa">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
-          <Patch Id="CyFWlat4ZLsMNxZkvck8XV" IsGeneric="true">
-            <ControlPoint Id="ASKrUq9vZRuM0GP2RklMm6" Bounds="476,1014" />
-            <ControlPoint Id="IbaevyHIIzhOwcIaalDXef" Bounds="408,1300" />
-            <Node Name="Create" Bounds="406,1034,197,195" Id="P3W0730VuhcMwO4HFeY9YF">
+          <Patch Id="CyFWlat4ZLsMNxZkvck8XV">
+            <ControlPoint Id="ASKrUq9vZRuM0GP2RklMm6" Bounds="467,989" />
+            <ControlPoint Id="IbaevyHIIzhOwcIaalDXef" Bounds="399,1275" />
+            <Node Name="Create" Bounds="396,1009,198,195" Id="P3W0730VuhcMwO4HFeY9YF">
               <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
                 <Choice Kind="OperationNode" Name="Create" />
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -3539,22 +3539,22 @@
               <Patch Id="N8V0e2JP9OdQc1QSJIU2KN" Name="Draw">
                 <Pin Id="I1IaqQw4pgoO4O9f3S92Ea" Name="Buffer" Kind="InputPin" Bounds="-311,0" />
                 <Pin Id="O97IBaC2cFvNfNtRBWGl7U" Name="Buffer" Kind="OutputPin" Bounds="-311,0" />
-                <ControlPoint Id="A65BjjxTF09LRxT5Dez2Nk" Bounds="550,1040" />
-                <ControlPoint Id="A3h1lsTq4BJM0zbDnpf2q9" Bounds="552,1220" />
-                <Node Name="ForEach2" Bounds="462,1068,118,117" Id="Jib9w90Y0Q2N0XPLE6sAIy">
+                <ControlPoint Id="A65BjjxTF09LRxT5Dez2Nk" Bounds="541,1015" />
+                <ControlPoint Id="A3h1lsTq4BJM0zbDnpf2q9" Bounds="543,1195" />
+                <Node Name="ForEach2" Bounds="452,1043,119,117" Id="Jib9w90Y0Q2N0XPLE6sAIy">
                   <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
                     <Choice Kind="ForEachLoop" Name="ForEach" />
                     <FullNameCategoryReference ID="Primitive" />
                   </p:NodeReference>
                   <Pin Id="NkML0B7kP2LOatKKNbDnmr" Name="Break" Kind="OutputPin" />
-                  <ControlPoint Id="AOg0RRIDNjZLtnn49G6F1a" Bounds="477,1074" Alignment="Top" />
-                  <ControlPoint Id="Usah2FGeKBVNa4mPO7OIEM" Bounds="554,1179" Alignment="Bottom" />
-                  <ControlPoint Id="I4l6mfKx58gQCzcLL5KtsJ" Bounds="553,1074" Alignment="Top" />
+                  <ControlPoint Id="AOg0RRIDNjZLtnn49G6F1a" Bounds="468,1049" Alignment="Top" />
+                  <ControlPoint Id="Usah2FGeKBVNa4mPO7OIEM" Bounds="545,1154" Alignment="Bottom" />
+                  <ControlPoint Id="I4l6mfKx58gQCzcLL5KtsJ" Bounds="544,1049" Alignment="Top" />
                   <Patch Id="LTLhTW9h5Q5OkmgagFHom8">
                     <Patch Id="SKTEPCUxqvMOiV3e0O4WPv" Name="Create" />
                     <Patch Id="Ez4iUKzOVrLLvovbBvBJVx" Name="Update" />
                     <Patch Id="EiOKGBegYXRPJgLAEaWTw9" Name="Destroy" />
-                    <Node Bounds="474,1106,83,22" Id="GKouypURnKkNFuDieqLxCd">
+                    <Node Bounds="464,1087,83,22" Id="GKouypURnKkNFuDieqLxCd">
                       <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <Choice Kind="OperationNode" Name="Invoke" />
@@ -3595,7 +3595,7 @@
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
-          <Patch Id="ErjTJrPYDn7MOST3gXtKgQ" IsGeneric="true">
+          <Patch Id="ErjTJrPYDn7MOST3gXtKgQ">
             <ControlPoint Id="PAENjDPwJspOBzZVFB4CgF" Bounds="90,1427" />
             <ControlPoint Id="CGCqKpM8W8tLSMbljBHNBZ" Bounds="-12,1841" />
             <Pin Id="D8C7vSedBJbM3YxgNXdxXx" Name="Input" Kind="InputPin" Bounds="-739,0" />
@@ -3747,13 +3747,13 @@
     ************************ LineTransformation ************************
 
 -->
-        <Node Name="LineTransformation" Bounds="-64,1998,482,332" Id="El0P30c6vYRNQQWHFLWGXV">
+        <Node Name="LineTransformation" Bounds="-58,2011,482,332" Id="El0P30c6vYRNQQWHFLWGXV">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
-          <Patch Id="MBBPgC37IVyNZNAwWZhvtL" IsGeneric="true">
-            <Node Bounds="85,2046,25,13" Id="HU83vBtILOCLhxGTvKecRl">
+          <Patch Id="MBBPgC37IVyNZNAwWZhvtL">
+            <Node Bounds="91,2059,25,13" Id="HU83vBtILOCLhxGTvKecRl">
               <p:NodeReference LastCategoryFullName="3D.Vector3" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationNode" Name="-" />
@@ -3763,7 +3763,7 @@
               <Pin Id="LUWVmuzAwyBPlwtdaeaYcS" Name="Input 2" Kind="InputPin" />
               <Pin Id="E30b2HoZo9GOtZvWtNdIiF" Name="Output" Kind="OutputPin" />
             </Node>
-            <Node Bounds="254,2232,61,13" Id="AHCWsxvbRhQPKOV8R4qpeQ">
+            <Node Bounds="260,2245,61,13" Id="AHCWsxvbRhQPKOV8R4qpeQ">
               <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationNode" Name="Translation" />
@@ -3771,13 +3771,13 @@
               <Pin Id="JHcpm9UAHOgMRW4rkxrjhE" Name="Translation" Kind="InputPin" />
               <Pin Id="F7ToKVcpTGzPbK3qdB3aug" Name="Result" Kind="OutputPin" />
             </Node>
-            <Pad Id="GhIcGOMyyW0OKzfWfVbcKR" Comment="Translation" Bounds="300,2144,33,57" ShowValueBox="true" isIOBox="true" Value="new vec(0.5,0.0,0.0)">
+            <Pad Id="GhIcGOMyyW0OKzfWfVbcKR" Comment="Translation" Bounds="306,2157,33,57" ShowValueBox="true" isIOBox="true" Value="new vec(0.5,0.0,0.0)">
               <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Vector3" />
                 <CategoryReference Kind="Category" Name="3D" />
               </p:TypeAnnotation>
             </Pad>
-            <Node Bounds="202,2265,57,13" Id="EXxugM0BR7FMYnOcYvcJ93">
+            <Node Bounds="208,2278,57,13" Id="EXxugM0BR7FMYnOcYvcJ93">
               <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationNode" Name="Transform" />
@@ -3787,15 +3787,15 @@
               <Pin Id="DNO581Z9Re2PbIbrKib1gC" Name="Transformation" Kind="InputPin" />
               <Pin Id="E2Z6wCqXxP3MbkZenFbpu9" Name="Output" Kind="OutputPin" />
             </Node>
-            <ControlPoint Id="ATuSXH36pI1NH4hqoOfToK" Bounds="88,2014,-143,0" />
-            <ControlPoint Id="NFCTgut4ngUMf8P6SO2nuc" Bounds="5,2018,-143,0" />
-            <Pad Id="QUpGwEiSpvqNbgGKrY6Gd8" Bounds="140,2037,33,19" ShowValueBox="true" isIOBox="true" Value="1.0">
+            <ControlPoint Id="ATuSXH36pI1NH4hqoOfToK" Bounds="94,2027,-143,0" />
+            <ControlPoint Id="NFCTgut4ngUMf8P6SO2nuc" Bounds="11,2031,-143,0" />
+            <Pad Id="QUpGwEiSpvqNbgGKrY6Gd8" Bounds="146,2050,33,19" ShowValueBox="true" isIOBox="true" Value="1.0">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Float32" />
                 <CategoryReference Kind="Category" Name="Primitive" />
               </p:TypeAnnotation>
             </Pad>
-            <Node Bounds="-52,2183,305,13" Id="Oio2ILzpCwcNgKBxlcLJiI">
+            <Node Bounds="-46,2196,305,13" Id="Oio2ILzpCwcNgKBxlcLJiI">
               <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="TypeFlag" Name="Matrix" />
@@ -3819,7 +3819,7 @@
               <Pin Id="VXc50WtJs28OCXOyyGfTrM" Name="M44" Kind="InputPin" />
               <Pin Id="FXwHXCH1z0eNfmVd0YofpG" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <Node Bounds="170,2143,45,13" Id="TL5quECeMUQNN3nI8IltK4">
+            <Node Bounds="176,2156,45,13" Id="TL5quECeMUQNN3nI8IltK4">
               <p:NodeReference LastCategoryFullName="3D.Vector3" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationNode" Name="Vector (Split)" />
@@ -3830,7 +3830,7 @@
               <Pin Id="KT4lvjCPudJOEsqq2XJCJb" Name="Y" Kind="OutputPin" />
               <Pin Id="GRHRNOznHduL88YqBw3hzC" Name="Z" Kind="OutputPin" />
             </Node>
-            <Node Bounds="-52,2148,45,13" Id="HS6cV0ftJs6Msf0ooo3hXA">
+            <Node Bounds="-46,2161,45,13" Id="HS6cV0ftJs6Msf0ooo3hXA">
               <p:NodeReference LastCategoryFullName="3D.Vector3" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationNode" Name="Vector (Split)" />
@@ -3871,7 +3871,7 @@
             <Link Id="OiHmVt8bK4MM4OTrhA8MAX" Ids="GRHRNOznHduL88YqBw3hzC,DnCf50JMDcGNihL0WVqm4q" />
             <Link Id="M5JegwUF324N5MS9zurOhQ" Ids="KT4lvjCPudJOEsqq2XJCJb,Ciu1G8bhvijOnyd8bcCIKp" />
             <Link Id="SmaaxOtPj1ROg9HD3fdqWM" Ids="KCzvYuMZwskNBxVPOVQYea,VIzjlqlayCKQUWmOtUM1XA" />
-            <ControlPoint Id="AOUmVqpjpl3QWwapzC890d" Bounds="205,2311" />
+            <ControlPoint Id="AOUmVqpjpl3QWwapzC890d" Bounds="211,2324" />
             <Link Id="AEe6yGeFO4EQdw5Sfk46Qp" Ids="E2Z6wCqXxP3MbkZenFbpu9,AOUmVqpjpl3QWwapzC890d" />
             <Pin Id="DzROyYjyiO0NX1MggO4IOK" Name="Output" Kind="OutputPin" Bounds="1010,374" />
             <Link Id="UWY6Dytn3V5L4yfHfpjtIR" Ids="AOUmVqpjpl3QWwapzC890d,DzROyYjyiO0NX1MggO4IOK" IsHidden="true" />
@@ -3882,12 +3882,12 @@
     ************************ Transform ************************
 
 -->
-        <Node Name="Transform" Bounds="566,1998,293,211" Id="KXhIoGdaJs9L0gzgYvx2mf">
+        <Node Name="Transform" Bounds="566,2004,293,205" Id="KXhIoGdaJs9L0gzgYvx2mf">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
-          <Patch Id="DhqSY6oN4fQM8Cei4kCB8d" IsGeneric="true">
+          <Patch Id="DhqSY6oN4fQM8Cei4kCB8d">
             <ControlPoint Id="UQ2MwcfUo9YNBE1UzPVJsQ" Bounds="650,2014" />
             <ControlPoint Id="Paw4cQ7urN7N8X64rDcP5R" Bounds="650,2190" />
             <Pin Id="LlWH4LoOE96N9EKLB8HofO" Name="Input" Kind="InputPin" Bounds="-738,0" />
@@ -3936,7 +3936,7 @@
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
-          <Patch Id="Jo2GZLTy9ooPa5TnlMfGqZ" IsGeneric="true">
+          <Patch Id="Jo2GZLTy9ooPa5TnlMfGqZ">
             <ControlPoint Id="GAfMeLrYva3OXWxxqfOcvh" Bounds="648,2314" />
             <ControlPoint Id="PEjd32vgXnLNVkda1Dib4U" Bounds="650,2518" />
             <Pin Id="Gz9QdaAoHSSNQjv5ZnxlW2" Name="Input" Kind="InputPin" Bounds="-739,0" />
@@ -4147,7 +4147,7 @@
     ************************ DrawDescription ************************
 
 -->
-        <Node Name="DrawDescription" Bounds="-605,418" Id="NwCcQBQzu20NjmwEtSeCX4">
+        <Node Name="DrawDescription" Bounds="-645,228" Id="NwCcQBQzu20NjmwEtSeCX4">
           <p:NodeReference>
             <Choice Kind="ForwardDefinition" Name="Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -4265,7 +4265,7 @@
     ************************ DrawDescriptionLayer ************************
 
 -->
-        <Node Name="DrawDescriptionLayer" Bounds="-608,283" Id="Py5orJfA9TxNWlsdh07OYT">
+        <Node Name="DrawDescriptionLayer" Bounds="-642,176" Id="Py5orJfA9TxNWlsdh07OYT">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -4309,13 +4309,13 @@
     ************************ CreateDefault ************************
 
 -->
-              <Node Name="CreateDefault" Bounds="410,100,308,198" Id="RVCT23myFBCPklu6Jbs5oE">
+              <Node Name="CreateDefault" Bounds="410,100,308,192" Id="RVCT23myFBCPklu6Jbs5oE">
                 <p:NodeReference>
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <Choice Kind="OperationDefinition" Name="Operation" />
                 </p:NodeReference>
                 <Patch Id="Bln6dtJNORtL4LZUG3zegy" IsGeneric="true">
-                  <Node Bounds="456,256,88,22" ForwardPins="true" Id="Ssq0RbVD3WCLefasxsWrWz">
+                  <Node Bounds="424,250,88,22" ForwardPins="true" Id="Ssq0RbVD3WCLefasxsWrWz">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationCallFlag" Name="Create" />
@@ -4611,7 +4611,7 @@
     ************************ DrawSpritesDescription ************************
 
 -->
-        <Node Name="DrawSpritesDescription" Bounds="-609,617" Id="LPNqMuwWC8rPViVrQScvj5">
+        <Node Name="DrawSpritesDescription" Bounds="-646,355" Id="LPNqMuwWC8rPViVrQScvj5">
           <p:NodeReference>
             <Choice Kind="ForwardDefinition" Name="Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -4733,7 +4733,7 @@
     ************************ DrawTextDescription ************************
 
 -->
-        <Node Name="DrawTextDescription" Bounds="-606,679" Id="FJqMKzubjO0LPd6E4vaq9b">
+        <Node Name="DrawTextDescription" Bounds="-643,417" Id="FJqMKzubjO0LPd6E4vaq9b">
           <p:NodeReference>
             <Choice Kind="ForwardDefinition" Name="Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -5274,7 +5274,7 @@
     ************************ SpritesDescriptor ************************
 
 -->
-        <Node Name="SpritesDescriptor" Bounds="-110,631" Id="Tnefy8n4x7KMd1EFKBzIyV">
+        <Node Name="SpritesDescriptor" Bounds="-189,344" Id="Tnefy8n4x7KMd1EFKBzIyV">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -5342,7 +5342,7 @@
     ************************ TextDescriptor ************************
 
 -->
-        <Node Name="TextDescriptor" Bounds="-111,706" Id="BPg0gpxGdMkPlEdyaHK4Hm">
+        <Node Name="TextDescriptor" Bounds="-189,407" Id="BPg0gpxGdMkPlEdyaHK4Hm">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />

@@ -283,6 +283,9 @@ namespace VVVV.DX11.Nodes
         int FLayerOrderSlice = 0;
         private void UpdateNormalPins()
         {
+            if (FMainBuffer == null)
+                return;
+
             FLayerOrder.SliceCount = FMainBuffer.GeometryDescriptions.Count +
                 FMainBuffer.SpritesDescriptions.Count +
                 FMainBuffer.TextDescriptions.Count;

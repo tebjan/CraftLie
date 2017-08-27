@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_50beta35.8_x64\packs\CraftLie.1.0.1\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.8.dtd" >
+   <PATCH nodename="C:\Dev\vvvv\vvvv\public\vvvv45\packs\CraftLie.1.0.2\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0" locked="0">
    <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
@@ -10,9 +10,9 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="2670" top="3015" width="22830" height="13830">
+   <BOUNDS type="Window" left="1635" top="5370" width="22830" height="13830">
    </BOUNDS>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="35.9.0">
    </PACK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="26" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="2550" top="1080" width="1365" height="390">
@@ -47,7 +47,7 @@
    <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="44">
    <BOUNDS type="Node" left="9960" top="4770" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -73,27 +73,29 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="String" visible="1" slicecount="1" values="DX11">
+   <PIN pinname="String" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Font" visible="1">
    </PIN>
-   <PIN pinname="Size" visible="1" slicecount="1" values="32">
+   <PIN pinname="Size" visible="1">
    </PIN>
    <PIN pinname="Horizontal Align" slicecount="1" visible="1" values="Left">
    </PIN>
-   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   <PIN pinname="Color" visible="1">
    </PIN>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Render State" visible="1">
    </PIN>
-   <PIN pinname="Normalize" slicecount="1" values="Height">
+   <PIN pinname="Normalize" slicecount="1" values="Height" visible="1">
+   </PIN>
+   <PIN pinname="Vertical Align" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="String2Enum (Enumerations)" nodename="String2Enum (Enumerations)" componentmode="Hidden" id="62">
    <BOUNDS type="Node" left="18720" top="5190" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="String Value" visible="1" slicecount="1" values="(nil)">
+   <PIN pinname="String Value" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Enum" visible="1">
    </PIN>
@@ -105,9 +107,9 @@
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="63" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="20400" top="4995" width="1590" height="270">
+   <BOUNDS type="Box" left="20565" top="3690" width="1590" height="270">
    </BOUNDS>
-   <BOUNDS type="Node" left="20400" top="4995" width="0" height="0">
+   <BOUNDS type="Node" left="20565" top="3690" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="Left">
    </PIN>
@@ -115,9 +117,9 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="63" srcpinname="Output Enum" dstnodeid="61" dstpinname="Horizontal Align" linkstyle="Bezier">
-   <LINKPOINT x="20430" y="5738">
+   <LINKPOINT x="20540" y="4868">
    </LINKPOINT>
-   <LINKPOINT x="20430" y="5738">
+   <LINKPOINT x="20485" y="5303">
    </LINKPOINT>
    </LINK>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="64">
@@ -137,7 +139,7 @@
    <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="65">
    <BOUNDS type="Node" left="11040" top="4770" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    <PIN pinname="Count" visible="1">
    </PIN>
@@ -161,7 +163,7 @@
    </BOUNDS>
    <BOUNDS type="Window" left="10545" top="7755" width="5040" height="5640">
    </BOUNDS>
-   <PIN pinname="Filename" visible="1" slicecount="1" values="..\..\girlpower\assets\windows_xp_bliss-wide.jpg">
+   <PIN pinname="Filename" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Parent Patch Directory" visible="1">
    </PIN>
@@ -181,7 +183,7 @@
    </BOUNDS>
    <BOUNDS type="Window" left="-1" top="-1" width="3100" height="3715">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    <PIN pinname="Remainder" visible="1">
    </PIN>
@@ -203,7 +205,7 @@
    <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="72">
    <BOUNDS type="Node" left="10530" top="4785" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -229,7 +231,7 @@
    </BOUNDS>
    <PIN pinname="Remainder" visible="1">
    </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="StartIndex" filename="%VVVV%\packs\CraftLie.1.0.1\vvvv\nodes\modules\StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="74">
@@ -241,7 +243,7 @@
    </BOUNDS>
    <PIN pinname="Remainder" visible="1">
    </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="StartIndex" filename="%VVVV%\packs\CraftLie.1.0.1\vvvv\nodes\modules\StartIndex.v4p" nodename="StartIndex.v4p" componentmode="Hidden" id="75">
@@ -253,7 +255,7 @@
    </BOUNDS>
    <PIN pinname="Remainder" visible="1">
    </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState Advanced)" componentmode="Hidden" id="76">
@@ -310,166 +312,6 @@
    <LINKPOINT x="975" y="5445">
    </LINKPOINT>
    </LINK>
-   <NODE id="36" systemname="GetDrawDescriptionData (DX11.Buffer CraftLie)" filename="%VVVV%\packs\CraftLie.1.0.1\vvvv\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptionData (DX11.Buffer CraftLie)" componentmode="Hidden">
-   <BOUNDS type="Node" left="2550" top="2190" width="18825" height="270">
-   </BOUNDS>
-   <PIN pinname="Transformation" visible="1">
-   </PIN>
-   <PIN pinname="Preferred Buffer Type" slicecount="1" values="Default">
-   </PIN>
-   <PIN pinname="Texture Path" visible="1">
-   </PIN>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Transform Counts" visible="1">
-   </PIN>
-   <PIN pinname="Instance Counts" visible="1">
-   </PIN>
-   <PIN pinname="Buffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Texts" visible="1">
-   </PIN>
-   <PIN pinname="Font Names" visible="1">
-   </PIN>
-   <PIN pinname="Text Colors" visible="1">
-   </PIN>
-   <PIN pinname="Text Sizes" visible="1">
-   </PIN>
-   <PIN pinname="Text Transformations" visible="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Transformations" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Size Counts" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Color Counts" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Position Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Size Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Color Buffer" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Texture Path" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Position Counts" visible="1">
-   </PIN>
-   <PIN pinname="Color" visible="1">
-   </PIN>
-   <PIN pinname="Material Index" visible="1">
-   </PIN>
-   <PIN pinname="Space Index" visible="1">
-   </PIN>
-   <PIN pinname="Text Space Index" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Space Index" visible="1">
-   </PIN>
-   <PIN pinname="Blend Index" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Blend Index" visible="1">
-   </PIN>
-   <PIN pinname="Text Blend Index" visible="1">
-   </PIN>
-   <PIN pinname="Layer Order" visible="1">
-   </PIN>
-   <PIN pinname="Clip RectXYZW" visible="1">
-   </PIN>
-   <PIN pinname="Sprites Clip RectXYZW" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="36" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="6570" y="3630">
-   </LINKPOINT>
-   <LINKPOINT x="9960" y="3600">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Texts" dstnodeid="61" dstpinname="String" linkstyle="Bezier">
-   <LINKPOINT x="17865" y="4328">
-   </LINKPOINT>
-   <LINKPOINT x="18585" y="4328">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Font Names" dstnodeid="62" dstpinname="String Value" linkstyle="Bezier">
-   <LINKPOINT x="20610" y="3818">
-   </LINKPOINT>
-   <LINKPOINT x="18780" y="3818">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Colors" dstnodeid="61" dstpinname="Color" linkstyle="Bezier">
-   <LINKPOINT x="19260" y="4320">
-   </LINKPOINT>
-   <LINKPOINT x="20160" y="4320">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Sizes" dstnodeid="61" dstpinname="Size" linkstyle="Bezier">
-   <LINKPOINT x="19935" y="4328">
-   </LINKPOINT>
-   <LINKPOINT x="19920" y="4328">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Transformations" dstnodeid="61" dstpinname="Transform In" linkstyle="Bezier">
-   <LINKPOINT x="4005" y="4320">
-   </LINKPOINT>
-   <LINKPOINT x="18840" y="4320">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Sizes" dstnodeid="65" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="19920" y="3600">
-   </LINKPOINT>
-   <LINKPOINT x="11100" y="3600">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="36" dstpinname="Layer" linkstyle="Bezier">
-   <LINKPOINT x="2580" y="1860">
-   </LINKPOINT>
-   <LINKPOINT x="2580" y="1800">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="69" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="10890" y="4350">
-   </LINKPOINT>
-   <LINKPOINT x="6690" y="4290">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="70" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="9495" y="4350">
-   </LINKPOINT>
-   <LINKPOINT x="5490" y="4290">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Texture Path" dstnodeid="71" dstpinname="Filename" linkstyle="Bezier">
-   <LINKPOINT x="17160" y="4365">
-   </LINKPOINT>
-   <LINKPOINT x="16260" y="4365">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Position Counts" dstnodeid="72" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="13665" y="3600">
-   </LINKPOINT>
-   <LINKPOINT x="10590" y="3600">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Position Counts" dstnodeid="73" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="13680" y="4358">
-   </LINKPOINT>
-   <LINKPOINT x="12900" y="4358">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Size Counts" dstnodeid="74" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="15075" y="4350">
-   </LINKPOINT>
-   <LINKPOINT x="14010" y="4350">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="75" dstpinname="Input" linkstyle="Bezier">
-   <LINKPOINT x="16455" y="4350">
-   </LINKPOINT>
-   <LINKPOINT x="15135" y="4350">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="84" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="645" top="2745" width="795" height="240">
    </BOUNDS>
@@ -489,9 +331,9 @@
    <NODE componentmode="Hidden" filename="%VVVV%\packs\CraftLie.1.0.1\vvvv\nodes\dx11\CraftLie.fx" id="86" nodename="CraftLie (DX11.Effect)" systemname="CraftLie (DX11.Effect)">
    <BOUNDS height="270" left="1260" top="7500" type="Node" width="9180">
    </BOUNDS>
-   <PIN pinname="MaterialIndex" visible="1" slicecount="1" values="0">
+   <PIN pinname="MaterialIndex" visible="1">
    </PIN>
-   <PIN pinname="SpaceIndex" visible="1" slicecount="1" values="0">
+   <PIN pinname="SpaceIndex" visible="1">
    </PIN>
    <PIN pinname="Render State" visible="1">
    </PIN>
@@ -524,60 +366,6 @@
    <LINKPOINT x="5595" y="7020">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Color Counts" dstnodeid="86" dstpinname="ColorCount" linkstyle="Bezier">
-   <LINKPOINT x="10890" y="4965">
-   </LINKPOINT>
-   <LINKPOINT x="3720" y="4965">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Transform Counts" dstnodeid="86" dstpinname="TransformationCount" linkstyle="Bezier">
-   <LINKPOINT x="9495" y="4965">
-   </LINKPOINT>
-   <LINKPOINT x="3240" y="4965">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Color Buffer" dstnodeid="86" dstpinname="sbColor" linkstyle="Bezier">
-   <LINKPOINT x="10215" y="4980">
-   </LINKPOINT>
-   <LINKPOINT x="9450" y="4980">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Transform Buffer" dstnodeid="86" dstpinname="sbWorld" linkstyle="Bezier">
-   <LINKPOINT x="8835" y="4973">
-   </LINKPOINT>
-   <LINKPOINT x="8955" y="4973">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Transformation" dstnodeid="86" dstpinname="Transform In" linkstyle="Bezier">
-   <LINKPOINT x="2580" y="4973">
-   </LINKPOINT>
-   <LINKPOINT x="2715" y="4973">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Geometry Out" dstnodeid="86" dstpinname="Geometry" linkstyle="Bezier">
-   <LINKPOINT x="4635" y="4980">
-   </LINKPOINT>
-   <LINKPOINT x="2250" y="4980">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Color" dstnodeid="86" dstpinname="Color" linkstyle="Bezier">
-   <LINKPOINT x="6045" y="4965">
-   </LINKPOINT>
-   <LINKPOINT x="5130" y="4965">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Material Index" dstnodeid="86" dstpinname="MaterialIndex" linkstyle="Bezier">
-   <LINKPOINT x="7410" y="4980">
-   </LINKPOINT>
-   <LINKPOINT x="4185" y="4980">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Space Index" dstnodeid="86" dstpinname="SpaceIndex" linkstyle="Bezier">
-   <LINKPOINT x="8100" y="4965">
-   </LINKPOINT>
-   <LINKPOINT x="4680" y="4965">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="89">
    <BOUNDS type="Node" left="18150" top="7725" width="100" height="100">
    </BOUNDS>
@@ -591,7 +379,7 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Switch" visible="1">
+   <PIN pinname="Switch" visible="1" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="61" srcpinname="Layer" dstnodeid="89" dstpinname="Input 1" linkstyle="Bezier">
@@ -640,20 +428,14 @@
    <LINKPOINT x="18725" y="7448">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Text Space Index" dstnodeid="89" dstpinname="Switch" linkstyle="Bezier">
-   <LINKPOINT x="18555" y="5100">
-   </LINKPOINT>
-   <LINKPOINT x="18165" y="5025">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="CraftLieSprites (DX11.Effect)" filename="%VVVV%\packs\CraftLie.1.0.1\vvvv\nodes\dx11\CraftLieSprites.fx" nodename="CraftLieSprites (DX11.Effect)" componentmode="Hidden" id="93">
    <BOUNDS type="Node" left="11400" top="7950" width="5355" height="270">
    </BOUNDS>
-   <PIN pinname="SpaceIndex" visible="1" slicecount="1" values="1">
+   <PIN pinname="SpaceIndex" visible="1">
    </PIN>
    <PIN pinname="Render State" visible="1">
    </PIN>
-   <PIN pinname="ClipRectXYZW" visible="1" slicecount="4" values="0.48,-1,1,1">
+   <PIN pinname="ClipRectXYZW" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="93" srcpinname="Layer" dstnodeid="46" dstpinname="Layer 2" linkstyle="Bezier">
@@ -686,54 +468,6 @@
    <LINKPOINT x="14610" y="7238">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Geometry Out" dstnodeid="93" dstpinname="Geometry" linkstyle="Bezier">
-   <LINKPOINT x="11610" y="5205">
-   </LINKPOINT>
-   <LINKPOINT x="12120" y="5205">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Transformations" dstnodeid="93" dstpinname="Transform In" linkstyle="Bezier">
-   <LINKPOINT x="3300" y="5190">
-   </LINKPOINT>
-   <LINKPOINT x="12465" y="5190">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Position Buffer" dstnodeid="93" dstpinname="sbPos" linkstyle="Bezier">
-   <LINKPOINT x="13020" y="5198">
-   </LINKPOINT>
-   <LINKPOINT x="14940" y="5198">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Size Buffer" dstnodeid="93" dstpinname="sbSize" linkstyle="Bezier">
-   <LINKPOINT x="14400" y="5198">
-   </LINKPOINT>
-   <LINKPOINT x="15300" y="5198">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Color Buffer" dstnodeid="93" dstpinname="sbColor" linkstyle="Bezier">
-   <LINKPOINT x="15765" y="5190">
-   </LINKPOINT>
-   <LINKPOINT x="15660" y="5190">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Size Counts" dstnodeid="93" dstpinname="SizeCount" linkstyle="Bezier">
-   <LINKPOINT x="15060" y="5190">
-   </LINKPOINT>
-   <LINKPOINT x="13200" y="5190">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Color Counts" dstnodeid="93" dstpinname="ColorCount" linkstyle="Bezier">
-   <LINKPOINT x="16455" y="5205">
-   </LINKPOINT>
-   <LINKPOINT x="13560" y="5205">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Space Index" dstnodeid="93" dstpinname="SpaceIndex" linkstyle="Bezier">
-   <LINKPOINT x="12315" y="5205">
-   </LINKPOINT>
-   <LINKPOINT x="12825" y="5205">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="94">
    <BOUNDS type="Node" left="1185" top="6780" width="100" height="100">
    </BOUNDS>
@@ -762,12 +496,6 @@
    <PIN pinname="Enum" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Blend Index" dstnodeid="95" dstpinname="Ord Value" linkstyle="Bezier">
-   <LINKPOINT x="4295" y="4150">
-   </LINKPOINT>
-   <LINKPOINT x="3070" y="4220">
-   </LINKPOINT>
-   </LINK>
    <LINK srcnodeid="95" srcpinname="Enum" dstnodeid="94" dstpinname="Mode" linkstyle="Bezier">
    <LINKPOINT x="2895" y="6480">
    </LINKPOINT>
@@ -804,12 +532,6 @@
    </NODE>
    <LINK srcnodeid="97" srcpinname="Enum" dstnodeid="96" dstpinname="Mode">
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Blend Index" dstnodeid="97" dstpinname="Ord Value" linkstyle="Bezier">
-   <LINKPOINT x="11340" y="4605">
-   </LINKPOINT>
-   <LINKPOINT x="11895" y="4380">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Blend (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Blend (DX11.RenderState)" componentmode="Hidden" id="98">
    <BOUNDS type="Node" left="17415" top="5610" width="100" height="100">
    </BOUNDS>
@@ -832,22 +554,10 @@
    <PIN pinname="Enum" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Text Blend Index" dstnodeid="99" dstpinname="Ord Value" linkstyle="Bezier">
-   <LINKPOINT x="17580" y="3420">
-   </LINKPOINT>
-   <LINKPOINT x="17430" y="3420">
-   </LINKPOINT>
-   </LINK>
    <LINK srcnodeid="99" srcpinname="Enum" dstnodeid="98" dstpinname="Mode" linkstyle="Bezier">
    <LINKPOINT x="17410" y="5138">
    </LINKPOINT>
    <LINKPOINT x="17915" y="5138">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="36" srcpinname="Texture Path" dstnodeid="68" dstpinname="Filename" linkstyle="Bezier">
-   <LINKPOINT x="6750" y="4365">
-   </LINKPOINT>
-   <LINKPOINT x="7725" y="4305">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="46" srcpinname="Layer Out" dstnodeid="24" dstpinname="Input Node">
@@ -896,16 +606,288 @@
    </PACK>
    <LINK srcnodeid="89" srcpinname="Output" dstnodeid="46" dstpinname="Layer 3">
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Clip RectXYZW" dstnodeid="86" dstpinname="ClipRectXYZW" linkstyle="Bezier">
+   <NODE id="104" systemname="GetDrawDescriptionData (DX11.Buffer CraftLie)" filename="%VVVV%\packs\CraftLie.1.0.1\vvvv\nodes\plugins\CraftLie.dll" nodename="GetDrawDescriptionData (DX11.Buffer CraftLie)" componentmode="Hidden">
+   <BOUNDS type="Node" left="2550" top="2190" width="18825" height="270">
+   </BOUNDS>
+   <PIN pinname="Text Transformations" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="104" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="6570" y="3630">
+   </LINKPOINT>
+   <LINKPOINT x="9960" y="3600">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Texts" dstnodeid="61" dstpinname="String" linkstyle="Bezier">
+   <LINKPOINT x="17865" y="4328">
+   </LINKPOINT>
+   <LINKPOINT x="18585" y="4328">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Font Names" dstnodeid="62" dstpinname="String Value" linkstyle="Bezier">
+   <LINKPOINT x="20610" y="3818">
+   </LINKPOINT>
+   <LINKPOINT x="18780" y="3818">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Text Colors" dstnodeid="61" dstpinname="Color" linkstyle="Bezier">
+   <LINKPOINT x="19260" y="4320">
+   </LINKPOINT>
+   <LINKPOINT x="20160" y="4320">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Text Sizes" dstnodeid="61" dstpinname="Size" linkstyle="Bezier">
+   <LINKPOINT x="19935" y="4328">
+   </LINKPOINT>
+   <LINKPOINT x="19920" y="4328">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Text Transformations" dstnodeid="61" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="4005" y="4320">
+   </LINKPOINT>
+   <LINKPOINT x="18840" y="4320">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Text Sizes" dstnodeid="65" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="19920" y="3600">
+   </LINKPOINT>
+   <LINKPOINT x="11100" y="3600">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output Node" dstnodeid="104" dstpinname="Layer" linkstyle="Bezier">
+   <LINKPOINT x="2580" y="1860">
+   </LINKPOINT>
+   <LINKPOINT x="2580" y="1800">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Color Counts" dstnodeid="69" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="10890" y="4350">
+   </LINKPOINT>
+   <LINKPOINT x="6690" y="4290">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Transform Counts" dstnodeid="70" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="9495" y="4350">
+   </LINKPOINT>
+   <LINKPOINT x="5490" y="4290">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Texture Path" dstnodeid="71" dstpinname="Filename" linkstyle="Bezier">
+   <LINKPOINT x="17160" y="4365">
+   </LINKPOINT>
+   <LINKPOINT x="16260" y="4365">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Position Counts" dstnodeid="72" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="13665" y="3600">
+   </LINKPOINT>
+   <LINKPOINT x="10590" y="3600">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Position Counts" dstnodeid="73" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="13680" y="4358">
+   </LINKPOINT>
+   <LINKPOINT x="12900" y="4358">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Size Counts" dstnodeid="74" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="15075" y="4350">
+   </LINKPOINT>
+   <LINKPOINT x="14010" y="4350">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Color Counts" dstnodeid="75" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="16455" y="4350">
+   </LINKPOINT>
+   <LINKPOINT x="15135" y="4350">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Color Counts" dstnodeid="86" dstpinname="ColorCount" linkstyle="Bezier">
+   <LINKPOINT x="10890" y="4965">
+   </LINKPOINT>
+   <LINKPOINT x="3720" y="4965">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Transform Counts" dstnodeid="86" dstpinname="TransformationCount" linkstyle="Bezier">
+   <LINKPOINT x="9495" y="4965">
+   </LINKPOINT>
+   <LINKPOINT x="3240" y="4965">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Color Buffer" dstnodeid="86" dstpinname="sbColor" linkstyle="Bezier">
+   <LINKPOINT x="10215" y="4980">
+   </LINKPOINT>
+   <LINKPOINT x="9450" y="4980">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Transform Buffer" dstnodeid="86" dstpinname="sbWorld" linkstyle="Bezier">
+   <LINKPOINT x="8835" y="4973">
+   </LINKPOINT>
+   <LINKPOINT x="8955" y="4973">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Transformation" dstnodeid="86" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="2580" y="4973">
+   </LINKPOINT>
+   <LINKPOINT x="2715" y="4973">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Geometry Out" dstnodeid="86" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="4635" y="4980">
+   </LINKPOINT>
+   <LINKPOINT x="2250" y="4980">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Color" dstnodeid="86" dstpinname="Color" linkstyle="Bezier">
+   <LINKPOINT x="6045" y="4965">
+   </LINKPOINT>
+   <LINKPOINT x="5130" y="4965">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Material Index" dstnodeid="86" dstpinname="MaterialIndex" linkstyle="Bezier">
+   <LINKPOINT x="7410" y="4980">
+   </LINKPOINT>
+   <LINKPOINT x="4185" y="4980">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Space Index" dstnodeid="86" dstpinname="SpaceIndex" linkstyle="Bezier">
+   <LINKPOINT x="8100" y="4965">
+   </LINKPOINT>
+   <LINKPOINT x="4680" y="4965">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Text Space Index" dstnodeid="89" dstpinname="Switch" linkstyle="Bezier">
+   <LINKPOINT x="18555" y="5100">
+   </LINKPOINT>
+   <LINKPOINT x="18165" y="5025">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Geometry Out" dstnodeid="93" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="11610" y="5205">
+   </LINKPOINT>
+   <LINKPOINT x="12120" y="5205">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Transformations" dstnodeid="93" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="3300" y="5190">
+   </LINKPOINT>
+   <LINKPOINT x="12465" y="5190">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Position Buffer" dstnodeid="93" dstpinname="sbPos" linkstyle="Bezier">
+   <LINKPOINT x="13020" y="5198">
+   </LINKPOINT>
+   <LINKPOINT x="14940" y="5198">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Size Buffer" dstnodeid="93" dstpinname="sbSize" linkstyle="Bezier">
+   <LINKPOINT x="14400" y="5198">
+   </LINKPOINT>
+   <LINKPOINT x="15300" y="5198">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Color Buffer" dstnodeid="93" dstpinname="sbColor" linkstyle="Bezier">
+   <LINKPOINT x="15765" y="5190">
+   </LINKPOINT>
+   <LINKPOINT x="15660" y="5190">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Size Counts" dstnodeid="93" dstpinname="SizeCount" linkstyle="Bezier">
+   <LINKPOINT x="15060" y="5190">
+   </LINKPOINT>
+   <LINKPOINT x="13200" y="5190">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Color Counts" dstnodeid="93" dstpinname="ColorCount" linkstyle="Bezier">
+   <LINKPOINT x="16455" y="5205">
+   </LINKPOINT>
+   <LINKPOINT x="13560" y="5205">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Space Index" dstnodeid="93" dstpinname="SpaceIndex" linkstyle="Bezier">
+   <LINKPOINT x="12315" y="5205">
+   </LINKPOINT>
+   <LINKPOINT x="12825" y="5205">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Blend Index" dstnodeid="95" dstpinname="Ord Value" linkstyle="Bezier">
+   <LINKPOINT x="4295" y="4150">
+   </LINKPOINT>
+   <LINKPOINT x="3070" y="4220">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Sprites Blend Index" dstnodeid="97" dstpinname="Ord Value" linkstyle="Bezier">
+   <LINKPOINT x="11340" y="4605">
+   </LINKPOINT>
+   <LINKPOINT x="11895" y="4380">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Text Blend Index" dstnodeid="99" dstpinname="Ord Value" linkstyle="Bezier">
+   <LINKPOINT x="17580" y="3420">
+   </LINKPOINT>
+   <LINKPOINT x="17430" y="3420">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Texture Path" dstnodeid="68" dstpinname="Filename" linkstyle="Bezier">
+   <LINKPOINT x="6750" y="4365">
+   </LINKPOINT>
+   <LINKPOINT x="7725" y="4305">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Clip RectXYZW" dstnodeid="86" dstpinname="ClipRectXYZW" linkstyle="Bezier">
    <LINKPOINT x="8790" y="4973">
    </LINKPOINT>
    <LINKPOINT x="5430" y="4973">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="36" srcpinname="Sprites Clip RectXYZW" dstnodeid="93" dstpinname="ClipRectXYZW" linkstyle="Bezier">
+   <LINK srcnodeid="104" srcpinname="Sprites Clip RectXYZW" dstnodeid="93" dstpinname="ClipRectXYZW" linkstyle="Bezier">
    <LINKPOINT x="17340" y="5205">
    </LINKPOINT>
    <LINKPOINT x="14745" y="5205">
    </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="105">
+   <BOUNDS type="Box" left="20925" top="5565" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="20925" top="5565" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="None">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Height">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Normalize">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="105" srcpinname="Output Enum" dstnodeid="61" dstpinname="Normalize">
+   </LINK>
+   <NODE systemname="GetMatrix (Transform)" nodename="GetMatrix (Transform)" componentmode="Hidden" id="106">
+   <BOUNDS type="Node" left="16740" top="7095" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="104" srcpinname="Text Transformations" dstnodeid="106" dstpinname="Transform">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="107">
+   <BOUNDS type="Box" left="20760" top="4500" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="20760" top="4500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Bottom">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Center">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Vertical Align|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="107" srcpinname="Output Enum" dstnodeid="61" dstpinname="Vertical Align">
    </LINK>
    </PATCH>
