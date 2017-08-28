@@ -52,9 +52,9 @@
               </Pad>
               <Node Name="Create" Bounds="139,559,145,106" Id="LCgOYsJqxkNMsJCQMGF1ji">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="MBdptt8toZdO0UDMnGKOEf" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="GcmM1Ka8IvFQb4NZZr0xod" Name="Draw">
@@ -176,9 +176,9 @@
               </Node>
               <Node Name="Create" Bounds="63,608,145,97" Id="V0ovaOYnhFCPuABBbdLUcS">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="IaHleL7P6KjMjXWSejguk9" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="SfxTcecwKVOLWnpbjPoNI4" Name="Draw">
@@ -457,9 +457,9 @@
               </Node>
               <Node Name="Create" Bounds="65,605,145,97" Id="LtFPqFGviGDO7pjKa9pZTd">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="EwE87q13aHZMWmL7olK0g3" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="GhS7IenkZw4NzpXnnnRRZi" Name="Draw">
@@ -654,7 +654,7 @@
     ************************ DrawDescriptionBuffer ************************
 
 -->
-        <Node Name="DrawDescriptionBuffer" Bounds="-240,310" Id="EqgQ38cAYMANTkN2p2dn5H">
+        <Node Name="DrawDescriptionBuffer" Bounds="-228,320" Id="EqgQ38cAYMANTkN2p2dn5H">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="ClassType, HasMasterPatchFlag, DefinitionFlag" Name="Class" />
@@ -976,8 +976,8 @@
               <Pad Id="Hl1Xu7otb2LLGin0sCURUC" Bounds="458,156">
                 <p:ValueBoxSettings />
               </Pad>
-              <ControlPoint Id="FEZw3ElauLeQcvG3XBXY7Z" Bounds="670,230" />
-              <ControlPoint Id="EmII3WuslE7PT9ENVisjpB" Bounds="544,499" />
+              <ControlPoint Id="FEZw3ElauLeQcvG3XBXY7Z" Bounds="610,227" />
+              <ControlPoint Id="EmII3WuslE7PT9ENVisjpB" Bounds="543,310" />
               <Node Bounds="330,289,72,22" Id="P7CCQagNQoFNcwaU11Cj9C">
                 <p:NodeReference LastCategoryFullName="Primitive.Delegate (1 -&gt; 1)" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="OperationNode" Name="Invoke" />
@@ -1014,48 +1014,41 @@
                 <Pin Id="DvXYl2xkPfhPqLGPbzE2Ry" Name="Texts" Kind="InputPin" />
                 <Pin Id="Nd2yjGobZd2OnFBspKca0U" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Node Name="If2" Bounds="534,407,56,61" Id="Ak2WE8NC3I0OSqW9h65WoL">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
-                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
-                  <FullNameCategoryReference ID="Primitive" />
-                </p:NodeReference>
-                <Pin Id="M9XprGhTaxPOtOWZenw1oX" Name="Condition" Kind="InputPin" />
-                <Patch Id="FlfAvI4UGKqPsJ53snJF9x" Name="Then" />
-                <ControlPoint Id="FNQkxAg5TCOL5vyECB535u" Bounds="564,413" Alignment="Top" />
-                <ControlPoint Id="HRkbFM9RiuYPaI4yCKNfQs" Bounds="549,462" Alignment="Bottom" />
-              </Node>
-              <Node Bounds="529,361,32,22" Id="UlrE4U0MObeOL7OdaI7RPo">
-                <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="VL.CoreLib.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="TypeFlag" Name="Object" />
-                  <Choice Kind="OperationNode" Name="=" />
-                </p:NodeReference>
-                <Pin Id="P7y6iyXu4VZPRIji2sgktD" Name="Input" Kind="StateInputPin" />
-                <Pin Id="VCXPPersZdGNMfKmgOg5iw" Name="Input 2" Kind="InputPin" />
-                <Pin Id="L4aMfQMBADZLYGLEhnFpmF" Name="Result" Kind="OutputPin" />
-              </Node>
-              <Pad Id="Eb0yADh7ctcLHoLlKnTSGa" Bounds="574,418" ShowValueBox="true" isIOBox="true" Value="&quot;unconnected layer pins will return a new buffer on invoke&quot;">
-                <p:ValueBoxSettings>
-                  <p:fontsize p:Type="Int32">9</p:fontsize>
-                  <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-                </p:ValueBoxSettings>
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                  <Choice Kind="TypeFlag" Name="String" />
-                  <CategoryReference Kind="Category" Name="Primitive" />
-                </p:TypeAnnotation>
-              </Pad>
-              <Pad Id="Rgl6YOx34kTQJ7XaNm9yj1" Bounds="574,437" ShowValueBox="true" isIOBox="true" Value="&quot;so return the input buffer if that happens&quot;">
-                <p:ValueBoxSettings>
-                  <p:fontsize p:Type="Int32">9</p:fontsize>
-                  <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-                </p:ValueBoxSettings>
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                  <Choice Kind="TypeFlag" Name="String" />
-                  <CategoryReference Kind="Category" Name="Primitive" />
-                </p:TypeAnnotation>
-              </Pad>
               <ControlPoint Id="RZKhWCxCykKNvmPwPmG56E" Bounds="454,462" />
+              <!--
+
+    ************************ CreateDefault ************************
+
+-->
+              <Node Name="CreateDefault" Bounds="882,96,118,99" Id="IShVsO40MGILSInkAqyTuJ">
+                <p:NodeReference>
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <Patch Id="LXu7WSOPJIFLvXUtjimIod">
+                  <Node Name="Create" Bounds="932,116,56,38" Id="H2Rs4bFdurZNhlu9eMKAaE">
+                    <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
+                      <CategoryReference Kind="ClassType" Name="Layer" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
+                    </p:NodeReference>
+                    <Pin Id="VNWZPStdSIgNtzGy2v9xYE" Name="Output" Kind="StateOutputPin" />
+                    <Patch Id="UOk2awsaGwbNVTh1IuKHtq" Name="Draw" ManuallySortedPins="true">
+                      <Pin Id="GO3NSTEuhN1MbEpDfKNX1U" Name="Arg" Kind="InputPin" />
+                      <Pin Id="R2AaviA5JesOGDnZaBsmLG" Name="Result" Kind="OutputPin" />
+                      <ControlPoint Id="OofGyIqt0TnOMpvFG0rajI" Bounds="936,122" />
+                      <ControlPoint Id="IsSXR9BLsTrQbYhjkZ1SmN" Bounds="936,145" />
+                    </Patch>
+                  </Node>
+                  <Link Id="NrEtPAA2tMfMgmELkLWJVy" Ids="GO3NSTEuhN1MbEpDfKNX1U,OofGyIqt0TnOMpvFG0rajI" IsHidden="true" />
+                  <Link Id="GYQ0tXYHgt9Oz3C3Aoqvf4" Ids="IsSXR9BLsTrQbYhjkZ1SmN,R2AaviA5JesOGDnZaBsmLG" IsHidden="true" />
+                  <Link Id="LfLAO8XAHkKMWNpI5TbuCF" Ids="OofGyIqt0TnOMpvFG0rajI,IsSXR9BLsTrQbYhjkZ1SmN" />
+                  <ControlPoint Id="KFABHFFfMMzMFIlAqJPIgz" Bounds="933,176" />
+                  <Link Id="JbG65AaFOqrQKobl1xJFeS" Ids="VNWZPStdSIgNtzGy2v9xYE,KFABHFFfMMzMFIlAqJPIgz" />
+                  <Pin Id="Si5JeMJiubLLcwefhczuwJ" Name="Output" Kind="OutputPin" />
+                  <Link Id="J8D0WrMd6BnM9tUe6hLqPW" Ids="KFABHFFfMMzMFIlAqJPIgz,Si5JeMJiubLLcwefhczuwJ" IsHidden="true" />
+                </Patch>
+              </Node>
             </Canvas>
             <Patch Id="VkMHIIZbrBqOWIBXGIUcTg" Name="Create">
               <Pin Id="EZf8ViypTdeO5R6hwuNFV7" Name="Draw" Kind="InputPin" Bounds="-430,0" />
@@ -1074,6 +1067,7 @@
             </Patch>
             <ProcessDefinition Id="LpJWNjaaURtMYLAUuwpRaL" IsHidden="true">
               <Fragment Id="ATTov7jvtB5QHGYFHB7Fwv" Patch="VkMHIIZbrBqOWIBXGIUcTg" Enabled="true" />
+              <Fragment Id="G0im9OkHEjzOvBMH0TcfyB" Patch="IShVsO40MGILSInkAqyTuJ" />
               <Fragment Id="TD8f36ab5TBO4RJaYmLe6J" Patch="Acd361ppSFmLjgRiaentUj" Enabled="true" />
               <Fragment Id="MB35bBS8FkhLr1PFtoIChf" Patch="P6ZMYysKLtJQIuc4SgDTi7" Enabled="true" />
             </ProcessDefinition>
@@ -1097,15 +1091,9 @@
             <Link Id="TtQCWvLnLY6PyPVEt6mzXm" Ids="KwX1MvwKmiiPpEBYguxv9O,DvXYl2xkPfhPqLGPbzE2Ry" />
             <Link Id="VCFcSaBgUbfNMeiceep2h1" Ids="KQh3IcP6wF2MZqpzdw4mRP,DfkSAeeVaF0NQZvLnkNDjH" />
             <Link Id="I9AXhlKcBBpLPE9jhQt3wD" Ids="Sg7dIoOH0urLCclADOpfxD,Hl1Xu7otb2LLGin0sCURUC" />
-            <Link Id="QKRF1LY2pWhQNOk2NHGLWE" Ids="FNQkxAg5TCOL5vyECB535u,HRkbFM9RiuYPaI4yCKNfQs" IsFeedback="true" />
-            <Link Id="LZwJY2vOb8MNVJhQrK12yB" Ids="HRkbFM9RiuYPaI4yCKNfQs,EmII3WuslE7PT9ENVisjpB" />
-            <Link Id="URVR7gk4Hm7OEyxTJ0tDog" Ids="ALPDOO6BbMcMQOTF2eypnL,P7y6iyXu4VZPRIji2sgktD" />
-            <Link Id="EC0NwjII5MjMADjr1vgGqW" Ids="FEZw3ElauLeQcvG3XBXY7Z,VCXPPersZdGNMfKmgOg5iw" />
-            <Link Id="HpBRW5YSeUtMZuqPZfufXU" Ids="L4aMfQMBADZLYGLEhnFpmF,M9XprGhTaxPOtOWZenw1oX" />
-            <Link Id="LUP5HIgXUzULglT2C36mMz" Ids="ALPDOO6BbMcMQOTF2eypnL,HRkbFM9RiuYPaI4yCKNfQs" />
-            <Link Id="CnHMHU8tN3mPAUcbXpzeip" Ids="FEZw3ElauLeQcvG3XBXY7Z,FNQkxAg5TCOL5vyECB535u" />
             <Link Id="Tk1ld1EFpejOMC1scq4vt6" Ids="VfniIjgO7ZlQLvKrVeR3a6,RZKhWCxCykKNvmPwPmG56E" />
             <Link Id="GIhlS94ZsvZO0H1CTHMNoh" Ids="RZKhWCxCykKNvmPwPmG56E,VDAAMaZeVOpMNIknzEw1Q7" IsHidden="true" />
+            <Link Id="Vp64143yHQsPlBHd6fwG0o" Ids="ALPDOO6BbMcMQOTF2eypnL,EmII3WuslE7PT9ENVisjpB" />
           </Patch>
         </Node>
         <!--
@@ -1153,9 +1141,9 @@
               </Pad>
               <Node Name="Create" Bounds="140,559,145,106" Id="LXslEQyGI8qPbb56QZpGVK">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="MyyzphVq70fPqif3cQRgb3" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="RBLojRp6ZWwMcnyvHG7h90" Name="Draw">
@@ -1270,9 +1258,9 @@
               </Node>
               <Node Name="Create" Bounds="63,608,145,97" Id="T9vlCPi1qpfNPp3VrGrN2E">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="LUUFKUG2OkkLneDqiPgqCA" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="IdUDyIfmMmjPgNnZxA4oeV" Name="Draw">
@@ -1533,9 +1521,9 @@
               </Node>
               <Node Name="Create" Bounds="64,607,145,102" Id="Ab1Hhnk8xRoOFbslYQXDdD">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="QR7vpCMo03lPespOMOykOc" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="KNdxq1eUyP7M8LUWqgTW8B" Name="Draw">
@@ -1710,9 +1698,9 @@
               </Node>
               <Node Name="Create" Bounds="63,608,145,97" Id="RsA77S1x5KrPzYu2ZiSNBd">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="ChkZ7nf8u6ZOaBiqZYjoAn" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="GLwZY0eqS3dPGeYZ6GxhZX" Name="Draw">
@@ -1922,9 +1910,9 @@
               </Pad>
               <Node Name="Create" Bounds="139,559,145,100" Id="NjUPglNeDjJOJ8xJHUlXbP">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="TypeFlag" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="KNvW2PeTzvqLM6rSoUGSj2" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="NXH85wnYHNONJQeSZiqf3N" Name="Draw">
@@ -2126,9 +2114,9 @@
               <Node Name="Create" Bounds="63,608,145,97" Id="IpHcWujmCnSM2ZCETnBGHI">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="U8odbIsjR2OQcfakxJqztz" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="EJLHQtnEuu8ML3KK0FecEQ" Name="Draw">
@@ -2362,9 +2350,9 @@
               </Node>
               <Node Name="Create" Bounds="63,608,145,97" Id="NeQ6Kdgam8dOigw902ktuN">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="UgcN5jXJSayNRp33zqfTOF" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="N6nqVIhfeBzL71q4AweBGl" Name="Draw">
@@ -2605,9 +2593,9 @@
               </Pad>
               <Node Name="Create" Bounds="139,559,153,106" Id="UtOCQllzEQ4LJZOpMKtts8">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="QwEpng0BlyZQIx0t6ibiqC" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="MLgbp6EFn2FNs7ni5TIU8u" Name="Draw">
@@ -2685,9 +2673,9 @@
               <ControlPoint Id="RX0uxnpiccyNHXrPpu6PuS" Bounds="144,724" />
               <Node Name="Create" Bounds="139,559,145,106" Id="Q0NKtW4aOHyNoUU3f5k0GU">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="LEdcL5RHRbDLf3BNHAreZM" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="Vg124qjPeeWO1kHpPwnlqd" Name="Draw">
@@ -2806,9 +2794,9 @@
               </Node>
               <Node Name="Create" Bounds="65,608,145,97" Id="KONYRE68TSkLfzaHyKX2Y5">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="Vw1t6MDPwmYPRDZnsIjNHZ" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="CnmGP8UdlMwOuaBJSxuDir" Name="Draw">
@@ -3082,9 +3070,9 @@
               </Node>
               <Node Name="Create" Bounds="63,608,145,97" Id="AiN2EoVkabmN3qNo4VJorD">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="OperationNode" Name="Create" />
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
                 </p:NodeReference>
                 <Pin Id="GAVxXMtm8pKLwA1LPafcyo" Name="Output" Kind="StateOutputPin" />
                 <Patch Id="K6z1pyIWGxFMtSHrRAHbU7" Name="Draw">
@@ -3465,9 +3453,9 @@
             <ControlPoint Id="SoD3jdqS4TdML4YGSsbWJ9" Bounds="-13,1216" />
             <Node Name="Create" Bounds="-14,968,144,207" Id="Bs1KkxucaY2NDVwdfzcXIu">
               <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                <Choice Kind="OperationNode" Name="Create" />
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <CategoryReference Kind="TypeFlag" Name="Layer" NeedsToBeDirectParent="true" />
+                <Choice Kind="OperationRegion" Name="Create" />
               </p:NodeReference>
               <Pin Id="UDoCqGXnvS0NfqYEAFT3IU" Name="Output" Kind="StateOutputPin" />
               <Patch Id="E5Zuo6McCbSOWnqOqBkIO9" Name="Draw">
@@ -3531,9 +3519,9 @@
             <ControlPoint Id="IbaevyHIIzhOwcIaalDXef" Bounds="399,1275" />
             <Node Name="Create" Bounds="396,1009,198,195" Id="P3W0730VuhcMwO4HFeY9YF">
               <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                <Choice Kind="OperationNode" Name="Create" />
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                <Choice Kind="OperationRegion" Name="Create" />
               </p:NodeReference>
               <Pin Id="RFOyoFIriuULp2UseuXRC2" Name="Output" Kind="StateOutputPin" />
               <Patch Id="N8V0e2JP9OdQc1QSJIU2KN" Name="Draw">
@@ -3610,9 +3598,9 @@
             <Link Id="IL3tDdo6BpMK9uyFIiSKUB" Ids="V4VreYBqtcKMa29bR1P5Jx,CQ9Q2vFNn2XMQ0qktjadE7" />
             <Node Name="Create" Bounds="-14,1472,746,333" Id="GYT222ws8UfQAnZfoAzq3D">
               <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
-                <Choice Kind="OperationNode" Name="Create" />
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <CategoryReference Kind="TypeFlag" Name="Layer" NeedsToBeDirectParent="true" />
+                <Choice Kind="OperationRegion" Name="Create" />
               </p:NodeReference>
               <Pin Id="Olr7G4ji0NsMr71P5F30hi" Name="Output" Kind="StateOutputPin" />
               <Patch Id="RPz86jKOud3PGQj6xVXYBx" Name="Draw">
@@ -3973,6 +3961,51 @@
             <Link Id="DNhix6vZVDTMa4i7txABR8" Ids="GAfMeLrYva3OXWxxqfOcvh,Dx95G95pJnOMqI1hgnfuRf" />
             <Link Id="C4LnzqcnJz8LJaDGw6dWee" Ids="HoHaqJvYaaHMaE9KXZMD43,PEjd32vgXnLNVkda1Dib4U" />
             <Link Id="Pwce84R3lR8QRVek7PluNv" Ids="Saqo7vBwKG1PnZ1AIPI2yU,DI2wttkOthtPAoYIB1Wb5L" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Enabled ************************
+
+-->
+        <Node Name="Enabled" Bounds="726,1030,169,198" Id="ArKXAnIdmSgLmhVXbsjxx5">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+            <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+            <Choice Kind="OperationDefinition" Name="Operation" />
+          </p:NodeReference>
+          <Patch Id="Q9MNXHATgxePfLUoegn0e3">
+            <ControlPoint Id="K81wRty1Y5COqh0TUKLycF" Bounds="795,1047" />
+            <ControlPoint Id="FWk5qKtyIhwPn8AovMydvD" Bounds="796,1209" />
+            <Pin Id="SCokcqoi7hxOOmMBMsDwSZ" Name="Input" Kind="InputPin" Bounds="-739,0">
+              <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                <Choice Kind="TypeFlag" Name="Layer" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="ETCi1Xv5XadMZERxXtQkU8" Name="Output" Kind="OutputPin" Bounds="-368,664" />
+            <Link Id="L9lcOE22HzlPZOeSPNe27s" Ids="SCokcqoi7hxOOmMBMsDwSZ,K81wRty1Y5COqh0TUKLycF" IsHidden="true" />
+            <Link Id="VtljZSiOvijQZty6kQnIqI" Ids="FWk5qKtyIhwPn8AovMydvD,ETCi1Xv5XadMZERxXtQkU8" IsHidden="true" />
+            <Node Name="If2" Bounds="782,1097,68,83" Id="HvHo5eOujHfM8yPMQJiD8e">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                <CategoryReference Kind="Category" Name="Primitive" />
+                <Choice Kind="If" Name="If" />
+              </p:NodeReference>
+              <Pin Id="Bpe4Osux3x0O6au75i3Hgl" Name="Condition" Kind="InputPin" />
+              <Patch Id="Iw7T3XiKvzBLbsIsV9ky9Z" Name="Then" ManuallySortedPins="true" />
+              <ControlPoint Id="FQvzazOOe0tMdgjuOZahcS" Bounds="824,1103" Alignment="Top" />
+              <ControlPoint Id="QtEP6CYymhFNy2CGbv1naz" Bounds="797,1174" Alignment="Bottom" />
+            </Node>
+            <ControlPoint Id="H5qwI7YUYF1M5GovMvIRH2" Bounds="839,1046" />
+            <Link Id="MWYcJBCF1qqLjxc6tdHNei" Ids="H5qwI7YUYF1M5GovMvIRH2,Bpe4Osux3x0O6au75i3Hgl" />
+            <Pin Id="T0PtagZHAxVOuhPVVZLPqD" Name="Enabled" Kind="InputPin" DefaultValue="true">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Link Id="QSzfLzyAp0HOsT6M2LdS7o" Ids="T0PtagZHAxVOuhPVVZLPqD,H5qwI7YUYF1M5GovMvIRH2" IsHidden="true" />
+            <Link Id="COAaKBtFIyCLn2KoqtW9kr" Ids="FQvzazOOe0tMdgjuOZahcS,QtEP6CYymhFNy2CGbv1naz" IsFeedback="true" />
+            <Link Id="U7TFE85yD60ODVC5tbD1V7" Ids="K81wRty1Y5COqh0TUKLycF,QtEP6CYymhFNy2CGbv1naz" />
+            <Link Id="FyPcPjR81xCO6NlTQJSvhZ" Ids="QtEP6CYymhFNy2CGbv1naz,FWk5qKtyIhwPn8AovMydvD" />
           </Patch>
         </Node>
       </Canvas>

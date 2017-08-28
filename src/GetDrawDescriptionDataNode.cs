@@ -169,6 +169,10 @@ namespace VVVV.DX11.Nodes
                     this.FTransformOutput.SliceCount = 1;
                     this.FColorOutput.SliceCount = 1;
 
+                    this.FSpritesPositionOutput.SliceCount = 1;
+                    this.FSpritesSizeOutput.SliceCount = 1;
+                    this.FSpritesColorOutput.SliceCount = 1;
+
                     this.FValid.SliceCount = 1;
 
                     //create geometry buffer resources
