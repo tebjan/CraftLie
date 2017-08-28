@@ -567,15 +567,18 @@ namespace VVVV.DX11.Nodes
         private void WriteToBuffer<T>(DX11Resource<IDX11ReadableStructureBuffer> bufferResource, DX11RenderContext context, T[] bufferToCopy, int elementCount)
             where T : struct
         {
-            if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
+            if (elementCount > 0)
             {
-                DX11DynamicStructuredBuffer<T> b = (DX11DynamicStructuredBuffer<T>)bufferResource[context];
-                b.WriteData(bufferToCopy, 0, elementCount);
-            }
-            else if (this.FBufferType[0] == DX11BufferUploadType.Default)
-            {
-                DX11CopyDestStructuredBuffer<T> b = (DX11CopyDestStructuredBuffer<T>)bufferResource[context];
-                b.WriteData(bufferToCopy, 0, elementCount);
+                if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
+                {
+                    DX11DynamicStructuredBuffer<T> b = (DX11DynamicStructuredBuffer<T>)bufferResource[context];
+                    b.WriteData(bufferToCopy, 0, elementCount);
+                }
+                else if (this.FBufferType[0] == DX11BufferUploadType.Default)
+                {
+                    DX11CopyDestStructuredBuffer<T> b = (DX11CopyDestStructuredBuffer<T>)bufferResource[context];
+                    b.WriteData(bufferToCopy, 0, elementCount);
+                }
             }
         }
 
