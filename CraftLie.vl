@@ -10,7 +10,7 @@
     ************************ Box ************************
 
 -->
-        <Node Name="Box" Bounds="32,188" Id="Uclmm4RkMXOMd1wo30rONs">
+        <Node Name="Box" Bounds="104,173" Id="Uclmm4RkMXOMd1wo30rONs">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -137,7 +137,7 @@
     ************************ Cylinder ************************
 
 -->
-        <Node Name="Cylinder" Bounds="249,179" Id="SvYYEZGwkUiNUuFlW8QkKh">
+        <Node Name="Cylinder" Bounds="421,172" Id="SvYYEZGwkUiNUuFlW8QkKh">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -418,7 +418,7 @@
     ************************ Disc ************************
 
 -->
-        <Node Name="Disc" Bounds="252,-29" Id="DUpK2uEFf1kP6Hblx1iNH9">
+        <Node Name="Disc" Bounds="421,-2" Id="DUpK2uEFf1kP6Hblx1iNH9">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -654,7 +654,7 @@
     ************************ DrawDescriptionBuffer ************************
 
 -->
-        <Node Name="DrawDescriptionBuffer" Bounds="-228,320" Id="EqgQ38cAYMANTkN2p2dn5H">
+        <Node Name="DrawDescriptionBuffer" Bounds="-195,334" Id="EqgQ38cAYMANTkN2p2dn5H">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
             <Choice Kind="ClassType, HasMasterPatchFlag, DefinitionFlag" Name="Class" />
@@ -956,7 +956,7 @@
     ************************ Layer ************************
 
 -->
-        <Node Name="Layer" Bounds="-192,153" Id="KqoOEApvl8aPuU0tcjmdwF">
+        <Node Name="Layer" Bounds="-198,163" Id="KqoOEApvl8aPuU0tcjmdwF">
           <p:NodeReference>
             <Choice Kind="ClassDefinition" Name="Class" />
           </p:NodeReference>
@@ -1101,7 +1101,7 @@
     ************************ Line ************************
 
 -->
-        <Node Name="Line" Bounds="393,101" Id="FmoFZOpA9gGLYGrevGWZdk">
+        <Node Name="Line" Bounds="568,-5" Id="FmoFZOpA9gGLYGrevGWZdk">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -1219,7 +1219,7 @@
     ************************ MeshJoin ************************
 
 -->
-        <Node Name="MeshJoin" Bounds="697,180" Id="EyKfLDDBjoHNElpdzZy7bT">
+        <Node Name="MeshJoin" Bounds="683,169" Id="EyKfLDDBjoHNElpdzZy7bT">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -1482,7 +1482,7 @@
     ************************ Polygon ************************
 
 -->
-        <Node Name="Polygon" Bounds="724,108" Id="UzBYXvNn21hOfTXs8yPttX">
+        <Node Name="Polygon" Bounds="869,-1" Id="UzBYXvNn21hOfTXs8yPttX">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -1659,7 +1659,7 @@
     ************************ PolyLine ************************
 
 -->
-        <Node Name="PolyLine" Bounds="527,108" Id="QGqUnefRH89LLy3R5ODkYb">
+        <Node Name="PolyLine" Bounds="707,-2" Id="QGqUnefRH89LLy3R5ODkYb">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -1868,7 +1868,7 @@
     ************************ Quad ************************
 
 -->
-        <Node Name="Quad" Bounds="32,112" Id="COInCHPH7e6P9HiBeVxWyn">
+        <Node Name="Quad" Bounds="61,-3" Id="COInCHPH7e6P9HiBeVxWyn">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -2074,7 +2074,7 @@
     ************************ RoundQuad ************************
 
 -->
-        <Node Name="RoundQuad" Bounds="196,106" Id="ERdIzywGp7QL8Tft7dkFZ1">
+        <Node Name="RoundQuad" Bounds="188,41" Id="ERdIzywGp7QL8Tft7dkFZ1">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -2311,7 +2311,7 @@
     ************************ Sphere ************************
 
 -->
-        <Node Name="Sphere" Bounds="538,306" Id="MDfxkt8Jw6jQZHCWuhePR5">
+        <Node Name="Sphere" Bounds="256,173" Id="MDfxkt8Jw6jQZHCWuhePR5">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -2556,7 +2556,7 @@
     ************************ Sprites ************************
 
 -->
-        <Node Name="Sprites" Bounds="708,278" Id="EhPrDiGU7wDOaFDCHuoqtR">
+        <Node Name="Sprites" Bounds="94,231" Id="EhPrDiGU7wDOaFDCHuoqtR">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -2663,7 +2663,7 @@
     ************************ Text ************************
 
 -->
-        <Node Name="Text" Category="CraftLie" Bounds="181,315" Id="JIVbbVcBnWEQOalnqEqM2z">
+        <Node Name="Text" Category="CraftLie" Bounds="234,234" Id="JIVbbVcBnWEQOalnqEqM2z">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -2755,7 +2755,7 @@
     ************************ Text3d ************************
 
 -->
-        <Node Name="Text3d" Bounds="384,310" Id="HhsZfIZW9dvPdb4wi75WFs">
+        <Node Name="Text3d" Bounds="857,168" Id="HhsZfIZW9dvPdb4wi75WFs">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -3031,7 +3031,7 @@
     ************************ Tube ************************
 
 -->
-        <Node Name="Tube" Bounds="47,321" Id="N92CZcUjBFmP01xlhjyNuN">
+        <Node Name="Tube" Bounds="561,167" Id="N92CZcUjBFmP01xlhjyNuN">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Patch" />
           </p:NodeReference>
@@ -4006,6 +4006,176 @@
             <Link Id="COAaKBtFIyCLn2KoqtW9kr" Ids="FQvzazOOe0tMdgjuOZahcS,QtEP6CYymhFNy2CGbv1naz" IsFeedback="true" />
             <Link Id="U7TFE85yD60ODVC5tbD1V7" Ids="K81wRty1Y5COqh0TUKLycF,QtEP6CYymhFNy2CGbv1naz" />
             <Link Id="FyPcPjR81xCO6NlTQJSvhZ" Ids="QtEP6CYymhFNy2CGbv1naz,FWk5qKtyIhwPn8AovMydvD" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ OutlineQuad ************************
+
+-->
+        <Node Name="OutlineQuad" Bounds="186,-7" Id="NfVJe9781FJPxYT7FNBeqk">
+          <p:NodeReference>
+            <Choice Kind="ContainerDefinition" Name="Patch" />
+          </p:NodeReference>
+          <Patch Id="LiVW2n3yKTJN7XRdwHK4D4">
+            <Canvas Id="Ur4qHFe1JofLFo0rn9jqen">
+              <ControlPoint Id="R30S6u1TYKJPj7NYOow7oW" Bounds="500,297" />
+              <ControlPoint Id="KF5CPhqU8TlLr9IWu1Y05Y" Bounds="42,776" />
+              <Node Bounds="167,495,575,22" Id="VBxZKybmveFOvkIr5rnBKa">
+                <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationNode" Name="Update" />
+                  <CategoryReference Kind="Category" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="Cj74ZIee4dxMNpddAL8E7n" Name="Input" Kind="StateInputPin" />
+                <Pin Id="FR1Ip8fsqV3PpqEXskepYm" Name="Transformation" Kind="InputPin" />
+                <Pin Id="K30VofzUrSKOgvdC3oWHpe" Name="Color" Kind="InputPin" />
+                <Pin Id="Avu51iDDWibNSPJKFt693L" Name="Texture Path" Kind="InputPin" />
+                <Pin Id="KwZ5uGtvXWBP1iy517VhZI" Name="Blend Mode" Kind="InputPin" />
+                <Pin Id="KLIcplz00ugPADgqdFMcX3" Name="Shading" Kind="InputPin" />
+                <Pin Id="Ii7moJ3H2R6PQfHeAUKz4B" Name="Instance Transformations" Kind="InputPin" />
+                <Pin Id="Hb9MWg1JBj6NYuxuI4H5zj" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="JJXqml54e2GOzwzMSCJ1Ut" Name="Instance Colors" Kind="InputPin" />
+              </Node>
+              <ControlPoint Id="A2E4zUWpwArPFuw1tRJhrB" Bounds="979,297" />
+              <ControlPoint Id="ERhAbSlXVsyQS4euiXE0AT" Bounds="833,297" />
+              <ControlPoint Id="DAarDFdpePFOdaNgbLLsuI" Bounds="388,297" />
+              <ControlPoint Id="HPAVefH0UxrL9xNp8SRtEV" Bounds="611,297" />
+              <Node Bounds="148,253,104,13" Id="QyBNPEm7RToQQdxFlLqxH0">
+                <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationNode" Name="Create" />
+                  <CategoryReference Kind="Category" Name="DrawGeometryDescription" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="J5qnQpFWM6MMdrdfVr3L6l" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="I3Dj8stpUisMOtPeEWVi0F" Name="Geometry Descriptor" Kind="InputPin" />
+              </Node>
+              <Node Name="Create" Bounds="41,626,145,97" Id="HTuZph14O1DNArIvYARYQ1">
+                <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="Layer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationRegion" Name="Create" />
+                </p:NodeReference>
+                <Pin Id="NCCKiI3IO7PPaOb1axD9UJ" Name="Output" Kind="StateOutputPin" />
+                <Patch Id="S2VKrIzTPfuOoeMGn5RzCv" Name="Draw">
+                  <Pin Id="MXgaof275bxNln1JiEn7ow" Name="Buffer" Kind="InputPin" Bounds="-286,0" />
+                  <Pin Id="B9Sef4M91xFODE8h0OyPGa" Name="Buffer" Kind="OutputPin" Bounds="-286,0" />
+                  <ControlPoint Id="BjpIPlUJxF0Nz526Wn3Juw" Bounds="54,632" />
+                  <ControlPoint Id="OBfCfGg2YnkLtzcYfgGZgE" Bounds="54,714" />
+                  <Node Bounds="53,663,121,22" Id="NfyzKgLfg2AMRq9hqVwsQN">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionBuffer" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="Category" Name="DrawDescriptionBuffer" NeedsToBeDirectParent="true" />
+                      <Choice Kind="OperationNode" Name="AddDrawDescription" />
+                    </p:NodeReference>
+                    <Pin Id="HD8S6KgiymbPyn9FEFVSwU" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="ER7VgkSEPdINrvVZ3X4sbt" Name="Draw Description" Kind="InputPin" />
+                    <Pin Id="LiZ4apyDoVmQafl2sEADQV" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+              </Node>
+              <Pad Id="DBVEYOP1Oa5LvZfPLOGBq9" SlotId="DX6HKZtoJ4dMBxPNt8c8NG" Bounds="171,382">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Node Bounds="148,198,71,13" Id="TFLAZwN91JeLOKN8ap8A6N">
+                <p:NodeReference LastCategoryFullName="CraftLie.LineDescriptor" LastSymbolSource="CraftLie.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="TypeFlag" Name="LineDescriptor" />
+                  <Choice Kind="OperationNode" Name="Create (Poly)" />
+                </p:NodeReference>
+                <Pin Id="Az45Gg1bb7fNnYatIFiYbn" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="FrEjitjYs44N36q6hlYSrh" Name="Positions" Kind="InputPin" />
+                <Pin Id="Qm8w92jOBMaQdwhNUclmO2" Name="Is Closed" Kind="InputPin" />
+              </Node>
+              <Pad Id="LcK3kgKsS66MyighK1Sn84" SlotId="DX6HKZtoJ4dMBxPNt8c8NG" Bounds="169,559">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="TRPnKoh8saVQR7bs2OgXbc" Bounds="300,297" />
+              <Node Bounds="141,83,65,13" Id="MTjaOCz0PykMGc0G55OtTh">
+                <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Cons" />
+                </p:NodeReference>
+                <Pin Id="FsyDtjM3V4BLiHYztlTEae" Name="Input" Kind="InputPin" />
+                <Pin Id="GUWipAc06ACL7FVj9C2Su1" Name="Input 2" Kind="InputPin" />
+                <Pin Id="EH8hroySQmEQL7QTzsPhzK" Name="Result" Kind="OutputPin" />
+                <Pin Id="GJfRrlIiXHiMNYedgmCkiw" Name="Input 3" Kind="InputPin" />
+                <Pin Id="GoUVvcpQc55Potgby1nuqt" Name="Input 4" Kind="InputPin" />
+              </Node>
+              <Pad Id="UYB3N5QsWXZN43Wi1qBepZ" Bounds="142,-18,38,57" ShowValueBox="true" isIOBox="true" Value="new vec(-0.5,0.5,0.0)">
+                <p:ValueBoxSettings />
+                <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Vector3" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Pad Id="REaFptjYYu7QFNqfhX99hK" Bounds="206,-17,33,57" ShowValueBox="true" isIOBox="true" Value="new vec(0.5,0.5,0.0)">
+                <p:ValueBoxSettings />
+                <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Vector3" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Pad Id="FuWdQnvOBZOO35oNveDeDK" Bounds="270,-16,38,57" ShowValueBox="true" isIOBox="true" Value="new vec(0.5,-0.5,0.0)">
+                <p:ValueBoxSettings />
+                <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Vector3" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Pad Id="NmBUqSH6XUtMaMzEmWEgCq" Bounds="334,-15,38,57" ShowValueBox="true" isIOBox="true" Value="new vec(-0.5,-0.5,0.0)">
+                <p:ValueBoxSettings />
+                <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Vector3" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Pad Id="NqeKXwv9edBQCj1hYssqnz" Comment="Is Closed" Bounds="247,147,40,19" ShowValueBox="true" isIOBox="true" Value="true">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+              </Pad>
+            </Canvas>
+            <Patch Id="KQNDdQR0HMVO98NowUbfgE" Name="Create" ParticipatingElements="QyBNPEm7RToQQdxFlLqxH0,MTjaOCz0PykMGc0G55OtTh" />
+            <Patch Id="OyjFy3nfi6aOPjRzPz30KZ" Name="Update" ParticipatingElements="HTuZph14O1DNArIvYARYQ1">
+              <Pin Id="RP7e58t2p9ELBnt8wYrOmf" Name="Color" Kind="InputPin" Bounds="246,165" />
+              <Pin Id="SnQu7JAuan5MVVVYirdmgr" Name="Layer" Kind="OutputPin" Bounds="-12,664" />
+              <Pin Id="GBFdJmZEnh6PJ7V1MWvR05" Name="Instance Colors" Kind="InputPin" Bounds="543,269" />
+              <Pin Id="Tw2wLBtuggLOS3NZN1ZIPt" Name="Instance Transformations" Kind="InputPin" Bounds="661,272" />
+              <Pin Id="TAqfJ8zdA85NBnVrsYZyQP" Name="Transformation" Kind="InputPin" Bounds="444,267" />
+              <Pin Id="KZBkyZQNWcwNOxCTA0QyNn" Name="Texture Path" Kind="InputPin" Bounds="674,330" />
+              <Pin Id="ULxXuDtBfBoP1upr1zXzlL" Name="Blend Mode" Kind="InputPin" Bounds="230,285" />
+            </Patch>
+            <ProcessDefinition Id="MPyz0MIWsgFMfYf881Ov9j">
+              <Fragment Id="HSqNY99KeB3L6zN4Yz7iis" Patch="KQNDdQR0HMVO98NowUbfgE" Enabled="true" />
+              <Fragment Id="EH8gEDtCZe5NEqLxoN8Jeg" Patch="OyjFy3nfi6aOPjRzPz30KZ" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="Aa4bGP1Py3zPqbucsFDI6x" Ids="RP7e58t2p9ELBnt8wYrOmf,R30S6u1TYKJPj7NYOow7oW" IsHidden="true" />
+            <Link Id="FeJOJpqFFfUOYJc0CVdrGG" Ids="KF5CPhqU8TlLr9IWu1Y05Y,SnQu7JAuan5MVVVYirdmgr" IsHidden="true" />
+            <Link Id="JzV9js3lYkqLWqRhGabVy2" Ids="R30S6u1TYKJPj7NYOow7oW,K30VofzUrSKOgvdC3oWHpe" />
+            <Link Id="ILZwqerjh3fQaneENxg8Fm" Ids="A2E4zUWpwArPFuw1tRJhrB,JJXqml54e2GOzwzMSCJ1Ut" />
+            <Link Id="MhHA7ifq7NWQJbHkN6DUpg" Ids="GBFdJmZEnh6PJ7V1MWvR05,A2E4zUWpwArPFuw1tRJhrB" IsHidden="true" />
+            <Link Id="EVR0OkliTbwNmDCTLVnxuP" Ids="ERhAbSlXVsyQS4euiXE0AT,Ii7moJ3H2R6PQfHeAUKz4B" />
+            <Link Id="TMheycjucARQPMZJX3XW2y" Ids="Tw2wLBtuggLOS3NZN1ZIPt,ERhAbSlXVsyQS4euiXE0AT" IsHidden="true" />
+            <Link Id="HfUWPNzKfDWQQA2eX58imB" Ids="TAqfJ8zdA85NBnVrsYZyQP,DAarDFdpePFOdaNgbLLsuI" IsHidden="true" />
+            <Link Id="GIuUYujMZsoNnZkUOZo8LF" Ids="HPAVefH0UxrL9xNp8SRtEV,Avu51iDDWibNSPJKFt693L" />
+            <Link Id="JvxnenKi5C3QNFJ9lQs5wm" Ids="KZBkyZQNWcwNOxCTA0QyNn,HPAVefH0UxrL9xNp8SRtEV" IsHidden="true" />
+            <Link Id="CrRCvTTwqa8MIxjNafp8Fb" Ids="MXgaof275bxNln1JiEn7ow,BjpIPlUJxF0Nz526Wn3Juw" IsHidden="true" />
+            <Link Id="IV3kn7EfXFKOUhzJMhDIn8" Ids="OBfCfGg2YnkLtzcYfgGZgE,B9Sef4M91xFODE8h0OyPGa" IsHidden="true" />
+            <Link Id="REqjPYkoCpVLMe2wKsma3s" Ids="BjpIPlUJxF0Nz526Wn3Juw,HD8S6KgiymbPyn9FEFVSwU" />
+            <Link Id="MP0sOAtgNsfLhDNoHPoDov" Ids="LiZ4apyDoVmQafl2sEADQV,OBfCfGg2YnkLtzcYfgGZgE" />
+            <Link Id="JTZksi8d4X4MsV1uWXOqmZ" Ids="DAarDFdpePFOdaNgbLLsuI,FR1Ip8fsqV3PpqEXskepYm" />
+            <Link Id="BUkKZpcVzd3LrTWdPCf3dD" Ids="J5qnQpFWM6MMdrdfVr3L6l,DBVEYOP1Oa5LvZfPLOGBq9" />
+            <Link Id="RTvF4dvUg4DMLwqBW5Difz" Ids="Az45Gg1bb7fNnYatIFiYbn,I3Dj8stpUisMOtPeEWVi0F" />
+            <Slot Id="DX6HKZtoJ4dMBxPNt8c8NG" Name="Draw Description" />
+            <Link Id="HmMvByVKL0JQTeNfG5D52c" Ids="Hb9MWg1JBj6NYuxuI4H5zj,LcK3kgKsS66MyighK1Sn84" />
+            <Link Id="LTkLRQmddChMCJEKvv73ks" Ids="LcK3kgKsS66MyighK1Sn84,ER7VgkSEPdINrvVZ3X4sbt" />
+            <Link Id="S2hekGB5InsPqE1qgDsPNb" Ids="NCCKiI3IO7PPaOb1axD9UJ,KF5CPhqU8TlLr9IWu1Y05Y" />
+            <Link Id="IuIwjE5XvewPw17FjtV9Hf" Ids="TRPnKoh8saVQR7bs2OgXbc,KwZ5uGtvXWBP1iy517VhZI" />
+            <Link Id="PTLh50aXma3O19JIrPfY73" Ids="ULxXuDtBfBoP1upr1zXzlL,TRPnKoh8saVQR7bs2OgXbc" IsHidden="true" />
+            <Link Id="LJVCitaWwsKLKcZVapGSCg" Ids="UYB3N5QsWXZN43Wi1qBepZ,FsyDtjM3V4BLiHYztlTEae" />
+            <Link Id="IXzwVW5d2aAOgkQSyOX2pV" Ids="REaFptjYYu7QFNqfhX99hK,GUWipAc06ACL7FVj9C2Su1" />
+            <Link Id="PB5y61t5XthLIzncbt7Nqp" Ids="FuWdQnvOBZOO35oNveDeDK,GJfRrlIiXHiMNYedgmCkiw" />
+            <Link Id="BUXuLzj5qYLMKnrawXJa75" Ids="NmBUqSH6XUtMaMzEmWEgCq,GoUVvcpQc55Potgby1nuqt" />
+            <Link Id="Cy8HnYuSXFfQEhWrIgXpbq" Ids="EH8hroySQmEQL7QTzsPhzK,FrEjitjYs44N36q6hlYSrh" />
+            <Link Id="IVyj4K631uhQDmrs2NoBtM" Ids="NqeKXwv9edBQCj1hYssqnz,Qm8w92jOBMaQdwhNUclmO2" />
+            <Link Id="C7KojWJQ3aKPYoTJBBVubq" Ids="DBVEYOP1Oa5LvZfPLOGBq9,Cj74ZIee4dxMNpddAL8E7n" />
           </Patch>
         </Node>
       </Canvas>
