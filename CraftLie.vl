@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="MZmd92n0x8tLLBfKYOnxOx" Version="0.56">
+<Document xmlns:p="property" Id="MZmd92n0x8tLLBfKYOnxOx" Version="0.58">
   <NugetDependency Id="HbAhAevw0FVN9sGbXw9dz9" Location="VL.CoreLib" Version="0.38.1043" />
   <NugetDependency Id="Q8t0r8GegU6LxRf2wXWopD" Location="VL.Core" Version="0.38.1043" />
   <Patch Id="AXcrkz7wtuiLTLQMfXYFvQ">
@@ -256,13 +256,13 @@
                 <Pin Id="PAv7R845tv2MjDMuEcALYE" Name="Unchanged" Kind="OutputPin" />
               </Node>
               <Node Name="If2" Bounds="44,310,246,125" Id="AZFcTPsK2p3Lhvps2Emv5m">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="HhxM4DVUQ0eM1A6qiEBOqa" Name="Condition" Kind="InputPin" />
-                <Patch Id="P6g83TEysOcNOoPDtVKjq4" Name="Then">
+                <Patch Id="P6g83TEysOcNOoPDtVKjq4">
                   <Node Bounds="56,383,104,22" Id="AD4Q1wfNBvZMMxHgZZSBLh">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -286,6 +286,7 @@
                     <Pin Id="JssSIVeLXEQLGvSdkxGsyo" Name="Caps" Kind="InputPin" />
                     <Pin Id="Hzu7rVXmD3ILORnXJ2dHYr" Name="Output" Kind="StateOutputPin" />
                   </Node>
+                  <Patch Id="Df5HqC6kgOeOXH6AQTfElu" Name="Then" />
                 </Patch>
                 <ControlPoint Id="OYQrrwxuj5KOsCLjHDPSgS" Bounds="63,316" Alignment="Top" />
                 <ControlPoint Id="Aa65GNTtGdDNMAuJmmWhoh" Bounds="62,429" Alignment="Bottom" />
@@ -542,13 +543,13 @@
                 <Pin Id="F85Y9rrIaz5MdhLtQo3viE" Name="Unchanged" Kind="OutputPin" />
               </Node>
               <Node Name="If2" Bounds="130,312,172,125" Id="C1RYMTNTSuEP4whClJ6wUC">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="S3d5vjNr4dKMOCgdevmb6m" Name="Condition" Kind="InputPin" />
-                <Patch Id="LqOofxwREdWNqJZLJfWGSL" Name="Then">
+                <Patch Id="LqOofxwREdWNqJZLJfWGSL">
                   <Node Bounds="142,385,104,22" Id="V8HvsYdMo8rLLFZXakOYgS">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -570,6 +571,7 @@
                     <Pin Id="C6n7a3UAlBcNoEQx7wnlvi" Name="Resolution" Kind="InputPin" />
                     <Pin Id="PI8P04B4YIlL2v01coB8XX" Name="Output" Kind="StateOutputPin" />
                   </Node>
+                  <Patch Id="Quckb0ubgOcNFfwA6F2D2T" Name="Then" />
                 </Patch>
                 <ControlPoint Id="Et65IKCSWdWNhISPDUWEXK" Bounds="146,318" Alignment="Top" />
                 <ControlPoint Id="IIHB2U8LbMGQZJw3BsQRm0" Bounds="145,431" Alignment="Bottom" />
@@ -1297,13 +1299,13 @@
                 <Pin Id="PQciOGRs6k0PKp2xG3pDE9" Name="Output" Kind="StateOutputPin" />
               </Node>
               <Node Name="If2" Bounds="161,295,158,139" Id="SHatd9WER8XMpfkDGh1XwZ">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="AeqRNeZogGLLVpkQ0YcRzc" Name="Condition" Kind="InputPin" />
-                <Patch Id="VaXu0GGoIwhMlNyo2MLPRI" Name="Then">
+                <Patch Id="VaXu0GGoIwhMlNyo2MLPRI">
                   <Node Bounds="174,377,104,22" Id="Rf0bfsOdukZPmHjkfxkRMb">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1326,6 +1328,7 @@
                     <Pin Id="H9iBge5dSOwOAQrOmK7YOo" Name="Topology" Kind="InputPin" />
                     <Pin Id="TmfkUhmrDFgNDhpXnBLNHK" Name="Output" Kind="StateOutputPin" />
                   </Node>
+                  <Patch Id="Bqx2mDpolqQPjkyzsLz6XR" Name="Then" />
                 </Patch>
                 <ControlPoint Id="SlbMS7CjmGNNOVUSaVWqEC" Bounds="177,301" Alignment="Top" />
                 <ControlPoint Id="CPKMr3XgKwvLMsvcF1xjTE" Bounds="176,428" Alignment="Bottom" />
@@ -1556,13 +1559,13 @@
                 <Pin Id="GKgo1FXBLQ6Nllc3eLLmHC" Name="Positions" Kind="InputPin" />
               </Node>
               <Node Name="If2" Bounds="58,272,158,164" Id="A9B9N1Vat1XMjucUpU9G4v">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="JVeNrFG7CppMbRLu3MAV9V" Name="Condition" Kind="InputPin" />
-                <Patch Id="Ufy2yeLmqWPNrWrhUvNh4b" Name="Then">
+                <Patch Id="Ufy2yeLmqWPNrWrhUvNh4b">
                   <Node Bounds="71,379,104,22" Id="K8AuX2r8DF8NiLfuSbvwtS">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1581,6 +1584,7 @@
                     <Pin Id="P3V0IC8WtHOPamgKRxAVbf" Name="Positions" Kind="InputPin" />
                     <Pin Id="KjYLwV1zmAdNfkI2PwpVkE" Name="Output" Kind="StateOutputPin" />
                   </Node>
+                  <Patch Id="JFg6X1edU9ULnghuFQUKNG" Name="Then" />
                 </Patch>
                 <ControlPoint Id="O0qgE3VayLvMfSB6j8DNCx" Bounds="74,278" Alignment="Top" />
                 <ControlPoint Id="Fvwv6UgaA4HO87vu31BiWJ" Bounds="73,430" Alignment="Bottom" />
@@ -1734,13 +1738,13 @@
                 <Pin Id="PULvzDayaYgLB5T2XiW7e2" Name="Is Closed" Kind="InputPin" />
               </Node>
               <Node Name="If2" Bounds="159,295,147,139" Id="STcs7aV2yq4N9pw4DiqKk1">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="Qju2QUOKGdWMnjfaQWbpjT" Name="Condition" Kind="InputPin" />
-                <Patch Id="GYKG2lSCJNPOnZd9B7HKPG" Name="Then">
+                <Patch Id="GYKG2lSCJNPOnZd9B7HKPG">
                   <Node Bounds="171,378,104,22" Id="AvwYfhSxA11N6sVYEW3HMI">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1760,6 +1764,7 @@
                     <Pin Id="ST9hR0k0LA2MICIleJdZP9" Name="Positions" Kind="InputPin" />
                     <Pin Id="RWX7pxzW5ZwLtbvEGTznxw" Name="Is Closed" Kind="InputPin" />
                   </Node>
+                  <Patch Id="CQ5wVqZ3G7LPDgOjqdlWvd" Name="Then" />
                 </Patch>
                 <ControlPoint Id="QisdtK4XhWqPrK8WablOv6" Bounds="177,301" Alignment="Top" />
                 <ControlPoint Id="A5Sb9LK1drUMr7gRaDTtty" Bounds="176,428" Alignment="Bottom" />
@@ -2190,13 +2195,13 @@
                 <Pin Id="CW5J9LzEYWfN3jijrxRS2k" Name="Unchanged" Kind="OutputPin" />
               </Node>
               <Node Name="If2" Bounds="26,302,170,125" Id="OZrycSweo9PNSJ8Nn7HSRn">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="QWvUNyYdstfMVCFKafOeP9" Name="Condition" Kind="InputPin" />
-                <Patch Id="HnG26LThu69PS3NTA7Kk5l" Name="Then">
+                <Patch Id="HnG26LThu69PS3NTA7Kk5l">
                   <Node Bounds="38,375,104,22" Id="VB9NL91EOJYPfh4Mn01oCi">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2218,6 +2223,7 @@
                     <Pin Id="LCGoBjEM7rwN3YJuCdre0P" Name="Corner Resolution" Kind="InputPin" />
                     <Pin Id="VTA14odCuulONoDaSdcrX6" Name="Output" Kind="StateOutputPin" />
                   </Node>
+                  <Patch Id="UzStMgS1bUGOE6uL1aNAYh" Name="Then" />
                 </Patch>
                 <ControlPoint Id="PvrsvWtWJUuNqnnzfjjnJh" Bounds="43,308" Alignment="Top" />
                 <ControlPoint Id="KWOHqtMD9urMhVB8ZxNL9f" Bounds="42,421" Alignment="Bottom" />
@@ -2435,13 +2441,13 @@
                 <Pin Id="UJqyg9dM5KsLgCXA3amAp8" Name="Unchanged" Kind="OutputPin" />
               </Node>
               <Node Name="If2" Bounds="156,295,158,139" Id="UsVskzqjgfZLCiELjBl6xg">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="VwosLD11TIGLF9AeqJ7V6d" Name="Condition" Kind="InputPin" />
-                <Patch Id="CsING33wCdkPfbMXOjOgQg" Name="Then">
+                <Patch Id="CsING33wCdkPfbMXOjOgQg">
                   <Node Bounds="168,382,104,22" Id="RBXBc5CvYP2OzqWf17AYxK">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2463,6 +2469,7 @@
                     <Pin Id="AsN8REtknRkMffRis2u3U2" Name="Resolution Y" Kind="InputPin" />
                     <Pin Id="RnnOfTg3kpgLR85EXKkla8" Name="Output" Kind="StateOutputPin" />
                   </Node>
+                  <Patch Id="Cwgn4pMCi0QNMx4e4FwA1s" Name="Then" />
                 </Patch>
                 <ControlPoint Id="MQspH8AXsrfLgc6SCOFmQM" Bounds="174,301" Alignment="Top" />
                 <ControlPoint Id="UPIACeaoqCENTag503kqss" Bounds="173,428" Alignment="Bottom" />
@@ -2874,13 +2881,13 @@
                 <Pin Id="G4DyqcjYzENMnnM5oH3dtX" Name="Unchanged" Kind="OutputPin" />
               </Node>
               <Node Name="If2" Bounds="52,307,247,128" Id="LAoPJWgASc8Oau7g4uz2cL">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="Smv9YwbT55DPZI6ba0czem" Name="Condition" Kind="InputPin" />
-                <Patch Id="RboSR6TXeutMb0twOISlTg" Name="Then">
+                <Patch Id="RboSR6TXeutMb0twOISlTg">
                   <Node Bounds="65,380,104,13" Id="EDOZD8iOAs3NDmYOm3W2em">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2904,6 +2911,7 @@
                     <Pin Id="T3jLRdgZYW7McmhIFRuCNm" Name="Paragraph Alignment" Kind="InputPin" />
                     <Pin Id="CONGKLZOWbfMDBYoUQ7lik" Name="Output" Kind="StateOutputPin" />
                   </Node>
+                  <Patch Id="AEOnphoD2epLUDcMRE4b9j" Name="Then" />
                 </Patch>
                 <ControlPoint Id="EEcjy1EMBUkPfjvvaoBc5K" Bounds="68,313" Alignment="Top" />
                 <ControlPoint Id="TpN7EsqunWvLCPvsYmtj9g" Bounds="67,429" Alignment="Bottom" />
@@ -3146,13 +3154,13 @@
                 <Pin Id="ABXt16u891ANSvCx1KKyG5" Name="Unchanged" Kind="OutputPin" />
               </Node>
               <Node Name="If2" Bounds="130,312,172,125" Id="IcpRSrFKtILLTBQrdehTFs">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-                  <Choice Kind="If" Name="If" />
+                  <Choice Kind="AdaptiveRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="VPKWA1idz5YM6NwmOac4Ly" Name="Condition" Kind="InputPin" />
-                <Patch Id="CARzpmlBFL9OB7vqIMbvRb" Name="Then">
+                <Patch Id="CARzpmlBFL9OB7vqIMbvRb">
                   <Node Bounds="142,385,104,22" Id="IWX00axyYn6OUpn4tnG7nq">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3174,6 +3182,7 @@
                     <Pin Id="LbR5dQRyribOpa1160H8Q7" Name="Resolution" Kind="InputPin" />
                     <Pin Id="KT5wlGP2O3DO2LfuvOcJ51" Name="Output" Kind="StateOutputPin" />
                   </Node>
+                  <Patch Id="URzBQYLagm0NM3oCTCdSP4" Name="Then" />
                 </Patch>
                 <ControlPoint Id="ABA5aduXx9wMxgzdtOcbdT" Bounds="149,318" Alignment="Top" />
                 <ControlPoint Id="Q2EO3DJK2cNNPudQRlyPTU" Bounds="148,431" Alignment="Bottom" />
@@ -3380,13 +3389,13 @@
             <Link Id="B5O096R5GL6PwnlVelP2XR" Ids="TARQHw86xDXOVYrmOgDiFi,EbCsgviVkdgPhI8AE3BJVI" />
             <Link Id="HjyTEe2rmMBOe2z8de2eBu" Ids="O24c1DPP3lgOxGi6DgZmLB,FmKNLrtLQ8oLo8TCz3pd71" />
             <Node Name="If2" Bounds="484,533,192,127" Id="BjpbcLDt7m5PPO584kZ3ms">
-              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Primitive" />
-                <Choice Kind="If" Name="If" />
+                <Choice Kind="AdaptiveRegion" Name="If" />
               </p:NodeReference>
               <Pin Id="MDIUi4r2LKoQWFVWMUWkjC" Name="Condition" Kind="InputPin" />
-              <Patch Id="Ez4RwDmOYokLANhicmqILj" Name="Then" ManuallySortedPins="true">
+              <Patch Id="Ez4RwDmOYokLANhicmqILj" ManuallySortedPins="true">
                 <Node Bounds="497,615,54,13" Id="TSlHwXvQOQkM5zQHS31Caw">
                   <p:NodeReference LastCategoryFullName="2D.Rectangle" LastSymbolSource="VL.CoreLib.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3408,6 +3417,7 @@
                     <CategoryReference Kind="Category" Name="2D" />
                   </p:TypeAnnotation>
                 </Pad>
+                <Patch Id="IvSIN4SSjk7OkeAITmcncp" Name="Then" />
               </Patch>
               <ControlPoint Id="Efo4Y7YJEeUOk6fP0AmZDj" Bounds="500,539" Alignment="Top" />
               <ControlPoint Id="BQuSb4l9HlRL0D5NMTmpRl" Bounds="500,654" Alignment="Bottom" />
@@ -3985,13 +3995,15 @@
             <Link Id="L9lcOE22HzlPZOeSPNe27s" Ids="SCokcqoi7hxOOmMBMsDwSZ,K81wRty1Y5COqh0TUKLycF" IsHidden="true" />
             <Link Id="VtljZSiOvijQZty6kQnIqI" Ids="FWk5qKtyIhwPn8AovMydvD,ETCi1Xv5XadMZERxXtQkU8" IsHidden="true" />
             <Node Name="If2" Bounds="782,1097,68,83" Id="HvHo5eOujHfM8yPMQJiD8e">
-              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Primitive" />
-                <Choice Kind="If" Name="If" />
+                <Choice Kind="AdaptiveRegion" Name="If" />
               </p:NodeReference>
               <Pin Id="Bpe4Osux3x0O6au75i3Hgl" Name="Condition" Kind="InputPin" />
-              <Patch Id="Iw7T3XiKvzBLbsIsV9ky9Z" Name="Then" ManuallySortedPins="true" />
+              <Patch Id="Iw7T3XiKvzBLbsIsV9ky9Z" ManuallySortedPins="true">
+                <Patch Id="KzsIv6HXMkiM6vI0SStMGd" Name="Then" />
+              </Patch>
               <ControlPoint Id="FQvzazOOe0tMdgjuOZahcS" Bounds="824,1103" Alignment="Top" />
               <ControlPoint Id="QtEP6CYymhFNy2CGbv1naz" Bounds="797,1174" Alignment="Bottom" />
             </Node>
@@ -4095,6 +4107,7 @@
                 <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="Cons" />
+                  <FullNameCategoryReference ID="Collections.Spread" />
                 </p:NodeReference>
                 <Pin Id="FsyDtjM3V4BLiHYztlTEae" Name="Input" Kind="InputPin" />
                 <Pin Id="GUWipAc06ACL7FVj9C2Su1" Name="Input 2" Kind="InputPin" />
@@ -4197,6 +4210,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="FgJxheQR5DqMgTerWgvzNF">
             <Canvas Id="VE1lHnc2eiiQdzaMiABqOp">
               <!--
@@ -4243,6 +4257,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="KYsKbVzm6A4PEVWn0UJ8H1">
             <Canvas Id="RWgMBLs6kxCMkOQZuS3ymP">
               <!--
@@ -4295,6 +4310,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="VqXPJYKvUIaPTZdtvnzVx5">
             <Canvas Id="UPFyjmhqA3wQB4D1TNVdY0">
               <!--
@@ -4362,6 +4378,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="Quc0EMD553sLghifaE62Es">
             <Canvas Id="QsIkdWnnzwfN0AUZdhZzOC">
               <!--
@@ -4391,17 +4408,19 @@
     ************************ SetClipRect ************************
 
 -->
-              <Node Name="SetClipRect" Bounds="410,100,112,80" Id="UbmeG4TEFGxNnrrz9NYdDt">
+              <Node Name="SetClipRect" Bounds="411,99,93,80" Id="UbmeG4TEFGxNnrrz9NYdDt">
                 <p:NodeReference>
                   <Choice Kind="OperationDefinition" Name="Operation" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Patch Id="DEMLK4FUAvvL8dLaPDrcv1">
-                  <Node Name="SetClipRect" Bounds="422,131,69,22" ForwardPins="true" Id="KVvaLMg81dJP8ZFzngFpHT">
+                  <Node Name="SetClipRect" Bounds="423,130,69,22" ForwardPins="true" Id="KVvaLMg81dJP8ZFzngFpHT">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationNode" Name="SetClipRect" />
                       <FullNameCategoryReference ID="CraftLie.DrawDescription" />
                       <AssemblyReference ID="CraftLie" />
+                      <PinReference Kind="InputPin" Name="Clip Rect" />
                     </p:NodeReference>
                     <Pin Id="NWhcnwscfdiPqRSX2Fbpj2" Name="Input" Kind="StateInputPin" />
                     <Pin Id="J8o7jeV2wzIL8IVyPajpWV" Name="Clip Rect" Kind="InputPin" />
@@ -4414,7 +4433,7 @@
     ************************ SetSpace ************************
 
 -->
-              <Node Name="SetSpace" Bounds="620,100,112,80" Id="TB3LNCAhnVeMbjkexTsbJc">
+              <Node Name="SetSpace" Bounds="620,100,93,80" Id="TB3LNCAhnVeMbjkexTsbJc">
                 <p:NodeReference>
                   <Choice Kind="OperationDefinition" Name="Operation" />
                   <FullNameCategoryReference ID="Primitive" />
@@ -4422,9 +4441,12 @@
                 <Patch Id="Q4WdEtSFRyIM6mR1QWjvio">
                   <Node Name="SetSpace" Bounds="632,130,69,22" ForwardPins="true" Id="V7RkAzXt0wvOzvrDfJQIkJ">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawDescription" LastSymbolSource="CraftLie.dll">
-                      <Choice Kind="OperationNode" Name="SetSpace" />
-                      <FullNameCategoryReference ID="CraftLie.DrawDescription" />
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DrawDescription" />
+                      <Choice Kind="OperationCallFlag" Name="SetSpace" />
                       <AssemblyReference ID="CraftLie" />
+                      <PinReference Kind="InputPin" Name="Space" />
                     </p:NodeReference>
                     <Pin Id="DG0sN0d4AvdO3rBadSHvLs" Name="Input" Kind="StateInputPin" />
                     <Pin Id="OGVNYgRq4huLO2uOCogX9r" Name="Space" Kind="InputPin" />
@@ -4480,6 +4502,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="KCCL7z4WelnNwDA5z7Lp8F">
             <Canvas Id="OBlnhIBtqZpNSaMazjI1Hf">
               <!--
@@ -4613,6 +4636,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="M2Yay35BnCLQTFm6zFMyVy">
             <Canvas Id="VqyYhm2oj6INQTr2Adyose">
               <!--
@@ -4826,6 +4850,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="BtvmXSeZuQTP7W5FNkeYo2">
             <Canvas Id="FFrnrYwqXIHLuvLb1hTpQH">
               <!--
@@ -4948,6 +4973,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="Iy5lcgh8ok8LHa4Q3OHfmA">
             <Canvas Id="DYFzDTRpj6DOCAYfeJdSsi">
               <!--
@@ -5052,6 +5078,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="FGSpONZSju8MfegzxSmK8a">
             <Canvas Id="S3XdG9u2OjMNTNeSGgUj28">
               <!--
@@ -5099,6 +5126,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="Bk9aewH7UoyO6BD8ofwGhd">
             <Canvas Id="O81friiOcVRQTdPo6sdKOa">
               <!--
@@ -5170,6 +5198,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="QVvKgXMEPyrOzOIKPNnvRQ">
             <Canvas Id="IMdtpa8KbQIN99Se2Qt7YF">
               <!--
@@ -5229,6 +5258,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="DBAeSxNoA3HQXhWepz0z5S">
             <Canvas Id="B96UB3uTTqkNMGjCeAnmAX">
               <!--
@@ -5276,6 +5306,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="ODnN5Jx9vPeNBkRQs5e50R">
             <Canvas Id="S4asGPM2ZZtO793y32wSQJ">
               <!--
@@ -5322,6 +5353,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="C6P0wuq4kz5NPMnOvemDyG">
             <Canvas Id="FXKAsGyh5xtQFZD3KjRM42">
               <!--
@@ -5405,6 +5437,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="KvKPoX9FQkPOTp0vjula8f">
             <Canvas Id="DgaSvKhJ4I0NYaRJSnnRhV">
               <!--
@@ -5489,6 +5522,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="TVwjfLJNyOWP743EZO9mAG">
             <Canvas Id="IlzVO8NUwspONWv7SHRAlj">
               <!--
@@ -5557,6 +5591,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="HdcH5hClbiKPb6CtKNwYbv">
             <Canvas Id="Ayya8vkIRH5PfAGxAcHZ33">
               <!--
@@ -5609,6 +5644,7 @@
             <FullNameCategoryReference ID="CraftLie" />
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="Jml9vdrXbNhOjGAHaFm5NW">
             <Canvas Id="HULUXhEN2D9OeJeiESuTyJ">
               <!--
@@ -5660,6 +5696,7 @@
               <FullNameCategoryReference ID="CraftLie" />
               <AssemblyReference ID="CraftLie" />
             </p:TypeAnnotation>
+            <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
             <Patch Id="UogQjW6as0qPEtBshmntth">
               <Canvas Id="ORb6NvXVQxAPMRQw65v3EO" />
               <ProcessDefinition Id="GiWDIFUrgc0LAGNhjfIThX" IsHidden="true" />
@@ -5682,6 +5719,7 @@
               <FullNameCategoryReference ID="CraftLie" />
               <AssemblyReference ID="CraftLie" />
             </p:TypeAnnotation>
+            <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
             <Patch Id="CsJMLWUdWvwLb85HR34eZi">
               <Canvas Id="OVTvchtjJQtN6iEx5J5MzJ" />
               <ProcessDefinition Id="VunqfnilZxvNLWVQaHxORe" IsHidden="true" />
@@ -5704,6 +5742,7 @@
               <FullNameCategoryReference ID="CraftLie" />
               <AssemblyReference ID="CraftLie" />
             </p:TypeAnnotation>
+            <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
             <Patch Id="EbrvrX5LtUePERWvOoQtY2">
               <Canvas Id="J8aXSNzbEKNPLUTWsI89P6" />
               <ProcessDefinition Id="FE4uAIApglgM4syBXXrQtj" IsHidden="true" />
@@ -5726,6 +5765,7 @@
               <FullNameCategoryReference ID="CraftLie" />
               <AssemblyReference ID="CraftLie" />
             </p:TypeAnnotation>
+            <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
             <Patch Id="N89IZAKcgTrO48OP5A6Cn1">
               <Canvas Id="OhgdCVzkJXaOl2AMbZ6Zc5" />
               <ProcessDefinition Id="MI4cs5Mvm8EQYYzXlAnog2" IsHidden="true" />
@@ -5748,6 +5788,7 @@
               <FullNameCategoryReference ID="CraftLie" />
               <AssemblyReference ID="CraftLie" />
             </p:TypeAnnotation>
+            <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
             <Patch Id="R353Ye3S388LXIb96BoPFh">
               <Canvas Id="TCwgQbMrSUcMLWVtEWThMT" />
               <ProcessDefinition Id="AVIQcwklT1UL4gMTIobA81" IsHidden="true" />
@@ -5770,6 +5811,7 @@
               <FullNameCategoryReference ID="CraftLie" />
               <AssemblyReference ID="CraftLie" />
             </p:TypeAnnotation>
+            <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
             <Patch Id="KWBuXHKTgDoMMM8XKSVb6X">
               <Canvas Id="Rn2JVct7xFcOT6xoxWqfmg" />
               <ProcessDefinition Id="AdfjCMsrnb8Ncvhu5qPWLe" IsHidden="true" />
@@ -5792,6 +5834,7 @@
               <FullNameCategoryReference ID="CraftLie" />
               <AssemblyReference ID="CraftLie" />
             </p:TypeAnnotation>
+            <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
             <Patch Id="AkqMfAgDttCMMKYlvOzkpS">
               <Canvas Id="VJCpt7EuFxmLJDYDKLsZKz" />
               <ProcessDefinition Id="SVi30JFLTjqMMpum9Oj000" IsHidden="true" />
