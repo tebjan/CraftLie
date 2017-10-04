@@ -71,10 +71,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicBufferDescription.cs" />
     <Compile Include="DrawDescriptionLayer.cs" />
     <Compile Include="DrawDescription.cs" />
     <Compile Include="DrawGeometryDescription.cs" />
     <Compile Include="DrawSpritesDescription.cs" />
+    <Compile Include="UploadBufferNode.cs" />
     <Compile Include="GetDrawDescriptionDataNode.cs" />
     <Compile Include="Text3d\Extruder.cs" />
     <Compile Include="Text3d\FlatSink.cs" />
