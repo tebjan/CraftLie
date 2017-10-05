@@ -55,8 +55,6 @@ namespace VVVV.DX11.Nodes
                     trans.Transpose();
                     FLocalDataBuffer[writeIndex++] = trans;
                 }
-
-                FTotalDataCount += desc.Data.Count;
             }
         }
     }
@@ -144,6 +142,12 @@ namespace VVVV.DX11.Nodes
 
         private void UpdateNormalPins()
         {
+            FTotalDataCount = 0;
+
+            foreach (var desc in FBufferDescriptionIn)
+            {
+                FTotalDataCount += desc.Data.Count;
+            }
         }
 
 
@@ -253,12 +257,7 @@ namespace VVVV.DX11.Nodes
             //make sure arrays are big enough
             EnsureArraySize(ref this.FLocalDataBuffer, FTotalDataCount);
 
-            var descriptions = FBufferDescriptionIn;
-
-            FTotalDataCount = 0;
-
-            CopyData(descriptions);
-            
+            CopyData(FBufferDescriptionIn);         
         }
 
         protected virtual void CopyData(IDiffSpread<DynamicBufferDescription<TBuffer>> descriptions)
@@ -268,7 +267,6 @@ namespace VVVV.DX11.Nodes
             foreach (var desc in descriptions.Where(d => d != null))
             {
                 CopyToLocalBuffer(desc.Data, FLocalDataBuffer, ref writeIndex);
-                FTotalDataCount += desc.Data.Count;
             }
         }
 
