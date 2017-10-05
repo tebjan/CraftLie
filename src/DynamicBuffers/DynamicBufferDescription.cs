@@ -12,14 +12,15 @@ using VL.Core;
 namespace CraftLie
 {
     [Type]
-    public class DynamicBufferDescription : IDisposable
+    public class DynamicBufferDescription<TBuffer> : IDisposable
+        where TBuffer : struct
     {
-        readonly IReadOnlyList<float> FData;
+        public readonly IReadOnlyList<TBuffer> Data;
 
         [Node]
-        public DynamicBufferDescription(IReadOnlyList<float> data)
+        public DynamicBufferDescription(IReadOnlyList<TBuffer> data)
         {
-            FData = data;
+            Data = data;
         } 
 
         [Node]

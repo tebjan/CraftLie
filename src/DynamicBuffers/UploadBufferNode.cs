@@ -20,14 +20,55 @@ using VVVV.Utils.VMath;
 
 namespace VVVV.DX11.Nodes
 {
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "CraftLie", Author = "tonfilm")]
-    public class UploadBufferNode : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Int", Author = "tonfilm")]
+    public class UploadIntBufferNode : UploadBufferNode<int> { }
+
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "UInt", Author = "tonfilm")]
+    public class UploadUIntBufferNode : UploadBufferNode<uint> { }
+
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Float", Author = "tonfilm")]
+    public class UploadFloatBufferNode : UploadBufferNode<float> { }
+
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "2d", Author = "tonfilm")]
+    public class UploadVector2BufferNode : UploadBufferNode<Vector2> { }
+
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "3d", Author = "tonfilm")]
+    public class UploadVector3BufferNode : UploadBufferNode<Vector3> { }
+
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "4d", Author = "tonfilm")]
+    public class UploadVector4BufferNode : UploadBufferNode<Vector4> { }
+
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Color", Author = "tonfilm")]
+    public class UploadColorBufferNode : UploadBufferNode<Color4> { }
+
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Transform", Author = "tonfilm")]
+    public class UploadMatrixBufferNode : UploadBufferNode<Matrix>
+    {
+        protected override void CopyData(IDiffSpread<DynamicBufferDescription<Matrix>> descriptions)
+        {
+            var writeIndex = 0;
+
+            foreach (var desc in descriptions.Where(d => d != null))
+            {
+                foreach (var trans in desc.Data)
+                {
+                    trans.Transpose();
+                    FLocalDataBuffer[writeIndex++] = trans;
+                }
+
+                FTotalDataCount += desc.Data.Count;
+            }
+        }
+    }
+
+    public class UploadBufferNode<TBuffer> : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable 
+        where TBuffer : struct
     {
         [Import()]
         protected IPluginHost2 pluginHost;
 
-        [Input("Layer", Order = 5)]
-        protected IDiffSpread<DynamicBufferDescription> FLayerIn;
+        [Input("Buffer Description", Order = 5)]
+        protected IDiffSpread<DynamicBufferDescription<TBuffer>> FBufferDescriptionIn;
 
         [Input("Keep In Memory", DefaultValue = 0, Order = 6)]
         protected ISpread<bool> FKeep;
@@ -40,8 +81,8 @@ namespace VVVV.DX11.Nodes
 
         //geometry
 
-        [Output("Transform Buffer")]
-        protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FTransformOutput;
+        [Output("Buffer")]
+        protected ISpread<DX11Resource<IDX11ReadableStructureBuffer>> FBufferOutput;
 
         [Output("Is Valid")]
         protected ISpread<bool> FValid;
@@ -49,12 +90,10 @@ namespace VVVV.DX11.Nodes
         DX11BufferUploadType currentBufferType = DX11BufferUploadType.Dynamic;
         private bool FInvalidate;
         private bool FFirst = true;
-        private int FLayerInSpreadMax;
+        private int FBufferInSpreadMax;
 
         protected virtual bool NeedConvert { get { return false; } }
 
-        DrawDescriptionLayer FMainBuffer;
-        DrawDescriptionLayer FMainBufferUpdate;
 
         int FOldGeometryOutCount = 0;
         int FOldSpritesGeometryOutCount = 0;
@@ -64,46 +103,34 @@ namespace VVVV.DX11.Nodes
             //buffer outputs
             if (this.FApply[0] || this.FFirst)
             {
-                if (this.FLayerIn.SliceCount > 0)
+                if (this.FBufferDescriptionIn.SliceCount > 0)
                 {
-                    this.FTransformOutput.SliceCount = 1;
+                    this.FBufferOutput.SliceCount = 1;
 
                     this.FValid.SliceCount = 1;
 
                     //create geometry buffer resources
-                    if (this.FTransformOutput[0] == null) { this.FTransformOutput[0] = new DX11Resource<IDX11ReadableStructureBuffer>(); }
-
-                    //multiple layer input?
-                    if (FLayerIn.SliceCount > 1)
+                    if (this.FBufferOutput[0] == null)
                     {
-                        FMainBuffer = DrawDescriptionLayer.Unite(FLayerIn);
+                        this.FBufferOutput[0] = new DX11Resource<IDX11ReadableStructureBuffer>();
                     }
-                    else
-                    {
-                        FMainBuffer = FLayerIn[0];
-                    }
-
-                    //null connected?
-                    if (FMainBuffer == null)
-                        FMainBuffer = DrawDescriptionLayer.Default;
                 }
                 else //no output
                 {
                     //geos
 
-
-                    this.FTransformOutput.SafeDisposeAll();
-                    this.FTransformOutput.SliceCount = 0;
+                    this.FBufferOutput.SafeDisposeAll();
+                    this.FBufferOutput.SliceCount = 0;
 
                     this.FValid.SliceCount = 0;
                 }
 
-                this.FLayerInSpreadMax = this.FLayerIn.SliceCount;
+                this.FBufferInSpreadMax = this.FBufferDescriptionIn.SliceCount;
                 this.FInvalidate = true;
                 this.FFirst = false;
 
                 //mark buffers changed
-                this.FTransformOutput.Stream.IsChanged = true;
+                this.FBufferOutput.Stream.IsChanged = true;
 
                 //set all normal output pins and get the total counts
                 UpdateNormalPins();
@@ -111,47 +138,32 @@ namespace VVVV.DX11.Nodes
 
         }
 
-        int FTotalTransformCount;
-        int FTotalColorCount;
+        protected int FTotalDataCount;
 
-        int FTotalSpritesPositionCount;
-        int FTotalSpritesSizeCount;
-        int FTotalSpritesColorCount;
+        protected TBuffer[] FLocalDataBuffer = new TBuffer[4096];
 
-        protected Matrix[] FBufferTrans = new Matrix[4096];
-        protected Color4[] FBufferColor = new Color4[4096];
-
-        protected Vector3[] FBufferSpritesPosition = new Vector3[8192];
-        protected Vector2[] FBufferSpritesSize = new Vector2[8192];
-        protected Color4[] FBufferSpritesColor = new Color4[8192];
-
-        int FLayerOrderSlice = 0;
         private void UpdateNormalPins()
         {
-            if (FMainBuffer == null)
-                return;
         }
 
 
         public void Update(DX11RenderContext context)
         {
-            FMainBufferUpdate = FMainBuffer;
-            if (this.FLayerInSpreadMax == 0) { return; }
+            if (this.FBufferInSpreadMax == 0) { return; }
 
-            var newContext = !this.FTransformOutput[0].Contains(context);
+            var newContext = !this.FBufferOutput[0].Contains(context);
 
             if (this.FInvalidate || newContext)
             {
                 var bufferTypeChanged = this.currentBufferType != this.FBufferType[0];
 
                 //refresh buffers?
-                CheckBufferDispose<Matrix>(context, this.FTransformOutput[0], FTotalTransformCount, bufferTypeChanged);
+                CheckBufferDispose<TBuffer>(context, this.FBufferOutput[0], FTotalDataCount, bufferTypeChanged);
 
-                PrepareLocalGeometryBufferData(context);
-                PrepareLocalSpriteBufferData(context);
+                PrepareLocalBufferData(context);
 
                 //make new buffers?
-                CreateBuffer<Matrix>(FTransformOutput[0], context, FTotalTransformCount, FBufferTrans);
+                CreateBuffer<TBuffer>(FBufferOutput[0], context, FTotalDataCount, FLocalDataBuffer);
 
             }
 
@@ -164,7 +176,7 @@ namespace VVVV.DX11.Nodes
             {
                 try
                 {
-                    WriteToBuffer(FTransformOutput[0], context, FBufferTrans, FTotalTransformCount);
+                    WriteToBuffer(FBufferOutput[0], context, FLocalDataBuffer, FTotalDataCount);
                 }
                 catch (Exception ex)
                 {
@@ -236,33 +248,27 @@ namespace VVVV.DX11.Nodes
             }
         }
 
-        private void PrepareLocalGeometryBufferData(DX11RenderContext context)
+        private void PrepareLocalBufferData(DX11RenderContext context)
         {
             //make sure arrays are big enough
-            EnsureArraySize(ref this.FBufferTrans, FTotalTransformCount);
-            EnsureArraySize(ref this.FBufferColor, FTotalColorCount);
+            EnsureArraySize(ref this.FLocalDataBuffer, FTotalDataCount);
 
-            var descriptions = FMainBufferUpdate.GeometryDescriptions;
+            var descriptions = FBufferDescriptionIn;
 
-            var geoIndex = 0;
-            var transIndex = 0;
-            var colIndex = 0;
-            foreach (var desc in descriptions)
+            FTotalDataCount = 0;
+
+            CopyData(descriptions);
+            
+        }
+
+        protected virtual void CopyData(IDiffSpread<DynamicBufferDescription<TBuffer>> descriptions)
+        {
+            var writeIndex = 0;
+
+            foreach (var desc in descriptions.Where(d => d != null))
             {
-                var geometry = desc.GetGeometry(context);
-
-                //check drawer
-                geometry = AssignInstancedDrawer(desc, geometry);
-
-                this.FGeometryOutput[geoIndex++][context] = geometry;
-
-                foreach (var trans in desc.InstanceTransformations)
-                {
-                    trans.Transpose();
-                    FBufferTrans[transIndex++] = trans;
-                }
-
-                CopyToLocalBuffer(desc.InstanceColors, FBufferColor, ref colIndex);
+                CopyToLocalBuffer(desc.Data, FLocalDataBuffer, ref writeIndex);
+                FTotalDataCount += desc.Data.Count;
             }
         }
 
@@ -273,7 +279,7 @@ namespace VVVV.DX11.Nodes
         /// <param name="source">The source.</param>
         /// <param name="destination">The destination array.</param>
         /// <param name="destinationStartIndex">Start index in the destination array.</param>
-        private static void CopyToLocalBuffer<T>(IReadOnlyList<T> source, T[] destination, ref int destinationStartIndex)
+        protected static void CopyToLocalBuffer<T>(IReadOnlyList<T> source, T[] destination, ref int destinationStartIndex)
             where T : struct
         {
             var collection = source as ICollection<T>;
@@ -344,18 +350,18 @@ namespace VVVV.DX11.Nodes
         {
             if (force || !this.FKeep[0])
             {
-                this.FTransformOutput.SafeDisposeAll(context);
+                this.FBufferOutput.SafeDisposeAll(context);
             }
         }
 
         public void Dispose()
         {
-            this.FTransformOutput.SafeDisposeAll();
+            this.FBufferOutput.SafeDisposeAll();
         }
 
         public void OnImportsSatisfied()
         {
-            this.FTransformOutput.SliceCount = 1;
+            this.FBufferOutput.SliceCount = 1;
         }
     }
 }
