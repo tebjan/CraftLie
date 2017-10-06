@@ -71,6 +71,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicTextures\DynamicTextureDescription.cs" />
+    <Compile Include="DynamicTextures\UploadTextureDX11Node.cs" />
     <Compile Include="DynamicBuffers\DynamicBufferDescription.cs" />
     <Compile Include="DrawDescriptionLayer.cs" />
     <Compile Include="DrawDescription.cs" />
@@ -102,11 +104,12 @@
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
     <DocumentationFile>..\vvvv\nodes\plugins\CraftLie.XML</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <OutputPath>..\vvvv\nodes\plugins\</OutputPath>
     <Optimize>true</Optimize>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>..\vvvv\nodes\plugins\CraftLie.XML</DocumentationFile>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>

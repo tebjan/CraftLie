@@ -3369,7 +3369,7 @@
               </p:NodeReference>
               <Pin Id="EbCsgviVkdgPhI8AE3BJVI" Name="Input" Kind="InputPin" />
               <Pin Id="O24c1DPP3lgOxGi6DgZmLB" Name="Output" Kind="OutputPin" />
-              <Patch Id="Br8nGvqIoArLNOnIw0Wk2w" Name="Property Applier" ManuallySortedPins="true">
+              <Patch Id="Br8nGvqIoArLNOnIw0Wk2w" Name="Modifier" ManuallySortedPins="true">
                 <Pin Id="Hec34DD9xQ7NEPvvvgZyOh" Name="Arg" Kind="InputPin" />
                 <ControlPoint Id="PcddQSzdiA4MsSSYZVSG70" Bounds="435,703" />
                 <Node Bounds="434,746,69,13" Id="V8LaZBUFO5CLQyM8UtskKF">
@@ -3902,7 +3902,7 @@
               </p:NodeReference>
               <Pin Id="Pw4RHKPhpC5OYutKioK6nA" Name="Input" Kind="InputPin" />
               <Pin Id="TUf1wNEY311P3THSI93WN8" Name="Output" Kind="OutputPin" />
-              <Patch Id="EOwEULTc4KOOcdOw5ZXOTG" Name="Property Applier" ManuallySortedPins="true">
+              <Patch Id="EOwEULTc4KOOcdOw5ZXOTG" Name="Modifier" ManuallySortedPins="true">
                 <Pin Id="PQ7M6KIKruGMNnHlxgVvoP" Name="Arg" Kind="InputPin" />
                 <ControlPoint Id="MYWyPMPQ3sWPMhzDIlHKsN" Bounds="662,2060" />
                 <Node Bounds="661,2103,69,13" Id="Ee2bcA3WiWpNfe7a4mkd9R">
@@ -3951,7 +3951,7 @@
               </p:NodeReference>
               <Pin Id="Dx95G95pJnOMqI1hgnfuRf" Name="Input" Kind="InputPin" />
               <Pin Id="HoHaqJvYaaHMaE9KXZMD43" Name="Output" Kind="OutputPin" />
-              <Patch Id="MMl4IYWbCHDQIYQqXEMEwk" Name="Property Applier" ManuallySortedPins="true">
+              <Patch Id="MMl4IYWbCHDQIYQqXEMEwk" Name="Modifier" ManuallySortedPins="true">
                 <Pin Id="Iik7I8Z5nDmN6wZzEUQR6W" Name="Arg" Kind="InputPin" />
                 <ControlPoint Id="PakeKSSbthKLC3ilO8FgLB" Bounds="662,2379" />
                 <Node Bounds="661,2422,69,13" Id="GVIjUDnzxrfMpUbh7AkbQG">
@@ -5859,8 +5859,159 @@
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
           <Patch Id="UJznCz3oAjFPgfovZYKC1j">
-            <Canvas Id="Sqi9RSiThLVLt4YtzLALWQ" BordersChecked="false" />
+            <Canvas Id="Sqi9RSiThLVLt4YtzLALWQ" />
             <ProcessDefinition Id="K20KFqYkfKCNPPdIAxEeuA" IsHidden="true" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ TextureDescriptionFormat ************************
+
+-->
+        <Node Name="TextureDescriptionFormat" Bounds="423,360" Id="Sqkc6YgZOFaNDhKrILr5tq">
+          <p:NodeReference>
+            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation>
+            <Choice Kind="TypeFlag" Name="TextureDescriptionFormat" />
+            <AssemblyReference ID="CraftLie" />
+            <FullNameCategoryReference ID="CraftLie" />
+            <FullNameCategoryReference ID="CraftLie" />
+            <AssemblyReference ID="CraftLie" />
+          </p:TypeAnnotation>
+          <Patch Id="Bz8VP8xSa0AOGNeDNDXMiL">
+            <Canvas Id="UJAdAxFEB8wPc44WQnY2Zs" BordersChecked="false" />
+            <ProcessDefinition Id="LUMw3cxDrJxPrhuJepwQ3E" IsHidden="true" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ DynamicTextureDescription ************************
+
+-->
+        <Node Name="DynamicTextureDescription" Bounds="422,410" Id="BrwbXOm3tq6QGfb8Yd0zAr">
+          <p:NodeReference>
+            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation>
+            <Choice Kind="TypeFlag" Name="DynamicTextureDescription" />
+            <AssemblyReference ID="CraftLie" />
+            <FullNameCategoryReference ID="CraftLie" />
+            <FullNameCategoryReference ID="CraftLie" />
+            <AssemblyReference ID="CraftLie" />
+          </p:TypeAnnotation>
+          <Patch Id="Nn0VUAXCAikNmrCWiVg8At">
+            <Canvas Id="CQMQRhv7D1qPdUK1JbpRmw">
+              <!--
+
+    ************************ FromIntPtr ************************
+
+-->
+              <Node Name="FromIntPtr" Bounds="96,162,155,96" Id="K232dIwtjLyLsXw282nbdv">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="Ai5iYLCMrd5ODNIk2evsjD">
+                  <Node Bounds="109,185,130,22" ForwardPins="true" Id="SDSpdUPDEx6OuRIdg9xkfe">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicTextureDescriptionIntPtr" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <FullNameCategoryReference ID="CraftLie.DynamicTextureDescriptionIntPtr" />
+                      <AssemblyReference ID="CraftLie" />
+                    </p:NodeReference>
+                    <Pin Id="PGIQOkRlc5dOUvWrlohdRh" Name="Data" Kind="InputPin" />
+                    <Pin Id="Bc27JzM9kSjLyEG0rxkHNE" Name="Width" Kind="InputPin" />
+                    <Pin Id="OIJMKB4mxLrLPvO22ilR00" Name="Height" Kind="InputPin" />
+                    <Pin Id="TNd9GxzfQ9xMEg8ISuxxDe" Name="Format" Kind="InputPin" />
+                    <Pin Id="CgJEcg9VYwjMNolypl65nD" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="K4GPcOC61SFMLtf6oZ43j8" Bounds="110,240" />
+                  <Link Id="VPUbX90qWidMcqmAGhzpmI" Ids="CgJEcg9VYwjMNolypl65nD,K4GPcOC61SFMLtf6oZ43j8" />
+                  <Pin Id="IFMNYzjIPUlOQg0tqt3IPc" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicTextureDescription" />
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="RMRgU1jQ37YO5QhppRl8th" Ids="K4GPcOC61SFMLtf6oZ43j8,IFMNYzjIPUlOQg0tqt3IPc" IsHidden="true" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromArray ************************
+
+-->
+              <Node Name="FromArray" Bounds="312,162,164,97" Id="I88Jlz8ll87OhtkL17kFFo">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="AgeEjmzY5UUNInd5csDo4Y" IsGeneric="true">
+                  <Node Bounds="325,185,139,22" ForwardPins="true" Id="US8jlIzwVrcPiemixGV49U">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicTextureDescriptionArray`1" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <FullNameCategoryReference ID="CraftLie.DynamicTextureDescriptionArray`1" />
+                      <AssemblyReference ID="CraftLie" />
+                    </p:NodeReference>
+                    <Pin Id="Ig6la2Yj0cMQRRnLMXk5Cq" Name="Data" Kind="InputPin" />
+                    <Pin Id="AkRWCAdIANZMTgNJIG4Vpf" Name="Width" Kind="InputPin" />
+                    <Pin Id="Fv2XyNbhcgMMKAMRVzcUij" Name="Height" Kind="InputPin" />
+                    <Pin Id="D55czKtWGGZOfhEg6guTiv" Name="Format" Kind="InputPin" />
+                    <Pin Id="OZWGBZVVSiAOGFwczWBMd1" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="MBSXJbgadFVLPAXD1g6WFa" Bounds="326,240" />
+                  <Pin Id="KNzKU4QyxIlPKXHk0R1r6o" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicTextureDescription" />
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="KUKvdYYNkDlN6gXVJQ3Erd" Ids="MBSXJbgadFVLPAXD1g6WFa,KNzKU4QyxIlPKXHk0R1r6o" IsHidden="true" />
+                  <Link Id="LT8qj7iyWpQO6thPcgeLQO" Ids="OZWGBZVVSiAOGFwczWBMd1,MBSXJbgadFVLPAXD1g6WFa" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromSpread ************************
+
+-->
+              <Node Name="FromSpread" Bounds="526,162,168,86" Id="APP4loLYMYbM6KwnJmqd2Z">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="V1MZnw4AWVYO5j7j7nq0wc" IsGeneric="true">
+                  <Node Bounds="538,185,144,22" ForwardPins="true" Id="RWlwATV2NLjOb1vSM72CXV">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicTextureDescriptionSpread`1" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <FullNameCategoryReference ID="CraftLie.DynamicTextureDescriptionSpread`1" />
+                      <AssemblyReference ID="CraftLie" />
+                    </p:NodeReference>
+                    <Pin Id="GpEyOEw9rfGOcUaUyHnYyL" Name="Data" Kind="InputPin" />
+                    <Pin Id="IsulmtcLNy3PJOYOXzhkTs" Name="Width" Kind="InputPin" />
+                    <Pin Id="HgH7RdFcfZsQRUjP1njRbV" Name="Height" Kind="InputPin" />
+                    <Pin Id="VGbhNESeMXYPDY8hJkic7a" Name="Format" Kind="InputPin" />
+                    <Pin Id="DrqiTvR6dsLMeBD81ltE3d" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="P8Fvx4O9c2RN1Irb2avYKs" Bounds="540,240" />
+                  <Pin Id="KDbZMA74L0PQUyYvNf1VO1" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicTextureDescription" />
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="Hq8FxREvGHTQY3xYYo6CuO" Ids="P8Fvx4O9c2RN1Irb2avYKs,KDbZMA74L0PQUyYvNf1VO1" IsHidden="true" />
+                  <Link Id="O8YWaFdyItlL3rC16y86cj" Ids="DrqiTvR6dsLMeBD81ltE3d,P8Fvx4O9c2RN1Irb2avYKs" />
+                </Patch>
+              </Node>
+            </Canvas>
+            <ProcessDefinition Id="IQC37drwRdrMURY2kMkLZq" IsHidden="true">
+              <Fragment Id="AK2G2g6EZL6OfFboS2bkRS" Patch="APP4loLYMYbM6KwnJmqd2Z" Enabled="true" />
+              <Fragment Id="EClIxR2GlBsLGZEVp8wHdK" Patch="K232dIwtjLyLsXw282nbdv" Enabled="true" />
+              <Fragment Id="UdgAeKUXHvIMk8ZCMNpxBf" Patch="I88Jlz8ll87OhtkL17kFFo" Enabled="true" />
+            </ProcessDefinition>
           </Patch>
         </Node>
       </Canvas>

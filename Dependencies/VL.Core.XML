@@ -1,0 +1,587 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VL.Core</name>
+    </assembly>
+    <members>
+        <member name="T:VL.Core.EventBridge">
+            <summary>
+            Contains helper functions to turn .NET events into observables.
+            </summary>
+        </member>
+        <member name="M:VL.Core.EventBridge.FromEventPattern(System.Type,System.String)">
+            <summary>
+            Same as Observable.FromEventPattern but caches the resulting observable sequence for the given type and event name.
+            </summary>
+        </member>
+        <member name="M:VL.Core.EventBridge.FromEventPattern(System.Object,System.String)">
+            <summary>
+            Same as Observable.FromEventPattern but caches the resulting observable sequence for the given target object and event name.
+            </summary>
+        </member>
+        <member name="M:VL.Core.EventBridge.FromEventPattern``1(System.Type,System.String)">
+            <summary>
+            Same as Observable.FromEventPattern but caches the resulting observable sequence for the given type and event name.
+            </summary>
+        </member>
+        <member name="M:VL.Core.EventBridge.FromEventPattern``1(System.Object,System.String)">
+            <summary>
+            Same as Observable.FromEventPattern but caches the resulting observable sequence for the given target object and event name.
+            </summary>
+        </member>
+        <member name="T:VL.Core.Properties.Settings">
+            <summary>
+            Global HDE settings
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.NodeShowImplementationIcon">
+            <summary>
+            Show the icon for a nodes implementation (patch/code) even for nodes that are not in the &quot;Main&quot; namespace
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.NodeShowType">
+            <summary>
+            Show a types name in MemberOperation nodes
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.PropertyShowCollectionIcon">
+            <summary>
+            Display the collection icon for properties whose type is a collection
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.PropertyShowMutableIcon">
+            <summary>
+            Display the mutable icon for properties whose type is mutable
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.RuntimeSupport">
+            <summary>
+            When enabled values as well as timing information can be inspected at runtime. Has minor impact on performance however.
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.TooltipShowDocumentation">
+            <summary>
+            Display code documentation 
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.TooltipShowLocalID">
+            <summary>
+            Display an items localID
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.TooltipShowOperation">
+            <summary>
+            Display the Operation an item is part of 
+            </summary>
+        </member>
+        <member name="P:VL.Core.Properties.Settings.MouseWheelZooms">
+            <summary>
+            Mouse wheel zooms, + ALT pans vertically, + SHIFT pans horizontally. Otherwise mouse wheel pans vertically, + CTRL zooms
+            </summary>
+        </member>
+        <member name="T:VL.Core.TypeAttribute">
+            <summary>
+            Tell VL how to import a type.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Name">
+            <summary>
+            A name for within VL. If not set, VL will take the .NET name.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Category">
+            <summary>
+            A category for the type to show up in. Use dots to build nested categories. If not set, VL will take the .NET namespace.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Version">
+            <summary>
+            A version to distinguish it from another type. 
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Tags">
+            <summary>
+            A space-separated list of tags to help users find your type e.g. in the NodeBrowser
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Author">
+            <summary>
+            The hero who built the type.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Credits">
+            <summary>
+            The ones who were helpful.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Bugs">
+            <summary>
+            Known issues of the current version.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Warnings">
+            <summary>
+            Things people should be aware of when using the type.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Help">
+            <summary>
+            A description that tells the user why this type exists and how it is meant to be used.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.ImportedHelp">
+            <summary>
+            Imported from C# code documentation. XML snipped which can be parsed into an XElement.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.Hidden">
+            <summary>
+            If set to true, the type will not show up.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.IsImmutable">
+            <summary>
+            Wether or not an instance of the type is immutable. 
+            The best way to ensure this is to use readonly fields only. Also all these fields should be of immutable types.
+            </summary>
+        </member>
+        <member name="P:VL.Core.TypeAttribute.IsBuiltin">
+            <summary>
+            Wether or not the VL system knows about this type. This should only be used by the core developers.
+            </summary>
+        </member>
+        <member name="T:VL.Core.NodeAttribute">
+            <summary>
+            Tell VL how to import a node. 
+            If used on fields, properties and methods you get operations. 
+            If used on types it will result in a process node.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Name">
+            <summary>
+            The name of the node. If not set, it will use the name of the .NET method/type...
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Version">
+            <summary>
+            The version. This is to distinguish the node from other overloads.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Category">
+            <summary>
+            Where to place the node in. If not set, it will show up in the $"{namespace}.{type}" category
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.ShowCategory">
+            <summary>
+            Wether or not the category shall be shown in a second row. 
+            This can help users to understand the node faster.
+            It however makes the node bigger. 
+            By default this is on for instance members and off for static members and process nodes.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.ShowCategoryDefault">
+            <summary>
+            This is not meant to be changed.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Tags">
+            <summary>
+            A space-separated list of tags to help users find your node e.g. in the NodeBrowser
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Author">
+            <summary>
+            The hero who wrote the node. Only specify when different than the author of the related type.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Credits">
+            <summary>
+            Helping hands.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Bugs">
+            <summary>
+            Issues of the current version of the node.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Warnings">
+            <summary>
+            Usage hints. Things that should be considered by the user.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Help">
+            <summary>
+            What is this node doing. What else should I be doing to get this node running?
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.ImportedHelp">
+            <summary>
+            Imported from C# code documentation. XML snipped which can be parsed into an XElement.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.Hidden">
+            <summary>
+            Set this to true to hide it in the node browser.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.IsDefaultValue">
+            <summary>
+            A VL type may have a default value. If not set, the default value typically is null. 
+            Use this attribute to specify the node that should be called to get the default value of the type.
+            Use it on static members only. 
+            VL will attach the node on every unconnected sink of that type and call it just before its value gets consumed.
+            That's why this node should be very lightweight. 
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.OperationsOfProcessNode">
+            <summary>
+            A comma-separated list of node names of operations. This is for process nodes only. "Create, Update" is what you typically use.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.ShowStateOutputOfProcessNode">
+            <summary>
+            Wether or not the state output of the process node is visible.
+            </summary>
+        </member>
+        <member name="P:VL.Core.NodeAttribute.StateTypeParameter">
+            <summary>
+            The type parameter of the delegate inputs which will be consumed by VL to allow the creation of a stateful region.
+            </summary>
+        </member>
+        <member name="T:VL.Core.PinVisibility">
+            <summary>
+            Controls the visibility of pins. 
+            </summary>
+        </member>
+        <member name="F:VL.Core.PinVisibility.Visible">
+            <summary>
+            The pin is always visible.
+            </summary>
+        </member>
+        <member name="F:VL.Core.PinVisibility.Optional">
+            <summary>
+            The user can configure the node to show this pin on application side.
+            </summary>
+        </member>
+        <member name="F:VL.Core.PinVisibility.Hidden">
+            <summary>
+            The user won't see the pin.
+            </summary>
+        </member>
+        <member name="T:VL.Core.PinAttribute">
+            <summary>
+            Control the details of a pin.
+            </summary>
+        </member>
+        <member name="P:VL.Core.PinAttribute.Name">
+            <summary>
+            The name. If not set, VL will take the .NET argument name and apply some rules, like "heartBeatRate" -> "Heart Beat Rate"
+            </summary>
+        </member>
+        <member name="P:VL.Core.PinAttribute.NameDefault">
+            <summary>
+            This is not meant to be used by the user.
+            </summary>
+        </member>
+        <member name="P:VL.Core.PinAttribute.Help">
+            <summary>
+            Tells the user how this pin is used by the node.
+            </summary>
+        </member>
+        <member name="P:VL.Core.PinAttribute.ImportedHelp">
+            <summary>
+            Imported from C# code documentation. XML snipped which can be parsed into an XElement.
+            </summary>
+        </member>
+        <member name="P:VL.Core.PinAttribute.DefaultValue">
+            <summary>
+            If you want to set the default, first try the c# syntax: int myArgument = 42.
+            In case you need to set a default that is no compile time constant you may use this property to specify the default value as json.
+            Currently supported: SharpDX.Vector2/3/4, SharpDX.Color3/4, arrays, 
+            e.g. try: DefaultValue = "new vec(0, 0, 0, 1)" or DefaultValue = "{\"Alpha\" : 1}" on a Color4 input to make it default to opaque black.      
+            </summary>
+        </member>
+        <member name="P:VL.Core.PinAttribute.Order">
+            <summary>
+            Move the pin. Sometimes helpful when pins already get defined in base classes.
+            </summary>
+        </member>
+        <member name="P:VL.Core.PinAttribute.Visibility">
+            <summary>
+            Wether or not the pin should be hidden.
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Animation.Clocks.FrameClock">
+            <summary>
+            The clock used to determine the time when the current frame of the vl mainloop started
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Animation.Clocks.CurrentFrameTime">
+            <summary>
+            The time when the current frame started
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Animation.Clocks.RealTimeClock">
+            <summary>
+            The clock used to determine the current time, returns a new time value for each call
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Animation.Clocks.CurrentTime">
+            <summary>
+            Checks time now
+            </summary>
+        </member>
+        <member name="M:VL.Lib.Animation.Time.FromDateTime(System.DateTime)">
+            <summary>
+            Elapsed time in seconds since midnight year 0 of the gregorian calendar
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VL.Lib.Animation.Time.FromDateTimeUTC(System.DateTimeOffset)">
+            <summary>
+            Elapsed time in seconds since midnight year 0 of the gregorian calendar
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="P:VL.Lib.Collections.IDynamicEnum.Value">
+            <summary>
+            Gets the current enum value as string
+            </summary>
+        </member>
+        <member name="M:VL.Lib.Collections.IDynamicEnum.CreateValue(System.String)">
+            <summary>
+            Creates a new enum value with the same type as the input instance
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Collections.IDynamicEnum.Definition">
+            <summary>
+            Gets the definition of this enum with all entries
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Collections.IDynamicEnumDefinition.OnChange">
+            <summary>
+            Fires when the definition changes, i.e. entries get added or removed
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Collections.IDynamicEnumDefinition.Entries">
+            <summary>
+            Gets the current list of valid entries
+            </summary>
+        </member>
+        <member name="M:VL.Lib.Collections.IDynamicEnumDefinition.IsValid(System.String)">
+            <summary>
+            Returns true if the string is a valid entry of this enum type
+            </summary>
+        </member>
+        <member name="M:VL.Lib.Collections.DynamicEnumExtensions.IsValid(VL.Lib.Collections.IDynamicEnum)">
+            <summary>
+            Returns true if the value is in the current entry list of the definition.
+            </summary>
+            <returns>
+              <c>true</c> if the specified input is valid, not null and its value is not a null or empty string; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:VL.Lib.Collections.DynamicEnumExtensions.SelectedIndex(VL.Lib.Collections.IDynamicEnum)">
+            <summary>
+            Gets the index of the selected item in the entries list of its definition.
+            Can return -1 if the string is not in the current list of entries.
+            </summary>
+        </member>
+        <member name="M:VL.Lib.Collections.DynamicEnumExtensions.CreateValue``1(``0,System.String)">
+            <summary>
+            Creates a new enum value of given type
+            </summary>
+        </member>
+        <member name="M:VL.Lib.Collections.DynamicEnumExtensions.TrySelectIndex``1(``0,System.Int32,System.Boolean@,``0@)">
+            <summary>
+            Sets the selected item to the value at the index in the entries list of its definition.
+            If the index is out of range, returns false and the input value.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:VL.Lib.Collections.DynamicEnumBase`2" -->
+        <member name="M:VL.Lib.Collections.DynamicEnumBase`2.CreateDefaultBase(System.String)">
+            <summary>
+            Can be used in subclass to create the default, selects the first entry.
+            </summary>
+            <param name="emptyMessage">The message to display if no entries in the definition, leave empty for a generic message</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:VL.Lib.Collections.DynamicEnumDefinitionBase`1" -->
+        <member name="M:VL.Lib.Collections.SpreadBuilder`1.IndexOf(`0)">
+            <summary>
+            Searches for the specified item and returns index of the first occurrence
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VL.Lib.Collections.SpreadBuilder`1.Insert(System.Int32,`0)">
+            <summary>
+            Inserts the item at specified index
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:VL.Lib.Collections.SpreadBuilder`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes the item at specified index
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:VL.Lib.Collections.SpreadBuilder`1.CopyTo(`0[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Copies 'Count' elements from 'Start Index' to an Array at the 'Array Index' position
+            </summary>
+            <param name="array"></param>
+            <param name="startIndex"></param>
+            <param name="count"></param>
+            <param name="arrayIndex"></param>
+            <param name="reverseOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VL.Lib.Collections.SpreadBuilder`1.Sort">
+            <summary>
+            Sorts the elements in the entire spread builder using the default comparer
+            </summary>
+        </member>
+        <member name="M:VL.Lib.Collections.SpreadBuilder`1.Sort(System.Func{`0,`0,System.Int32})">
+            <summary>
+            Sorts the elements in the entire spread builder using the specified comparer function
+            </summary>
+            <param name="comparer"></param>
+        </member>
+        <member name="M:VL.Lib.Collections.Spread`1.ToBuilder">
+            <summary>
+            Creates a spread builder with the same contents as this spread that can be efficiently modified across multiple operations
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VL.Lib.Collections.Spread`1.IsEmpty">
+            <summary>
+            Whether or not the spread is empty
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Collections.Spread`1.Count">
+            <summary>
+            Returns the number of slices in the spread
+            </summary>
+        </member>
+        <member name="P:VL.Lib.Collections.Spread`1.Item(System.Int32)">
+            <summary>
+            Returns the item at the specified index. Can throw ArgumentOutOfRangeException exception
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VL.Lib.Collections.Spread`1.IndexOf(`0)">
+            <summary>
+            Searches for the specified item and returns the index of the first occurrence
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VL.Lib.Collections.Spread">
+            <summary>
+            Contains all those methods which are used in C# and VL.
+            Methods which are only used in VL reside in SpreadNodes.
+            </summary>
+        </member>
+        <member name="P:VL.Lib.IO.Path.IsFile">
+            <summary>
+            Returns whether the path is a file
+            </summary>
+        </member>
+        <member name="P:VL.Lib.IO.Path.IsDirectory">
+            <summary>
+            Returns whether the path is a folder
+            </summary>
+        </member>
+        <member name="P:VL.Lib.IO.Path.Size">
+            <summary>
+            Returns the size of a file or all the files in a folder
+            </summary>
+        </member>
+        <member name="P:VL.Lib.IO.Path.Exists">
+            <summary>
+            Returns whether file or folder exists
+            </summary>
+        </member>
+        <member name="M:VL.Lib.IO.Path.Refresh">
+            <summary>
+            Updates all properties of the path
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VL.Lib.IO.Path.Parent">
+            <summary>
+            For a directory returns its parent directory. For a file returns the directory the file is in
+            </summary>
+        </member>
+        <member name="M:VL.Lib.IO.Path.GetDescendants(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Returns all files and folders contained withinin a directory
+            </summary>
+            <param name="searchPattern"></param>
+            <param name="includeSubdirectories"></param>
+            <param name="includeHidden"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VL.Lib.IO.Path.GetDirectories(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Returns all folders contained within a directory
+            </summary>
+            <param name="searchPattern"></param>
+            <param name="includeSubdirectories"></param>
+            <param name="includeHidden"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VL.Lib.IO.Path.GetFiles(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Returns all files contained within a directory
+            </summary>
+            <param name="searchPattern"></param>
+            <param name="includeSubdirectories"></param>
+            <param name="includeHidden"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VL.Lib.IO.Path.Filename(VL.Lib.IO.Path@,System.String@,System.String@)">
+            <summary>
+            Returns the directory path and the name and extension of a file
+            </summary>
+            <param name="directory"></param>
+            <param name="filename"></param>
+            <param name="extension"></param>
+        </member>
+        <member name="M:VL.Lib.IO.Path.GetAttributes(System.Boolean@,System.Boolean@,System.Boolean@)">
+            <summary>
+            Returns readonly, hidden and system attributes of a file or folder
+            </summary>
+            <param name="isReadOnly"></param>
+            <param name="isHidden"></param>
+            <param name="isSystem"></param>
+        </member>
+        <member name="M:VL.Lib.IO.Path.SetAttributes(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the readonly, hidden and system attributes of a file or folder
+            </summary>
+            <param name="isReadOnly"></param>
+            <param name="isHidden"></param>
+            <param name="isSystem"></param>
+        </member>
+        <member name="M:VL.Lib.IO.Path.Modified(System.DateTime@,System.DateTime@,System.DateTime@)">
+            <summary>
+            Returns creation date, last write and last access dates of a file or folder
+            </summary>
+            <param name="creationTime"></param>
+            <param name="lastWriteTime"></param>
+            <param name="lastAccessTime"></param>
+        </member>
+        <member name="M:System.Collections.Generic.EnumerableExtensions.Permutations``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            (a,b),(c,d) -> (a,c),(a,d),(b,c),(b,d)
+            </summary>
+        </member>
+    </members>
+</doc>
