@@ -48,8 +48,6 @@ namespace VVVV.DX11.Nodes
 
         private bool FInvalidate;
 
-        private byte[] data = new byte[0];
-
         public void Evaluate(int SpreadMax)
         {
             if (this.FApply[0])
@@ -71,53 +69,68 @@ namespace VVVV.DX11.Nodes
             for (int i = 0; i < FTextureOutput.SliceCount; i++)
             {
                 FValid[i] = false;
-                SetupTexture(i, FTextureOutput[i], context, FInData[i]);
+                SetupTexture(i, context, FTextureOutput[i], FInData[i]);
             }        
         }
 
-        private void SetupTexture(int slice, DX11Resource<DX11DynamicTexture2D> texture, DX11RenderContext context, DynamicTextureDescription description)
+        private void SetupTexture(int slice, DX11RenderContext context, DX11Resource<DX11DynamicTexture2D> texture, DynamicTextureDescription description)
         {
-            if (this.FInvalidate || !texture.Contains(context))
+            try
             {
-                var fmt = (SlimDX.DXGI.Format)description.Format;
-                Texture2DDescription desc;
-
-                if (texture.Contains(context))
+                if (!texture.Contains(context))
                 {
-                    desc = texture[context].Resource.Description;
+                    var fmt = (SlimDX.DXGI.Format)description.Format;
+                    Texture2DDescription desc;
 
-                    if (desc.Width != description.Width || desc.Height != description.Height || desc.Format != fmt)
+                    if (texture.Contains(context))
                     {
-                        texture.Dispose(context);
-                        texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
+                        desc = texture[context].Resource.Description;
+
+                        if (desc.Width != description.Width || desc.Height != description.Height || desc.Format != fmt)
+                        {
+                            texture.Dispose(context);
+                            texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
+                        }
                     }
-                }
-                else
-                {
-                    texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
+                    else
+                    {
+                        texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
 #if DEBUG
                     texture[context].Resource.DebugName = "DynamicTexture";
 #endif
+                    }
+
+                    desc = texture[context].Resource.Description;
+
+                    int stride = GetPixelSizeInBytes(description.Format);
+                    int dataLength = desc.Width * desc.Height * stride;
+
+                    var t = texture[context];
+                    if (description.DataType == TextureDescriptionDataType.IntPtr)
+                    {
+                        WriteToTexture(stride, dataLength, t, description.GetDataPointer());
+                    }
+                    else
+                    {
+                        var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
+
+                        try
+                        {
+                            WriteToTexture(stride, dataLength, t, pinnedArray.AddrOfPinnedObject());
+                        }
+                        finally
+                        {
+                            pinnedArray.Free();
+                        }
+
+                    }
+
+                    this.FInvalidate = false;
                 }
-
-                desc = texture[context].Resource.Description;
-
-                int stride = GetPixelSizeInBytes(description.Format);
-                int dataLength = desc.Width * desc.Height * stride;
-
-                var t = texture[context];
-                if (description.DataType == TextureDescriptionDataType.IntPtr)
-                {
-                    WriteToTexture(stride, dataLength, t, description.GetDataPointer());
-                }
-                else
-                {
-                    var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
-                    WriteToTexture(stride, dataLength, t, pinnedArray.AddrOfPinnedObject());
-                    pinnedArray.Free();
-                }
-
-                this.FInvalidate = false;
+            }
+            finally
+            {
+                FValid[slice] = true;
             }
         }
 

@@ -71,6 +71,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicBuffers\DynamicRawBufferDescription.cs" />
+    <Compile Include="DynamicBuffers\UploadRawBufferNode.cs" />
     <Compile Include="DynamicTextures\DynamicTextureDescription.cs" />
     <Compile Include="DynamicTextures\UploadTextureDX11Node.cs" />
     <Compile Include="DynamicBuffers\DynamicBufferDescription.cs" />

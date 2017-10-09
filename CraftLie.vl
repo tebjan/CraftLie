@@ -5848,7 +5848,7 @@
 -->
         <Node Name="DynamicBufferDescription" Bounds="124,358" Id="ISnDRDolvPzMa2BPWbk9WI">
           <p:NodeReference>
-            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
           </p:NodeReference>
           <p:TypeAnnotation>
@@ -5870,7 +5870,7 @@
 -->
         <Node Name="TextureDescriptionFormat" Bounds="423,360" Id="Sqkc6YgZOFaNDhKrILr5tq">
           <p:NodeReference>
-            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
           </p:NodeReference>
           <p:TypeAnnotation>
@@ -5881,7 +5881,7 @@
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
           <Patch Id="Bz8VP8xSa0AOGNeDNDXMiL">
-            <Canvas Id="UJAdAxFEB8wPc44WQnY2Zs" BordersChecked="false" />
+            <Canvas Id="UJAdAxFEB8wPc44WQnY2Zs" />
             <ProcessDefinition Id="LUMw3cxDrJxPrhuJepwQ3E" IsHidden="true" />
           </Patch>
         </Node>
@@ -5892,7 +5892,7 @@
 -->
         <Node Name="DynamicTextureDescription" Bounds="422,410" Id="BrwbXOm3tq6QGfb8Yd0zAr">
           <p:NodeReference>
-            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
           </p:NodeReference>
           <p:TypeAnnotation>
@@ -6011,6 +6011,130 @@
               <Fragment Id="AK2G2g6EZL6OfFboS2bkRS" Patch="APP4loLYMYbM6KwnJmqd2Z" Enabled="true" />
               <Fragment Id="EClIxR2GlBsLGZEVp8wHdK" Patch="K232dIwtjLyLsXw282nbdv" Enabled="true" />
               <Fragment Id="UdgAeKUXHvIMk8ZCMNpxBf" Patch="I88Jlz8ll87OhtkL17kFFo" Enabled="true" />
+            </ProcessDefinition>
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ DynamicRawBufferDescription ************************
+
+-->
+        <Node Name="DynamicRawBufferDescription" Bounds="710,408" Id="P07J0bjhEk9OTH3aL2FRQJ">
+          <p:NodeReference>
+            <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.dll">
+            <AssemblyReference ID="CraftLie" />
+            <FullNameCategoryReference ID="CraftLie" />
+            <FullNameCategoryReference ID="CraftLie" />
+            <AssemblyReference ID="CraftLie" />
+            <Choice Kind="ClassType" Name="DynamicRawBufferDescription" />
+          </p:TypeAnnotation>
+          <Patch Id="EbrVcRvNujpNOR1KCXblyX">
+            <Canvas Id="IgLwKt0fwihPv8bPjzX27m">
+              <!--
+
+    ************************ FromIntPtr ************************
+
+-->
+              <Node Name="FromIntPtr" Bounds="96,162,155,96" Id="VMpuvBm4wqgP1xEoHaRYj4">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="HExugcXz2dXMEh4FtLXh4F">
+                  <Node Bounds="109,185,130,22" ForwardPins="true" Id="UseaFCadRaCOW9VlkyZXed">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicRawBufferDescriptionIntPtr" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicRawBufferDescriptionIntPtr" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="SeD454xpRpIO0fBKPbrhAJ" Name="Data" Kind="InputPin" />
+                    <Pin Id="GPM8PEJX9RXLnDTIg62GrF" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="DGMq5YW0g4wO5X5YKEXCzy" Name="Data Size In Bytes" Kind="InputPin" />
+                  </Node>
+                  <ControlPoint Id="JgBFeJtq8lAPZbb9xzxjA4" Bounds="110,240" />
+                  <Link Id="ByUSeZO0ZBLPzBF0P1yNBe" Ids="GPM8PEJX9RXLnDTIg62GrF,JgBFeJtq8lAPZbb9xzxjA4" />
+                  <Pin Id="DcJy8bTq6xALXquWKhmgjz" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicRawBufferDescription" />
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="T4PPsR8xNi5P2lJJtplZbp" Ids="JgBFeJtq8lAPZbb9xzxjA4,DcJy8bTq6xALXquWKhmgjz" IsHidden="true" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromArray ************************
+
+-->
+              <Node Name="FromArray" Bounds="312,162,164,97" Id="OSUgYuZ1kvwL2c5J4JV1d1">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="IUSuYtY7r0CPBGMZmQ5Y6o">
+                  <Node Bounds="325,185,139,22" ForwardPins="true" Id="U7KFASsbYPYPeYHB3NUHBp">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicRawBufferDescriptionArray" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicRawBufferDescriptionArray" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="UtR7674Mu1BNCb9uDeqOFw" Name="Data" Kind="InputPin" />
+                    <Pin Id="KEzaOILROelQBPY7mvvT6F" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="He8sg0q9CQtQDAQPlXUpck" Bounds="326,240" />
+                  <Pin Id="LW2PzqPE3bZPR1JKdbWigm" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicRawBufferDescription" />
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="KRnl3CYh3QbL8nOHuZtADn" Ids="He8sg0q9CQtQDAQPlXUpck,LW2PzqPE3bZPR1JKdbWigm" IsHidden="true" />
+                  <Link Id="KSCHiKrXK7ZNtgU6cJLyOJ" Ids="KEzaOILROelQBPY7mvvT6F,He8sg0q9CQtQDAQPlXUpck" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromSpread ************************
+
+-->
+              <Node Name="FromSpread" Bounds="526,162,168,86" Id="ITNZIcKHjmcOELDgf5uIde">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="HjFOLeYd6DSN9qrEzu4cGK">
+                  <Node Bounds="538,185,144,22" ForwardPins="true" Id="JDcuRas4vWxMlGloCU31tC">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicRawBufferDescriptionSpread" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicRawBufferDescriptionSpread" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="J06WC6aMO4CNNuRZB4hC7n" Name="Data" Kind="InputPin" />
+                    <Pin Id="ImhoWfBSoCJOJxyYNAgZIg" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="D6G0auHdzFCN8RdtouYUlb" Bounds="540,240" />
+                  <Pin Id="VywKPjtXjuiNyb6DWEQQ2b" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicRawBufferDescription" />
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="EdO3X64oFYhO3wmMPVocmd" Ids="D6G0auHdzFCN8RdtouYUlb,VywKPjtXjuiNyb6DWEQQ2b" IsHidden="true" />
+                  <Link Id="RxE75DUPcC5QPdCra6CygT" Ids="ImhoWfBSoCJOJxyYNAgZIg,D6G0auHdzFCN8RdtouYUlb" />
+                </Patch>
+              </Node>
+            </Canvas>
+            <ProcessDefinition Id="VUgl79GYPkVOwF0IsxBCh8" IsHidden="true">
+              <Fragment Id="R8VB21DFwM6NlJzEm0ocJH" Patch="ITNZIcKHjmcOELDgf5uIde" Enabled="true" />
+              <Fragment Id="BEdHMu3AxFjN9DLMvE4hUR" Patch="VMpuvBm4wqgP1xEoHaRYj4" Enabled="true" />
+              <Fragment Id="I8dGooaVwjcNQ5Giv8WnxL" Patch="OSUgYuZ1kvwL2c5J4JV1d1" Enabled="true" />
             </ProcessDefinition>
           </Patch>
         </Node>
