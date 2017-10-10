@@ -11,14 +11,12 @@ using VL.Core;
 
 namespace CraftLie
 {
-    [Type]
     public enum ShadingType
     {
         Constant,
         PhongDirectional
     }
 
-    [Type]
     public class DrawGeometryDescription : DrawDescription
     {
         public ShadingType Shading;
@@ -26,7 +24,6 @@ namespace CraftLie
         public IReadOnlyList<Color4> InstanceColors;
         public int InstanceCount;
 
-        [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly DrawGeometryDescription Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", BlendMode.Blend, ShadingType.Constant, new List<Matrix>(), new List<Color4>());
 
         public DrawGeometryDescription()
@@ -34,13 +31,11 @@ namespace CraftLie
         {
         }
 
-        [Node]
         public DrawGeometryDescription(GeometryDescriptor geometryDescriptor)
         {
             GeometryDescriptor = geometryDescriptor ?? new BoxDescriptor();
         }
 
-        [Node]
         public void SetLayerOrder(int layerOrder)
         {
             LayerOrder = layerOrder;
@@ -59,7 +54,6 @@ namespace CraftLie
             Update(transformation, color, texturePath, blendMode, shading, instanceTransformations, instanceColors);
         }
 
-        [Node]
         public void UpdateGeometry(GeometryDescriptor geometryDescriptor)
         {
             if (geometryDescriptor != GeometryDescriptor)
@@ -69,7 +63,6 @@ namespace CraftLie
             }
         }
 
-        [Node]
         public void Update(
             Matrix transformation,
             Color4 color,

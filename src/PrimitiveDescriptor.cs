@@ -21,7 +21,6 @@ namespace CraftLie
         Text
     }
 
-    [Type]
     public enum ParagraphAlignment
     {
         //
@@ -38,7 +37,6 @@ namespace CraftLie
         Center = 2
     }
 
-    [Type]
     public enum TextAlignment
     {
         //
@@ -61,7 +59,6 @@ namespace CraftLie
         Justified = 3
     }
 
-    [Type]
     //
     // Summary:
     //     Specifies how the pipeline should interpret vertex data bound to the input assembler
@@ -95,7 +92,6 @@ namespace CraftLie
         TriangleStrip = 5
     }
 
-    [Type(IsImmutable = true)]
     public abstract class GeometryDescriptor
     {
         public readonly PrimitiveType Type;
@@ -118,12 +114,10 @@ namespace CraftLie
         public static readonly int[] UnitTriIndices = new int[] { 0, 1, 2 };
     }
 
-    [Type(IsImmutable = true)]
     public class QuadDescriptor : GeometryDescriptor
     {
         public readonly Quad Settings;
 
-        [Node]
         public QuadDescriptor()
             : base(PrimitiveType.Quad)
         {
@@ -131,12 +125,10 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class RoundQuadDescriptor : GeometryDescriptor
     {
         public readonly RoundRect Settings;
 
-        [Node]
         public RoundQuadDescriptor(float cornerRadius = 0.1f, float aspect = 1, bool enableCenter = true, int cornerResolution = 6)
             : base(PrimitiveType.RoundQuad)
         {
@@ -146,12 +138,10 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class BoxDescriptor : GeometryDescriptor
     {
         public readonly Box Settings;
 
-        [Node]
         public BoxDescriptor()
             : base(PrimitiveType.Box)
         {
@@ -159,12 +149,10 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class DiscDescriptor : GeometryDescriptor
     {
         public readonly Segment Settings;
 
-        [Node]
         public DiscDescriptor(float phase, float cycles = 1, float innerRadius = 0, int resolution = 15)
             : base(PrimitiveType.Disc)
         {
@@ -172,12 +160,10 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class SphereDescriptor : GeometryDescriptor
     {
         public readonly Sphere Settings;
 
-        [Node]
         public SphereDescriptor(float cyclesX = 1, float cyclesY = 1, int resolutionX = 15, int resolutionY = 15)
             : base(PrimitiveType.Sphere)
         {
@@ -185,12 +171,10 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class CylinderDescriptor : GeometryDescriptor
     {
         public readonly Cylinder Settings;
 
-        [Node]
         public CylinderDescriptor(float cycles = 1, float radiusRatio = 0.5f, int resolutionX = 15, int resolutionY = 1, bool centerY = true, bool caps = true)
             : base(PrimitiveType.Cylinder)
         {
@@ -198,12 +182,10 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class TubeDescriptor : GeometryDescriptor
     {
         public readonly SegmentZ Settings;
 
-        [Node]
         public TubeDescriptor(float phase = 0, float cycles = 1, float innerRadius = 0.5f, int resolution = 15)
             : base(PrimitiveType.Tube)
         {
@@ -211,14 +193,13 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
+
     public class LineDescriptor : GeometryDescriptor
     {
         public readonly List<SlimDX.Vector3> Positions;
         public readonly List<SlimDX.Vector3> Directions;
         public readonly bool IsClosed;
 
-        [Node]
         public LineDescriptor()
             : base(PrimitiveType.Line)
         {
@@ -226,7 +207,6 @@ namespace CraftLie
             Directions = GeometryDescriptor.UnitLineNormals;
         }
 
-        [Node(Version = "Poly")]
         public LineDescriptor(IReadOnlyList<SharpDX.Vector3> positions, bool isClosed)
             : base(PrimitiveType.Line)
         {
@@ -245,12 +225,10 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class PolygonDescriptor : GeometryDescriptor
     {
         public readonly List<SlimDX.Vector2> Positions;
 
-        [Node]
         public PolygonDescriptor(IReadOnlyList<SharpDX.Vector2> positions)
             : base(PrimitiveType.Polygon)
         {
@@ -265,7 +243,6 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class MeshJoinDescriptor : GeometryDescriptor
     {
         public readonly List<SlimDX.Vector3> Positions;
@@ -284,7 +261,6 @@ namespace CraftLie
         //    Indices = GeometryDescriptor.UnitTriIndices;
         //}
 
-        [Node]
         public MeshJoinDescriptor(IReadOnlyList<SharpDX.Vector3> positions, IReadOnlyList<SharpDX.Vector3> normals, IReadOnlyList<SharpDX.Vector2> textureCoords, IReadOnlyList<int> indices, MeshTopology topology = MeshTopology.TriangleList)
             : base(PrimitiveType.MeshJoin)
         {
@@ -308,23 +284,18 @@ namespace CraftLie
         }
     }
 
-    [Type(IsImmutable = true)]
     public class SpritesDescriptor : GeometryDescriptor
     {
-        [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly SpritesDescriptor Default = new SpritesDescriptor();
 
-        [Node]
         public SpritesDescriptor()
             : base(PrimitiveType.Sprites)
         {
         }
     }
 
-    [Type(IsImmutable = true)]
     public class TextDescriptor : GeometryDescriptor
     {
-        [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly TextDescriptor Default = new TextDescriptor("CraftLie", "Arial", 32, 0, TextAlignment.Center, ParagraphAlignment.Center);
 
         public readonly string Text;
@@ -335,7 +306,6 @@ namespace CraftLie
         public readonly TextAlignment TextAlignment;
         public readonly ParagraphAlignment ParagraphAlignment;
 
-        [Node]
         public TextDescriptor(string text = "CraftLie", string fontName = "Arial", float fontSize = 32, float extrude = 0, TextAlignment textAlignment = TextAlignment.Center, ParagraphAlignment paragraphAlignment = ParagraphAlignment.Center)
             : base(PrimitiveType.Text)
         {

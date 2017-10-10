@@ -11,13 +11,11 @@ using VL.Core;
 
 namespace CraftLie
 {
-    [Type]
     public class DynamicBufferDescription<TBuffer>
         where TBuffer : struct
     {
         public readonly IReadOnlyList<TBuffer> Data;
 
-        [Node]
         public DynamicBufferDescription(IReadOnlyList<TBuffer> data)
         {
             Data = data;

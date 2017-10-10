@@ -11,7 +11,6 @@ using VL.Core;
 
 namespace CraftLie
 {
-    [Type]
     public enum TransformationSpace
     {
         World,
@@ -19,7 +18,6 @@ namespace CraftLie
         Projection
     }
 
-    [Type]
     public enum BlendMode
     {
         Disabled,
@@ -31,7 +29,6 @@ namespace CraftLie
         Keep
     }
 
-    [Type]
     public class DrawDescription : IDisposable
     {
         public GeometryDescriptor GeometryDescriptor;
@@ -55,19 +52,16 @@ namespace CraftLie
             return geo;
         }
 
-        [Node] 
         public void SetSpace(TransformationSpace space)
         {
             Space = space;
         }
 
-        [Node]
         public void SetClipRect(RectangleF clipRect)
         {
             ClipRect = clipRect;
         }
 
-        [Node] 
         public void Transform(Matrix transformation)
         {
             Matrix.Multiply(ref Transformation, ref transformation, out Transformation);
@@ -81,7 +75,6 @@ namespace CraftLie
             //ClipRect = new RectangleF(pos.X, pos.Y, size.X, size.Y);
         }
 
-        [Node]
         public void Dispose()
         {
             DisposeGeometry();

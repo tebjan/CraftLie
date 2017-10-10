@@ -19,7 +19,6 @@ namespace CraftLie
         Spread
     }
 
-    [Type]
     public class DynamicTextureDescription
     {
         public readonly int Width;
@@ -27,7 +26,6 @@ namespace CraftLie
         public readonly TextureDescriptionFormat Format;
         public readonly TextureDescriptionDataType DataType;
 
-        [Node]
         internal DynamicTextureDescription(int width, int height, TextureDescriptionFormat format, TextureDescriptionDataType dataType)
         {
             Width = Math.Max(width, 1);
@@ -40,12 +38,10 @@ namespace CraftLie
         public virtual Array GetDataArray() => new byte[0];
     }
 
-    [Type]
     public class DynamicTextureDescriptionIntPtr : DynamicTextureDescription
     {
         public readonly IntPtr Data;
 
-        [Node]
         public DynamicTextureDescriptionIntPtr(IntPtr data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm)
             : base(width, height, format, TextureDescriptionDataType.IntPtr)
         {
@@ -55,13 +51,11 @@ namespace CraftLie
         public override IntPtr GetDataPointer() => Data;
     }
 
-    [Type]
     public class DynamicTextureDescriptionArray<TPixels> : DynamicTextureDescription
         where TPixels : struct
     {
         public readonly TPixels[] Data;
 
-        [Node]
         public DynamicTextureDescriptionArray(TPixels[] data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm)
             : base(width, height, format, TextureDescriptionDataType.Array)
         {
@@ -71,13 +65,11 @@ namespace CraftLie
         public override Array GetDataArray() => Data;
     }
 
-    [Type]
     public class DynamicTextureDescriptionSpread<TPixels> : DynamicTextureDescription
         where TPixels : struct
     {
         public readonly Spread<TPixels> Data;
 
-        [Node]
         public DynamicTextureDescriptionSpread(Spread<TPixels> data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm)
             : base(width, height, format, TextureDescriptionDataType.Spread)
         {

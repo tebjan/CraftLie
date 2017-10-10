@@ -12,7 +12,6 @@ using VL.Core;
 namespace CraftLie
 {
 
-    [Type]
     public class DrawSpritesDescription : DrawDescription
     {
         public IReadOnlyList<Vector3> Positions;
@@ -26,7 +25,6 @@ namespace CraftLie
         static readonly IReadOnlyList<Vector2> DefaultSizes = new List<Vector2>(1) { new Vector2(0.01f) };
         static readonly IReadOnlyList<Color4> DefaultColors = new List<Color4>(1) { Color4.White };
 
-        [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly DrawSpritesDescription Default = new DrawSpritesDescription(
             Matrix.Identity,
             BlendMode.Blend,
@@ -36,13 +34,11 @@ namespace CraftLie
 
         public int SpriteCount;
 
-        [Node]
         public DrawSpritesDescription()
         {
             GeometryDescriptor = new SpritesDescriptor();
         }
 
-        [Node]
         public void SetLayerOrder(int layerOrder)
         {
             LayerOrder = layerOrder;
@@ -55,7 +51,6 @@ namespace CraftLie
             Update(transformation, blendMode, positions, sizes, colors, texturePath);
         }
 
-        [Node]
         public void Update(
             Matrix transformation,
             BlendMode blendMode = BlendMode.Blend,

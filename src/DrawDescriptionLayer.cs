@@ -9,10 +9,8 @@ using VL.Core;
 
 namespace CraftLie
 {
-    [Type(IsImmutable = true)]
     public class DrawDescriptionLayer
     {
-        [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly DrawDescriptionLayer Default = new DrawDescriptionLayer(
             GetDefaultDrawDescription().ToList(),
             GetDefaultSpritesDescriptor().ToList(),
@@ -22,7 +20,6 @@ namespace CraftLie
         public readonly IReadOnlyList<DrawTextDescription> TextDescriptions;
         public readonly IReadOnlyList<DrawSpritesDescription> SpritesDescriptions;
 
-        [Node]
         public DrawDescriptionLayer(IReadOnlyList<DrawGeometryDescription> geometries, IReadOnlyList<DrawSpritesDescription> sprites, IReadOnlyList<DrawTextDescription> texts)
         {
             GeometryDescriptions = geometries;

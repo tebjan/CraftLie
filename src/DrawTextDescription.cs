@@ -8,17 +8,14 @@ using SharpDX;
 namespace CraftLie
 {
 
-    [Type]
     public class DrawTextDescription : DrawDescription
     {
         public readonly string Text;
         public readonly float Size;
         public readonly string FontName;
 
-        [Node(Hidden = true, IsDefaultValue = true)]
         public static readonly DrawTextDescription Default = new DrawTextDescription(Matrix.Identity, Color4.White);
 
-        [Node]
         public DrawTextDescription(Matrix transformation, Color4 color, BlendMode blendMode = BlendMode.TextDefault, string text = "CraftLie", float size = 32, string fontName = "Arial")
         {
             Text = text;
@@ -29,7 +26,6 @@ namespace CraftLie
             Blending = blendMode;
         }
 
-        [Node]
         public void SetLayerOrder(int layerOrder)
         {
             LayerOrder = layerOrder;
