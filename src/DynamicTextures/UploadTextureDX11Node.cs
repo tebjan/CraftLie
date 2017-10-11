@@ -25,17 +25,14 @@ using System.Runtime.InteropServices;
 namespace VVVV.DX11.Nodes
 {
 
-    [PluginInfo(Name = "UploadTexture", Category = "DX11.Texture", Author = "vux, tonfilm")]
+    [PluginInfo(Name = "UploadTexture", Category = "DX11.Texture", Help = "Copies the data from a VL DynamicTextureDescription to a texture", Author = "tonfilm")]
     public unsafe class UploadTextureDX11Node : IPluginEvaluate, IDX11ResourceHost, IDisposable, IPartImportsSatisfiedNotification
     {
         [Import()]
         protected ILogger logger;
 
-        [Input("Data", DefaultValue = 0, AutoValidate = false)]
-        protected ISpread<DynamicTextureDescription> FInData;
-
-        [Input("Apply", IsBang = true, DefaultValue = 1)]
-        protected ISpread<bool> FApply;
+        [Input("Data")]
+        protected ISpread<DynamicTextureDescription> FDataIn;
 
         [Config("Suppress Warning", DefaultValue = 0)]
         protected ISpread<bool> FSuppressWarning;
@@ -46,30 +43,24 @@ namespace VVVV.DX11.Nodes
         [Output("Is Valid")]
         protected ISpread<bool> FValid;
 
-        private bool FInvalidate;
-
         public void Evaluate(int SpreadMax)
         {
-            if (this.FApply[0])
+            if (this.FDataIn.Any(d => d != null && d.Set))
             {
-                this.FInData.Sync();
-                this.FInvalidate = true;
-                this.FTextureOutput.Resize(FInData.SliceCount, () => new DX11Resource<DX11DynamicTexture2D>(), r => r?.Dispose());
-                this.FValid.SliceCount = FInData.SliceCount;
+                this.FTextureOutput.Resize(FDataIn.SliceCount, () => new DX11Resource<DX11DynamicTexture2D>(), r => r?.Dispose());
+                this.FValid.SliceCount = FDataIn.SliceCount;
             }        
         }
 
         public unsafe void Update(DX11RenderContext context)
         {           
-            if (this.FTextureOutput.SliceCount == 0 || !this.FInvalidate)
-            {
-                return;
-            }
-
             for (int i = 0; i < FTextureOutput.SliceCount; i++)
             {
-                FValid[i] = false;
-                SetupTexture(i, context, FTextureOutput[i], FInData[i]);
+                if (FDataIn[i] != null && FDataIn[i].Set)
+                {
+                    FValid[i] = false;
+                    SetupTexture(i, context, FTextureOutput[i], FDataIn[i]); 
+                }
             }        
         }
 
@@ -100,20 +91,20 @@ namespace VVVV.DX11.Nodes
 
                 desc = texture[context].Resource.Description;
 
-                int stride = GetPixelSizeInBytes(description.Format);
-                int dataLength = desc.Width * desc.Height * stride;
+                int pixelSizeInBytes = description.Format.GetPixelSizeInBytes();
+                int dataLength = desc.Width * desc.Height * pixelSizeInBytes;
 
                 var t = texture[context];
                 if (description.DataType == TextureDescriptionDataType.IntPtr)
                 {
-                    WriteToTexture(stride, dataLength, t, description.GetDataPointer());
+                    WriteToTexture(pixelSizeInBytes, dataLength, t, description.GetDataPointer());
                 }
                 else
                 {
                     var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
                     try
                     {
-                        WriteToTexture(stride, dataLength, t, pinnedArray.AddrOfPinnedObject());
+                        WriteToTexture(pixelSizeInBytes, dataLength, t, pinnedArray.AddrOfPinnedObject());
                     }
                     finally
                     {
@@ -121,8 +112,6 @@ namespace VVVV.DX11.Nodes
                     }
 
                 }
-
-                this.FInvalidate = false;
 
             }
             catch (Exception)
@@ -156,32 +145,6 @@ namespace VVVV.DX11.Nodes
 
             var data = source.GetInternalArray();
             System.Buffer.BlockCopy(data, 0, destination, 0, dataLength);
-        }
-
-        private int GetPixelSizeInBytes(TextureDescriptionFormat format)
-        {
-            const int floatSizeInBytes = 4;
-            const int shortSizeInBytes = 2;
-            const int unormSizeInBytes = 1;
-            switch (format)
-            {
-                case TextureDescriptionFormat.R32G32B32A32_Float:
-                    return floatSizeInBytes * 4;
-
-                case TextureDescriptionFormat.R8G8B8A8_UNorm:
-                case TextureDescriptionFormat.B8G8R8A8_UNorm:
-                    return unormSizeInBytes * 4;
-
-                case TextureDescriptionFormat.R32_Float:
-                    return floatSizeInBytes * 1;
-
-                case TextureDescriptionFormat.R8_UNorm:
-                    return unormSizeInBytes * 1;
-
-               //no default case to get an error here when someone adds more formats
-            }
-
-            throw new NotImplementedException("Wrong texture format or texture format not implementd.");
         }
 
         public void Destroy(DX11RenderContext context, bool force)

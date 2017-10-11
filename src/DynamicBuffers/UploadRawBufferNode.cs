@@ -33,9 +33,6 @@ namespace VVVV.DX11.Nodes
         [Input("Keep In Memory", DefaultValue = 0, Order = 6)]
         protected ISpread<bool> FKeep;
 
-        [Input("Apply", IsBang = true, DefaultValue = 1, Order = 7)]
-        protected ISpread<bool> FApply;
-
         //geometry
 
         [Output("Buffer")]
@@ -58,7 +55,7 @@ namespace VVVV.DX11.Nodes
         public void Evaluate(int SpreadMax)
         {
             //buffer outputs
-            if (this.FApply[0] || this.FFirst)
+            if (this.FBufferDescriptionIn.Any(d => d.Set) || this.FFirst)
             {
                 if (this.FBufferDescriptionIn.SliceCount > 0)
                 {
@@ -68,7 +65,6 @@ namespace VVVV.DX11.Nodes
                 }
                 else //no output
                 {
-                    //geos
 
                     this.FBufferOutput.SafeDisposeAll();
                     this.FBufferOutput.SliceCount = 0;
@@ -77,7 +73,6 @@ namespace VVVV.DX11.Nodes
                 }
 
                 this.FBufferInSpreadMax = this.FBufferDescriptionIn.SliceCount;
-                this.FInvalidate = true;
                 this.FFirst = false;
 
                 //mark buffers changed
@@ -88,18 +83,14 @@ namespace VVVV.DX11.Nodes
 
         public void Update(DX11RenderContext context)
         {
-            if (this.FBufferOutput.SliceCount == 0 || !this.FInvalidate)
-            {
-                return;
-            }
-
             for (int i = 0; i < FBufferOutput.SliceCount; i++)
             {
-                FValid[i] = false;
-                SetupBuffer(i, context, FBufferOutput[i], FBufferDescriptionIn[i]);
+                if (FBufferDescriptionIn[i].Set)
+                {
+                    FValid[i] = false;
+                    SetupBuffer(i, context, FBufferOutput[i], FBufferDescriptionIn[i]);
+                }
             }
-
-            FInvalidate = false;
         }
 
         private void SetupBuffer(int slice, DX11RenderContext context, DX11Resource<DX11DynamicRawBuffer> buffer, DynamicRawBufferDescription description)

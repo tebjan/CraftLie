@@ -69,11 +69,21 @@
       <HintPath>..\packages\VVVV.Utils.35.8.0\lib\net46\VVVV.Utils.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="VVVV.Utils3rdParty, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\VVVV.Utils3rdParty.35.8.0\build\net46\lib\AnyCPU\VVVV.Utils3rdParty.dll</HintPath>
+    </Reference>
+    <Reference Include="VVVV.UtilsIL, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VVVV.UtilsIL.35.8.0\lib\net46\VVVV.UtilsIL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicBuffers\DynamicRawBufferDescription.cs" />
     <Compile Include="DynamicBuffers\UploadRawBufferNode.cs" />
     <Compile Include="DynamicTextures\DynamicTextureDescription.cs" />
+    <Compile Include="DynamicTextures\DynamicTextureUtils.cs" />
+    <Compile Include="DynamicTextures\UploadTextureDX9Node.cs" />
     <Compile Include="DynamicTextures\UploadTextureDX11Node.cs" />
     <Compile Include="DynamicBuffers\DynamicBufferDescription.cs" />
     <Compile Include="DrawDescriptionLayer.cs" />
@@ -126,7 +136,9 @@
     <Error Condition="!Exists('..\packages\VVVV.SlimDX.1.0.2\build\net40\VVVV.SlimDX.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VVVV.SlimDX.1.0.2\build\net40\VVVV.SlimDX.props'))" />
     <Error Condition="!Exists('..\packages\VVVV.SlimDX.1.0.2\build\net40\VVVV.SlimDX.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VVVV.SlimDX.1.0.2\build\net40\VVVV.SlimDX.targets'))" />
     <Error Condition="!Exists('..\packages\VVVV.PluginInterfaces.35.8.0\build\net46\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VVVV.PluginInterfaces.35.8.0\build\net46\VVVV.PluginInterfaces.targets'))" />
+    <Error Condition="!Exists('..\packages\VVVV.Utils3rdParty.35.8.0\build\net46\VVVV.Utils3rdParty.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VVVV.Utils3rdParty.35.8.0\build\net46\VVVV.Utils3rdParty.targets'))" />
   </Target>
   <Import Project="..\packages\VVVV.SlimDX.1.0.2\build\net40\VVVV.SlimDX.targets" Condition="Exists('..\packages\VVVV.SlimDX.1.0.2\build\net40\VVVV.SlimDX.targets')" />
   <Import Project="..\packages\VVVV.PluginInterfaces.35.8.0\build\net46\VVVV.PluginInterfaces.targets" Condition="Exists('..\packages\VVVV.PluginInterfaces.35.8.0\build\net46\VVVV.PluginInterfaces.targets')" />
+  <Import Project="..\packages\VVVV.Utils3rdParty.35.8.0\build\net46\VVVV.Utils3rdParty.targets" Condition="Exists('..\packages\VVVV.Utils3rdParty.35.8.0\build\net46\VVVV.Utils3rdParty.targets')" />
 </Project>

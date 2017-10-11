@@ -14,10 +14,12 @@ namespace CraftLie
     public class DynamicBufferDescription<TBuffer>
         where TBuffer : struct
     {
+        public readonly bool Set;
         public readonly IReadOnlyList<TBuffer> Data;
 
-        public DynamicBufferDescription(IReadOnlyList<TBuffer> data)
+        public DynamicBufferDescription(IReadOnlyList<TBuffer> data, bool set = true)
         {
+            Set = set;
             Data = data;
         } 
     }

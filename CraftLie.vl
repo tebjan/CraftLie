@@ -5927,6 +5927,7 @@
                     <Pin Id="OIJMKB4mxLrLPvO22ilR00" Name="Height" Kind="InputPin" />
                     <Pin Id="TNd9GxzfQ9xMEg8ISuxxDe" Name="Format" Kind="InputPin" />
                     <Pin Id="CgJEcg9VYwjMNolypl65nD" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="J2hgvrb5qR9QXbkYfDNIB0" Name="Set" Kind="InputPin" />
                   </Node>
                   <ControlPoint Id="K4GPcOC61SFMLtf6oZ43j8" Bounds="110,240" />
                   <Link Id="VPUbX90qWidMcqmAGhzpmI" Ids="CgJEcg9VYwjMNolypl65nD,K4GPcOC61SFMLtf6oZ43j8" />
@@ -5961,6 +5962,7 @@
                     <Pin Id="Fv2XyNbhcgMMKAMRVzcUij" Name="Height" Kind="InputPin" />
                     <Pin Id="D55czKtWGGZOfhEg6guTiv" Name="Format" Kind="InputPin" />
                     <Pin Id="OZWGBZVVSiAOGFwczWBMd1" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="Q4CgCb1zN6yLnWcVALDSFd" Name="Set" Kind="InputPin" />
                   </Node>
                   <ControlPoint Id="MBSXJbgadFVLPAXD1g6WFa" Bounds="326,240" />
                   <Pin Id="KNzKU4QyxIlPKXHk0R1r6o" Name="Output" Kind="OutputPin">
@@ -5995,6 +5997,7 @@
                     <Pin Id="HgH7RdFcfZsQRUjP1njRbV" Name="Height" Kind="InputPin" />
                     <Pin Id="VGbhNESeMXYPDY8hJkic7a" Name="Format" Kind="InputPin" />
                     <Pin Id="DrqiTvR6dsLMeBD81ltE3d" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="T4Dc3wlSNXHNDqmp6YojwS" Name="Set" Kind="InputPin" />
                   </Node>
                   <ControlPoint Id="P8Fvx4O9c2RN1Irb2avYKs" Bounds="540,240" />
                   <Pin Id="KDbZMA74L0PQUyYvNf1VO1" Name="Output" Kind="OutputPin">
@@ -6055,6 +6058,7 @@
                     <Pin Id="SeD454xpRpIO0fBKPbrhAJ" Name="Data" Kind="InputPin" />
                     <Pin Id="GPM8PEJX9RXLnDTIg62GrF" Name="Output" Kind="StateOutputPin" />
                     <Pin Id="DGMq5YW0g4wO5X5YKEXCzy" Name="Data Size In Bytes" Kind="InputPin" />
+                    <Pin Id="Vn2eragThgaQWiRDUCrAbe" Name="Set" Kind="InputPin" />
                   </Node>
                   <ControlPoint Id="JgBFeJtq8lAPZbb9xzxjA4" Bounds="110,240" />
                   <Link Id="ByUSeZO0ZBLPzBF0P1yNBe" Ids="GPM8PEJX9RXLnDTIg62GrF,JgBFeJtq8lAPZbb9xzxjA4" />
@@ -6087,6 +6091,7 @@
                     </p:NodeReference>
                     <Pin Id="UtR7674Mu1BNCb9uDeqOFw" Name="Data" Kind="InputPin" />
                     <Pin Id="KEzaOILROelQBPY7mvvT6F" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="Oaw9LTn86gwLDYhziVDufa" Name="Set" Kind="InputPin" />
                   </Node>
                   <ControlPoint Id="He8sg0q9CQtQDAQPlXUpck" Bounds="326,240" />
                   <Pin Id="LW2PzqPE3bZPR1JKdbWigm" Name="Output" Kind="OutputPin">
@@ -6119,6 +6124,7 @@
                     </p:NodeReference>
                     <Pin Id="J06WC6aMO4CNNuRZB4hC7n" Name="Data" Kind="InputPin" />
                     <Pin Id="ImhoWfBSoCJOJxyYNAgZIg" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="RIfUBM9lbKPNlvH07d7qFl" Name="Set" Kind="InputPin" />
                   </Node>
                   <ControlPoint Id="D6G0auHdzFCN8RdtouYUlb" Bounds="540,240" />
                   <Pin Id="VywKPjtXjuiNyb6DWEQQ2b" Name="Output" Kind="OutputPin">

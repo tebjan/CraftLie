@@ -21,13 +21,15 @@ namespace CraftLie
 
     public class DynamicTextureDescription
     {
+        public readonly bool Set;
         public readonly int Width;
         public readonly int Height;
         public readonly TextureDescriptionFormat Format;
         public readonly TextureDescriptionDataType DataType;
 
-        internal DynamicTextureDescription(int width, int height, TextureDescriptionFormat format, TextureDescriptionDataType dataType)
+        internal DynamicTextureDescription(int width, int height, TextureDescriptionFormat format, TextureDescriptionDataType dataType, bool set)
         {
+            Set = set;
             Width = Math.Max(width, 1);
             Height = Math.Max(height, 1);
             Format = format;
@@ -42,8 +44,8 @@ namespace CraftLie
     {
         public readonly IntPtr Data;
 
-        public DynamicTextureDescriptionIntPtr(IntPtr data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm)
-            : base(width, height, format, TextureDescriptionDataType.IntPtr)
+        public DynamicTextureDescriptionIntPtr(IntPtr data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm, bool set = true)
+            : base(width, height, format, TextureDescriptionDataType.IntPtr, set)
         {
             Data = data;
         }
@@ -56,8 +58,8 @@ namespace CraftLie
     {
         public readonly TPixels[] Data;
 
-        public DynamicTextureDescriptionArray(TPixels[] data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm)
-            : base(width, height, format, TextureDescriptionDataType.Array)
+        public DynamicTextureDescriptionArray(TPixels[] data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm, bool set = true)
+            : base(width, height, format, TextureDescriptionDataType.Array, set)
         {
             Data = data;
         }
@@ -70,8 +72,8 @@ namespace CraftLie
     {
         public readonly Spread<TPixels> Data;
 
-        public DynamicTextureDescriptionSpread(Spread<TPixels> data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm)
-            : base(width, height, format, TextureDescriptionDataType.Spread)
+        public DynamicTextureDescriptionSpread(Spread<TPixels> data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm, bool set = true)
+            : base(width, height, format, TextureDescriptionDataType.Spread, set)
         {
             Data = data;
         }

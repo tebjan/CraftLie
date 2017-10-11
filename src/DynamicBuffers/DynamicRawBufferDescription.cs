@@ -21,10 +21,11 @@ namespace CraftLie
 
     public class DynamicRawBufferDescription
     {
+        public readonly bool Set;
         public readonly RawBufferDescriptionDataType DataType;
         public readonly long DataSizeInBytes;
 
-        internal DynamicRawBufferDescription(long dataSizeInBytes, RawBufferDescriptionDataType dataType)
+        internal DynamicRawBufferDescription(long dataSizeInBytes, RawBufferDescriptionDataType dataType, bool set)
         {
             DataSizeInBytes = Math.Max(dataSizeInBytes, 0);
             DataType = dataType;
@@ -38,8 +39,8 @@ namespace CraftLie
     {
         public readonly IntPtr Data;
 
-        public DynamicRawBufferDescriptionIntPtr(IntPtr data, long dataSizeInBytes)
-            : base(dataSizeInBytes, RawBufferDescriptionDataType.IntPtr)
+        public DynamicRawBufferDescriptionIntPtr(IntPtr data, long dataSizeInBytes, bool set = true)
+            : base(dataSizeInBytes, RawBufferDescriptionDataType.IntPtr, set)
         {
             Data = data;
         }
@@ -51,8 +52,8 @@ namespace CraftLie
     {
         public readonly byte[] Data;
 
-        public DynamicRawBufferDescriptionArray(byte[] data)
-            : base(data.LongLength, RawBufferDescriptionDataType.Array)
+        public DynamicRawBufferDescriptionArray(byte[] data, bool set = true)
+            : base(data.LongLength, RawBufferDescriptionDataType.Array, set)
         {
             Data = data;
         }
@@ -64,8 +65,8 @@ namespace CraftLie
     {
         public readonly Spread<byte> Data;
 
-        public DynamicRawBufferDescriptionSpread(Spread<byte> data)
-            : base(data.Count, RawBufferDescriptionDataType.Spread)
+        public DynamicRawBufferDescriptionSpread(Spread<byte> data, bool set = true)
+            : base(data.Count, RawBufferDescriptionDataType.Spread, set)
         {
             Data = data;
         }

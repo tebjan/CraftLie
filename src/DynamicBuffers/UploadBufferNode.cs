@@ -74,9 +74,6 @@ namespace VVVV.DX11.Nodes
         [Input("Preferred Buffer Type", DefaultValue = 0, Order = 6, Visibility = PinVisibility.OnlyInspector)]
         protected ISpread<DX11BufferUploadType> FBufferType;
 
-        [Input("Apply", IsBang = true, DefaultValue = 1, Order = 7)]
-        protected ISpread<bool> FApply;
-
         //geometry
 
         [Output("Buffer")]
@@ -86,20 +83,11 @@ namespace VVVV.DX11.Nodes
         protected ISpread<bool> FValid;
 
         DX11BufferUploadType currentBufferType = DX11BufferUploadType.Dynamic;
-        private bool FInvalidate;
-        private bool FFirst = true;
-        private int FBufferInSpreadMax;
-
-        protected virtual bool NeedConvert { get { return false; } }
-
-
-        int FOldGeometryOutCount = 0;
-        int FOldSpritesGeometryOutCount = 0;
 
         public void Evaluate(int SpreadMax)
         {
             //buffer outputs
-            if (this.FApply[0] || this.FFirst)
+            if (this.FBufferDescriptionIn[0].Set)
             {
                 if (this.FBufferDescriptionIn.SliceCount > 0)
                 {
@@ -122,10 +110,6 @@ namespace VVVV.DX11.Nodes
 
                     this.FValid.SliceCount = 0;
                 }
-
-                this.FBufferInSpreadMax = this.FBufferDescriptionIn.SliceCount;
-                this.FInvalidate = true;
-                this.FFirst = false;
 
                 //mark buffers changed
                 this.FBufferOutput.Stream.IsChanged = true;
@@ -153,11 +137,11 @@ namespace VVVV.DX11.Nodes
 
         public void Update(DX11RenderContext context)
         {
-            if (this.FBufferInSpreadMax == 0) { return; }
+            if (this.FBufferOutput.SliceCount == 0) { return; }
 
             var newContext = !this.FBufferOutput[0].Contains(context);
 
-            if (this.FInvalidate || newContext)
+            if (this.FBufferDescriptionIn[0].Set || newContext)
             {
                 var bufferTypeChanged = this.currentBufferType != this.FBufferType[0];
 
@@ -187,8 +171,6 @@ namespace VVVV.DX11.Nodes
                     this.pluginHost.Log(TLogType.Error, ex.Message);
                 }
             }
-
-            FInvalidate = false;
         }
 
         private static void CheckBufferDispose<T>(DX11RenderContext context, DX11Resource<IDX11ReadableStructureBuffer> bufferResource, int bufferCount, bool bufferTypeChanged)
