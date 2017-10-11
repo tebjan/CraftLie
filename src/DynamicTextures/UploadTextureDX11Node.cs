@@ -77,60 +77,57 @@ namespace VVVV.DX11.Nodes
         {
             try
             {
-                if (!texture.Contains(context))
+                var fmt = (SlimDX.DXGI.Format)description.Format;
+                Texture2DDescription desc;
+
+                if (texture.Contains(context))
                 {
-                    var fmt = (SlimDX.DXGI.Format)description.Format;
-                    Texture2DDescription desc;
+                    desc = texture[context].Resource.Description;
 
-                    if (texture.Contains(context))
+                    if (desc.Width != description.Width || desc.Height != description.Height || desc.Format != fmt)
                     {
-                        desc = texture[context].Resource.Description;
-
-                        if (desc.Width != description.Width || desc.Height != description.Height || desc.Format != fmt)
-                        {
-                            texture.Dispose(context);
-                            texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
-                        }
-                    }
-                    else
-                    {
+                        texture.Dispose(context);
                         texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
+                    }
+                }
+                else
+                {
+                    texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
 #if DEBUG
                     texture[context].Resource.DebugName = "DynamicTexture";
 #endif
-                    }
-
-                    desc = texture[context].Resource.Description;
-
-                    int stride = GetPixelSizeInBytes(description.Format);
-                    int dataLength = desc.Width * desc.Height * stride;
-
-                    var t = texture[context];
-                    if (description.DataType == TextureDescriptionDataType.IntPtr)
-                    {
-                        WriteToTexture(stride, dataLength, t, description.GetDataPointer());
-                    }
-                    else
-                    {
-                        var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
-
-                        try
-                        {
-                            WriteToTexture(stride, dataLength, t, pinnedArray.AddrOfPinnedObject());
-                        }
-                        finally
-                        {
-                            pinnedArray.Free();
-                        }
-
-                    }
-
-                    this.FInvalidate = false;
                 }
+
+                desc = texture[context].Resource.Description;
+
+                int stride = GetPixelSizeInBytes(description.Format);
+                int dataLength = desc.Width * desc.Height * stride;
+
+                var t = texture[context];
+                if (description.DataType == TextureDescriptionDataType.IntPtr)
+                {
+                    WriteToTexture(stride, dataLength, t, description.GetDataPointer());
+                }
+                else
+                {
+                    var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
+                    try
+                    {
+                        WriteToTexture(stride, dataLength, t, pinnedArray.AddrOfPinnedObject());
+                    }
+                    finally
+                    {
+                        pinnedArray.Free();
+                    }
+
+                }
+
+                this.FInvalidate = false;
+
             }
-            finally
+            catch (Exception)
             {
-                FValid[slice] = true;
+                FValid[slice] = false;
             }
         }
 
