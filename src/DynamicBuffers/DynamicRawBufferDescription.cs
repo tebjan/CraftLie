@@ -4,6 +4,7 @@ using FeralTic.DX11.Resources;
 using SharpDX;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace CraftLie
     {
         IntPtr,
         Array,
-        Spread
+        Spread,
+        Stream
     }
 
     public class DynamicRawBufferDescription
@@ -33,6 +35,7 @@ namespace CraftLie
 
         public virtual IntPtr GetDataPointer() => IntPtr.Zero;
         public virtual Array GetDataArray() => new byte[0];
+        public virtual Stream GetDataStream() => new MemoryStream();
     }
 
     public class DynamicRawBufferDescriptionIntPtr : DynamicRawBufferDescription
@@ -72,5 +75,18 @@ namespace CraftLie
         }
 
         public override Array GetDataArray() => Data.GetInternalArray();
+    }
+
+    public class DynamicRawBufferDescriptionStream : DynamicRawBufferDescription
+    {
+        public readonly Stream Data;
+
+        public DynamicRawBufferDescriptionStream(Stream data, bool set = true)
+            : base(data.Length, RawBufferDescriptionDataType.Stream, set)
+        {
+            Data = data;
+        }
+
+        public override Stream GetDataStream() => Data;
     }
 }

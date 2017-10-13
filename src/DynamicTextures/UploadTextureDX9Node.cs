@@ -14,13 +14,12 @@ using VVVV.Utils.VMath;
 using VVVV.Utils.SlimDX;
 using VVVV.Utils;
 using CraftLie;
+using System.IO;
 
 #endregion usings
 
 namespace VVVV.Nodes
 {
-    
-
     #region PluginInfo
     [PluginInfo(Name = "UploadTexture", Category = "EX9.Texture", Help = "Copies the data from a VL DynamicTextureDescription to a texture", Author = "tonfilm")]
     #endregion PluginInfo
@@ -117,57 +116,66 @@ namespace VVVV.Nodes
 
             try
             {
-                if (description.DataType == TextureDescriptionDataType.IntPtr)
+                switch (description.DataType)
                 {
-                    var sourcePointer = description.GetDataPointer();
-                    var destPointer = rect.Data.DataPointer;
-
-                    if (textureScanSize == dataScanSize)
-                    {
-                        Memory.Copy(destPointer, sourcePointer, (uint)dataLength);
-                    }
-                    else
-                    {
-                        //copy line by line
-                        for (int i = 0; i < description.Height; i++)
+                    case TextureDescriptionDataType.IntPtr:
+                        WriteToIntPtr(description, textureScanSize, dataScanSize, dataLength, description.GetDataPointer(), rect.Data.DataPointer);
+                        break;
+                    case TextureDescriptionDataType.Array:
+                    case TextureDescriptionDataType.Spread:
+                        var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
+                        try
                         {
-                            Memory.Copy(destPointer.Move(textureScanSize * i), sourcePointer.Move(dataScanSize * i), (uint)dataScanSize);
+                            WriteToIntPtr(description, textureScanSize, dataScanSize, dataLength, pinnedArray.AddrOfPinnedObject(), rect.Data.DataPointer);
                         }
-                    }
-
-                }
-                else
-                {
-
-                    var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
-                    var sourcePointer = pinnedArray.AddrOfPinnedObject();
-                    var destPointer = rect.Data.DataPointer;
-
-                    try
-                    {
-                        if (textureScanSize == dataScanSize)
+                        finally
                         {
-                           Memory.Copy(destPointer, sourcePointer, (uint)dataLength);
+                            pinnedArray.Free();
                         }
-                        else
-                        {
-                            //copy line by line
-                            for (int i = 0; i < description.Height; i++)
-                            {
-                                Memory.Copy(destPointer.Move(textureScanSize * i), sourcePointer.Move(dataScanSize * i), (uint)dataScanSize);
-                            }
-                        }
-                    }
-                    finally
-                    {
-                        pinnedArray.Free();
-                    } 
+                        break;
+                    case TextureDescriptionDataType.Stream:
+                        WriteToStream(description, textureScanSize, dataScanSize, description.GetDataStream(), rect);
+                        break;
                 }
             }
             finally
             {
                 texture.UnlockRectangle(0);
             }        
+        }
+
+        private static unsafe void WriteToIntPtr(DynamicTextureDescription description, int textureScanSize, int dataScanSize, int dataLength, IntPtr sourcePointer, IntPtr destPointer)
+        {
+            if (textureScanSize == dataScanSize)
+            {
+                Memory.Copy(destPointer, sourcePointer, (uint)dataLength);
+            }
+            else
+            {
+                //copy line by line
+                for (int i = 0; i < description.Height; i++)
+                {
+                    Memory.Copy(destPointer.Move(textureScanSize * i), sourcePointer.Move(dataScanSize * i), (uint)dataScanSize);
+                }
+            }
+        }
+
+        private static void WriteToStream(DynamicTextureDescription description, int textureScanSize, int dataScanSize, Stream stream, DataRectangle db)
+        {
+            stream.Position = 0;
+            int pos = 0;
+            var lineBuffer = new byte[dataScanSize];
+
+            //copy line by line
+            for (int i = 0; i < description.Height; i++)
+            {
+                stream.Read(lineBuffer, 0, dataScanSize);
+                db.Data.Write(lineBuffer, 0, dataScanSize);
+
+                //advance destination one row pitch
+                pos += textureScanSize;
+                db.Data.Position = pos;
+            }
         }
 
         private Format GetDX9Format(TextureDescriptionFormat format)

@@ -1994,7 +1994,7 @@
         <Node Name="Renderer" Bounds="-192,230" Id="H60wnp9e2D9PGdI6Vc8VDf" Summary="Collect all draw descriptions to pass it on to vvvv">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
             <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
-            <Choice Kind="ContainerTypeFlag, HasMasterPatchFlag, DefinitionFlag" Name="Patch" />
+            <Choice Kind="ContainerType, HasMasterPatchFlag, DefinitionFlag" Name="Patch" />
           </p:NodeReference>
           <Patch Id="QEjTW1bJWVPLbHhnQomn9v">
             <Canvas Id="E5bmK8XCCcbLhDx8k06kOC">
@@ -6009,11 +6009,48 @@
                   <Link Id="O8YWaFdyItlL3rC16y86cj" Ids="DrqiTvR6dsLMeBD81ltE3d,P8Fvx4O9c2RN1Irb2avYKs" />
                 </Patch>
               </Node>
+              <!--
+
+    ************************ FromStream ************************
+
+-->
+              <Node Name="FromStream" Bounds="739,155,168,97" Id="PaJKmye2QKxMRa79daTg7t">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="Sq9FQFeWQQXOAtrjpYyeKs" IsGeneric="true">
+                  <Node Bounds="751,178,144,22" ForwardPins="true" Id="PjAPJKlyuqcN6BwKtWibJp">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicTextureDescriptionStream" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicTextureDescriptionStream" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="Q2jyrQFkIqQMvUgFLNsQ1U" Name="Data" Kind="InputPin" />
+                    <Pin Id="AnkW5UaWS3DOTmGdZaVVrC" Name="Width" Kind="InputPin" />
+                    <Pin Id="P6o8G0cnC0YO0XaAGGUy6e" Name="Height" Kind="InputPin" />
+                    <Pin Id="JBPYENWD7CyL8gcacwNtZL" Name="Format" Kind="InputPin" />
+                    <Pin Id="RztipafyTnoLgCUhSwFqO0" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="KvLp60dHYwwLL4fi4ulwoP" Name="Set" Kind="InputPin" />
+                  </Node>
+                  <ControlPoint Id="BJcHm7b63goMwsFCHgPvDJ" Bounds="753,233" />
+                  <Pin Id="Ms1e0zH7zRfMji6k9nzQSc" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicTextureDescription" />
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="Ky3KqhM92qJOyzaRgyoeIY" Ids="BJcHm7b63goMwsFCHgPvDJ,Ms1e0zH7zRfMji6k9nzQSc" IsHidden="true" />
+                  <Link Id="O5XXa3IuBxzLqtmGbG9YK5" Ids="RztipafyTnoLgCUhSwFqO0,BJcHm7b63goMwsFCHgPvDJ" />
+                </Patch>
+              </Node>
             </Canvas>
             <ProcessDefinition Id="IQC37drwRdrMURY2kMkLZq" IsHidden="true">
               <Fragment Id="AK2G2g6EZL6OfFboS2bkRS" Patch="APP4loLYMYbM6KwnJmqd2Z" Enabled="true" />
               <Fragment Id="EClIxR2GlBsLGZEVp8wHdK" Patch="K232dIwtjLyLsXw282nbdv" Enabled="true" />
               <Fragment Id="UdgAeKUXHvIMk8ZCMNpxBf" Patch="I88Jlz8ll87OhtkL17kFFo" Enabled="true" />
+              <Fragment Id="NjPqLTtH0OhMgWjYEzRRuB" Patch="PaJKmye2QKxMRa79daTg7t" />
             </ProcessDefinition>
           </Patch>
         </Node>
@@ -6136,11 +6173,45 @@
                   <Link Id="RxE75DUPcC5QPdCra6CygT" Ids="ImhoWfBSoCJOJxyYNAgZIg,D6G0auHdzFCN8RdtouYUlb" />
                 </Patch>
               </Node>
+              <!--
+
+    ************************ FromStream ************************
+
+-->
+              <Node Name="FromStream" Bounds="754,159,168,97" Id="A7wKmJTNg8UQIwZVV1N8QZ">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="LT17uTbkX0cNqx8xRko0J8">
+                  <Node Bounds="766,182,144,13" ForwardPins="true" Id="NvdRbbAdEA5Ocq5FwLKlAj">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicRawBufferDescriptionStream" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicRawBufferDescriptionStream" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="KjutNAVOvQHMYRj4qqkkzp" Name="Data" Kind="InputPin" />
+                    <Pin Id="Om3HgJxomB8MH46E0Fklz8" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="MGU9nuWxQ0dMuESxDCDyHo" Name="Set" Kind="InputPin" />
+                  </Node>
+                  <ControlPoint Id="M1AOelMFvMpL1K5R2GeFsp" Bounds="768,237" />
+                  <Pin Id="HYGsXOYa1sgQOFlpFshplA" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicRawBufferDescription" />
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="Tb5lCUexSIxQSzwBRhcCFz" Ids="M1AOelMFvMpL1K5R2GeFsp,HYGsXOYa1sgQOFlpFshplA" IsHidden="true" />
+                  <Link Id="JlSxibsuEFULfPo9pjmWaI" Ids="Om3HgJxomB8MH46E0Fklz8,M1AOelMFvMpL1K5R2GeFsp" />
+                </Patch>
+              </Node>
             </Canvas>
             <ProcessDefinition Id="VUgl79GYPkVOwF0IsxBCh8" IsHidden="true">
               <Fragment Id="R8VB21DFwM6NlJzEm0ocJH" Patch="ITNZIcKHjmcOELDgf5uIde" Enabled="true" />
               <Fragment Id="BEdHMu3AxFjN9DLMvE4hUR" Patch="VMpuvBm4wqgP1xEoHaRYj4" Enabled="true" />
               <Fragment Id="I8dGooaVwjcNQ5Giv8WnxL" Patch="OSUgYuZ1kvwL2c5J4JV1d1" Enabled="true" />
+              <Fragment Id="MM78phyE5udMcAN0mwF9X6" Patch="A7wKmJTNg8UQIwZVV1N8QZ" />
             </ProcessDefinition>
           </Patch>
         </Node>

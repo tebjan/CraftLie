@@ -18,6 +18,7 @@ using VL.Lib.Collections;
 using System.Diagnostics;
 using VVVV.Utils.VMath;
 using System.Runtime.InteropServices;
+using SlimDX.Direct3D11;
 
 namespace VVVV.DX11.Nodes
 {
@@ -119,21 +120,32 @@ namespace VVVV.DX11.Nodes
 
             //write to buffers
             var b = buffer[context];
-            if (description.DataType == RawBufferDescriptionDataType.IntPtr)
+
+            switch (description.DataType)
             {
-                b.WriteData(description.GetDataPointer(), (int)description.DataSizeInBytes);
-            }
-            else
-            {
-                var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
-                try
-                {
-                    b.WriteData(pinnedArray.AddrOfPinnedObject(), (int)description.DataSizeInBytes);
-                }
-                finally
-                {
-                    pinnedArray.Free();
-                }
+                case RawBufferDescriptionDataType.IntPtr:
+                    b.WriteData(description.GetDataPointer(), (int)description.DataSizeInBytes);
+                    break;
+                case RawBufferDescriptionDataType.Array:
+                case RawBufferDescriptionDataType.Spread:
+                    var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
+                    try
+                    {
+                        b.WriteData(pinnedArray.AddrOfPinnedObject(), (int)description.DataSizeInBytes);
+                    }
+                    finally
+                    {
+                        pinnedArray.Free();
+                    }
+                    break;
+                case RawBufferDescriptionDataType.Stream:
+                    var stream = description.GetDataStream();
+                    stream.Position = 0;
+                    var ctx = context.CurrentDeviceContext;
+                    var db = ctx.MapSubresource(b.Buffer, MapMode.WriteDiscard, MapFlags.None);
+                    stream.CopyTo(db.Data);
+                    ctx.UnmapSubresource(b.Buffer, 0);
+                    break;
             }
         }
 

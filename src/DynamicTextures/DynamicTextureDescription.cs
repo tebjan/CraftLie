@@ -4,6 +4,7 @@ using FeralTic.DX11.Resources;
 using SharpDX;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace CraftLie
     {
         IntPtr,
         Array,
-        Spread
+        Spread,
+        Stream
     }
 
     public class DynamicTextureDescription
@@ -38,6 +40,7 @@ namespace CraftLie
 
         public virtual IntPtr GetDataPointer() => IntPtr.Zero;
         public virtual Array GetDataArray() => new byte[0];
+        public virtual Stream GetDataStream() => new MemoryStream();
     }
 
     public class DynamicTextureDescriptionIntPtr : DynamicTextureDescription
@@ -81,6 +84,19 @@ namespace CraftLie
         public override Array GetDataArray() => Data.GetInternalArray();
     }
 
+    public class DynamicTextureDescriptionStream : DynamicTextureDescription
+    {
+        public readonly Stream Data;
+
+        public DynamicTextureDescriptionStream(Stream data, int width = 4, int height = 4, TextureDescriptionFormat format = TextureDescriptionFormat.R8G8B8A8_UNorm, bool set = true)
+            : base(width, height, format, TextureDescriptionDataType.Stream, set)
+        {
+            Data = data;
+        }
+
+        public override Stream GetDataStream() => Data;
+    }
+
     public enum TextureDescriptionFormat
     {
         //Unknown = 0,
@@ -89,17 +105,17 @@ namespace CraftLie
         //R32G32B32A32_UInt = 3,
         //R32G32B32A32_SInt = 4,
         //R32G32B32_Typeless = 5,
-        //R32G32B32_Float = 6,
+        R32G32B32_Float = 6,
         //R32G32B32_UInt = 7,
         //R32G32B32_SInt = 8,
         //R16G16B16A16_Typeless = 9,
-        //R16G16B16A16_Float = 10,
+        R16G16B16A16_Float = 10,
         //R16G16B16A16_UNorm = 11,
         //R16G16B16A16_UInt = 12,
         //R16G16B16A16_SNorm = 13,
         //R16G16B16A16_SInt = 14,
         //R32G32_Typeless = 15,
-        //R32G32_Float = 16,
+        R32G32_Float = 16,
         //R32G32_UInt = 17,
         //R32G32_SInt = 18,
         //R32G8X24_Typeless = 19,
@@ -117,7 +133,7 @@ namespace CraftLie
         //R8G8B8A8_SNorm = 31,
         //R8G8B8A8_SInt = 32,
         //R16G16_Typeless = 33,
-        //R16G16_Float = 34,
+        R16G16_Float = 34,
         //R16G16_UNorm = 35,
         //R16G16_UInt = 36,
         //R16G16_SNorm = 37,
@@ -132,12 +148,12 @@ namespace CraftLie
         //R24_UNorm_X8_Typeless = 46,
         //X24_Typeless_G8_UInt = 47,
         //R8G8_Typeless = 48,
-        //R8G8_UNorm = 49,
+        R8G8_UNorm = 49,
         //R8G8_UInt = 50,
         //R8G8_SNorm = 51,
         //R8G8_SInt = 52,
         //R16_Typeless = 53,
-        //R16_Float = 54,
+        R16_Float = 54,
         //D16_UNorm = 55,
         //R16_UNorm = 56,
         //R16_UInt = 57,
@@ -171,7 +187,7 @@ namespace CraftLie
         //B5G6R5_UNorm = 85,
         //B5G5R5A1_UNorm = 86,
         B8G8R8A8_UNorm = 87,
-        //B8G8R8X8_UNorm = 88,
+        B8G8R8X8_UNorm = 88,
         ////
         //// Summary:
         ////     Not Supported below DirectX 11.
@@ -216,6 +232,12 @@ namespace CraftLie
         //// Summary:
         ////     Not Supported below DirectX 11.
         //BC7_UNorm_SRGB = 99
+
+        /// <summary>
+        /// The data represents an encoded image with header describing the format.
+        /// Supported: .bmp, .dds, .dib, .jpg, .png, or .tga
+        /// </summary>
+        FromImage = 4444
     }
 
 }

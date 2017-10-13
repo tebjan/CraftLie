@@ -21,6 +21,8 @@ using VVVV.Core.Logging;
 using SlimDX.Direct3D11;
 using SlimDX.DXGI;
 using System.Runtime.InteropServices;
+using VVVV.Utils;
+using System.IO;
 
 namespace VVVV.DX11.Nodes
 {
@@ -38,7 +40,7 @@ namespace VVVV.DX11.Nodes
         protected ISpread<bool> FSuppressWarning;
 
         [Output("Texture Out")]
-        protected Pin<DX11Resource<DX11DynamicTexture2D>> FTextureOutput;
+        protected Pin<DX11Resource<DX11Texture2D>> FTextureOutput;
 
         [Output("Is Valid")]
         protected ISpread<bool> FValid;
@@ -47,7 +49,7 @@ namespace VVVV.DX11.Nodes
         {
             if (this.FDataIn.Any(d => d != null && d.Set))
             {
-                this.FTextureOutput.Resize(FDataIn.SliceCount, () => new DX11Resource<DX11DynamicTexture2D>(), r => r?.Dispose());
+                this.FTextureOutput.Resize(FDataIn.SliceCount, () => new DX11Resource<DX11Texture2D>(), r => r?.Dispose());
                 this.FValid.SliceCount = FDataIn.SliceCount;
             }        
         }
@@ -64,7 +66,7 @@ namespace VVVV.DX11.Nodes
             }        
         }
 
-        private void SetupTexture(int slice, DX11RenderContext context, DX11Resource<DX11DynamicTexture2D> texture, DynamicTextureDescription description)
+        private void SetupTexture(int slice, DX11RenderContext context, DX11Resource<DX11Texture2D> texture, DynamicTextureDescription description)
         {
             try
             {
@@ -95,24 +97,28 @@ namespace VVVV.DX11.Nodes
                 int dataLength = desc.Width * desc.Height * pixelSizeInBytes;
 
                 var t = texture[context];
-                if (description.DataType == TextureDescriptionDataType.IntPtr)
-                {
-                    WriteToTexture(pixelSizeInBytes, dataLength, t, description.GetDataPointer());
-                }
-                else
-                {
-                    var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
-                    try
-                    {
-                        WriteToTexture(pixelSizeInBytes, dataLength, t, pinnedArray.AddrOfPinnedObject());
-                    }
-                    finally
-                    {
-                        pinnedArray.Free();
-                    }
 
+                switch (description.DataType)
+                {
+                    case TextureDescriptionDataType.IntPtr:
+                        WriteToTexture(pixelSizeInBytes, dataLength, context, t, description.GetDataPointer());
+                        break;
+                    case TextureDescriptionDataType.Array:
+                    case TextureDescriptionDataType.Spread:
+                        var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
+                        try
+                        {
+                            WriteToTexture(pixelSizeInBytes, dataLength, context, t, pinnedArray.AddrOfPinnedObject());
+                        }
+                        finally
+                        {
+                            pinnedArray.Free();
+                        }
+                        break;
+                    case TextureDescriptionDataType.Stream:
+                        WriteToTextureStream(pixelSizeInBytes, dataLength, context, t, description.GetDataStream());
+                        break;
                 }
-
             }
             catch (Exception)
             {
@@ -120,31 +126,68 @@ namespace VVVV.DX11.Nodes
             }
         }
 
-        private static void WriteToTexture(int stride, int dataLength, DX11DynamicTexture2D t, IntPtr ptr)
+        private static void WriteToTexture(int stride, int dataLength, DX11RenderContext context, DX11Texture2D t, IntPtr ptr)
         {
-            if (t.GetRowPitch() == t.Width * stride)
+            var ctx = context.CurrentDeviceContext;
+            var db = ctx.MapSubresource(t.Resource, 0, 0, MapMode.WriteDiscard, SlimDX.Direct3D11.MapFlags.None);
+
+            try
             {
-                t.WriteData(ptr, dataLength);
+                if (db.RowPitch == stride)
+                {
+                    Memory.Copy(db.Data.DataPointer, ptr, (uint)dataLength);
+                }
+                else
+                {
+                    int dataScanSize = stride * t.Width;
+                    var textureScanSize = db.RowPitch;
+
+                    var sourcePointer = ptr;
+                    var destPointer = db.Data.DataPointer;
+
+                    //copy line by line
+                    for (int i = 0; i < t.Height; i++)
+                    {
+                        Memory.Copy(destPointer.Move(textureScanSize * i), sourcePointer.Move(dataScanSize * i), (uint)dataScanSize);
+                    }
+                }
+
             }
-            else
+            finally
             {
-                t.WriteDataPitch(ptr, dataLength, stride);
+                ctx.UnmapSubresource(t.Resource, 0);
             }
         }
 
-        /// <summary>
-        /// Copies to local buffer and increments the index. Tries to use Array.Copy();
-        /// </summary>
-        protected static void CopyToLocalBuffer<T>(VL.Lib.Collections.Spread<T> source, byte[] destination, int dataLength)
-            where T : struct
+        private static void WriteToTextureStream(int stride, int dataLength, DX11RenderContext context, DX11Texture2D t, Stream stream)
         {
-            var structSize = Marshal.SizeOf<T>();
+            stream.Position = 0;
+            var ctx = context.CurrentDeviceContext;
+            var db = ctx.MapSubresource(t.Resource, 0, 0, MapMode.WriteDiscard, SlimDX.Direct3D11.MapFlags.None);
 
-            if (dataLength > structSize * source.Count)
-                return;
+            try
+            {
+                int dataScanSize = stride * t.Width;
+                var textureScanSize = db.RowPitch;
 
-            var data = source.GetInternalArray();
-            System.Buffer.BlockCopy(data, 0, destination, 0, dataLength);
+                int pos = 0;
+                var lineBuffer = new byte[dataScanSize];
+
+                //line by line
+                for (int i = 0; i < t.Height; i++)
+                {
+                    stream.Read(lineBuffer, 0, dataScanSize);
+                    db.Data.Write(lineBuffer, 0, dataScanSize);
+
+                    //advance destination one row pitch
+                    pos += textureScanSize;
+                    db.Data.Position = pos;
+                }
+            }
+            finally
+            {
+                ctx.UnmapSubresource(t.Resource, 0);
+            }
         }
 
         public void Destroy(DX11RenderContext context, bool force)
@@ -168,7 +211,7 @@ namespace VVVV.DX11.Nodes
 
         public void OnImportsSatisfied()
         {
-            this.FTextureOutput.Resize(0, () => new DX11Resource<DX11DynamicTexture2D>(), r => r?.Dispose());
+            this.FTextureOutput.Resize(0, () => new DX11Resource<DX11Texture2D>(), r => r?.Dispose());
         }
         #endregion
     }
