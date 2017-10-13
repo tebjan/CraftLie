@@ -62,7 +62,7 @@ namespace VVVV.Nodes
                 var desc = FDataIn[i];
 
                 //recreate textures if resolution or format was changed
-                if (info == null || desc == null || info.Width != desc.Width || info.Height != desc.Height || info.Format != desc.Format)
+                if (info == null || desc == null || (desc.Format == TextureDescriptionFormat.FromImage && desc.Set) || info.Width != desc.Width || info.Height != desc.Height || info.Format != desc.Format)
                 {
                     textureResource?.Dispose();
                     textureResource = CreateTextureResource(i);
@@ -113,11 +113,11 @@ namespace VVVV.Nodes
                 case TextureDescriptionDataType.Array:
                 case TextureDescriptionDataType.Spread:
                     var bytes = (byte[])description.GetDataArray();
-                    return Texture.FromMemory(device, bytes, usage, pool);
+                    return Texture.FromMemory(device, bytes, description.Width, description.Height, 1, usage, Format.A8R8G8B8, pool, Filter.Default, Filter.Default, 0);
                 case TextureDescriptionDataType.Stream:
                     var stream = description.GetDataStream();
                     stream.Position = 0;
-                    return Texture.FromStream(device, stream, usage, pool);
+                    return Texture.FromStream(device, stream, description.Width, description.Height, 1, usage, Format.A8R8G8B8, pool, Filter.Default, Filter.Default, 0);
             }
 
             throw new NotImplementedException("Could not create texture from image data");
