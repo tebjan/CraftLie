@@ -79,8 +79,48 @@ namespace VVVV.Nodes
 
         TextureResource<TextureInfo> CreateTextureResource(int slice)
         {
-            var desciption = FDataIn[slice] ?? new DynamicTextureDescriptionArray<float>(new float[] { 1 }, 1, 1, TextureDescriptionFormat.R32_Float);
-            return TextureResource.Create(new TextureInfo(desciption), CreateTexture, UpdateTexture);
+            var def = new DynamicTextureDescriptionArray<float>(new float[] { 1 }, 1, 1, TextureDescriptionFormat.R32_Float);
+            var desciption = FDataIn[slice] ?? def;
+
+            if (desciption.Format == TextureDescriptionFormat.FromImage)
+            {
+                return TextureResource.Create(new TextureInfo(desciption), CreateTextureFromImage);
+            }
+            else
+            {
+                return TextureResource.Create(new TextureInfo(desciption), CreateTexture, UpdateTexture);
+            }
+        }
+
+        //this method gets called, when Reinitialize() was called in evaluate,
+        //or a graphics device asks for its data
+        Texture CreateTextureFromImage(TextureInfo info, Device device)
+        {
+            var description = info.Description;
+            var pool = Pool.Managed;
+            var usage = Usage.None;
+
+            if (device is DeviceEx)
+            {
+                pool = Pool.Default;
+                usage = Usage.Dynamic;
+            }
+
+            switch (description.DataType)
+            {
+                case TextureDescriptionDataType.IntPtr:
+                    throw new NotImplementedException("Cannot create texture from image data in IntPtr");
+                case TextureDescriptionDataType.Array:
+                case TextureDescriptionDataType.Spread:
+                    var bytes = (byte[])description.GetDataArray();
+                    return Texture.FromMemory(device, bytes, usage, pool);
+                case TextureDescriptionDataType.Stream:
+                    var stream = description.GetDataStream();
+                    stream.Position = 0;
+                    return Texture.FromStream(device, stream, usage, pool);
+            }
+
+            throw new NotImplementedException("Could not create texture from image data");
         }
 
         //this method gets called, when Reinitialize() was called in evaluate,

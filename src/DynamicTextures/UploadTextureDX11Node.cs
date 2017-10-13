@@ -70,59 +70,108 @@ namespace VVVV.DX11.Nodes
         {
             try
             {
-                var fmt = (SlimDX.DXGI.Format)description.Format;
-                Texture2DDescription desc;
-
-                if (texture.Contains(context))
+                if (description.Format == TextureDescriptionFormat.FromImage)
                 {
-                    desc = texture[context].Resource.Description;
-
-                    if (desc.Width != description.Width || desc.Height != description.Height || desc.Format != fmt)
-                    {
-                        texture.Dispose(context);
-                        texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
-                    }
+                    TextureFromImageData(context, texture, description);
                 }
                 else
                 {
-                    texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
-#if DEBUG
-                    texture[context].Resource.DebugName = "DynamicTexture";
-#endif
-                }
-
-                desc = texture[context].Resource.Description;
-
-                int pixelSizeInBytes = description.Format.GetPixelSizeInBytes();
-                int dataLength = desc.Width * desc.Height * pixelSizeInBytes;
-
-                var t = texture[context];
-
-                switch (description.DataType)
-                {
-                    case TextureDescriptionDataType.IntPtr:
-                        WriteToTexture(pixelSizeInBytes, dataLength, context, t, description.GetDataPointer());
-                        break;
-                    case TextureDescriptionDataType.Array:
-                    case TextureDescriptionDataType.Spread:
-                        var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
-                        try
-                        {
-                            WriteToTexture(pixelSizeInBytes, dataLength, context, t, pinnedArray.AddrOfPinnedObject());
-                        }
-                        finally
-                        {
-                            pinnedArray.Free();
-                        }
-                        break;
-                    case TextureDescriptionDataType.Stream:
-                        WriteToTextureStream(pixelSizeInBytes, dataLength, context, t, description.GetDataStream());
-                        break;
+                    TextureFromPixelData(context, texture, description);
                 }
             }
             catch (Exception)
             {
                 FValid[slice] = false;
+            }
+        }
+
+        private static void TextureFromImageData(DX11RenderContext context, DX11Resource<DX11Texture2D> texture, DynamicTextureDescription description)
+        {
+            Texture2DDescription desc;
+
+            if (texture.Contains(context))
+            {
+                var resource = texture[context];
+                desc = resource.Description;
+
+                if ((resource is DX11DynamicTexture2D) || desc.Width != description.Width || desc.Height != description.Height)
+                {
+                    texture.Dispose(context);
+                    texture[context] = GetTextureFromImage(context, description);
+                }
+            }
+            else
+            {
+                texture[context] = GetTextureFromImage(context, description);
+            }
+        }
+
+        private static DX11Texture2D GetTextureFromImage(DX11RenderContext context, DynamicTextureDescription description)
+        {
+            switch (description.DataType)
+            {
+                case TextureDescriptionDataType.IntPtr:
+                    throw new NotImplementedException("Cannot create texture from image data in IntPtr");
+                case TextureDescriptionDataType.Array:
+                case TextureDescriptionDataType.Spread:
+                    var bytes = (byte[])description.GetDataArray();
+                    return DX11Texture2D.FromMemory(context, bytes);
+                case TextureDescriptionDataType.Stream:
+                    var stream = description.GetDataStream();
+                    stream.Position = 0;
+                    return DX11Texture2D.FromStream(context, stream, (int)stream.Length);
+            }
+
+            throw new NotImplementedException("Could not create texture from image data");
+        }
+
+        private static void TextureFromPixelData(DX11RenderContext context, DX11Resource<DX11Texture2D> texture, DynamicTextureDescription description)
+        {
+            var fmt = (SlimDX.DXGI.Format)description.Format;
+            Texture2DDescription desc;
+
+            if (texture.Contains(context))
+            {
+                desc = texture[context].Resource.Description;
+
+                if (desc.Width != description.Width || desc.Height != description.Height || desc.Format != fmt)
+                {
+                    texture.Dispose(context);
+                    texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
+                }
+            }
+            else
+            {
+                texture[context] = new DX11DynamicTexture2D(context, description.Width, description.Height, fmt);
+            }
+
+            desc = texture[context].Resource.Description;
+
+            int pixelSizeInBytes = description.Format.GetPixelSizeInBytes();
+            int dataLength = desc.Width * desc.Height * pixelSizeInBytes;
+
+            var t = texture[context];
+
+            switch (description.DataType)
+            {
+                case TextureDescriptionDataType.IntPtr:
+                    WriteToTexture(pixelSizeInBytes, dataLength, context, t, description.GetDataPointer());
+                    break;
+                case TextureDescriptionDataType.Array:
+                case TextureDescriptionDataType.Spread:
+                    var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
+                    try
+                    {
+                        WriteToTexture(pixelSizeInBytes, dataLength, context, t, pinnedArray.AddrOfPinnedObject());
+                    }
+                    finally
+                    {
+                        pinnedArray.Free();
+                    }
+                    break;
+                case TextureDescriptionDataType.Stream:
+                    WriteToTextureStream(pixelSizeInBytes, dataLength, context, t, description.GetDataStream());
+                    break;
             }
         }
 
