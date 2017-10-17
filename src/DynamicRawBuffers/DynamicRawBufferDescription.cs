@@ -29,6 +29,7 @@ namespace CraftLie
 
         internal DynamicRawBufferDescription(long dataSizeInBytes, RawBufferDescriptionDataType dataType, bool set)
         {
+            Set = set;
             DataSizeInBytes = Math.Max(dataSizeInBytes, 0);
             DataType = dataType;
         }

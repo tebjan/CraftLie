@@ -79,18 +79,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicBuffers\DynamicRawBufferDescription.cs" />
-    <Compile Include="DynamicBuffers\UploadRawBufferNode.cs" />
+    <Compile Include="DynamicStructuredBuffers\DynamicImmutableStructuredVLBuffer.cs" />
+    <Compile Include="DynamicRawBuffers\DynamicRawBufferDescription.cs" />
+    <Compile Include="DynamicStructuredBuffers\DynamicCopyDestStructuredVLBuffer.cs" />
+    <Compile Include="DynamicStructuredBuffers\DynamicStructuredVLBuffer.cs" />
+    <Compile Include="DynamicRawBuffers\UploadRawBufferNode.cs" />
     <Compile Include="DynamicTextures\DynamicTextureDescription.cs" />
     <Compile Include="DynamicTextures\DynamicTextureUtils.cs" />
     <Compile Include="DynamicTextures\UploadTextureDX9Node.cs" />
     <Compile Include="DynamicTextures\UploadTextureDX11Node.cs" />
-    <Compile Include="DynamicBuffers\DynamicBufferDescription.cs" />
+    <Compile Include="DynamicStructuredBuffers\DynamicBufferDescription.cs" />
     <Compile Include="DrawDescriptionLayer.cs" />
     <Compile Include="DrawDescription.cs" />
     <Compile Include="DrawGeometryDescription.cs" />
     <Compile Include="DrawSpritesDescription.cs" />
-    <Compile Include="DynamicBuffers\UploadBufferNode.cs" />
+    <Compile Include="DynamicStructuredBuffers\UploadBufferNode.cs" />
     <Compile Include="GetDrawDescriptionDataNode.cs" />
     <Compile Include="Text3d\Extruder.cs" />
     <Compile Include="Text3d\FlatSink.cs" />

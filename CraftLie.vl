@@ -4198,7 +4198,7 @@
     ************************ BoxDescriptor ************************
 
 -->
-        <Node Name="BoxDescriptor" Bounds="50,76" Id="FyECyk3qkOzMKxhZfKBSAh">
+        <Node Name="BoxDescriptor" Bounds="183,165" Id="FyECyk3qkOzMKxhZfKBSAh">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -5186,7 +5186,7 @@
     ************************ MeshJoinDescriptor ************************
 
 -->
-        <Node Name="MeshJoinDescriptor" Bounds="61,136" Id="Jzt4sW6blsCLmMAu2V6IG9">
+        <Node Name="MeshJoinDescriptor" Bounds="194,225" Id="Jzt4sW6blsCLmMAu2V6IG9">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -5425,7 +5425,7 @@
     ************************ SphereDescriptor ************************
 
 -->
-        <Node Name="SphereDescriptor" Bounds="278,75" Id="U3pCXVYAUeUQaDdrdIQpP2">
+        <Node Name="SphereDescriptor" Bounds="411,164" Id="U3pCXVYAUeUQaDdrdIQpP2">
           <p:NodeReference>
             <Choice Kind="ForwardDefinition" Name="Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -5846,7 +5846,7 @@
     ************************ DynamicBufferDescription ************************
 
 -->
-        <Node Name="DynamicBufferDescription" Bounds="124,358" Id="ISnDRDolvPzMa2BPWbk9WI">
+        <Node Name="DynamicBufferDescription" Bounds="202,332" Id="ISnDRDolvPzMa2BPWbk9WI">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -5859,8 +5859,280 @@
             <AssemblyReference ID="CraftLie" />
           </p:TypeAnnotation>
           <Patch Id="UJznCz3oAjFPgfovZYKC1j">
-            <Canvas Id="Sqi9RSiThLVLt4YtzLALWQ" />
-            <ProcessDefinition Id="K20KFqYkfKCNPPdIAxEeuA" IsHidden="true" />
+            <Canvas Id="Sqi9RSiThLVLt4YtzLALWQ">
+              <!--
+
+    ************************ FromSpread ************************
+
+-->
+              <Node Name="FromSpread" Bounds="139,174,164,100" Id="V2EnwdekhZSPjTluob5P29">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="Gh1vLedkuvEMB7nEprmNy2" IsGeneric="true">
+                  <Node Bounds="153,204,138,22" ForwardPins="true" Id="DbWDFXH4MW5OSZhra40WyG">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicBufferDescriptionSpread`1" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicBufferDescriptionSpread`1" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="VjtEd5XEiiMMqtEvzOSTQO" Name="Data" Kind="InputPin" />
+                    <Pin Id="Bh91w5up43bM1THGv0si0W" Name="Set" Kind="InputPin" />
+                    <Pin Id="ORZIPu3I6yVOUBPeE9cmoy" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromSpread (Stride) ************************
+
+-->
+              <Node Name="FromSpread (Stride)" Bounds="139,344,162,80" Id="Ix6DatpX1d1NMIYkP6YGNk">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="Sq9ulGgrxFgNElM21fIvYo" IsGeneric="true">
+                  <Node Bounds="151,374,138,22" ForwardPins="true" Id="A9egOa76sWmMCcvOaCPsCN">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicBufferDescriptionSpread`1" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicBufferDescriptionSpread`1" NeedsToBeDirectParent="true" />
+                      <PinReference Kind="InputPin" Name="Stride In Bytes" />
+                    </p:NodeReference>
+                    <Pin Id="E0Zw0laFv0YN662ALiBkBQ" Name="Data" Kind="InputPin" />
+                    <Pin Id="PPHL3cbkou3P9yeUWvXIKF" Name="Stride In Bytes" Kind="InputPin" />
+                    <Pin Id="O1EPrvREP86OtI9Q4sDttA" Name="Set" Kind="InputPin" />
+                    <Pin Id="Vrpw78yiyI8OAiATBsjtHh" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromArray ************************
+
+-->
+              <Node Name="FromArray" Bounds="362,168,164,105" Id="HKfcc2Yra3gMjVreuRKsF4">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="BNr7iCkmRRQMmtoKsIEakd" IsGeneric="true">
+                  <Node Bounds="376,203,138,13" ForwardPins="true" Id="CjbkGcMY7iZMgq9hDfCgyH">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicBufferDescriptionArray`1" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicBufferDescriptionArray`1" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="EhvqYvKV8qPP2SPmyYWFS6" Name="Data" Kind="InputPin" />
+                    <Pin Id="S5qxYJU4n44OingRrDdx8m" Name="Set" Kind="InputPin" />
+                    <Pin Id="Lv7l94jm9TBL5W0pcMgsKC" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromArray (Stride) ************************
+
+-->
+              <Node Name="FromArray (Stride)" Bounds="362,338,162,85" Id="NsC5K5bZpgfNzVk8s9jPLG">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="E2WFTvTq2uOL2QsUkGAS7b" IsGeneric="true">
+                  <Node Bounds="374,373,138,13" ForwardPins="true" Id="HBcpNb6GMBROSiM0fMKhk5">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicBufferDescriptionArray`1" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <PinReference Kind="InputPin" Name="Stride In Bytes" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicBufferDescriptionArray`1" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="O2Lc2V7r62aM4cm8faVrSR" Name="Data" Kind="InputPin" />
+                    <Pin Id="LoJIjUZ9AikN3pNJERLqsT" Name="Stride In Bytes" Kind="InputPin" />
+                    <Pin Id="SvnmGPCTs7oQGAafzeL7ln" Name="Set" Kind="InputPin" />
+                    <Pin Id="Idrlk6g4qAhQdjzKsSUXsZ" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromIntPtr ************************
+
+-->
+              <Node Name="FromIntPtr" Bounds="596,178,162,88" Id="Imgs34NC6xIO5tcZnvlZtJ">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="QFXDuWhusPSMhiEh6RhEZI" IsGeneric="true">
+                  <Node Bounds="608,201,138,13" ForwardPins="true" Id="J1gTKEjPgW8MbofW24OaHR">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicBufferDescriptionIntPtr" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicBufferDescriptionIntPtr" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="TohEOko5ZEyPXE0dZkvBqR" Name="Data" Kind="InputPin" />
+                    <Pin Id="NlRlPskbO9ePwpBdYBiZO1" Name="Data Size In Bytes" Kind="InputPin" />
+                    <Pin Id="GbaBsjRm4m0MTiIqDyDTT8" Name="Set" Kind="InputPin" />
+                    <Pin Id="TnUx1LC3xkIOGr83UmcEUx" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="PMO74KkECo2Nmo4Y0mGJVa" Bounds="611,247" />
+                  <Pin Id="Lx8NHZLkPBeOzoLLMmXUct" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicBufferDescription" />
+                      <p:TypeArguments>
+                        <TypeReference>
+                          <Choice Kind="TypeFlag" Name="Byte" />
+                        </TypeReference>
+                      </p:TypeArguments>
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="DqOMxeFaVQUOWSbBis5zlr" Ids="PMO74KkECo2Nmo4Y0mGJVa,Lx8NHZLkPBeOzoLLMmXUct" IsHidden="true" />
+                  <Link Id="F5TixKOw9QRPKG6BzUzuZ1" Ids="TnUx1LC3xkIOGr83UmcEUx,PMO74KkECo2Nmo4Y0mGJVa" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromIntPtr (Stride) ************************
+
+-->
+              <Node Name="FromIntPtr (Stride)" Bounds="600,337,162,82" Id="VFTJpz6zJkJLVFTnwydIso">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="FpgHyBcDKO3PGhCtFP2kRJ" IsGeneric="true">
+                  <Node Bounds="612,360,138,22" ForwardPins="true" Id="CPdEbQwRjazLGjOHgK55U1">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicBufferDescriptionIntPtr" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <PinReference Kind="InputPin" Name="Stride In Bytes" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicBufferDescriptionIntPtr" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="AzBFsBajX92LK03Vax2zjg" Name="Data" Kind="InputPin" />
+                    <Pin Id="Dvxj3zVXfy6L199EbHENrF" Name="Data Size In Bytes" Kind="InputPin" />
+                    <Pin Id="HxNil1aUldMMTziF5Cwdxr" Name="Stride In Bytes" Kind="InputPin" />
+                    <Pin Id="JP1MuUPIBGZMZKuEb0Lod6" Name="Set" Kind="InputPin" />
+                    <Pin Id="OPEyO4LDEIpLpOv9EDK7vS" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="KAMdikXgvCfM1kP7PTxVCP" Bounds="616,400" />
+                  <Pin Id="LCjZ4U9DvsvOyZyh2AxT2k" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicBufferDescription" />
+                      <p:TypeArguments>
+                        <TypeReference>
+                          <Choice Kind="TypeFlag" Name="Byte" />
+                        </TypeReference>
+                      </p:TypeArguments>
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="SLcKom5UnB3PTvXFve977A" Ids="KAMdikXgvCfM1kP7PTxVCP,LCjZ4U9DvsvOyZyh2AxT2k" IsHidden="true" />
+                  <Link Id="MFhzYLAwjhjL1hBvsBCH8Z" Ids="OPEyO4LDEIpLpOv9EDK7vS,KAMdikXgvCfM1kP7PTxVCP" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromStream ************************
+
+-->
+              <Node Name="FromStream" Bounds="836,178,162,84" Id="FwR9Q3beWXDOIKPve9c2mX">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="IUafmrVIUZ2NbvhdOiB65l" IsGeneric="true">
+                  <Node Bounds="848,201,138,22" ForwardPins="true" Id="ETDJOygizsjMXDkVbBkGWN">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicBufferDescriptionStream" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicBufferDescriptionStream" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="J1MDqwVj9VDOfNqeiM3uNn" Name="Data" Kind="InputPin" />
+                    <Pin Id="DEZiIaCjzsJOFIDHMLGAuY" Name="Set" Kind="InputPin" />
+                    <Pin Id="HClMfemSs0xLLfaq4pF02r" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="D1FqgIgWJgRLuhMx1XOuFs" Bounds="850,243" />
+                  <Link Id="Ne6BSZmi1ynOoagCRTqRoA" Ids="HClMfemSs0xLLfaq4pF02r,D1FqgIgWJgRLuhMx1XOuFs" />
+                  <Pin Id="CJ2wGsHBtqGLeik47MzhAS" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicBufferDescription" />
+                      <p:TypeArguments>
+                        <TypeReference>
+                          <Choice Kind="TypeFlag" Name="Byte" />
+                        </TypeReference>
+                      </p:TypeArguments>
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="BMR1VtGaGSdOjN9gfZJuJD" Ids="D1FqgIgWJgRLuhMx1XOuFs,CJ2wGsHBtqGLeik47MzhAS" IsHidden="true" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ FromStream (Stride) ************************
+
+-->
+              <Node Name="FromStream (Stride)" Bounds="837,324,162,99" Id="AcCMXp9f3clNvgHqqfrmyX">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+                  <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="Vphr0BWzyN0OLXyQnCXpb0" IsGeneric="true">
+                  <Node Bounds="849,359,138,22" ForwardPins="true" Id="DjXiB1lgJZsO174x20LSRC">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DynamicBufferDescriptionStream" LastSymbolSource="CraftLie.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <AssemblyReference ID="CraftLie" />
+                      <PinReference Kind="InputPin" Name="Stride In Bytes" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DynamicBufferDescriptionStream" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="MGKazgsONg9NjNMHBzjQcK" Name="Data" Kind="InputPin" />
+                    <Pin Id="JEjhsBZVtBOO7wC8bHU4CS" Name="Stride In Bytes" Kind="InputPin" />
+                    <Pin Id="FjoG3PQEIFuQPFhqIoDmjn" Name="Set" Kind="InputPin" />
+                    <Pin Id="ND1AtPQDXbaLg7GaxoyWTd" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <ControlPoint Id="ORrpjqsl1LuMZFTwOgqxR7" Bounds="851,404" />
+                  <Link Id="AbqARc6LeX9PD930mna51R" Ids="ND1AtPQDXbaLg7GaxoyWTd,ORrpjqsl1LuMZFTwOgqxR7" />
+                  <Pin Id="SU2VgIdSPVyNUXmnpfSe4R" Name="Output" Kind="OutputPin">
+                    <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                      <Choice Kind="TypeFlag" Name="DynamicBufferDescription" />
+                      <p:TypeArguments>
+                        <TypeReference>
+                          <Choice Kind="TypeFlag" Name="Byte" />
+                        </TypeReference>
+                      </p:TypeArguments>
+                    </p:TypeAnnotation>
+                  </Pin>
+                  <Link Id="F0NPb3VhQipPYq9JuAmac2" Ids="ORrpjqsl1LuMZFTwOgqxR7,SU2VgIdSPVyNUXmnpfSe4R" IsHidden="true" />
+                </Patch>
+              </Node>
+            </Canvas>
+            <ProcessDefinition Id="K20KFqYkfKCNPPdIAxEeuA" IsHidden="true">
+              <Fragment Id="JE5YUsYXGo4PoXltmQkARR" Patch="V2EnwdekhZSPjTluob5P29" />
+              <Fragment Id="PELRy5ztT7NNGyhuWbgawF" Patch="Ix6DatpX1d1NMIYkP6YGNk" />
+              <Fragment Id="M5S42U5wXkoLYYisHWPDdG" Patch="HKfcc2Yra3gMjVreuRKsF4" />
+              <Fragment Id="IW0CPC25qa6McAYL01TJ4b" Patch="NsC5K5bZpgfNzVk8s9jPLG" />
+              <Fragment Id="OevuM78lerqPNWr7v9IaJd" Patch="Imgs34NC6xIO5tcZnvlZtJ" />
+              <Fragment Id="Pj2ydov51QsLabatz9CWzy" Patch="VFTJpz6zJkJLVFTnwydIso" />
+              <Fragment Id="Cq1OuYXHok4M3dn1CmZifN" Patch="FwR9Q3beWXDOIKPve9c2mX" />
+              <Fragment Id="PJlhZDUYDWGNZ5qCBzA8ee" Patch="AcCMXp9f3clNvgHqqfrmyX" />
+            </ProcessDefinition>
           </Patch>
         </Node>
         <!--
@@ -5868,7 +6140,7 @@
     ************************ TextureDescriptionFormat ************************
 
 -->
-        <Node Name="TextureDescriptionFormat" Bounds="423,360" Id="Sqkc6YgZOFaNDhKrILr5tq">
+        <Node Name="TextureDescriptionFormat" Bounds="501,334" Id="Sqkc6YgZOFaNDhKrILr5tq">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -5890,7 +6162,7 @@
     ************************ DynamicTextureDescription ************************
 
 -->
-        <Node Name="DynamicTextureDescription" Bounds="422,410" Id="BrwbXOm3tq6QGfb8Yd0zAr">
+        <Node Name="DynamicTextureDescription" Bounds="500,384" Id="BrwbXOm3tq6QGfb8Yd0zAr">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />
@@ -6059,7 +6331,7 @@
     ************************ DynamicRawBufferDescription ************************
 
 -->
-        <Node Name="DynamicRawBufferDescription" Bounds="710,408" Id="P07J0bjhEk9OTH3aL2FRQJ">
+        <Node Name="DynamicRawBufferDescription" Bounds="195,391" Id="P07J0bjhEk9OTH3aL2FRQJ">
           <p:NodeReference>
             <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
             <FullNameCategoryReference ID="Primitive" />

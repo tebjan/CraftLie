@@ -17,6 +17,8 @@ using VVVV.Utils.VColor;
 using VL.Lib.Collections;
 using System.Diagnostics;
 using VVVV.Utils.VMath;
+using System.Runtime.InteropServices;
+using SlimDX.Direct3D11;
 
 namespace VVVV.DX11.Nodes
 {
@@ -44,19 +46,6 @@ namespace VVVV.DX11.Nodes
     [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Transform", Author = "tonfilm")]
     public class UploadMatrixBufferNode : UploadBufferNode<Matrix>
     {
-        protected override void CopyData(IDiffSpread<DynamicBufferDescription<Matrix>> descriptions)
-        {
-            var writeIndex = 0;
-
-            foreach (var desc in descriptions.Where(d => d != null))
-            {
-                foreach (var trans in desc.Data)
-                {
-                    trans.Transpose();
-                    FLocalDataBuffer[writeIndex++] = trans;
-                }
-            }
-        }
     }
 
     public class UploadBufferNode<TBuffer> : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable 
@@ -87,168 +76,178 @@ namespace VVVV.DX11.Nodes
         public void Evaluate(int SpreadMax)
         {
             //buffer outputs
-            if (this.FBufferDescriptionIn[0].Set)
+            if (this.FBufferDescriptionIn.Any(d => d != null && d.Set))
             {
                 if (this.FBufferDescriptionIn.SliceCount > 0)
                 {
-                    this.FBufferOutput.SliceCount = 1;
-
-                    this.FValid.SliceCount = 1;
-
-                    //create geometry buffer resources
-                    if (this.FBufferOutput[0] == null)
-                    {
-                        this.FBufferOutput[0] = new DX11Resource<IDX11ReadableStructureBuffer>();
-                    }
+                    this.FBufferOutput.Resize(FBufferDescriptionIn.SliceCount, () => new DX11Resource<IDX11ReadableStructureBuffer>(), b => b?.Dispose());
+                    this.FValid.SliceCount = FBufferDescriptionIn.SliceCount;
                 }
                 else //no output
                 {
-                    //geos
 
                     this.FBufferOutput.SafeDisposeAll();
                     this.FBufferOutput.SliceCount = 0;
-
                     this.FValid.SliceCount = 0;
                 }
 
                 //mark buffers changed
                 this.FBufferOutput.Stream.IsChanged = true;
-
-                //set all normal output pins and get the total counts
-                UpdateNormalPins();
             }
 
-        }
-
-        protected int FTotalDataCount;
-
-        protected TBuffer[] FLocalDataBuffer = new TBuffer[4096];
-
-        private void UpdateNormalPins()
-        {
-            FTotalDataCount = 0;
-
-            foreach (var desc in FBufferDescriptionIn)
-            {
-                FTotalDataCount += desc.Data.Count;
-            }
         }
 
 
         public void Update(DX11RenderContext context)
         {
-            if (this.FBufferOutput.SliceCount == 0) { return; }
 
-            var newContext = !this.FBufferOutput[0].Contains(context);
-
-            if (this.FBufferDescriptionIn[0].Set || newContext)
+            for (int i = 0; i < FBufferOutput.SliceCount; i++)
             {
-                var bufferTypeChanged = this.currentBufferType != this.FBufferType[0];
+                if (FBufferDescriptionIn[i].Set)
+                {
+                    FValid[i] = false;
+                    SetupBuffer(i, context, FBufferOutput[i], FBufferDescriptionIn[i]);
+                }
+            }
+        }
 
-                //refresh buffers?
-                CheckBufferDispose<TBuffer>(context, this.FBufferOutput[0], FTotalDataCount, bufferTypeChanged);
-
-                PrepareLocalBufferData(context);
-
-                //make new buffers?
-                CreateBuffer<TBuffer>(FBufferOutput[0], context, FTotalDataCount, FLocalDataBuffer);
-
+        private void SetupBuffer(int slice, DX11RenderContext context, DX11Resource<IDX11ReadableStructureBuffer> buffer, DynamicBufferDescription<TBuffer> description)
+        {
+            //refresh buffers?
+            if (buffer.Contains(context))
+            {
+                var res = buffer[context];
+                if (res.Buffer.Description.SizeInBytes < description.DataSizeInBytes
+                || currentBufferType != FBufferType[0]
+                || res.Stride != description.Stride
+                || res is DX11ImmutableStructuredVLBuffer<TBuffer>)
+                {
+                    buffer.Dispose(context);
+                }
             }
 
-            this.FValid[0] = true;
-            this.currentBufferType = this.FBufferType[0];
+            //make new buffers?
+            if (!buffer.Contains(context))
+            {
+                CreateBuffer(buffer, context, description);
+            }
+
+            this.FValid[slice] = true;
 
             //write to buffers
-            bool needContextCopy = this.FBufferType[0] != DX11BufferUploadType.Immutable;
-            if (needContextCopy)
+            var b = buffer[context];
+
+            switch (description.DataType)
             {
-                try
-                {
-                    WriteToBuffer(FBufferOutput[0], context, FLocalDataBuffer, FTotalDataCount);
-                }
-                catch (Exception ex)
-                {
-                    this.pluginHost.Log(TLogType.Error, ex.Message);
-                }
+                case BufferDescriptionDataType.IntPtr:
+                    var buff = b as DX11DynamicStructuredVLBuffer<TBuffer>;
+                    if (buff != null)
+                    {
+                        buff.WriteData(description.GetDataPointer(), description.DataSizeInBytes);
+                    }
+                    else
+                    {
+                        var cdBuff = b as DX11CopyDestStructuredVLBuffer<TBuffer>;
+                        cdBuff.WriteData(description.GetDataPointer(), description.DataSizeInBytes);
+                    }
+                    break;
+                case BufferDescriptionDataType.Array:
+                case BufferDescriptionDataType.Spread:
+                    var pinnedArray = GCHandle.Alloc(description.GetDataArray(), GCHandleType.Pinned);
+                    try
+                    {
+                        buff = b as DX11DynamicStructuredVLBuffer<TBuffer>;
+                        if (buff != null)
+                        {
+                            buff.WriteData(pinnedArray.AddrOfPinnedObject(), description.DataSizeInBytes);
+                        }
+                        else
+                        {
+                            var cdBuff = b as DX11CopyDestStructuredVLBuffer<TBuffer>;
+                            cdBuff.WriteData(pinnedArray.AddrOfPinnedObject(), description.DataSizeInBytes);
+                        }
+
+                    }
+                    finally
+                    {
+                        pinnedArray.Free();
+                    }
+                    break;
+                case BufferDescriptionDataType.Stream:
+                    var stream = description.GetDataStream();
+                    stream.Position = 0;
+                    var ctx = context.CurrentDeviceContext;
+
+                    buff = b as DX11DynamicStructuredVLBuffer<TBuffer>;
+                    if (buff != null)
+                    {
+                        using (var ds = new SlimDX.DataStream((int)description.DataSizeInBytes, true, true))
+                        {
+                            stream.CopyTo(ds);
+                            SlimDX.DataBox db = new SlimDX.DataBox(0, 0, ds);
+                            ctx.UpdateSubresource(db, b.Buffer, 0);
+                        }
+                    }
+                    else
+                    {
+                        var db = ctx.MapSubresource(b.Buffer, MapMode.WriteDiscard, MapFlags.None);
+                        stream.CopyTo(db.Data);
+                        ctx.UnmapSubresource(b.Buffer, 0);
+                    }
+                    break;
             }
         }
 
-        private static void CheckBufferDispose<T>(DX11RenderContext context, DX11Resource<IDX11ReadableStructureBuffer> bufferResource, int bufferCount, bool bufferTypeChanged)
-            where T : struct
-        {
-            if (bufferResource.Contains(context))
-            {
-                if (bufferResource[context].ElementCount < bufferCount
-                    || bufferTypeChanged
-                    || bufferResource[context] is DX11ImmutableStructuredBuffer<T>)
-                {
-                    bufferResource.Dispose(context);
-                }
-            }
-        }
 
         /// <summary>
         /// Creates a buffer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="bufferResource">The buffer resource</param>
-        /// <param name="context">The DX11 context.</param>
-        /// <param name="count">The required count. Gets blown up to the next power of 2.</param>
-        /// <param name="bufferToCopy">The buffer to copy in case of immutable buffer type</param>
-        private void CreateBuffer<T>(DX11Resource<IDX11ReadableStructureBuffer> bufferResource, DX11RenderContext context, int count, T[] bufferToCopy)
-            where T : struct
+        private void CreateBuffer(DX11Resource<IDX11ReadableStructureBuffer> bufferResource, DX11RenderContext context, DynamicBufferDescription<TBuffer> description)
         {
-            if (!bufferResource.Contains(context))
+            var count = 0;
+
+            switch (description.DataType)
             {
-                count = NextUpperPow2(count);
-                if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
-                {
-                    bufferResource[context] = new DX11DynamicStructuredBuffer<T>(context, count);
-                }
-                else if (this.FBufferType[0] == DX11BufferUploadType.Default)
-                {
-                    bufferResource[context] = new DX11CopyDestStructuredBuffer<T>(context, count);
-                }
-                else
-                {
-                    bufferResource[context] = new DX11ImmutableStructuredBuffer<T>(context.Device, bufferToCopy, count);
-                }
+                case BufferDescriptionDataType.IntPtr:
+                case BufferDescriptionDataType.Stream:
+                    count = (int)description.DataSizeInBytes;
+                    break;
+
+                case BufferDescriptionDataType.Array:
+                case BufferDescriptionDataType.Spread:
+                    count = description.GetDataArray().Length;
+                    break;
             }
-        }
 
-        private void WriteToBuffer<T>(DX11Resource<IDX11ReadableStructureBuffer> bufferResource, DX11RenderContext context, T[] bufferToCopy, int elementCount)
-            where T : struct
-        {
-            if (elementCount > 0)
+            count = NextUpperPow2(count);
+
+            if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
             {
-                if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
-                {
-                    DX11DynamicStructuredBuffer<T> b = (DX11DynamicStructuredBuffer<T>)bufferResource[context];
-                    b.WriteData(bufferToCopy, 0, elementCount);
-                }
-                else if (this.FBufferType[0] == DX11BufferUploadType.Default)
-                {
-                    DX11CopyDestStructuredBuffer<T> b = (DX11CopyDestStructuredBuffer<T>)bufferResource[context];
-                    b.WriteData(bufferToCopy, 0, elementCount);
-                }
+                bufferResource[context] = new DX11DynamicStructuredVLBuffer<TBuffer>(context, count, description.Stride);
             }
-        }
-
-        private void PrepareLocalBufferData(DX11RenderContext context)
-        {
-            //make sure arrays are big enough
-            EnsureArraySize(ref this.FLocalDataBuffer, FTotalDataCount);
-
-            CopyData(FBufferDescriptionIn);         
-        }
-
-        protected virtual void CopyData(IDiffSpread<DynamicBufferDescription<TBuffer>> descriptions)
-        {
-            var writeIndex = 0;
-
-            foreach (var desc in descriptions.Where(d => d != null))
+            else if (this.FBufferType[0] == DX11BufferUploadType.Default)
             {
-                CopyToLocalBuffer(desc.Data, FLocalDataBuffer, ref writeIndex);
+                bufferResource[context] = new DX11CopyDestStructuredVLBuffer<TBuffer>(context, count, description.Stride);
+            }
+            else
+            {
+                count = (int)description.DataSizeInBytes;
+                switch (description.DataType)
+                {
+                    case BufferDescriptionDataType.IntPtr:
+                        bufferResource[context] = new DX11ImmutableStructuredVLBuffer<TBuffer>(context.Device, description.GetDataPointer(), count, description.Stride);
+                        break;
+                    case BufferDescriptionDataType.Array:
+                    case BufferDescriptionDataType.Spread:
+                        bufferResource[context] = new DX11ImmutableStructuredVLBuffer<TBuffer>(context.Device, description.GetDataArray(), count, description.Stride);
+                        break;
+                    case BufferDescriptionDataType.Stream:
+                        bufferResource[context] = new DX11ImmutableStructuredVLBuffer<TBuffer>(context.Device, description.GetDataArray(), count, description.Stride);
+                        break;
+                    default:
+                        break;
+                }            
             }
         }
 
@@ -341,7 +340,7 @@ namespace VVVV.DX11.Nodes
 
         public void OnImportsSatisfied()
         {
-            this.FBufferOutput.SliceCount = 1;
+            this.FBufferOutput.Resize(0, () => new DX11Resource<IDX11ReadableStructureBuffer>(), b => b?.Dispose());
         }
     }
 }

@@ -47,9 +47,6 @@ namespace VVVV.DX11.Nodes
         private bool FFirst = true;
         private int FBufferInSpreadMax;
 
-        protected virtual bool NeedConvert { get { return false; } }
-
-
         int FOldGeometryOutCount = 0;
         int FOldSpritesGeometryOutCount = 0;
 
@@ -61,7 +58,6 @@ namespace VVVV.DX11.Nodes
                 if (this.FBufferDescriptionIn.SliceCount > 0)
                 {
                     this.FBufferOutput.Resize(FBufferDescriptionIn.SliceCount, () => new DX11Resource<DX11DynamicRawBuffer>(), b => b?.Dispose());
-
                     this.FValid.SliceCount = FBufferDescriptionIn.SliceCount;
                 }
                 else //no output
@@ -69,7 +65,6 @@ namespace VVVV.DX11.Nodes
 
                     this.FBufferOutput.SafeDisposeAll();
                     this.FBufferOutput.SliceCount = 0;
-
                     this.FValid.SliceCount = 0;
                 }
 
@@ -96,24 +91,21 @@ namespace VVVV.DX11.Nodes
 
         private void SetupBuffer(int slice, DX11RenderContext context, DX11Resource<DX11DynamicRawBuffer> buffer, DynamicRawBufferDescription description)
         {
+
+            //refresh buffers?
+            if (buffer.Contains(context))
+            {
+                if (buffer[context].Size < description.DataSizeInBytes)
+                {
+                    buffer.Dispose(context);
+                }
+            }
+
+            //make new buffers?
             if (!buffer.Contains(context))
             {
-                //refresh buffers?
-                if (buffer.Contains(context))
-                {
-                    if (buffer[context].Size < description.DataSizeInBytes)
-                    {
-                        buffer.Dispose(context);
-                    }
-                }
-
-                //make new buffers?
-                if (!buffer.Contains(context))
-                {
-                    var count = NextUpperPow2((int)description.DataSizeInBytes);
-                    buffer[context] = new DX11DynamicRawBuffer(context, count);
-                }
-
+                var count = NextUpperPow2((int)description.DataSizeInBytes);
+                buffer[context] = new DX11DynamicRawBuffer(context, count);
             }
 
             this.FValid[slice] = true;

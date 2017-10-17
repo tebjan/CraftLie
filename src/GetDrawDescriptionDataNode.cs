@@ -528,7 +528,7 @@ namespace VVVV.DX11.Nodes
             {
                 if (bufferResource[context].ElementCount < bufferCount
                     || bufferTypeChanged
-                    || bufferResource[context] is DX11ImmutableStructuredBuffer<T>)
+                    || bufferResource[context] is DX11ImmutableStructuredVLBuffer<T>)
                 {
                     bufferResource.Dispose(context);
                 }
@@ -551,15 +551,15 @@ namespace VVVV.DX11.Nodes
                 count = NextUpperPow2(count);
                 if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
                 {
-                    bufferResource[context] = new DX11DynamicStructuredBuffer<T>(context, count);
+                    bufferResource[context] = new DX11DynamicStructuredVLBuffer<T>(context, count);
                 }
                 else if (this.FBufferType[0] == DX11BufferUploadType.Default)
                 {
-                    bufferResource[context] = new DX11CopyDestStructuredBuffer<T>(context, count);
+                    bufferResource[context] = new DX11CopyDestStructuredVLBuffer<T>(context, count);
                 }
                 else
                 {
-                    bufferResource[context] = new DX11ImmutableStructuredBuffer<T>(context.Device, bufferToCopy, count);
+                    bufferResource[context] = new DX11ImmutableStructuredVLBuffer<T>(context.Device, bufferToCopy, count);
                 }
             }
         }
@@ -571,12 +571,12 @@ namespace VVVV.DX11.Nodes
             {
                 if (this.FBufferType[0] == DX11BufferUploadType.Dynamic)
                 {
-                    DX11DynamicStructuredBuffer<T> b = (DX11DynamicStructuredBuffer<T>)bufferResource[context];
+                    DX11DynamicStructuredVLBuffer<T> b = (DX11DynamicStructuredVLBuffer<T>)bufferResource[context];
                     b.WriteData(bufferToCopy, 0, elementCount);
                 }
                 else if (this.FBufferType[0] == DX11BufferUploadType.Default)
                 {
-                    DX11CopyDestStructuredBuffer<T> b = (DX11CopyDestStructuredBuffer<T>)bufferResource[context];
+                    DX11CopyDestStructuredVLBuffer<T> b = (DX11CopyDestStructuredVLBuffer<T>)bufferResource[context];
                     b.WriteData(bufferToCopy, 0, elementCount);
                 }
             }
