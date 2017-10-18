@@ -58,10 +58,11 @@ namespace VVVV.DX11.Nodes
         {           
             for (int i = 0; i < FTextureOutput.SliceCount; i++)
             {
-                if (FDataIn[i] != null && FDataIn[i].Set)
+                var desc = FDataIn[i];
+                if (desc != null && desc.Set)
                 {
                     FValid[i] = false;
-                    SetupTexture(i, context, FTextureOutput[i], FDataIn[i]); 
+                    SetupTexture(i, context, FTextureOutput[i], desc); 
                 }
             }        
         }

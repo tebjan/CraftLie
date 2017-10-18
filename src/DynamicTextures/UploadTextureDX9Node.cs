@@ -62,7 +62,11 @@ namespace VVVV.Nodes
                 var desc = FDataIn[i];
 
                 //recreate textures if resolution or format was changed
-                if (info == null || desc == null || (desc.Format == TextureDescriptionFormat.FromImage && desc.Set) || info.Width != desc.Width || info.Height != desc.Height || info.Format != desc.Format)
+                if (info == null || desc == null 
+                    || (desc.Format == TextureDescriptionFormat.FromImage && desc.Set) 
+                    || info.Width != desc.Width 
+                    || info.Height != desc.Height 
+                    || info.Format != desc.Format)
                 {
                     textureResource?.Dispose();
                     textureResource = CreateTextureResource(i);

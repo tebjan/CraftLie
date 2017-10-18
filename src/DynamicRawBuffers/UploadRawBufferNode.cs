@@ -81,10 +81,11 @@ namespace VVVV.DX11.Nodes
         {
             for (int i = 0; i < FBufferOutput.SliceCount; i++)
             {
-                if (FBufferDescriptionIn[i].Set)
+                var desc = FBufferDescriptionIn[i];
+                if (desc != null && FBufferDescriptionIn[i].Set)
                 {
                     FValid[i] = false;
-                    SetupBuffer(i, context, FBufferOutput[i], FBufferDescriptionIn[i]);
+                    SetupBuffer(i, context, FBufferOutput[i], desc);
                 }
             }
         }

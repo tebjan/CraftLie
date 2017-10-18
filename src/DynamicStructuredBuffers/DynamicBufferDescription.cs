@@ -22,8 +22,7 @@ namespace CraftLie
         Stream
     }
 
-    public class DynamicBufferDescription<TBuffer>
-        where TBuffer : struct
+    public abstract class DynamicBufferDescription
     {
         public readonly bool Set;
         public readonly BufferDescriptionDataType DataType;
@@ -41,6 +40,15 @@ namespace CraftLie
         public virtual IntPtr GetDataPointer() => IntPtr.Zero;
         public virtual Array GetDataArray() => new byte[0];
         public virtual Stream GetDataStream() => new MemoryStream();
+    }
+
+    public class DynamicBufferDescription<TBuffer> : DynamicBufferDescription
+        where TBuffer : struct
+    {
+        public DynamicBufferDescription(BufferDescriptionDataType dataType, long dataSizeInBytes, int stride, bool set)
+            : base(dataType, dataSizeInBytes, stride, set)
+        {
+        }
 
         protected static readonly int StructSizeInBytes = Marshal.SizeOf(typeof(TBuffer));
     }

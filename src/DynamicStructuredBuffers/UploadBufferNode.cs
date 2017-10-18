@@ -22,40 +22,15 @@ using SlimDX.Direct3D11;
 
 namespace VVVV.DX11.Nodes
 {
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Int", Author = "tonfilm")]
-    public class UploadIntBufferNode : UploadBufferNode<int> { }
 
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "UInt", Author = "tonfilm")]
-    public class UploadUIntBufferNode : UploadBufferNode<uint> { }
-
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Float", Author = "tonfilm")]
-    public class UploadFloatBufferNode : UploadBufferNode<float> { }
-
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "2d", Author = "tonfilm")]
-    public class UploadVector2BufferNode : UploadBufferNode<Vector2> { }
-
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "3d", Author = "tonfilm")]
-    public class UploadVector3BufferNode : UploadBufferNode<Vector3> { }
-
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "4d", Author = "tonfilm")]
-    public class UploadVector4BufferNode : UploadBufferNode<Vector4> { }
-
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Color", Author = "tonfilm")]
-    public class UploadColorBufferNode : UploadBufferNode<Color4> { }
-
-    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Version = "Transform", Author = "tonfilm")]
-    public class UploadMatrixBufferNode : UploadBufferNode<Matrix>
-    {
-    }
-
-    public class UploadBufferNode<TBuffer> : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable 
-        where TBuffer : struct
+    [PluginInfo(Name = "UploadBuffer", Category = "DX11.Buffer", Author = "tonfilm")]
+    public class UploadBufferNode : IPluginEvaluate, IDX11ResourceHost, IPartImportsSatisfiedNotification, IDisposable
     {
         [Import()]
         protected IPluginHost2 pluginHost;
 
         [Input("Buffer Description", Order = 5)]
-        protected IDiffSpread<DynamicBufferDescription<TBuffer>> FBufferDescriptionIn;
+        protected IDiffSpread<DynamicBufferDescription> FBufferDescriptionIn;
 
         [Input("Keep In Memory", DefaultValue = 0, Order = 6)]
         protected ISpread<bool> FKeep;
@@ -103,15 +78,18 @@ namespace VVVV.DX11.Nodes
 
             for (int i = 0; i < FBufferOutput.SliceCount; i++)
             {
-                if (FBufferDescriptionIn[i].Set)
+                var desc = FBufferDescriptionIn[i];
+                if (desc != null && desc.Set)
                 {
-                    FValid[i] = false;
-                    SetupBuffer(i, context, FBufferOutput[i], FBufferDescriptionIn[i]);
+                    FValid[i] = false;                                    
+                    dynamic genericDesc = Convert.ChangeType(desc, desc.GetType());
+                    SetupBuffer(i, context, FBufferOutput[i], genericDesc);
                 }
             }
         }
 
-        private void SetupBuffer(int slice, DX11RenderContext context, DX11Resource<IDX11ReadableStructureBuffer> buffer, DynamicBufferDescription<TBuffer> description)
+        private void SetupBuffer<TBuffer>(int slice, DX11RenderContext context, DX11Resource<IDX11ReadableStructureBuffer> buffer, DynamicBufferDescription<TBuffer> description)
+            where TBuffer : struct
         {
             //refresh buffers?
             if (buffer.Contains(context))
@@ -203,7 +181,8 @@ namespace VVVV.DX11.Nodes
         /// Creates a buffer.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        private void CreateBuffer(DX11Resource<IDX11ReadableStructureBuffer> bufferResource, DX11RenderContext context, DynamicBufferDescription<TBuffer> description)
+        private void CreateBuffer<TBuffer>(DX11Resource<IDX11ReadableStructureBuffer> bufferResource, DX11RenderContext context, DynamicBufferDescription<TBuffer> description)
+            where TBuffer : struct
         {
             var count = 0;
 
@@ -248,34 +227,6 @@ namespace VVVV.DX11.Nodes
                     default:
                         break;
                 }            
-            }
-        }
-
-        /// <summary>
-        /// Copies to local buffer and increments the index. Tries to use Array.Copy();
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source">The source.</param>
-        /// <param name="destination">The destination array.</param>
-        /// <param name="destinationStartIndex">Start index in the destination array.</param>
-        protected static void CopyToLocalBuffer<T>(IReadOnlyList<T> source, T[] destination, ref int destinationStartIndex)
-            where T : struct
-        {
-            var collection = source as ICollection<T>;
-            if (collection != null)
-            {
-                //direct copy
-                collection.CopyTo(destination, destinationStartIndex);
-                destinationStartIndex += collection.Count;
-                return;
-            }
-            else 
-            {
-                foreach (var pos in source)
-                {
-                    //iteration
-                    destination[destinationStartIndex++] = pos;
-                }
             }
         }
 
