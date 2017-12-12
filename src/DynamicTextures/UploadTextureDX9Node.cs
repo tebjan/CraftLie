@@ -83,8 +83,13 @@ namespace VVVV.Nodes
 
         TextureResource<TextureInfo> CreateTextureResource(int slice)
         {
-            var def = new DynamicTextureDescriptionArray<float>(new float[] { 1 }, 1, 1, TextureDescriptionFormat.R32_Float);
-            var desciption = FDataIn[slice] ?? def;
+            DynamicTextureDescription desciption = new DynamicTextureDescriptionArray<float>(new float[] { 1 }, 1, 1, TextureDescriptionFormat.R32_Float);
+            var input = FDataIn[slice];
+
+            if(input != null && input.Set)
+            {
+                desciption = input;
+            }
 
             if (desciption.Format == TextureDescriptionFormat.FromImage)
             {
@@ -117,11 +122,17 @@ namespace VVVV.Nodes
                 case TextureDescriptionDataType.Array:
                 case TextureDescriptionDataType.Spread:
                     var bytes = (byte[])description.GetDataArray();
-                    return Texture.FromMemory(device, bytes, description.Width, description.Height, 1, usage, Format.A8R8G8B8, pool, Filter.Default, Filter.Default, 0);
+                    if(description.Width == 0 || description.Height == 0)
+                        return Texture.FromMemory(device, bytes);
+                    else
+                        return Texture.FromMemory(device, bytes, description.Width, description.Height, 1, usage, Format.Unknown, pool, Filter.Default, Filter.Default, 0);
                 case TextureDescriptionDataType.Stream:
                     var stream = description.GetDataStream();
                     stream.Position = 0;
-                    return Texture.FromStream(device, stream, description.Width, description.Height, 1, usage, Format.A8R8G8B8, pool, Filter.Default, Filter.Default, 0);
+                    if (description.Width == 0 || description.Height == 0)
+                        return Texture.FromStream(device, stream);
+                    else
+                        return Texture.FromStream(device, stream, description.Width, description.Height, 1, usage, Format.Unknown, pool, Filter.Default, Filter.Default, 0);
             }
 
             throw new NotImplementedException("Could not create texture from image data");
