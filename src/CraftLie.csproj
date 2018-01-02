@@ -79,17 +79,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicStructuredBuffers\DynamicImmutableStructuredVLBuffer.cs" />
-    <Compile Include="DynamicRawBuffers\DynamicRawBufferDescription.cs" />
-    <Compile Include="DynamicStructuredBuffers\DynamicCopyDestStructuredVLBuffer.cs" />
-    <Compile Include="DynamicStructuredBuffers\DynamicStructuredVLBuffer.cs" />
-    <Compile Include="DynamicRawBuffers\UploadRawBufferNode.cs" />
-    <Compile Include="DynamicStructuredBuffers\UploadBufferNode.cs" />
-    <Compile Include="DynamicTextures\DynamicTextureDescription.cs" />
-    <Compile Include="DynamicTextures\DynamicTextureUtils.cs" />
-    <Compile Include="DynamicTextures\UploadTextureDX9Node.cs" />
-    <Compile Include="DynamicTextures\UploadTextureDX11Node.cs" />
-    <Compile Include="DynamicStructuredBuffers\DynamicBufferDescription.cs" />
+    <Compile Include="StructuredBuffers\DynamicImmutableStructuredVLBuffer.cs" />
+    <Compile Include="StructuredBuffers\DynamicCopyDestStructuredVLBuffer.cs" />
+    <Compile Include="StructuredBuffers\DynamicStructuredVLBuffer.cs" />
     <Compile Include="DrawDescriptionLayer.cs" />
     <Compile Include="DrawDescription.cs" />
     <Compile Include="DrawGeometryDescription.cs" />
