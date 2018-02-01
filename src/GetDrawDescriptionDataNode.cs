@@ -653,7 +653,7 @@ namespace VVVV.DX11.Nodes
         /// <param name="source">The source.</param>
         /// <param name="destination">The destination array.</param>
         /// <param name="destinationStartIndex">Start index in the destination array.</param>
-        private static void CopyToLocalBuffer<T>(IReadOnlyList<T> source, T[] destination, ref int destinationStartIndex)
+        private static void CopyToLocalBuffer<T>(IReadOnlyCollection<T> source, T[] destination, ref int destinationStartIndex)
             where T : struct
         {
             var collection = source as ICollection<T>;

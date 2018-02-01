@@ -19,12 +19,21 @@ namespace CraftLie
 
     public class DrawGeometryDescription : DrawDescription
     {
-        public ShadingType Shading;
-        public IReadOnlyList<Matrix> InstanceTransformations;
-        public IReadOnlyList<Color4> InstanceColors;
-        public int InstanceCount;
+        public static readonly DrawGeometryDescription Default;
+        static readonly IReadOnlyCollection<Matrix> Identity;
+        static readonly IReadOnlyCollection<Color4> White;
 
-        public static readonly DrawGeometryDescription Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", BlendMode.Blend, ShadingType.Constant, new List<Matrix>(), new List<Color4>());
+        static DrawGeometryDescription()
+        {
+            Identity = new Matrix[] { Matrix.Identity };
+            White = new Color4[] { Color4.White };
+            Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", BlendMode.Blend, ShadingType.Constant, Identity, White);
+        }
+
+        public ShadingType Shading;
+        public IReadOnlyCollection<Matrix> InstanceTransformations;
+        public IReadOnlyCollection<Color4> InstanceColors;
+        public int InstanceCount;
 
         public DrawGeometryDescription()
             : this(null)
@@ -47,8 +56,8 @@ namespace CraftLie
             string texturePath,
             BlendMode blendMode,
             ShadingType shading,
-            IReadOnlyList<Matrix> instanceTransformations,
-            IReadOnlyList<Color4> instanceColors)
+            IReadOnlyCollection<Matrix> instanceTransformations,
+            IReadOnlyCollection<Color4> instanceColors)
             : this(geometryDescriptor)
         {
             Update(transformation, color, texturePath, blendMode, shading, instanceTransformations, instanceColors);
@@ -69,8 +78,8 @@ namespace CraftLie
             string texturePath,
             BlendMode blendMode = BlendMode.Blend,
             ShadingType shading = ShadingType.Constant,
-            IReadOnlyList<Matrix> instanceTransformations = null,
-            IReadOnlyList<Color4> instanceColors = null)
+            IReadOnlyCollection<Matrix> instanceTransformations = null,
+            IReadOnlyCollection<Color4> instanceColors = null)
         {
             Transformation = transformation;
             Color = color;
@@ -79,11 +88,11 @@ namespace CraftLie
             Shading = shading;
             Space = TransformationSpace.World; //always set default, can be changed by Within node
 
-            if (instanceColors == null || instanceColors.None())
-                instanceColors = new List<Color4>(1) { Color4.White };
+            if (instanceColors == null || instanceColors.Count == 0)
+                instanceColors = White;
 
-            if (instanceTransformations == null || instanceTransformations.None())
-                instanceTransformations =  new List<Matrix>(1) { Matrix.Identity };
+            if (instanceTransformations == null || instanceTransformations.Count == 0)
+                instanceTransformations = Identity;
 
             InstanceTransformations = instanceTransformations;
             InstanceColors = instanceColors;
