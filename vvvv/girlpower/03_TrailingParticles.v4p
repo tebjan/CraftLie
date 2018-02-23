@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.5.dtd" >
-   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\03_TrailingParticles.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\03_TrailingParticles.v4p" systemname="03_TrailingParticles" scrollx="15" scrolly="-360" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.18.dtd" >
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\03_TrailingParticles.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\03_TrailingParticles.v4p" systemname="03_TrailingParticles" scrollx="0" scrolly="0" locked="0">
    <BOUNDS height="11055" left="240" top="195" type="Window" width="10425">
    </BOUNDS>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE nodename="Group (DX11.Layer)" id="283" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
    <BOUNDS type="Node" left="1425" top="6600" width="0" height="0">
@@ -34,13 +34,13 @@
    </NODE>
    <LINK srcnodeid="284" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 2">
    </LINK>
-   <NODE systemname="Mouse (Devices Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Window)" componentmode="Hidden" id="290">
+   <NODE systemname="MOUSE (DEVICES WINDOW)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Window)" componentmode="Hidden" id="290">
    <BOUNDS type="Node" left="2040" top="1335" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Device" visible="1">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="33.0">
+   <PACK Name="dx11" Version="1.2">
    </PACK>
    <NODE systemname="MainLoop (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
    <BOUNDS type="Node" left="8025" top="1215" width="100" height="100">
@@ -51,14 +51,6 @@
    </PIN>
    <PIN pinname="Time Mode" visible="1" slicecount="1" values="Raw">
    </PIN>
-   </NODE>
-   <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="304">
-   <BOUNDS type="Node" left="5010" top="3900" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="5010" top="3900" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="11880" top="10125" width="16710" height="5085">
-   </BOUNDS>
    </NODE>
    <NODE systemname="DisplayObjectCount" filename="DisplayObjectCount.v4p" nodename="DisplayObjectCount.v4p" componentmode="Hidden" id="305">
    <BOUNDS type="Node" left="2055" top="5160" width="100" height="100">

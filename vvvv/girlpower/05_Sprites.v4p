@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.7.dtd" >
-   <PATCH nodename="C:\Dev\vvvv\vvvv\public\vvvv45\lib\packs\CraftLie.1.0.0\vvvv\girlpower\05_Sprites.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\05_Sprites.v4p" systemname="05_Sprites" scrollx="0" scrolly="0" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.18.dtd" >
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\05_Sprites.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\05_Sprites.v4p" systemname="05_Sprites" scrollx="0" scrolly="0" locked="0">
    <BOUNDS height="9570" left="0" top="0" type="Window" width="8775">
    </BOUNDS>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE nodename="Group (DX11.Layer)" id="283" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
    <BOUNDS type="Node" left="750" top="6225" width="0" height="0">
@@ -36,7 +36,7 @@
    <PIN pinname="Enabled" visible="1">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="33.0">
+   <PACK Name="dx11" Version="1.2">
    </PACK>
    <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="Hidden" id="292">
    <BOUNDS type="Node" left="1087" top="3318" width="0" height="0">
@@ -282,12 +282,6 @@
    </NODE>
    <LINK srcnodeid="323" srcpinname="Y Output Value" dstnodeid="311" dstpinname="Enabled">
    </LINK>
-   <NODE systemname="Mouse (Devices Window)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Window)" componentmode="Hidden" id="324">
-   <BOUNDS type="Node" left="5685" top="1965" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Device" visible="1">
-   </PIN>
-   </NODE>
    <NODE id="325" systemname="Sprites (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="Sprites (3d)" componentmode="Hidden">
    <BOUNDS type="Node" left="1710" top="2640" width="2355" height="270">
    </BOUNDS>
@@ -299,8 +293,6 @@
    <LINK srcnodeid="315" srcpinname="Y Output Value" dstnodeid="325" dstpinname="Particle Count">
    </LINK>
    <LINK srcnodeid="319" srcpinname="Y Output Value" dstnodeid="325" dstpinname="Force Zoom">
-   </LINK>
-   <LINK srcnodeid="324" srcpinname="Device" dstnodeid="325" dstpinname="Mouse Device">
    </LINK>
    <PACK Name="vvvv-Message" Version="2.9.6">
    </PACK>

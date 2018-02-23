@@ -27,7 +27,7 @@ namespace CraftLie
         {
             Identity = new Matrix[] { Matrix.Identity };
             White = new Color4[] { Color4.White };
-            Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", BlendMode.Blend, ShadingType.Constant, Identity, White);
+            Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", BlendMode.Blend, ShadingType.Constant, new List<Matrix>(), new List<Color4>());
         }
 
         public ShadingType Shading;

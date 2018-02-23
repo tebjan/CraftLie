@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.7.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_50beta35.7_x64\lib\packs\CraftLie.1.0.1\vvvv\girlpower\04_CPUCoreRace.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\04_CPUCoreRace.v4p" systemname="04_CPUCoreRace" scrollx="0" scrolly="0" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.18.dtd" >
+   <PATCH nodename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\04_CPUCoreRace.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\04_CPUCoreRace.v4p" systemname="04_CPUCoreRace" scrollx="0" scrolly="0" locked="0">
    <BOUNDS height="9720" left="0" top="0" type="Window" width="7515">
    </BOUNDS>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE nodename="Group (DX11.Layer)" id="283" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
    <BOUNDS type="Node" left="825" top="6255" width="0" height="0">
@@ -36,7 +36,7 @@
    </NODE>
    <LINK srcnodeid="284" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 2">
    </LINK>
-   <PACK Name="dx11" Version="33.0">
+   <PACK Name="dx11" Version="1.2">
    </PACK>
    <NODE systemname="Renderer (CraftLie)" filename="..\nodes\modules\Renderer (CraftLie).v4p" nodename="..\nodes\modules\Renderer (CraftLie).v4p" componentmode="Hidden" id="292">
    <BOUNDS type="Node" left="997" top="4233" width="0" height="0">
@@ -295,13 +295,15 @@
    </PIN>
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="321" srcpinname="Output 1" dstnodeid="307" dstpinname="Race">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="324">
-   <BOUNDS type="Node" left="2370" top="4005" width="3600" height="270">
+   <BOUNDS type="Node" left="2520" top="3945" width="3600" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="2370" top="4005" width="3600" height="270">
+   <BOUNDS type="Box" left="2520" top="3945" width="3600" height="270">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|also have a look at your CPU usage while racing...|">
    </PIN>
