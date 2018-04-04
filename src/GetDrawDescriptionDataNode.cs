@@ -143,6 +143,21 @@ namespace VVVV.DX11.Nodes
         [Output("Font Names")]
         protected ISpread<string> FTextFontNames;
 
+        [Output("Font Weights")]
+        protected ISpread<SlimDX.DirectWrite.FontWeight> FTextFontWeights;
+
+        [Output("Font Styles")]
+        protected ISpread<SlimDX.DirectWrite.FontStyle> FTextFontStyles;
+
+        [Output("Horizontal Alignments")]
+        protected ISpread<SharpDX.DirectWrite.TextAlignment> FTextAlignmentsHorizontal;
+
+        [Output("Vertical Alignments")]
+        protected ISpread<SlimDX.DirectWrite.ParagraphAlignment> FTextAlignmentsVertical;
+
+        [Output("Text Widths")]
+        protected ISpread<float> FTextWidths;
+
         [Output("Is Valid")]
         protected ISpread<bool> FValid;
 
@@ -248,6 +263,11 @@ namespace VVVV.DX11.Nodes
                     this.FTextSizes.SliceCount = 0;
                     this.FTexts.SliceCount = 0;
                     this.FTextFontNames.SliceCount = 0;
+                    this.FTextFontWeights.SliceCount = 0;
+                    this.FTextFontStyles.SliceCount = 0;
+                    this.FTextAlignmentsHorizontal.SliceCount = 0;
+                    this.FTextAlignmentsVertical.SliceCount = 0;
+                    this.FTextWidths.SliceCount = 0;
 
                     this.FValid.SliceCount = 0;
                 }
@@ -443,6 +463,11 @@ namespace VVVV.DX11.Nodes
             FTextColors.SliceCount = textCount;
             FTextSizes.SliceCount = textCount;
             FTextFontNames.SliceCount = textCount;
+            FTextFontWeights.SliceCount = textCount;
+            FTextFontStyles.SliceCount = textCount;
+            FTextAlignmentsHorizontal.SliceCount = textCount;
+            FTextAlignmentsVertical.SliceCount = textCount;
+            FTextWidths.SliceCount = textCount;
 
             for (int i = 0; i < textCount; i++)
             {
@@ -451,6 +476,11 @@ namespace VVVV.DX11.Nodes
                 FTexts[i] = desc.Text;
                 FTextSizes[i] = desc.Size;
                 FTextFontNames[i] = desc.FontName;
+                FTextFontWeights[i] = (SlimDX.DirectWrite.FontWeight)desc.Weight;
+                FTextFontStyles[i] = (SlimDX.DirectWrite.FontStyle)desc.Style;
+                FTextAlignmentsHorizontal[i] = (SharpDX.DirectWrite.TextAlignment)desc.HorizontalAlignment;
+                FTextAlignmentsVertical[i] = (SlimDX.DirectWrite.ParagraphAlignment)desc.VerticalAlignment;
+                FTextWidths[i] = desc.TextWidth;
                 FTextTransformations[i] = ToSlimDXMatrix(ref desc.Transformation);
                 FTextSpaceIndex[i] = (int)desc.Space;
                 FTextColors[i] = ToRGBAColor(desc.Color);

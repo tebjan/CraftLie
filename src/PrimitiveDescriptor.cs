@@ -21,44 +21,6 @@ namespace CraftLie
         Text
     }
 
-    public enum ParagraphAlignment
-    {
-        //
-        // Summary:
-        //     The top of the text flow is aligned to the top edge of the layout box.
-        Near = 0,
-        //
-        // Summary:
-        //     The bottom of the text flow is aligned to the bottom edge of the layout box.
-        Far = 1,
-        //
-        // Summary:
-        //     The center of the flow is aligned to the center of the layout box.
-        Center = 2
-    }
-
-    public enum TextAlignment
-    {
-        //
-        // Summary:
-        //     The leading edge of the paragraph text is aligned to the leading edge of the
-        //     layout box.
-        Leading = 0,
-        //
-        // Summary:
-        //     The trailing edge of the paragraph text is aligned to the trailing edge of the
-        //     layout box.
-        Trailing = 1,
-        //
-        // Summary:
-        //     The center of the paragraph text is aligned to the center of the layout box.
-        Center = 2,
-        //
-        // Summary:
-        //     Align text to the leading side, and also justify text to fill the lines.
-        Justified = 3
-    }
-
     //
     // Summary:
     //     Specifies how the pipeline should interpret vertex data bound to the input assembler
@@ -296,17 +258,17 @@ namespace CraftLie
 
     public class TextDescriptor : GeometryDescriptor
     {
-        public static readonly TextDescriptor Default = new TextDescriptor("CraftLie", "Arial", 32, 0, TextAlignment.Center, ParagraphAlignment.Center);
+        public static readonly TextDescriptor Default = new TextDescriptor("CraftLie", "Arial", 32, 0);
 
         public readonly string Text;
 
         public readonly string FontName;
         public readonly float FontSize;
         public readonly float Extrude;
-        public readonly TextAlignment TextAlignment;
-        public readonly ParagraphAlignment ParagraphAlignment;
+        public readonly HorizontalTextAlignment TextAlignment;
+        public readonly VerticalTextAlignment ParagraphAlignment;
 
-        public TextDescriptor(string text = "CraftLie", string fontName = "Arial", float fontSize = 32, float extrude = 0, TextAlignment textAlignment = TextAlignment.Center, ParagraphAlignment paragraphAlignment = ParagraphAlignment.Center)
+        public TextDescriptor(string text = "CraftLie", string fontName = "Arial", float fontSize = 32, float extrude = 0, HorizontalTextAlignment textAlignment = HorizontalTextAlignment.Center, VerticalTextAlignment paragraphAlignment = VerticalTextAlignment.Center)
             : base(PrimitiveType.Text)
         {
             Text = text;

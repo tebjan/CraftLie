@@ -72,7 +72,7 @@ namespace CraftLie
                     break;
                 case PrimitiveType.Text:
                     var textDesc = (TextDescriptor)descriptor;
-                    return Text3d(context, textDesc.Text, textDesc.FontName, textDesc.FontSize, textDesc.Extrude, textDesc.TextAlignment, textDesc.ParagraphAlignment);
+                    return Text3d(context, textDesc.Text, textDesc.FontName, textDesc.FontSize, textDesc.Extrude, (TextAlignment)textDesc.TextAlignment, (ParagraphAlignment)textDesc.ParagraphAlignment);
                     break;
                 default:
                     var settings = new Quad() { Size = new SlimDX.Vector2(1) };
