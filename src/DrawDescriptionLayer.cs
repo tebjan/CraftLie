@@ -43,6 +43,40 @@ namespace CraftLie
                 input.SelectMany(d => d.TextDescriptions).ToList());
         }
 
+        public DrawDescriptionLayer DeepCopy()
+        {
+            return new DrawDescriptionLayer(
+                DeepCopyGeometries(),
+                DeepCopySprites(),
+                DeepCopyTexts());
+        }
+
+
+        private IReadOnlyList<DrawGeometryDescription> DeepCopyGeometries()
+        {
+            var result = new List<DrawGeometryDescription>();
+            foreach (var e in GeometryDescriptions)
+            {
+                result.Add(e.DeepCopy());
+            }
+            return result;
+        }
+
+        private IReadOnlyList<DrawSpritesDescription> DeepCopySprites()
+        {
+            return Default.SpritesDescriptions;
+        }
+
+        private IReadOnlyList<DrawTextDescription> DeepCopyTexts()
+        {
+            var result = new List<DrawTextDescription>();
+            foreach(var e in TextDescriptions)
+            {
+                result.Add(e.DeepCopy());
+            }
+            return result;
+        }
+
         public static IEnumerable<DrawGeometryDescription> GetDefaultDrawDescription()
         {
             yield return DrawGeometryDescription.Default;

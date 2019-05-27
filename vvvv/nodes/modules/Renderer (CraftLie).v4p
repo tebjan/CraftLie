@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_50beta36_x64\packs\CraftLie.1.2.0\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0" locked="0">
+   <PATCH nodename="C:\vvvv\vvvv_50beta36_x64\packs\CraftLie.1.3.0\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0" locked="0">
    <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
@@ -10,7 +10,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="510" top="5925" width="26955" height="13830">
+   <BOUNDS type="Window" left="-675" top="2025" width="25095" height="11835">
    </BOUNDS>
    <PACK Name="addonpack" Version="36.0.0">
    </PACK>
@@ -26,7 +26,7 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <PACK Name="dx11" Version="1.2">
+   <PACK Name="dx11" Version="1.0.5">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="10365" top="5820" width="885" height="240">
@@ -915,6 +915,8 @@
    </PIN>
    <PIN pinname="Text Alignment" visible="1">
    </PIN>
+   <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="110" srcpinname="Output" dstnodeid="61" dstpinname="Text Layout">
    </LINK>
@@ -934,6 +936,8 @@
    <PIN pinname="Font Style" visible="1">
    </PIN>
    <PIN pinname="Font Size" visible="1">
+   </PIN>
+   <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="111" srcpinname="Output" dstnodeid="110" dstpinname="Format">
@@ -971,5 +975,27 @@
    </LINKPOINT>
    <LINKPOINT x="19425" y="3833">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="112">
+   <BOUNDS type="Node" left="21660" top="4440" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="104" srcpinname="Text Sizes" dstnodeid="112" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Change (Animation)" nodename="Change (Animation)" componentmode="Hidden" id="113">
+   <BOUNDS type="Node" left="21645" top="4860" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="OnChange" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="112" srcpinname="Count" dstnodeid="113" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="113" srcpinname="OnChange" dstnodeid="111" dstpinname="Evaluate">
    </LINK>
    </PATCH>

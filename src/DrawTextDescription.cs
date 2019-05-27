@@ -86,6 +86,11 @@ namespace CraftLie
 
         public static readonly DrawTextDescription Default = new DrawTextDescription(Matrix.Identity, Color4.White);
 
+        public DrawTextDescription DeepCopy()
+        {
+            return new DrawTextDescription(this.Transformation, this.Color, this.Blending, this.Text, this.Size, this.FontName, this.Weight, this.Style, this.HorizontalAlignment, this.VerticalAlignment, this.TextWidth);
+        }
+
         public DrawTextDescription(Matrix transformation, Color4 color, BlendMode blendMode = BlendMode.TextDefault,
             string text = "CraftLie",
             float size = 12,

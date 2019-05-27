@@ -1,4 +1,5 @@
 ﻿using FeralTic.DX11.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using VL.Core;
@@ -71,7 +72,11 @@ namespace CraftLie
         public static readonly List<SlimDX.Vector3> UnitLineNormals = new List<SlimDX.Vector3>(2) { new SlimDX.Vector3(0, 1, 0), new SlimDX.Vector3(0, 1, 0) };
 
         public static readonly List<SlimDX.Vector3> UnitTri = new List<SlimDX.Vector3>(3) { new SlimDX.Vector3(-0.5f, -0.5f, 0), new SlimDX.Vector3(0.5f, -0.5f, 0), new SlimDX.Vector3(0, 0.5f, 0) };
+
+        public virtual GeometryDescriptor DeepCopy() { throw new NotImplementedException(); }
+
         public static readonly List<SlimDX.Vector3> UnitTriNormals = new List<SlimDX.Vector3>(3) { new SlimDX.Vector3(0, -1, 0), new SlimDX.Vector3(0, -1, 0), new SlimDX.Vector3(0, -1, 0) };
+
         public static readonly List<SlimDX.Vector2> UnitTriTex = new List<SlimDX.Vector2>(3) { new SlimDX.Vector2(0, 1), new SlimDX.Vector2(1, 1), new SlimDX.Vector2(0.5f, 0) };
         public static readonly int[] UnitTriIndices = new int[] { 0, 1, 2 };
     }
@@ -84,6 +89,11 @@ namespace CraftLie
             : base(PrimitiveType.Quad)
         {
             Settings = GeometryDescriptor.UnitQuad;
+        }
+
+        public override GeometryDescriptor DeepCopy()
+        {
+            return new QuadDescriptor();
         }
     }
 
@@ -185,6 +195,17 @@ namespace CraftLie
                 Directions = GeometryDescriptor.UnitLineNormals;
             }
         }
+
+        public override GeometryDescriptor DeepCopy()
+        {
+            return new LineDescriptor(Positions.ToList(), Directions.ToList(), IsClosed);
+        }
+
+        private LineDescriptor(List<SlimDX.Vector3> positions, List<SlimDX.Vector3> normals, bool isClosed)
+            : base(PrimitiveType.Line)
+        {
+
+        }
     }
 
     public class PolygonDescriptor : GeometryDescriptor
@@ -202,6 +223,18 @@ namespace CraftLie
             {
                 Positions = GeometryDescriptor.UnitTri2D;
             }
+        }
+
+        public override GeometryDescriptor DeepCopy()
+        {
+            return new PolygonDescriptor(Positions.ToList());
+
+        }
+
+        private PolygonDescriptor(List<SlimDX.Vector2> positions)
+            : base(PrimitiveType.Polygon)
+        {
+            Positions = positions;
         }
     }
 
@@ -277,6 +310,11 @@ namespace CraftLie
             Extrude = extrude;
             TextAlignment = textAlignment;
             ParagraphAlignment = paragraphAlignment;
+        }
+
+        public override GeometryDescriptor DeepCopy()
+        {
+            return new TextDescriptor(Text, FontName, FontSize, Extrude, TextAlignment, ParagraphAlignment);
         }
     }
 

@@ -72,6 +72,13 @@ namespace CraftLie
             }
         }
 
+        public DrawGeometryDescription DeepCopy()
+        {
+            var result = new DrawGeometryDescription(this.GeometryDescriptor.DeepCopy());
+            result.Update(this.Transformation, this.Color, this.TexturePath, this.Blending, this.Shading, this.InstanceTransformations.ToList(), this.InstanceColors.ToList());
+            return result;
+        }
+
         public void Update(
             Matrix transformation,
             Color4 color,
