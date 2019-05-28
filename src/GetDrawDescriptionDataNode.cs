@@ -382,7 +382,7 @@ namespace VVVV.DX11.Nodes
                 FBlendIndex[i] = (int)desc.Blending;
                 FMaterialIndex[i] = (int)desc.Shading;
                 FSpaceIndex[i] = (int)desc.Space;
-                FClipRect[i] = ToVector4(ref desc.ClipRect);
+                FClipRect[i] = new Vector4D(-1, 1, 1, -1);
 
                 FLayerOrder[FLayerOrderSlice++] = desc.LayerOrder;
             }
@@ -445,7 +445,7 @@ namespace VVVV.DX11.Nodes
                 FSpritesSpaceIndex[i] = (int)desc.Space;
                 FSpritesTexturePath[i] = desc.TexturePath;
                 FSpritesBlendIndex[i] = (int)desc.Blending;
-                FSpritesClipRect[i] = ToVector4(ref desc.ClipRect);
+                FSpritesClipRect[i] = new Vector4D(-1, 1, 1, -1);
 
                 FLayerOrder[FLayerOrderSlice++] = desc.LayerOrder;
             }

@@ -4662,7 +4662,7 @@
             <Choice Kind="TypeFlag" Name="DrawDescriptionLayer" />
             <FullNameCategoryReference ID="CraftLie" />
           </p:TypeAnnotation>
-          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">false</p:ForwardAllNodesOfTypeDefinition>
+          <p:ForwardAllNodesOfTypeDefinition p:Type="Boolean">true</p:ForwardAllNodesOfTypeDefinition>
           <Patch Id="KCCL7z4WelnNwDA5z7Lp8F">
             <Canvas Id="OBlnhIBtqZpNSaMazjI1Hf" CanvasType="Group">
               <!--
@@ -4679,12 +4679,14 @@
                   <Node Bounds="212,130,88,22" AutoConnect="true" Id="T9ieBXkTAReM3mWZUEMaHT">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationNode" Name="Create" />
                       <FullNameCategoryReference ID="CraftLie.DrawDescriptionLayer" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                      <CategoryReference Kind="AssemblyCategory" Name="DrawDescriptionLayer" NeedsToBeDirectParent="true" />
+                      <PinReference Kind="InputPin" Name="Geometries" />
                     </p:NodeReference>
-                    <Pin Id="UV3sZILMLa5LdX7GzkhIhC" Name="Geometries" Kind="InputPin" />
-                    <Pin Id="TMUeQsgsKpWPRiZjmsv1Hi" Name="Sprites" Kind="InputPin" />
-                    <Pin Id="EEekJcgacxKO7w9dAnHByM" Name="Texts" Kind="InputPin" />
+                    <Pin Id="PXserIXAd4XPYSwMAkcGPf" Name="Geometries" Kind="InputPin" />
+                    <Pin Id="Kd4gep5jkL6Mm7neK6AGzv" Name="Sprites" Kind="InputPin" />
+                    <Pin Id="ID9GFfBFhGEMo5vdtOPBDp" Name="Texts" Kind="InputPin" />
                     <Pin Id="NcPt3eEDRquOMPx69H6Rmn" Name="Output" Kind="StateOutputPin" />
                   </Node>
                   <Pin Id="NJa7KEeyhMNMANy41pWFj7" Name="Geometries" Kind="InputPin" />
@@ -4709,6 +4711,7 @@
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationCallFlag" Name="Create" />
                       <CategoryReference Kind="AssemblyCategory" Name="DrawDescriptionLayer" NeedsToBeDirectParent="true" />
+                      <PinReference Kind="InputPin" Name="Geometries" />
                     </p:NodeReference>
                     <Pin Id="HzOpPtxkfRdN0uScjrabZt" Name="Geometries" Kind="InputPin" />
                     <Pin Id="KPDhUSWyi0fP351VhWX0x9" Name="Sprites" Kind="InputPin" />
@@ -4716,7 +4719,7 @@
                     <Pin Id="MA0mSX5p28FMyIFAb4fmzT" Name="Output" Kind="StateOutputPin" />
                   </Node>
                   <Node Bounds="422,123,135,13" Id="QgYxuU0aU1uO2sQfYGHT0u">
-                    <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.dll">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationCallFlag" Name="GetDefaultDrawDescription" />
                     </p:NodeReference>
@@ -4733,7 +4736,7 @@
                   </Node>
                   <Link Id="O5moIIghFueLnThgmiVzKf" Ids="Sum08OpZYgZLQCa1KKHhN5,FW8HCkhFw6RLPAJ2cQvd7V" />
                   <Node Bounds="496,152,139,13" Id="TVaOjBwp6tnMgWMGQrvpJy">
-                    <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.dll">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationCallFlag" Name="GetDefaultSpritesDescriptor" />
                     </p:NodeReference>
@@ -4750,7 +4753,7 @@
                   </Node>
                   <Link Id="RdJb1eRHDvJNrKr8q62Dj2" Ids="KU5szp3F3a3OS2QT1lv2pL,ANf7uS327olOU4oQ7Snk9I" />
                   <Node Bounds="571,188,135,13" Id="FMldN8L4GMWLEOCmqQe8XT">
-                    <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.dll">
+                    <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationCallFlag" Name="GetDefaultTextDescriptor" />
                     </p:NodeReference>

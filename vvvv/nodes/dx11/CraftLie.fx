@@ -161,16 +161,8 @@ float3 Shading(vs2ps In)
 	return col;
 }
 
-void DoClipRect(float2 pixPos)
-{
-	float2 p = (pixPos * InvRendererSize) * 2 - 1;
-	if (p.x < ClipRect.x || p.y < ClipRect.y || p.x > ClipRect.z || p.y > ClipRect.w)
-		discard;
-}
-
 float4 PS(vs2ps In): SV_Target
 {
-	DoClipRect(In.PosWVP.xy);
 
     float4 col = texture2d.Sample(g_samLinear, In.TexCd) * In.Color;
 	
@@ -181,7 +173,6 @@ float4 PS(vs2ps In): SV_Target
 
 float4 PS_NoTex(vs2ps In): SV_Target
 {
-	DoClipRect(In.PosWVP.xy);
 	
     float4 col = In.Color;
 	

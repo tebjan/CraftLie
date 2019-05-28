@@ -32,26 +32,25 @@ namespace CraftLie
     public class DrawDescription : IDisposable
     {
         public GeometryDescriptor GeometryDescriptor;
-        public Guid ID = new Guid();
+        public Guid DrawId = Guid.NewGuid();
         public Matrix Transformation;
         public Color4 Color;
         public TransformationSpace Space = TransformationSpace.World;
         public BlendMode Blending = BlendMode.Blend;
-        public RectangleF ClipRect = new RectangleF { Left = -1, Top = -1, Right = 1, Bottom = 1 };
         public string TexturePath;
         public int LayerOrder;
 
         public IDX11Geometry GetGeometry(DX11RenderContext context)
         {
             IDX11Geometry geo;
-            if (!GeometryCache.TryGetValue(context, out var cache))
+            if (!GeometryCache.TryGetValue(DrawId, out var cache))
             {
-                GeometryCache[context] = new Dictionary<Guid, IDX11Geometry>();
+                GeometryCache[DrawId] = new Dictionary<DX11RenderContext, IDX11Geometry>();
                 geo = CreateGeo(context);
             }
             else
             {
-                if (!cache.TryGetValue(ID, out geo))
+                if (!cache.TryGetValue(context, out geo))
                 {
                     geo = CreateGeo(context);
                 }
@@ -63,18 +62,13 @@ namespace CraftLie
         protected IDX11Geometry CreateGeo(DX11RenderContext context)
         {
             IDX11Geometry geo = PrimitiveFactory.GetGeometry(context, GeometryDescriptor);
-            GeometryCache[context][ID] = geo;
+            GeometryCache[DrawId][context] = geo;
             return geo;
         }
 
         public void SetSpace(TransformationSpace space)
         {
             Space = space;
-        }
-
-        public void SetClipRect(RectangleF clipRect)
-        {
-            ClipRect = clipRect;
         }
 
         public void Transform(Matrix transformation)
@@ -93,15 +87,16 @@ namespace CraftLie
         public void Dispose()
         {
             DisposeGeometry();
+            GeometryCache.Remove(DrawId);
         }
 
         protected void DisposeGeometry()
         {
             try
             {
-                foreach (var cache in GeometryCache.Values)
+                if (GeometryCache.TryGetValue(DrawId, out var cache))
                 {
-                    if (cache.TryGetValue(ID, out var geo))
+                    foreach(var geo in cache.Values)
                     {
                         try
                         {
@@ -111,7 +106,7 @@ namespace CraftLie
                         {
                             //safe dispose
                         }
-                        cache.Remove(ID);
+                        cache.Clear();
                     }
                 }
 
@@ -122,7 +117,7 @@ namespace CraftLie
             }
         }
 
-        static readonly Dictionary<DX11RenderContext, Dictionary<Guid, IDX11Geometry>> GeometryCache = new Dictionary<DX11RenderContext, Dictionary<Guid, IDX11Geometry>>();
+        static readonly Dictionary<Guid, Dictionary<DX11RenderContext, IDX11Geometry>> GeometryCache = new Dictionary<Guid, Dictionary<DX11RenderContext, IDX11Geometry>>();
     }
 
 }

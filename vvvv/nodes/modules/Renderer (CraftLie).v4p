@@ -267,7 +267,7 @@
    </PIN>
    <PIN pinname="Clipping" slicecount="1" values="0.5">
    </PIN>
-   <PIN pinname="ClipRectXYZW" visible="1">
+   <PIN pinname="ClipRectXYZW" visible="1" slicecount="1" values="-1">
    </PIN>
    <PIN pinname="texture2d" visible="1" slicecount="1" values="||">
    </PIN>
@@ -511,6 +511,8 @@
    </PIN>
    <PIN pinname="Horizontal Alignments" visible="1">
    </PIN>
+   <PIN pinname="Clip RectXYZW" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="104" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input" linkstyle="Bezier">
    <LINKPOINT x="6570" y="3630">
@@ -696,12 +698,6 @@
    <LINKPOINT x="17580" y="3420">
    </LINKPOINT>
    <LINKPOINT x="17430" y="3420">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="104" srcpinname="Clip RectXYZW" dstnodeid="86" dstpinname="ClipRectXYZW" linkstyle="Bezier">
-   <LINKPOINT x="8790" y="4973">
-   </LINKPOINT>
-   <LINKPOINT x="5430" y="4973">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="104" srcpinname="Sprites Clip RectXYZW" dstnodeid="93" dstpinname="ClipRectXYZW" linkstyle="Bezier">
