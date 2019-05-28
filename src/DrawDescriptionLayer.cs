@@ -13,6 +13,7 @@ using Newtonsoft.Json.Bson;
 using Polenter.Serialization;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace CraftLie
 {
@@ -150,6 +151,28 @@ namespace CraftLie
         {
             return JsonConvert.DeserializeObject<DrawDescriptionLayer>(layer, new Vector3Converter(), new BoxConverter());
         }
+
+        public static DrawDescriptionLayer DeserializeJson2(string layer)
+        {
+            using (var sr = new StringReader(layer))
+            using (var reader = new FixedJsonTextReader(sr))
+            {
+                var settings = new JsonSerializerSettings
+                {
+                    Error = delegate (object sender, Newtonsoft.Json.Serialization.ErrorEventArgs args)
+                    {
+                        Debug.WriteLine(args.ErrorContext.Error.Message);
+                        args.ErrorContext.Handled = true;
+                    },
+                    ObjectCreationHandling = ObjectCreationHandling.Replace
+                };
+
+                settings.Converters.Add(new Vector3Converter());
+                settings.Converters.Add(new BoxConverter());
+
+                return  JsonSerializer.Create(settings).Deserialize<DrawDescriptionLayer>(reader);
+            }
+        }
     }
 
     public class ShouldSerializeContractResolver : DefaultContractResolver
@@ -206,6 +229,25 @@ namespace CraftLie
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             throw new NotImplementedException();
+        }
+    }
+
+    public class FixedJsonTextReader : JsonTextReader
+    {
+        public FixedJsonTextReader(TextReader reader) : base(reader) { }
+
+        public override string ReadAsString()
+        {
+            try
+            {
+                return base.ReadAsString();
+            }
+            catch (JsonReaderException)
+            {
+                if (TokenType == JsonToken.PropertyName)
+                    SetToken(JsonToken.None);
+                throw;
+            }
         }
     }
 }

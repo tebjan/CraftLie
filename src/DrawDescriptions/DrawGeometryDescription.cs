@@ -42,7 +42,7 @@ namespace CraftLie
 
         public DrawGeometryDescription(GeometryDescriptor geometryDescriptor)
         {
-            GeometryDescriptor = geometryDescriptor ?? new BoxDescriptor();
+            GeometryDescriptor = geometryDescriptor ?? new QuadDescriptor();
         }
 
         public void SetLayerOrder(int layerOrder)
