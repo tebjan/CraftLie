@@ -4285,11 +4285,6 @@
               <Pin Id="HwZSnKxP57FMUZgK6pXLbX" Name="Output" Kind="OutputPin" Bounds="77,664" />
               <Pin Id="Sxk7BqXcRk2M6AAOm0y0eI" Name="Input" Kind="InputPin" Bounds="-294,0" />
             </Patch>
-            <!--
-
-    ************************  ************************
-
--->
             <ProcessDefinition Id="Omtc8YCJ4OsMgdBdmx25Km">
               <Fragment Id="AYRjwE3iDgXLQuLWm6uQes" Patch="Q4cF2l1ScLUPpxz0wCZDHk" Enabled="true" />
               <Fragment Id="O9lndzoLnM9NEpIMc0Yh69" Patch="GjVpgIdHawjNE8IPBJwydX" Enabled="true" />
@@ -4346,11 +4341,6 @@
               </Pin>
               <Pin Id="BjwetFNUVElLxYlDGcqMno" Name="Output" Kind="OutputPin" Bounds="364,659" />
             </Patch>
-            <!--
-
-    ************************  ************************
-
--->
             <ProcessDefinition Id="VrMOjKDpezUMnHLt5D7Wy5">
               <Fragment Id="CNB72V0Ae6oMhEpxyiMUkj" Patch="EOya9nF7N6yL2JeUSaefo7" Enabled="true" />
               <Fragment Id="SHb6SThJ5KPMOgiIhxxRRG" Patch="BEoZr1yeKmhNMuBDRnLgaC" Enabled="true" />

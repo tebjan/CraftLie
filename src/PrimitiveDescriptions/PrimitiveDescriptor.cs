@@ -57,6 +57,7 @@ namespace CraftLie
 
     public abstract class GeometryDescriptor
     {
+        public Guid ID = new Guid();
         public readonly PrimitiveType Type;
         public GeometryDescriptor(PrimitiveType type)
         {

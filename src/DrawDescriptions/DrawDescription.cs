@@ -32,6 +32,7 @@ namespace CraftLie
     public class DrawDescription : IDisposable
     {
         public GeometryDescriptor GeometryDescriptor;
+        public Guid ID = new Guid();
         public Matrix Transformation;
         public Color4 Color;
         public TransformationSpace Space = TransformationSpace.World;
@@ -43,12 +44,26 @@ namespace CraftLie
         public IDX11Geometry GetGeometry(DX11RenderContext context)
         {
             IDX11Geometry geo;
-            if (!GeometryCache.TryGetValue(context, out geo))
+            if (!GeometryCache.TryGetValue(context, out var cache))
             {
-                geo = PrimitiveFactory.GetGeometry(context, GeometryDescriptor);
-                GeometryCache[context] = geo;
+                GeometryCache[context] = new Dictionary<Guid, IDX11Geometry>();
+                geo = CreateGeo(context);
             }
+            else
+            {
+                if (!cache.TryGetValue(ID, out geo))
+                {
+                    geo = CreateGeo(context);
+                }
+            }    
 
+            return geo;
+        }
+
+        protected IDX11Geometry CreateGeo(DX11RenderContext context)
+        {
+            IDX11Geometry geo = PrimitiveFactory.GetGeometry(context, GeometryDescriptor);
+            GeometryCache[context][ID] = geo;
             return geo;
         }
 
@@ -84,19 +99,22 @@ namespace CraftLie
         {
             try
             {
-                foreach (var geo in GeometryCache.Values)
+                foreach (var cache in GeometryCache.Values)
                 {
-                    try
+                    if (cache.TryGetValue(ID, out var geo))
                     {
-                        geo?.Dispose();
-                    }
-                    catch (Exception)
-                    {
-                        //safe dispose
+                        try
+                        {
+                            geo?.Dispose();
+                        }
+                        catch (Exception)
+                        {
+                            //safe dispose
+                        }
+                        cache.Remove(ID);
                     }
                 }
 
-                GeometryCache.Clear();
             }
             catch (Exception)
             {
@@ -104,7 +122,7 @@ namespace CraftLie
             }
         }
 
-        readonly Dictionary<DX11RenderContext, IDX11Geometry> GeometryCache = new Dictionary<DX11RenderContext, IDX11Geometry>();
+        static readonly Dictionary<DX11RenderContext, Dictionary<Guid, IDX11Geometry>> GeometryCache = new Dictionary<DX11RenderContext, Dictionary<Guid, IDX11Geometry>>();
     }
 
 }

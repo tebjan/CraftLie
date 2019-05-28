@@ -65,7 +65,7 @@ namespace CraftLie
 
         public void UpdateGeometry(GeometryDescriptor geometryDescriptor)
         {
-            if (geometryDescriptor != GeometryDescriptor)
+            if (geometryDescriptor.ID != GeometryDescriptor.ID)
             {
                 DisposeGeometry();
                 GeometryDescriptor = geometryDescriptor;
