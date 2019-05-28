@@ -74,14 +74,14 @@ namespace CraftLie
 
     public class DrawTextDescription : DrawDescription
     {
-        public readonly string Text;
-        public readonly float Size;
-        public readonly string FontName;
-        public readonly FontWeight Weight;
-        public readonly FontStyle Style;
-        public readonly HorizontalTextAlignment HorizontalAlignment;
-        public readonly VerticalTextAlignment VerticalAlignment;
-        public readonly float TextWidth;
+        public string Text;
+        public float Size;
+        public string FontName;
+        public FontWeight Weight;
+        public FontStyle Style;
+        public HorizontalTextAlignment HorizontalAlignment;
+        public VerticalTextAlignment VerticalAlignment;
+        public float TextWidth;
 
 
         public static readonly DrawTextDescription Default = new DrawTextDescription(Matrix.Identity, Color4.White);
@@ -92,6 +92,31 @@ namespace CraftLie
         }
 
         public DrawTextDescription(Matrix transformation, Color4 color, BlendMode blendMode = BlendMode.TextDefault,
+            string text = "CraftLie",
+            float size = 12,
+            string fontName = "Arial",
+            FontWeight weight = FontWeight.Normal,
+            FontStyle style = FontStyle.Normal,
+            HorizontalTextAlignment horizontalAlignment = HorizontalTextAlignment.Left,
+            VerticalTextAlignment verticalAlignment = VerticalTextAlignment.Top,
+            float textWidth = 100)
+        {
+
+            Transformation = transformation;
+            Color = color;
+            Blending = blendMode;
+
+            Text = text;
+            Size = size;
+            FontName = fontName;
+            Weight = weight;
+            Style = style;
+            HorizontalAlignment = horizontalAlignment;
+            VerticalAlignment = verticalAlignment;
+            TextWidth = textWidth;
+        }
+
+        public void Update(Matrix transformation, Color4 color, BlendMode blendMode = BlendMode.TextDefault,
             string text = "CraftLie",
             float size = 12,
             string fontName = "Arial",

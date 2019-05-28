@@ -83,19 +83,19 @@
     <Compile Include="StructuredBuffers\DynamicCopyDestStructuredVLBuffer.cs" />
     <Compile Include="StructuredBuffers\DynamicStructuredVLBuffer.cs" />
     <Compile Include="DrawDescriptionLayer.cs" />
-    <Compile Include="DrawDescription.cs" />
-    <Compile Include="DrawGeometryDescription.cs" />
-    <Compile Include="DrawSpritesDescription.cs" />
+    <Compile Include="DrawDescriptions\DrawDescription.cs" />
+    <Compile Include="DrawDescriptions\DrawGeometryDescription.cs" />
+    <Compile Include="DrawDescriptions\DrawSpritesDescription.cs" />
     <Compile Include="GetDrawDescriptionDataNode.cs" />
     <Compile Include="Text3d\Extruder.cs" />
     <Compile Include="Text3d\FlatSink.cs" />
     <Compile Include="Text3d\ExtrudingSink.cs" />
     <Compile Include="Text3d\OutlineRenderer.cs" />
     <Compile Include="Text3d\Pos3Norm3VertexSDX.cs" />
-    <Compile Include="PrimitiveDescriptor.cs" />
-    <Compile Include="PrimitiveFactory.cs" />
+    <Compile Include="PrimitiveDescriptions\PrimitiveDescriptor.cs" />
+    <Compile Include="PrimitiveDescriptions\PrimitiveFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DrawTextDescription.cs" />
+    <Compile Include="DrawDescriptions\DrawTextDescription.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
