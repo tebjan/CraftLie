@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0344-gd5eabf23a7" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
+  <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
+  <NugetDependency Id="HB3KsA0VJfPMJQjS8l6rnu" Location="CraftLie" Version="1.0.2" />
+  <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
+    <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.CraftLie" CanvasType="FullCategory">
+      <!--
+
+    ************************ ReceiveCraftLie ************************
+
+-->
+      <Node Name="ReceiveCraftLie" Bounds="313,198" Id="GkaWjy1a4F2PGricF0ck4T">
+        <p:NodeReference>
+          <Choice Kind="ContainerDefinition" Name="Patch" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <Patch Id="KLyY4WDAnNWNoGPPLMbUT8">
+          <Patch Id="GcGGgX7avCSLtCd0x0Wp7B" Name="Create" />
+          <Patch Id="Fzgn6G5l9n1LH2U9rnReEQ" Name="Update">
+            <Pin Id="O1dt25DdGQpOjhzVAQl3OJ" Name="Host" Kind="InputPin" />
+            <Pin Id="BlHFxdVgxlfN3z8dgEbPFD" Name="Draw Description Layer" Kind="OutputPin" />
+            <Pin Id="DRtEQBmg76ONtyCw1UWj2R" Name="Port" Kind="InputPin" />
+            <Pin Id="BkgqRMxzMgZPPSZZGU3FgO" Name="Topics" Kind="InputPin" />
+          </Patch>
+          <Canvas Id="NOvrZjcVi64LG6ZgDnXf3s" CanvasType="Group">
+            <Node Bounds="346,314" Id="QUAtwLlD2ZCPdo7EhzUART">
+              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="ReceiveCraftLie" />
+                <CategoryReference Kind="Category" Name="CraftLie" NeedsToBeDirectParent="true">
+                  <p:OuterCategoryReference Kind="Category" NeedsToBeDirectParent="true" />
+                </CategoryReference>
+              </p:NodeReference>
+              <Pin Id="RiK5K7DHWihPQSnItxH9JU" Name="Host" Kind="InputPin" />
+              <Pin Id="FaNqOKIwlWeNjB4L9WJlum" Name="Port" Kind="InputPin" />
+              <Pin Id="FCSr4iBmG2ALKHVuZZEUUC" Name="Topics" Kind="InputPin" />
+              <Pin Id="IwxW53zoVbfQKjcCUGy2Fz" Name="Draw Description Layer" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="VWqo3aVgPE8MwXDvwHcArn" Bounds="346,283" />
+            <ControlPoint Id="LVTS82hvGJmMLNX1HHHlxJ" Bounds="399,283" />
+            <ControlPoint Id="NXTzjvNnYD0P8hKpQLFfJp" Bounds="450,283" />
+            <ControlPoint Id="KoJyGbugobiOgBR1RN9t1B" Bounds="346,363" />
+          </Canvas>
+          <ProcessDefinition Id="JmuKgqC3kndLMYaMGAWAXm">
+            <Fragment Id="Tu4ZqLXDCyyLfNbkINMeCC" Patch="GcGGgX7avCSLtCd0x0Wp7B" Enabled="true" />
+            <Fragment Id="PlOfAkrBH3wOMWayRvOHeN" Patch="Fzgn6G5l9n1LH2U9rnReEQ" Enabled="true" />
+          </ProcessDefinition>
+          <Link Id="Or3mEXbBBSiQDRsMvoyuZq" Ids="O1dt25DdGQpOjhzVAQl3OJ,VWqo3aVgPE8MwXDvwHcArn" IsHidden="true" />
+          <Link Id="H4kgdwsZT45P8OzOyLXawP" Ids="VWqo3aVgPE8MwXDvwHcArn,RiK5K7DHWihPQSnItxH9JU" />
+          <Link Id="QeI1p9RbGomPtRzbglFoJl" Ids="DRtEQBmg76ONtyCw1UWj2R,LVTS82hvGJmMLNX1HHHlxJ" IsHidden="true" />
+          <Link Id="G5TL09MXyCUL2RLfgni3rX" Ids="LVTS82hvGJmMLNX1HHHlxJ,FaNqOKIwlWeNjB4L9WJlum" />
+          <Link Id="AvXftl8E2LBO6cwRnofyE0" Ids="BkgqRMxzMgZPPSZZGU3FgO,NXTzjvNnYD0P8hKpQLFfJp" IsHidden="true" />
+          <Link Id="NynOHXPcABaQPRCB3bIGdY" Ids="NXTzjvNnYD0P8hKpQLFfJp,FCSr4iBmG2ALKHVuZZEUUC" />
+          <Link Id="JuGzEpgaa3ELUcewdxuQKU" Ids="KoJyGbugobiOgBR1RN9t1B,BlHFxdVgxlfN3z8dgEbPFD" IsHidden="true" />
+          <Link Id="G1jYQ6XxIvbLbtWh0Iyg5h" Ids="IwxW53zoVbfQKjcCUGy2Fz,KoJyGbugobiOgBR1RN9t1B" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ SendCraftLie ************************
+
+-->
+      <Node Name="SendCraftLie" Bounds="312,251" Id="IRYSo8NsSIfL7U70i2Hz1X">
+        <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+          <Choice Kind="ContainerDefinition" Name="Process" />
+        </p:NodeReference>
+        <Patch Id="NWe5ahzHvwVLc94Ouu8PQv">
+          <Canvas Id="DMp3QTwPQvBM2pTCUEe8qo" CanvasType="Group">
+            <Node Bounds="382,324" Id="JGjsrxqGZsxNv3H3iwpLJe">
+              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="SendCraftLie" />
+                <CategoryReference Kind="Category" Name="CraftLie" NeedsToBeDirectParent="true">
+                  <p:OuterCategoryReference Kind="Category" NeedsToBeDirectParent="true" />
+                </CategoryReference>
+              </p:NodeReference>
+              <Pin Id="GN3ImnZamRxPhPHKkvG8z1" Name="Layer" Kind="InputPin" />
+              <Pin Id="DO3i2qnxqKLNKGVLNtqESr" Name="Host" Kind="InputPin" />
+              <Pin Id="VtjEkfktW1fOJ1iiBm90L1" Name="Port" Kind="InputPin" />
+              <Pin Id="M0JyvUJNgOAMjPmmhUNicB" Name="Bind" Kind="InputPin" />
+              <Pin Id="HxDsmAuvDu3L6PM7LXzzMf" Name="Topic" Kind="InputPin" />
+              <Pin Id="CenA4Iw1PC9MFSjvrVOsWm" Name="Send" Kind="InputPin" />
+            </Node>
+            <ControlPoint Id="CorBJWO27ySMOhahx5xwtY" Bounds="382,293" />
+            <ControlPoint Id="O8RkOMqC4HoQZf6roKW6Pc" Bounds="439,293" />
+            <ControlPoint Id="Dliyrc8Anj5NHIkM5u4lFu" Bounds="492,293" />
+            <ControlPoint Id="UfcEWepgbS3QB9AttehJ4D" Bounds="543,293" />
+            <ControlPoint Id="J6G4VuRGObmMzyy9dOTf6S" Bounds="595,293" />
+            <ControlPoint Id="TIa2rWkmHVDONYxWza145n" Bounds="652,293" />
+          </Canvas>
+          <Patch Id="TxpQdtkYE6NQGaXn4KAXie" Name="Create" />
+          <Patch Id="QhZd4tPlV3APsO1PmdH8Gn" Name="Update">
+            <Pin Id="U9J2Jm5VKTgLnxtxy9NBti" Name="Layer" Kind="InputPin" />
+            <Pin Id="BUF92PcutdXPBBUOmwf4tA" Name="Host" Kind="InputPin" />
+            <Pin Id="BcrVzeZABJAMtG0Pg34y9D" Name="Port" Kind="InputPin" />
+            <Pin Id="EPy0m0XHni1LIJTdhZjZ6B" Name="Bind" Kind="InputPin" />
+            <Pin Id="RQtCP4nqrj7PHBWIrsu9ap" Name="Topic" Kind="InputPin" />
+            <Pin Id="N6ZTY3XSmuSL9C8f5AO4VA" Name="Send" Kind="InputPin" />
+          </Patch>
+          <ProcessDefinition Id="BBXv4JMwmIkMjh18YHwzJY">
+            <Fragment Id="G6EWs3GSkwkLqu6rzPzG2M" Patch="TxpQdtkYE6NQGaXn4KAXie" Enabled="true" />
+            <Fragment Id="LE7Xnd9QQliL1PhQBfp4JT" Patch="QhZd4tPlV3APsO1PmdH8Gn" Enabled="true" />
+          </ProcessDefinition>
+          <Link Id="UfJPFXXobb6K9c1hyHT1ds" Ids="U9J2Jm5VKTgLnxtxy9NBti,CorBJWO27ySMOhahx5xwtY" IsHidden="true" />
+          <Link Id="QxfpXJCdOHANBK33P1TPkf" Ids="CorBJWO27ySMOhahx5xwtY,GN3ImnZamRxPhPHKkvG8z1" />
+          <Link Id="KDf52qEpH7nPAD6BpAxgxv" Ids="BUF92PcutdXPBBUOmwf4tA,O8RkOMqC4HoQZf6roKW6Pc" IsHidden="true" />
+          <Link Id="H3fZhW5MXoEOUuwea61anM" Ids="O8RkOMqC4HoQZf6roKW6Pc,DO3i2qnxqKLNKGVLNtqESr" />
+          <Link Id="AK0zN4sE6tWPKLXH6jnxxo" Ids="BcrVzeZABJAMtG0Pg34y9D,Dliyrc8Anj5NHIkM5u4lFu" IsHidden="true" />
+          <Link Id="S6OPrpjk1ugOWniyJ9pqdT" Ids="Dliyrc8Anj5NHIkM5u4lFu,VtjEkfktW1fOJ1iiBm90L1" />
+          <Link Id="D88Hk1UVsVPOIy77cFdeO1" Ids="EPy0m0XHni1LIJTdhZjZ6B,UfcEWepgbS3QB9AttehJ4D" IsHidden="true" />
+          <Link Id="Ka23clp8eRbPGTx1Xd3xY6" Ids="UfcEWepgbS3QB9AttehJ4D,M0JyvUJNgOAMjPmmhUNicB" />
+          <Link Id="BZuWjyQGsJgOQd4WrVkLE1" Ids="RQtCP4nqrj7PHBWIrsu9ap,J6G4VuRGObmMzyy9dOTf6S" IsHidden="true" />
+          <Link Id="Ihfy5hyafWBMc0Ndy1x6jS" Ids="J6G4VuRGObmMzyy9dOTf6S,HxDsmAuvDu3L6PM7LXzzMf" />
+          <Link Id="EcPX9RWzvloQXGaMhv0J3w" Ids="N6ZTY3XSmuSL9C8f5AO4VA,TIa2rWkmHVDONYxWza145n" IsHidden="true" />
+          <Link Id="JIADb8D4eChOTqbAGxK4KC" Ids="TIa2rWkmHVDONYxWza145n,CenA4Iw1PC9MFSjvrVOsWm" />
+        </Patch>
+      </Node>
+    </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="NLHzWVjk31gLllE0x2K6yv">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="EYnk4ypaGLNQJem9bTp5xU">
+        <Canvas Id="DQFVGCPSM1pNHpTZfvigoI" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="N7OkxfM6IP4N0HmwDEhpne" Name="Create" />
+        <Patch Id="HI3ZQ8PkqgTQVQ1m5wdsyW" Name="Update" />
+        <ProcessDefinition Id="Nx3iArRkXzJM7cdj44Mgit">
+          <Fragment Id="LRHgwHn0DV3Nbj0HCIoiNk" Patch="N7OkxfM6IP4N0HmwDEhpne" Enabled="true" />
+          <Fragment Id="PVrVkjMNFf9LHvGuH5Ct5O" Patch="HI3ZQ8PkqgTQVQ1m5wdsyW" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
+  </Patch>
+  <DocumentDependency Id="IX9kgnh7mqqNdw0cWnkI12" Location="../../../CraftLie.vl" />
+</Document>
