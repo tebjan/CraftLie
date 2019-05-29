@@ -57,7 +57,7 @@ namespace CraftLie
 
     public abstract class GeometryDescriptor
     {
-        public Guid ID = new Guid();
+        public Guid GeomId = Guid.NewGuid();
         public readonly PrimitiveType Type;
         public GeometryDescriptor(PrimitiveType type)
         {
@@ -176,8 +176,8 @@ namespace CraftLie
         public LineDescriptor()
             : base(PrimitiveType.Line)
         {
-            Positions = GeometryDescriptor.UnitLine;
-            Directions = GeometryDescriptor.UnitLineNormals;
+            Positions = GeometryDescriptor.UnitLine.ToList();
+            Directions = GeometryDescriptor.UnitLineNormals.ToList();
         }
 
         public LineDescriptor(IReadOnlyList<SharpDX.Vector3> positions, bool isClosed)
@@ -212,6 +212,11 @@ namespace CraftLie
     public class PolygonDescriptor : GeometryDescriptor
     {
         public readonly List<SlimDX.Vector2> Positions;
+
+        public PolygonDescriptor() : base(PrimitiveType.Polygon)
+        {
+            Positions = GeometryDescriptor.UnitTri2D.ToList();
+        }
 
         public PolygonDescriptor(IReadOnlyList<SharpDX.Vector2> positions)
             : base(PrimitiveType.Polygon)

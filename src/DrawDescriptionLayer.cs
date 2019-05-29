@@ -14,6 +14,7 @@ using Polenter.Serialization;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using System.Diagnostics;
+using System.Collections;
 
 namespace CraftLie
 {
@@ -28,13 +29,13 @@ namespace CraftLie
         public readonly IReadOnlyList<DrawTextDescription> TextDescriptions;
         public readonly IReadOnlyList<DrawSpritesDescription> SpritesDescriptions;
 
-        public DrawDescriptionLayer()
+        public DrawDescriptionLayer() 
+            : this(new List<DrawGeometryDescription>(),
+            new List<DrawSpritesDescription>(),
+            new List<DrawTextDescription>())
         {
-            GeometryDescriptions = Default.GeometryDescriptions;
-            SpritesDescriptions = Default.SpritesDescriptions;
-            TextDescriptions = Default.TextDescriptions;
         }
-
+       
         public DrawDescriptionLayer(IReadOnlyList<DrawGeometryDescription> geometries, IReadOnlyList<DrawSpritesDescription> sprites, IReadOnlyList<DrawTextDescription> texts)
         {
             GeometryDescriptions = geometries;
@@ -107,12 +108,11 @@ namespace CraftLie
             yield return DrawSpritesDescription.Default;
         }
 
-        public static byte[] Serialize(DrawDescriptionLayer layer)
+        public static byte[] SerializeCeras(DrawDescriptionLayer layer)
         {
             using (var stream = new MemoryStream())
             {
-                var config = new SerializerConfig();
-                var s = new CerasSerializer(config);
+                var s = new CerasSerializer();
                 return s.Serialize<object>(layer);
             }
         }
@@ -142,14 +142,20 @@ namespace CraftLie
 
         public static string SerializeJson(DrawDescriptionLayer layer)
         {
-            var js = new JsonSerializerSettings() { Formatting = Formatting.Indented, ContractResolver = ShouldSerializeContractResolver.Instance };
+            var js = new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented,
+                ContractResolver = ShouldSerializeContractResolver.Instance,
+                TypeNameHandling = TypeNameHandling.Auto
+            };
             //js.Converters.Add(new GuidConverter());
             return JsonConvert.SerializeObject(layer, js);
         }
 
         public static DrawDescriptionLayer DeserializeJson(string layer)
         {
-            return JsonConvert.DeserializeObject<DrawDescriptionLayer>(layer, new Vector3Converter(), new BoxConverter());
+            var js = new JsonSerializerSettings() { ContractResolver = ShouldSerializeContractResolver.Instance };
+            return JsonConvert.DeserializeObject<DrawDescriptionLayer>(layer, js);
         }
 
         public static DrawDescriptionLayer DeserializeJson2(string layer)
