@@ -179,7 +179,7 @@ namespace VVVV.DX11.Nodes
             //buffer outputs
             if (this.FApply[0] || this.FFirst)
             {
-                if (this.FLayerIn.SliceCount > 0)
+                if (this.FLayerIn.SliceCount > 0 && FLayerIn[0] != null)
                 {
                     this.FTransformOutput.SliceCount = 1;
                     this.FColorOutput.SliceCount = 1;

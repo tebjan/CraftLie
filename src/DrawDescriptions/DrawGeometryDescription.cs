@@ -22,12 +22,13 @@ namespace CraftLie
         public static readonly DrawGeometryDescription Default;
         static readonly IReadOnlyCollection<Matrix> Identity;
         static readonly IReadOnlyCollection<Color4> White;
+        public readonly PrimitiveType PrimitiveType;
 
         static DrawGeometryDescription()
         {
             Identity = new Matrix[] { Matrix.Identity };
             White = new Color4[] { Color4.White };
-            Default = new DrawGeometryDescription(null, Matrix.Identity, new Color4(0, 1, 0, 1), "", BlendMode.Blend, ShadingType.Constant, new List<Matrix>(), new List<Color4>());
+            Default = new DrawGeometryDescription(new QuadDescriptor(), Matrix.Identity, new Color4(0, 1, 0, 1), "", BlendMode.Blend, ShadingType.Constant, new List<Matrix>(), new List<Color4>());
         }
 
         public ShadingType Shading;
@@ -43,6 +44,7 @@ namespace CraftLie
         public DrawGeometryDescription(GeometryDescriptor geometryDescriptor)
         {
             GeometryDescriptor = geometryDescriptor ?? new QuadDescriptor();
+            PrimitiveType = GeometryDescriptor.Type;
         }
 
         public void SetLayerOrder(int layerOrder)

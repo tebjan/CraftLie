@@ -15,6 +15,8 @@ using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using System.Diagnostics;
 using System.Collections;
+using Newtonsoft.Json.Linq;
+using Polenter.Serialization.Advanced;
 
 namespace CraftLie
 {
@@ -113,7 +115,7 @@ namespace CraftLie
             using (var stream = new MemoryStream())
             {
                 var s = new CerasSerializer();
-                return s.Serialize<object>(layer);
+                return s.Serialize(layer);
             }
         }
 
@@ -122,8 +124,18 @@ namespace CraftLie
             using (var ms = new MemoryStream())
             {
                 var s = new SharpSerializer(true);
-                s.Serialize(layer, ms);
+                s.Serialize(layer.GeometryDescriptions.ToList(), ms);
                 return ms.ToArray();
+            }
+        }
+
+        public static DrawDescriptionLayer DeserializeSharp(byte[] layer)
+        {
+            using (var ms = new MemoryStream(layer))
+            {
+                var s = new SharpSerializer(true);
+                var o = s.Deserialize(ms);
+                return new DrawDescriptionLayer((List<DrawGeometryDescription>)o, new List<DrawSpritesDescription>(), new List<DrawTextDescription>());
             }
         }
 
@@ -155,6 +167,7 @@ namespace CraftLie
         public static DrawDescriptionLayer DeserializeJson(string layer)
         {
             var js = new JsonSerializerSettings() { ContractResolver = ShouldSerializeContractResolver.Instance };
+            //js.Converters.Add(new GeometryDescriptorConverter());
             return JsonConvert.DeserializeObject<DrawDescriptionLayer>(layer, js);
         }
 
@@ -254,6 +267,79 @@ namespace CraftLie
                     SetToken(JsonToken.None);
                 throw;
             }
+        }
+    }
+
+    public class BaseSpecifiedConcreteClassConverter : DefaultContractResolver
+    {
+        protected override JsonConverter ResolveContractConverter(Type objectType)
+        {
+            if (typeof(GeometryDescriptor).IsAssignableFrom(objectType) && !objectType.IsAbstract)
+                return null; // pretend TableSortRuleConvert is not specified (thus avoiding a stack overflow)
+            return base.ResolveContractConverter(objectType);
+        }
+    }
+
+    public class GeometryDescriptorConverter : JsonConverter
+    {
+        static JsonSerializerSettings SpecifiedSubclassConversion = new JsonSerializerSettings() { ContractResolver = new BaseSpecifiedConcreteClassConverter() };
+
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(GeometryDescriptor);
+        }
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.Value == null)
+                return new TextDescriptor();
+
+            var jo = JObject.Load(reader);
+            var type = jo["PrimitiveType"].Value<PrimitiveType>();
+            switch (type)
+            {
+                case PrimitiveType.Quad:
+                    return JsonConvert.DeserializeObject<QuadDescriptor>(jo.ToString(), SpecifiedSubclassConversion);
+                    break;
+                case PrimitiveType.RoundQuad:
+                    break;
+                case PrimitiveType.Box:
+                    break;
+                case PrimitiveType.Disc:
+                    break;
+                case PrimitiveType.Polygon:
+                    return JsonConvert.DeserializeObject<PolygonDescriptor>(jo.ToString(), SpecifiedSubclassConversion);
+                    break;
+                case PrimitiveType.Sphere:
+                    break;
+                case PrimitiveType.Cylinder:
+                    break;
+                case PrimitiveType.Tube:
+                    break;
+                case PrimitiveType.Line:
+                    return JsonConvert.DeserializeObject<LineDescriptor>(jo.ToString(), SpecifiedSubclassConversion);
+                    break;
+                case PrimitiveType.MeshJoin:
+                    break;
+                case PrimitiveType.Sprites:
+                    break;
+                case PrimitiveType.Text:
+                    return JsonConvert.DeserializeObject<TextDescriptor>(jo.ToString(), SpecifiedSubclassConversion);
+                    break;
+                default:
+                    break;
+            }
+            throw new NotImplementedException();
+        }
+
+        public override bool CanWrite
+        {
+            get { return false; }
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            throw new NotImplementedException(); // won't be called because CanWrite returns false
         }
     }
 }
