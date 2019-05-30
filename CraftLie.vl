@@ -4301,7 +4301,7 @@
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
               </Pad>
-              <Node Bounds="144,377,212,334" Id="F3belYevR3JO7XJNj0iABc">
+              <Node Bounds="144,387,212,324" Id="F3belYevR3JO7XJNj0iABc">
                 <p:NodeReference LastCategoryFullName="Reactive" LastSymbolSource="VL.Reactive.vl">
                   <Choice Kind="ProcessAppFlag" Name="AsyncLoop" />
                   <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
@@ -4327,7 +4327,8 @@
                   <Node Bounds="259,633,85,19" Id="IN59S5gWhz2NzbkJTRwoo0">
                     <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionLayer" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="DeserializeJson" />
+                      <Choice Kind="OperationCallFlag" Name="DeserializeJson3" />
+                      <CategoryReference Kind="Category" Name="DrawDescriptionLayer" NeedsToBeDirectParent="true" />
                     </p:NodeReference>
                     <Pin Id="HvvAR4YuzVSNN9yEyZr3ZR" Name="Layer" Kind="InputPin" />
                     <Pin Id="OWTyvmXpSsrNQDzqsmZ4CC" Name="Result" Kind="OutputPin" />
@@ -4342,13 +4343,14 @@
                     <Pin Id="PVl5E8MIOW1NRQQaMcRCnu" Name="Sample" Kind="InputPin" />
                     <Pin Id="FBzb36q7ErEMc94vwY19t0" Name="Value" Kind="OutputPin" />
                   </Node>
-                  <Node Bounds="290,456,48,26" Id="TOA8iOlsKalNy2JUgDmeIj">
-                    <p:NodeReference LastCategoryFullName="Primitive.String" LastSymbolSource="CoreLibBasics.vl">
+                  <Node Bounds="231,465,64,26" Id="TOA8iOlsKalNy2JUgDmeIj">
+                    <p:NodeReference LastCategoryFullName="Collections.Mutable.MutableArray" LastSymbolSource="VL.Collections.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationCallFlag" Name="Length" />
-                      <CategoryReference Kind="StringType" Name="String" NeedsToBeDirectParent="true" />
+                      <CategoryReference Kind="ArrayType" Name="MutableArray" NeedsToBeDirectParent="true" />
                     </p:NodeReference>
                     <Pin Id="APxz5lpgBbDO4IGfXT9uw0" Name="Input" Kind="InputPin" />
+                    <Pin Id="AAXQiNm6Fb2LJWWFVuL6Qi" Name="Output" Kind="OutputPin" />
                     <Pin Id="MQZG3DRDeSVNUtqCUNOvvc" Name="Length" Kind="OutputPin" />
                   </Node>
                   <Node Bounds="290,512,25,19" Id="IdaN3FJsXt0ONWxjsYLaZi">
@@ -4359,16 +4361,6 @@
                     <Pin Id="R1i1sT4YuG1LoNs346MT1n" Name="Input" Kind="InputPin" />
                     <Pin Id="P3IbBXhyg3QN9xct4YhJBr" Name="Input 2" Kind="InputPin" />
                     <Pin Id="BMYuDj8FLlsMULraglpXqn" Name="Result" Kind="OutputPin" />
-                  </Node>
-                  <Node Bounds="260,400,63,19" Id="BCgWzZTDkMZLnnZ7cqpEbj">
-                    <p:NodeReference LastCategoryFullName="Primitive.String" LastSymbolSource="CoreLibBasics.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="FromBytes" />
-                      <CategoryReference Kind="StringType" Name="String" NeedsToBeDirectParent="true" />
-                    </p:NodeReference>
-                    <Pin Id="KtwvsZrcbfpOOulA02v56r" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="D7aAOipeGePMdMXg056Wvu" Name="Encoding" Kind="InputPin" />
-                    <Pin Id="IcqVptajECYLvdwOqgd4kG" Name="Result" Kind="OutputPin" />
                   </Node>
                 </Patch>
               </Node>
@@ -4432,15 +4424,14 @@
             <Link Id="PAhXoWTVozFPaOEGNPPgA5" Ids="EoQVjNeq92QNXX3pWcYNS1,MVKa6QtEZfrMNodWudfd35" />
             <Link Id="M6pClBrhOaBNGDFtaTPrlW" Ids="EoQVjNeq92QNXX3pWcYNS1,RnDc9Ary51yQSkKhU95rW3" />
             <Link Id="TfjWKwZYU0IP23stAcWH2N" Ids="E53PblNgi7FP1S4fn8QIaK,ScKPqqflupgN19S3GH1f6f" />
-            <Link Id="AIFDfaCcP0yQKkedrYX19H" Ids="ScKPqqflupgN19S3GH1f6f,KtwvsZrcbfpOOulA02v56r" />
-            <Link Id="NyU5r4wIyGROvLu94WGIKc" Ids="IcqVptajECYLvdwOqgd4kG,APxz5lpgBbDO4IGfXT9uw0" />
-            <Link Id="TnuD27mxmuUMbVh9fDpALT" Ids="IcqVptajECYLvdwOqgd4kG,IKisMBUlbYPLQADLIo9D4j" />
             <Link Id="BFTbGqCraaGNyD5rYCIYXU" Ids="FxhA9VPVeUONwtXT9TvSTl,QWt3JO7R4qROpM1cztP7le" />
             <Link Id="AOnkpkHlGNCO8CtxjtFNpm" Ids="OYRjCPhUgNWPcDRocBOF83,FxhA9VPVeUONwtXT9TvSTl" IsHidden="true" />
             <Link Id="P53yEIRBij4LIJKKRvzrN2" Ids="O2yo9h8Tq7IOjQvK2WdL59,MzWKP2a0F2YPjg4QoV8g7m" />
             <Link Id="C0cUQGc70mgOCwKoJkkf3Z" Ids="E9uCgmxQxLQOUclKH0JJ61,O2yo9h8Tq7IOjQvK2WdL59" IsHidden="true" />
             <Link Id="M0TPRFR7niRMq7uNJ7928m" Ids="SzJCsUcVeh0LLUfBSI35mY,ACsWqUVRArbOwuSDfHWIAX" />
             <Link Id="Vk1d44gOekILqsUNevfFgk" Ids="JmIdhZd6r1gNPBjpcGM8rz,SzJCsUcVeh0LLUfBSI35mY" IsHidden="true" />
+            <Link Id="BIQGaiTjWW9PvVixKkRGhu" Ids="ScKPqqflupgN19S3GH1f6f,IKisMBUlbYPLQADLIo9D4j" />
+            <Link Id="Nbrtqs9IvKMPvLcSpBX3BX" Ids="ScKPqqflupgN19S3GH1f6f,APxz5lpgBbDO4IGfXT9uw0" />
           </Patch>
         </Node>
         <!--
@@ -4461,16 +4452,6 @@
                 </p:NodeReference>
                 <Pin Id="SVex5Gc6jgMLiVrjfYA9Y8" Name="Layer" Kind="InputPin" />
                 <Pin Id="ArGo2efAtxHQUeLO1aKZEN" Name="Result" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="324,331,52,19" Id="BOc1dxYDr8GMjWWSTMHpqh">
-                <p:NodeReference LastCategoryFullName="Primitive.String" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="ToBytes" />
-                  <CategoryReference Kind="StringType" Name="String" NeedsToBeDirectParent="true" />
-                </p:NodeReference>
-                <Pin Id="Ar3A7jBFnFrPc2sJLIh3ZH" Name="Input" Kind="StateInputPin" />
-                <Pin Id="CgPw29ycKc6P1YDil6j9Cu" Name="Encoding" Kind="InputPin" />
-                <Pin Id="MghiP9jYtAHLh4mVkU08Wk" Name="Result" Kind="OutputPin" />
               </Node>
               <Node Bounds="425,379,65,19" Id="OcPNoBuw3n4L6OyiRq8H6g">
                 <p:NodeReference LastCategoryFullName="IO.NetMQ.Publisher" LastSymbolSource="VL.IO.NetMQ.vl">
@@ -4527,8 +4508,6 @@
               <Fragment Id="Mj8IOhFWJyDQNFSwzDpCUf" Patch="IyPXxazYKRNNDhNCoGT0mu" Enabled="true" />
             </ProcessDefinition>
             <Link Id="TjLErTHO3QlLDNIUaW4dh9" Ids="Grn9KgKQAhpOMK9uPtD7iL,VsV55eTkn0JMaoMk0WklZz" />
-            <Link Id="SfHA6YUjjpkPWvjKp0Wqsw" Ids="ArGo2efAtxHQUeLO1aKZEN,Ar3A7jBFnFrPc2sJLIh3ZH" />
-            <Link Id="Kh1wdb6VWpsLUwY8y000Ww" Ids="MghiP9jYtAHLh4mVkU08Wk,OmCqsHmlbe5LYGbxeQpy7O" />
             <Link Id="LDAArMxBKs3Nnl9HmYlSVN" Ids="DIMqXhhj2w0OWhKsXpajC8,SVex5Gc6jgMLiVrjfYA9Y8" />
             <Link Id="BLMI586ab26PqCwZtbCXoV" Ids="CfXwLMi0VyTQKFlGuFAljY,DIMqXhhj2w0OWhKsXpajC8" IsHidden="true" />
             <Link Id="SIS7aU98ELXLGr2sTzTMEB" Ids="VFWaajiNm5JQbuHjzhY0xo,RT6FKKOpxRQQdZhrYGsxei" />
@@ -4541,6 +4520,7 @@
             <Link Id="FGDpWCrEpNpLZWwsFvaCif" Ids="LzEipCEMEqlMu22tWxUFv5,VpERqAth20KLwdvAe7dNQe" IsHidden="true" />
             <Link Id="SSkGPLP875cOTAQkEg1t7K" Ids="O5vivCowRrbN6VKoK3yrAC,B8nDRU98v3RQSKPo98bQZQ" />
             <Link Id="LtEg7k2wTxCMv85UsLSqrx" Ids="BNtOKIQnQTpO8qDfhkAyUA,O5vivCowRrbN6VKoK3yrAC" IsHidden="true" />
+            <Link Id="AwfJzpxa7ADOM513GTlLfb" Ids="ArGo2efAtxHQUeLO1aKZEN,OmCqsHmlbe5LYGbxeQpy7O" />
           </Patch>
         </Node>
         <!--
@@ -6476,6 +6456,6 @@
       </Patch>
     </Node>
   </Patch>
-  <DocumentDependency Id="MN25AicidtAMu3N3DuYQOH" Location="../../../CraftLie/vvvv/nodes/vl/VVVV.CraftLie.vl" IsForward="true" />
+  <DocumentDependency Id="MN25AicidtAMu3N3DuYQOH" Location="./vvvv/nodes/vl/VVVV.CraftLie.vl" IsForward="true" />
   <DocumentDependency Id="LIPhtol8vieOqb128Si3c4" Location="../VL.IO.NetMQ/VL.IO.NetMQ.vl" />
 </Document>

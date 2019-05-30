@@ -513,6 +513,8 @@
    </PIN>
    <PIN pinname="Clip RectXYZW" visible="1">
    </PIN>
+   <PIN pinname="Texture Path" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="104" srcpinname="Instance Counts" dstnodeid="44" dstpinname="Input" linkstyle="Bezier">
    <LINKPOINT x="6570" y="3630">
@@ -935,5 +937,21 @@
    <LINK srcnodeid="111" srcpinname="Output" dstnodeid="110" dstpinname="Format">
    </LINK>
    <LINK srcnodeid="113" srcpinname="OnChange" dstnodeid="111" dstpinname="Evaluate">
+   </LINK>
+   <NODE systemname="TextureExists" filename="%VVVV%\packs\CraftLie.1.3.0\vvvv\nodes\modules\TextureExists.v4p" nodename="%VVVV%\packs\CraftLie.1.3.0\vvvv\nodes\modules\TextureExists.v4p" componentmode="Hidden" id="114">
+   <BOUNDS type="Node" left="8547" top="6237" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Parent Patch Directory" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="104" srcpinname="Texture Path" dstnodeid="114" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="114" srcpinname="Output" dstnodeid="86" dstpinname="texture2d">
+   </LINK>
+   <LINK srcnodeid="103" srcpinname="Path" dstnodeid="114" dstpinname="Parent Patch Directory">
    </LINK>
    </PATCH>

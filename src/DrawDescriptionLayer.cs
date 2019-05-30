@@ -139,36 +139,61 @@ namespace CraftLie
             }
         }
 
+        static JsonSerializerSettings js = new JsonSerializerSettings()
+        {
+            Formatting = Formatting.None,
+            ContractResolver = ShouldSerializeContractResolver.Instance,
+            TypeNameHandling = TypeNameHandling.None
+        };
+
         public static byte[] SerializeBson(DrawDescriptionLayer layer)
         {
             using (var ms = new MemoryStream())
             {
                 using (var writer = new BsonWriter(ms))
                 {
-                    JsonSerializer serializer = new JsonSerializer();
+                    JsonSerializer serializer = JsonSerializer.Create(js);
                     serializer.Serialize(writer, layer);
                     return ms.ToArray();
                 }
             }
         }
 
-        public static string SerializeJson(DrawDescriptionLayer layer)
+
+
+        public static byte[] SerializeJson(DrawDescriptionLayer layer)
         {
-            var js = new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented,
-                ContractResolver = ShouldSerializeContractResolver.Instance,
-                TypeNameHandling = TypeNameHandling.Auto
-            };
-            //js.Converters.Add(new GuidConverter());
-            return JsonConvert.SerializeObject(layer, js);
+            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(layer, js));
         }
 
-        public static DrawDescriptionLayer DeserializeJson(string layer)
+        public static byte[] SerializeJson2(DrawDescriptionLayer layer)
         {
-            var js = new JsonSerializerSettings() { ContractResolver = ShouldSerializeContractResolver.Instance };
+            using (var ms = new MemoryStream())
+            using (StreamWriter writer = new StreamWriter(ms, Encoding.UTF8))
+            using (JsonTextWriter jsonWriter = new JsonTextWriter(writer))
+            {
+                JsonSerializer ser = JsonSerializer.Create(js);
+                ser.Serialize(jsonWriter, layer);
+                jsonWriter.Flush();
+                return ms.ToArray();
+            }
+        }
+
+        public static DrawDescriptionLayer DeserializeJson(byte[] layer)
+        {
             //js.Converters.Add(new GeometryDescriptorConverter());
-            return JsonConvert.DeserializeObject<DrawDescriptionLayer>(layer, js);
+            return JsonConvert.DeserializeObject<DrawDescriptionLayer>(Encoding.UTF8.GetString(layer));
+        }
+
+        public static DrawDescriptionLayer DeserializeJson3(byte[] layer)
+        {
+            using (var s = new MemoryStream(layer))
+            using (var sr = new StreamReader(s, Encoding.UTF8))
+            using (var reader = new JsonTextReader(sr))
+            {
+                JsonSerializer serializer = JsonSerializer.CreateDefault();
+                return serializer.Deserialize<DrawDescriptionLayer>(reader);
+            }
         }
 
         public static DrawDescriptionLayer DeserializeJson2(string layer)
