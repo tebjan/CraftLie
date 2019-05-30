@@ -22,6 +22,7 @@
             <Pin Id="BlHFxdVgxlfN3z8dgEbPFD" Name="Draw Description Layer" Kind="OutputPin" />
             <Pin Id="DRtEQBmg76ONtyCw1UWj2R" Name="Port" Kind="InputPin" />
             <Pin Id="BkgqRMxzMgZPPSZZGU3FgO" Name="Topics" Kind="InputPin" />
+            <Pin Id="OcsuS085VhEMIa7oODjVJA" Name="On Received" Kind="OutputPin" Bounds="480,358" />
           </Patch>
           <Canvas Id="NOvrZjcVi64LG6ZgDnXf3s" CanvasType="Group">
             <Node Bounds="346,314" Id="QUAtwLlD2ZCPdo7EhzUART">
@@ -36,11 +37,13 @@
               <Pin Id="FaNqOKIwlWeNjB4L9WJlum" Name="Port" Kind="InputPin" />
               <Pin Id="FCSr4iBmG2ALKHVuZZEUUC" Name="Topics" Kind="InputPin" />
               <Pin Id="IwxW53zoVbfQKjcCUGy2Fz" Name="Draw Description Layer" Kind="OutputPin" />
+              <Pin Id="OAjhBrsFWUeO7K0FfmAI9W" Name="On Received" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="VWqo3aVgPE8MwXDvwHcArn" Bounds="346,283" />
             <ControlPoint Id="LVTS82hvGJmMLNX1HHHlxJ" Bounds="399,283" />
             <ControlPoint Id="NXTzjvNnYD0P8hKpQLFfJp" Bounds="450,283" />
             <ControlPoint Id="KoJyGbugobiOgBR1RN9t1B" Bounds="346,363" />
+            <ControlPoint Id="TfjLSfgWpNOK9nnVrUVEtR" Bounds="480,358" />
           </Canvas>
           <ProcessDefinition Id="JmuKgqC3kndLMYaMGAWAXm">
             <Fragment Id="Tu4ZqLXDCyyLfNbkINMeCC" Patch="GcGGgX7avCSLtCd0x0Wp7B" Enabled="true" />
@@ -54,6 +57,8 @@
           <Link Id="NynOHXPcABaQPRCB3bIGdY" Ids="NXTzjvNnYD0P8hKpQLFfJp,FCSr4iBmG2ALKHVuZZEUUC" />
           <Link Id="JuGzEpgaa3ELUcewdxuQKU" Ids="KoJyGbugobiOgBR1RN9t1B,BlHFxdVgxlfN3z8dgEbPFD" IsHidden="true" />
           <Link Id="G1jYQ6XxIvbLbtWh0Iyg5h" Ids="IwxW53zoVbfQKjcCUGy2Fz,KoJyGbugobiOgBR1RN9t1B" />
+          <Link Id="OCd8uMAvjRdNFMOt2akl2b" Ids="OAjhBrsFWUeO7K0FfmAI9W,TfjLSfgWpNOK9nnVrUVEtR" />
+          <Link Id="SYMfDqO2QT2MyOAkP8O4NL" Ids="TfjLSfgWpNOK9nnVrUVEtR,OcsuS085VhEMIa7oODjVJA" IsHidden="true" />
         </Patch>
       </Node>
       <!--
