@@ -166,17 +166,17 @@ namespace CraftLie
             return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(layer, js));
         }
 
-        public static byte[] SerializeJson2(DrawDescriptionLayer layer)
+        static MemoryStream Writer = new MemoryStream();
+        static StreamWriter writer = new StreamWriter(Writer, Encoding.UTF8);
+        static JsonTextWriter jsonWriter = new JsonTextWriter(writer);
+        public static byte[] SerializeJson2(DrawDescriptionLayer layer, out int length)
         {
-            using (var ms = new MemoryStream())
-            using (StreamWriter writer = new StreamWriter(ms, Encoding.UTF8))
-            using (JsonTextWriter jsonWriter = new JsonTextWriter(writer))
-            {
-                JsonSerializer ser = JsonSerializer.Create(js);
-                ser.Serialize(jsonWriter, layer);
-                jsonWriter.Flush();
-                return ms.ToArray();
-            }
+            Writer.SetLength(0);
+            JsonSerializer ser = JsonSerializer.Create(js);
+            ser.Serialize(jsonWriter, layer);
+            jsonWriter.Flush();
+            length = (int)Writer.Length;
+            return Writer.GetBuffer();
         }
 
         public static DrawDescriptionLayer DeserializeJson(byte[] layer)
