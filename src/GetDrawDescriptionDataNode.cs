@@ -12,7 +12,7 @@ using SlimDXMatrix = SlimDX.Matrix;
 using FeralTic.DX11.Resources;
 using FeralTic.DX11;
 using CraftLie;
-using SharpDX;
+using Xenko.Core.Mathematics;
 using VVVV.Utils.VColor;
 using VL.Lib.Collections;
 using System.Diagnostics;
@@ -634,7 +634,6 @@ namespace VVVV.DX11.Nodes
 
                 foreach (var trans in desc.InstanceTransformations)
                 {
-                    trans.Transpose();
                     FBufferTrans[transIndex++] = trans;
                 }
 
@@ -741,7 +740,7 @@ namespace VVVV.DX11.Nodes
 
         RGBAColor ToRGBAColor(Color4 color)
         {
-            return new RGBAColor(color.Red, color.Green, color.Blue, color.Alpha);
+            return new RGBAColor(color.R, color.G, color.B, color.A);
         }
 
         SlimDXMatrix ToSlimDXMatrix(ref Matrix m)

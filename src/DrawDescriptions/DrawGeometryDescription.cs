@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using FeralTic.DX11;
 using FeralTic.DX11.Geometry;
 using FeralTic.DX11.Resources;
-using SharpDX;
+using Xenko.Core.Mathematics;
 using System.Text;
 using System.Threading.Tasks;
 using VL.Core;

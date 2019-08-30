@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using FeralTic.DX11.Geometry;
 using VL.Core;
-using SharpDX;
+using Xenko.Core.Mathematics;
 
 namespace CraftLie
 {

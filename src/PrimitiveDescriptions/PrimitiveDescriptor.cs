@@ -180,7 +180,7 @@ namespace CraftLie
             Directions = GeometryDescriptor.UnitLineNormals.ToList();
         }
 
-        public LineDescriptor(IReadOnlyList<SharpDX.Vector3> positions, bool isClosed)
+        public LineDescriptor(IReadOnlyList<Xenko.Core.Mathematics.Vector3> positions, bool isClosed)
             : base(PrimitiveType.Line)
         {
             IsClosed = isClosed;
@@ -218,7 +218,7 @@ namespace CraftLie
             Positions = GeometryDescriptor.UnitTri2D.ToList();
         }
 
-        public PolygonDescriptor(IReadOnlyList<SharpDX.Vector2> positions)
+        public PolygonDescriptor(IReadOnlyList<Xenko.Core.Mathematics.Vector2> positions)
             : base(PrimitiveType.Polygon)
         {
             if (positions != null && positions.Count > 1)
@@ -262,7 +262,7 @@ namespace CraftLie
         //    Indices = GeometryDescriptor.UnitTriIndices;
         //}
 
-        public MeshJoinDescriptor(IReadOnlyList<SharpDX.Vector3> positions, IReadOnlyList<SharpDX.Vector3> normals, IReadOnlyList<SharpDX.Vector2> textureCoords, IReadOnlyList<int> indices, MeshTopology topology = MeshTopology.TriangleList)
+        public MeshJoinDescriptor(IReadOnlyList<Xenko.Core.Mathematics.Vector3> positions, IReadOnlyList<Xenko.Core.Mathematics.Vector3> normals, IReadOnlyList<Xenko.Core.Mathematics.Vector2> textureCoords, IReadOnlyList<int> indices, MeshTopology topology = MeshTopology.TriangleList)
             : base(PrimitiveType.MeshJoin)
         {
 

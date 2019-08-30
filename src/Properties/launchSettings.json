@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CraftLie": {
+      "commandName": "Executable",
+      "executablePath": "C:\\vvvv\\vvvv_50alpha38.2_x64\\vvvv.exe"
+    }
+  }
+}

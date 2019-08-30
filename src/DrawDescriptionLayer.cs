@@ -8,15 +8,11 @@ using System.Threading.Tasks;
 using VL.Core;
 using Newtonsoft.Json;
 using System.IO;
-using Ceras;
-using Newtonsoft.Json.Bson;
-using Polenter.Serialization;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using System.Diagnostics;
 using System.Collections;
 using Newtonsoft.Json.Linq;
-using Polenter.Serialization.Advanced;
 
 namespace CraftLie
 {
@@ -31,13 +27,13 @@ namespace CraftLie
         public readonly IReadOnlyList<DrawTextDescription> TextDescriptions;
         public readonly IReadOnlyList<DrawSpritesDescription> SpritesDescriptions;
 
-        public DrawDescriptionLayer() 
+        public DrawDescriptionLayer()
             : this(new List<DrawGeometryDescription>(),
             new List<DrawSpritesDescription>(),
             new List<DrawTextDescription>())
         {
         }
-       
+
         public DrawDescriptionLayer(IReadOnlyList<DrawGeometryDescription> geometries, IReadOnlyList<DrawSpritesDescription> sprites, IReadOnlyList<DrawTextDescription> texts)
         {
             GeometryDescriptions = geometries;
@@ -88,7 +84,7 @@ namespace CraftLie
         private IReadOnlyList<DrawTextDescription> DeepCopyTexts()
         {
             var result = new List<DrawTextDescription>();
-            foreach(var e in TextDescriptions)
+            foreach (var e in TextDescriptions)
             {
                 result.Add(e.DeepCopy());
             }
@@ -110,82 +106,37 @@ namespace CraftLie
             yield return DrawSpritesDescription.Default;
         }
 
-        public static byte[] SerializeCeras(DrawDescriptionLayer layer)
-        {
-            using (var stream = new MemoryStream())
-            {
-                var s = new CerasSerializer();
-                return s.Serialize(layer);
-            }
-        }
-
-        public static byte[] SerializeSharp(DrawDescriptionLayer layer)
-        {
-            using (var ms = new MemoryStream())
-            {
-                var s = new SharpSerializer(true);
-                s.Serialize(layer.GeometryDescriptions.ToList(), ms);
-                return ms.ToArray();
-            }
-        }
-
-        public static DrawDescriptionLayer DeserializeSharp(byte[] layer)
-        {
-            using (var ms = new MemoryStream(layer))
-            {
-                var s = new SharpSerializer(true);
-                var o = s.Deserialize(ms);
-                return new DrawDescriptionLayer((List<DrawGeometryDescription>)o, new List<DrawSpritesDescription>(), new List<DrawTextDescription>());
-            }
-        }
-
-        static JsonSerializerSettings js = new JsonSerializerSettings()
+        static JsonSerializerSettings SerializerSettings = new JsonSerializerSettings()
         {
             Formatting = Formatting.None,
             ContractResolver = ShouldSerializeContractResolver.Instance,
             TypeNameHandling = TypeNameHandling.None
         };
 
-        public static byte[] SerializeBson(DrawDescriptionLayer layer)
-        {
-            using (var ms = new MemoryStream())
-            {
-                using (var writer = new BsonWriter(ms))
-                {
-                    JsonSerializer serializer = JsonSerializer.Create(js);
-                    serializer.Serialize(writer, layer);
-                    return ms.ToArray();
-                }
-            }
-        }
-
-
-
         public static byte[] SerializeJson(DrawDescriptionLayer layer)
         {
-            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(layer, js));
-        }
-
-        static MemoryStream Writer = new MemoryStream();
-        static StreamWriter writer = new StreamWriter(Writer, Encoding.UTF8);
-        static JsonTextWriter jsonWriter = new JsonTextWriter(writer);
-        public static byte[] SerializeJson2(DrawDescriptionLayer layer, out int length)
-        {
-            Writer.SetLength(0);
-            JsonSerializer ser = JsonSerializer.Create(js);
-            ser.Serialize(jsonWriter, layer);
-            jsonWriter.Flush();
-            length = (int)Writer.Length;
-            return Writer.GetBuffer();
+            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(layer, SerializerSettings));
         }
 
         public static DrawDescriptionLayer DeserializeJson(byte[] layer)
         {
-            //js.Converters.Add(new GeometryDescriptorConverter());
             return JsonConvert.DeserializeObject<DrawDescriptionLayer>(Encoding.UTF8.GetString(layer));
         }
 
-        public static DrawDescriptionLayer DeserializeJson3(byte[] layer)
+        static MemoryStream SerializerMemStream = new MemoryStream();
+        static StreamWriter SerializerStreamWriter = new StreamWriter(SerializerMemStream, Encoding.UTF8);
+        static JsonTextWriter JsonWriter = new JsonTextWriter(SerializerStreamWriter);
+        static JsonSerializer Serializer = JsonSerializer.Create(SerializerSettings);
+        public static byte[] SerializeJson2(DrawDescriptionLayer layer, out int length)
+        {
+            SerializerMemStream.SetLength(0);
+            Serializer.Serialize(JsonWriter, layer);
+            JsonWriter.Flush();
+            length = (int)SerializerMemStream.Length;
+            return SerializerMemStream.GetBuffer();
+        }
+
+        public static DrawDescriptionLayer DeserializeJson2(byte[] layer)
         {
             using (var s = new MemoryStream(layer))
             using (var sr = new StreamReader(s, Encoding.UTF8))
@@ -196,27 +147,6 @@ namespace CraftLie
             }
         }
 
-        public static DrawDescriptionLayer DeserializeJson2(string layer)
-        {
-            using (var sr = new StringReader(layer))
-            using (var reader = new FixedJsonTextReader(sr))
-            {
-                var settings = new JsonSerializerSettings
-                {
-                    Error = delegate (object sender, Newtonsoft.Json.Serialization.ErrorEventArgs args)
-                    {
-                        Debug.WriteLine(args.ErrorContext.Error.Message);
-                        args.ErrorContext.Handled = true;
-                    },
-                    ObjectCreationHandling = ObjectCreationHandling.Replace
-                };
-
-                settings.Converters.Add(new Vector3Converter());
-                settings.Converters.Add(new BoxConverter());
-
-                return  JsonSerializer.Create(settings).Deserialize<DrawDescriptionLayer>(reader);
-            }
-        }
     }
 
     public class ShouldSerializeContractResolver : DefaultContractResolver
@@ -227,7 +157,7 @@ namespace CraftLie
         {
             JsonProperty property = base.CreateProperty(member, memberSerialization);
 
-            if (property.DeclaringType == typeof(SharpDX.Matrix))
+            if (property.DeclaringType == typeof(Xenko.Core.Mathematics.Matrix))
             {
                 property.ShouldSerialize =
                     instance =>

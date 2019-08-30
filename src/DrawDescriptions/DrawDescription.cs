@@ -1,7 +1,7 @@
 ﻿using FeralTic.DX11;
 using FeralTic.DX11.Geometry;
 using FeralTic.DX11.Resources;
-using SharpDX;
+using Xenko.Core.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;

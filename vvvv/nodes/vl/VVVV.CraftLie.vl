@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0344-gd5eabf23a7" Version="0.128">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0624-g5df7a10830" Version="0.128">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
   <NugetDependency Id="HB3KsA0VJfPMJQjS8l6rnu" Location="CraftLie" Version="1.0.2" />
@@ -19,9 +19,9 @@
           <Patch Id="GcGGgX7avCSLtCd0x0Wp7B" Name="Create" />
           <Patch Id="Fzgn6G5l9n1LH2U9rnReEQ" Name="Update">
             <Pin Id="O1dt25DdGQpOjhzVAQl3OJ" Name="Host" Kind="InputPin" />
-            <Pin Id="BlHFxdVgxlfN3z8dgEbPFD" Name="Draw Description Layer" Kind="OutputPin" />
             <Pin Id="DRtEQBmg76ONtyCw1UWj2R" Name="Port" Kind="InputPin" />
             <Pin Id="BkgqRMxzMgZPPSZZGU3FgO" Name="Topics" Kind="InputPin" />
+            <Pin Id="BlHFxdVgxlfN3z8dgEbPFD" Name="Draw Description Layer" Kind="OutputPin" />
             <Pin Id="OcsuS085VhEMIa7oODjVJA" Name="On Received" Kind="OutputPin" Bounds="480,358" />
           </Patch>
           <Canvas Id="NOvrZjcVi64LG6ZgDnXf3s" CanvasType="Group">
@@ -72,7 +72,7 @@
         </p:NodeReference>
         <Patch Id="NWe5ahzHvwVLc94Ouu8PQv">
           <Canvas Id="DMp3QTwPQvBM2pTCUEe8qo" CanvasType="Group">
-            <Node Bounds="382,324" Id="JGjsrxqGZsxNv3H3iwpLJe">
+            <Node Bounds="396,443,105,19" Id="JGjsrxqGZsxNv3H3iwpLJe">
               <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="SendCraftLie" />
@@ -87,16 +87,62 @@
               <Pin Id="HxDsmAuvDu3L6PM7LXzzMf" Name="Topic" Kind="InputPin" />
               <Pin Id="CenA4Iw1PC9MFSjvrVOsWm" Name="Send" Kind="InputPin" />
             </Node>
-            <ControlPoint Id="CorBJWO27ySMOhahx5xwtY" Bounds="382,293" />
-            <ControlPoint Id="O8RkOMqC4HoQZf6roKW6Pc" Bounds="439,293" />
-            <ControlPoint Id="Dliyrc8Anj5NHIkM5u4lFu" Bounds="492,293" />
-            <ControlPoint Id="UfcEWepgbS3QB9AttehJ4D" Bounds="543,293" />
-            <ControlPoint Id="J6G4VuRGObmMzyy9dOTf6S" Bounds="595,293" />
-            <ControlPoint Id="TIa2rWkmHVDONYxWza145n" Bounds="652,293" />
+            <ControlPoint Id="O8RkOMqC4HoQZf6roKW6Pc" Bounds="418,346" />
+            <ControlPoint Id="Dliyrc8Anj5NHIkM5u4lFu" Bounds="471,346" />
+            <ControlPoint Id="UfcEWepgbS3QB9AttehJ4D" Bounds="522,346" />
+            <ControlPoint Id="J6G4VuRGObmMzyy9dOTf6S" Bounds="574,346" />
+            <ControlPoint Id="TIa2rWkmHVDONYxWza145n" Bounds="631,346" />
+            <Node Bounds="396,195,105,19" Id="SiXMxq6VYxSOY1bjk2Va7v">
+              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="Quad" />
+              </p:NodeReference>
+              <Pin Id="GncT3Nr1Vy3O262uoUxVDU" Name="Blend Mode" Kind="InputPin" />
+              <Pin Id="VVhrNGmQZQjLuMRhFTftvX" Name="Transformation" Kind="InputPin" />
+              <Pin Id="T4gb0o8pXUiNsG6HVCmlQS" Name="Color" Kind="InputPin" />
+              <Pin Id="V0JMbfjnLmLN1fFSQorJIb" Name="Texture Path" Kind="InputPin" />
+              <Pin Id="PlJD3PCusvjOOuKHGu0CGD" Name="Instance Transformations" Kind="InputPin" />
+              <Pin Id="HkAsmiluymyOrP2sVYrv4v" Name="Instance Colors" Kind="InputPin" />
+              <Pin Id="IcwGFVpKz4EQMwAeeDRooI" Name="Layer" Kind="OutputPin" />
+            </Node>
+            <Node Bounds="396,233" Id="Rx4Gy2k1kN9OhznywgAhUj">
+              <p:NodeReference LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="Renderer" />
+              </p:NodeReference>
+              <Pin Id="LS78croyvYtL7Dm1jZolTj" Name="Layer" Kind="InputPin" />
+              <Pin Id="UHWmS8NpM8OP4Jm9ghG05a" Name="Draw Description Layer" Kind="OutputPin" />
+            </Node>
+            <Node Bounds="416,148,54,19" Id="PQSJKpw8hTnMJa63xOaulp">
+              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="Rotation" />
+                <CategoryReference Kind="RecordType" Name="Matrix" NeedsToBeDirectParent="true" />
+              </p:NodeReference>
+              <Pin Id="TwuLDE0bZoHPW1Jg0UnoMT" Name="Pitch" Kind="InputPin" />
+              <Pin Id="IEa6rjYk4XXPzfN1oAdiUT" Name="Yaw" Kind="InputPin" />
+              <Pin Id="UDA8jF1nKUJPhiGXxR3cXS" Name="Roll" Kind="InputPin" />
+              <Pin Id="JdebMfLYFTMOy89F5xuv9Y" Name="Result" Kind="OutputPin" />
+            </Node>
+            <Node Bounds="465,108,45,19" Id="L2gv3UZPDvCLgoBJtIjV7W">
+              <p:NodeReference LastCategoryFullName="Animation" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="LFO" />
+              </p:NodeReference>
+              <Pin Id="IPIlUfJUAoGPvVqrU8VVX7" Name="Period" Kind="InputPin" DefaultValue="3">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="BGcrfBZYur1NVhdEeLP5YH" Name="Pause" Kind="InputPin" />
+              <Pin Id="NYVyzLdaQTNMu7j4wMnY04" Name="Reset" Kind="ApplyPin" />
+              <Pin Id="FzzUK4Xw51YQAkNwttZTKH" Name="Phase" Kind="OutputPin" />
+              <Pin Id="AwPxMeR54WLLiWDAAu1VpU" Name="On New Cycle" Kind="OutputPin" />
+              <Pin Id="I6gxiYgEOAwMcJN3eM0W3j" Name="Cycles" Kind="OutputPin" />
+            </Node>
           </Canvas>
           <Patch Id="TxpQdtkYE6NQGaXn4KAXie" Name="Create" />
           <Patch Id="QhZd4tPlV3APsO1PmdH8Gn" Name="Update">
-            <Pin Id="U9J2Jm5VKTgLnxtxy9NBti" Name="Layer" Kind="InputPin" />
             <Pin Id="BUF92PcutdXPBBUOmwf4tA" Name="Host" Kind="InputPin" />
             <Pin Id="BcrVzeZABJAMtG0Pg34y9D" Name="Port" Kind="InputPin" />
             <Pin Id="EPy0m0XHni1LIJTdhZjZ6B" Name="Bind" Kind="InputPin" />
@@ -107,8 +153,6 @@
             <Fragment Id="G6EWs3GSkwkLqu6rzPzG2M" Patch="TxpQdtkYE6NQGaXn4KAXie" Enabled="true" />
             <Fragment Id="LE7Xnd9QQliL1PhQBfp4JT" Patch="QhZd4tPlV3APsO1PmdH8Gn" Enabled="true" />
           </ProcessDefinition>
-          <Link Id="UfJPFXXobb6K9c1hyHT1ds" Ids="U9J2Jm5VKTgLnxtxy9NBti,CorBJWO27ySMOhahx5xwtY" IsHidden="true" />
-          <Link Id="QxfpXJCdOHANBK33P1TPkf" Ids="CorBJWO27ySMOhahx5xwtY,GN3ImnZamRxPhPHKkvG8z1" />
           <Link Id="KDf52qEpH7nPAD6BpAxgxv" Ids="BUF92PcutdXPBBUOmwf4tA,O8RkOMqC4HoQZf6roKW6Pc" IsHidden="true" />
           <Link Id="H3fZhW5MXoEOUuwea61anM" Ids="O8RkOMqC4HoQZf6roKW6Pc,DO3i2qnxqKLNKGVLNtqESr" />
           <Link Id="AK0zN4sE6tWPKLXH6jnxxo" Ids="BcrVzeZABJAMtG0Pg34y9D,Dliyrc8Anj5NHIkM5u4lFu" IsHidden="true" />
@@ -119,6 +163,10 @@
           <Link Id="Ihfy5hyafWBMc0Ndy1x6jS" Ids="J6G4VuRGObmMzyy9dOTf6S,HxDsmAuvDu3L6PM7LXzzMf" />
           <Link Id="EcPX9RWzvloQXGaMhv0J3w" Ids="N6ZTY3XSmuSL9C8f5AO4VA,TIa2rWkmHVDONYxWza145n" IsHidden="true" />
           <Link Id="JIADb8D4eChOTqbAGxK4KC" Ids="TIa2rWkmHVDONYxWza145n,CenA4Iw1PC9MFSjvrVOsWm" />
+          <Link Id="CkPoq9t2NMoOa1pHyKzmOA" Ids="IcwGFVpKz4EQMwAeeDRooI,LS78croyvYtL7Dm1jZolTj" />
+          <Link Id="KNcDltgn4atP2OWWx3x7Du" Ids="UHWmS8NpM8OP4Jm9ghG05a,GN3ImnZamRxPhPHKkvG8z1" />
+          <Link Id="KSsQF2vh4MaNKXwYKlxL6w" Ids="JdebMfLYFTMOy89F5xuv9Y,VVhrNGmQZQjLuMRhFTftvX" />
+          <Link Id="ElPjOoZ5IJ4O9pbHaQac4s" Ids="FzzUK4Xw51YQAkNwttZTKH,UDA8jF1nKUJPhiGXxR3cXS" />
         </Patch>
       </Node>
     </Canvas>

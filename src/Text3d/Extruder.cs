@@ -8,7 +8,7 @@ using DWriteFactory = SharpDX.DirectWrite.Factory;
 using D2DFactory = SharpDX.Direct2D1.Factory;
 using D2DGeometry = SharpDX.Direct2D1.Geometry;
 using SharpDX.DirectWrite;
-using SharpDX;
+using Xenko.Core.Mathematics;
 using VVVV.DX11.Nodes;
 using SharpDX.Direct2D1;
 
