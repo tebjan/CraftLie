@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha38.2.dtd" >
-   <PATCH nodename="C:\Users\SPACEMUSIC\Desktop\Tebjan Git\vvvv_50alpha38.2_x64\packs\CraftLie.1.3.0\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" scrollx="0" scrolly="0" locked="0">
+   <PATCH nodename="C:\vvvv\vvvv_50alpha38.2_x64\packs\CraftLie.1.5.0\vvvv\nodes\modules\Renderer (CraftLie).v4p" systemname="Renderer (CraftLie)" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\nodes\modules\Renderer (CraftLie).v4p" scrollx="1800" scrolly="15" locked="0">
    <NODE id="24" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
@@ -10,7 +10,7 @@
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="510" top="5925" width="26955" height="13830">
+   <BOUNDS type="Window" left="1740" top="6510" width="21060" height="9135">
    </BOUNDS>
    <PACK Name="addonpack" Version="38.1.0">
    </PACK>
@@ -901,7 +901,7 @@
    <LINK srcnodeid="112" srcpinname="Count" dstnodeid="113" dstpinname="Input">
    </LINK>
    <NODE id="111" systemname="TextFormat (DirectWrite)" filename="%VVVV%\packs\dx11\nodes\plugins\directwrite\VVVV.Nodes.DirectWrite.dll" nodename="TextFormat (DirectWrite)" componentmode="Hidden">
-   <PIN pinname="Evaluate" slicecount="1" visible="1" pintype="Input" values="1">
+   <PIN pinname="Evaluate" slicecount="1" visible="1" pintype="Input" values="0">
    </PIN>
    <BOUNDS type="Node" left="19200" top="4485" width="100" height="100">
    </BOUNDS>
@@ -936,8 +936,6 @@
    </LINK>
    <LINK srcnodeid="111" srcpinname="Output" dstnodeid="110" dstpinname="Format">
    </LINK>
-   <LINK srcnodeid="113" srcpinname="OnChange" dstnodeid="111" dstpinname="Evaluate">
-   </LINK>
    <NODE systemname="TextureExists" filename="%VVVV%\packs\CraftLie.1.3.0\vvvv\nodes\modules\TextureExists.v4p" nodename="%VVVV%\packs\CraftLie.1.3.0\vvvv\nodes\modules\TextureExists.v4p" componentmode="Hidden" id="114">
    <BOUNDS type="Node" left="8547" top="6237" width="100" height="100">
    </BOUNDS>
@@ -954,4 +952,20 @@
    </LINK>
    <LINK srcnodeid="103" srcpinname="Path" dstnodeid="114" dstpinname="Parent Patch Directory">
    </LINK>
+   <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="115">
+   <BOUNDS type="Node" left="21495" top="5205" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Simulate" visible="1">
+   </PIN>
+   <PIN pinname="Bang" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="113" srcpinname="OnChange" dstnodeid="115" dstpinname="Simulate">
+   </LINK>
+   <LINK srcnodeid="115" srcpinname="Bang" dstnodeid="111" dstpinname="Evaluate">
+   </LINK>
+   <PACK Name="dx11.particles" Version="1.0.5">
+   </PACK>
+   <PACK Name="VVVV.Packs.Image" Version="0.2.0">
+   </PACK>
    </PATCH>

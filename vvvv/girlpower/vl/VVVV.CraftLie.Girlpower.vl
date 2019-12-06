@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="MZmd92n0x8tLLBfKYOnxOx" LanguageVersion="2019.1.0-0624-g5df7a10830" Version="0.128">
+<Document xmlns:p="property" Id="MZmd92n0x8tLLBfKYOnxOx" LanguageVersion="2019.1.0-0959-g3a31ab0c51" Version="0.128">
   <NugetDependency Id="HbAhAevw0FVN9sGbXw9dz9" Location="VL.CoreLib" Version="0.38.1043" />
   <DocumentDependency Id="SaXZrRuxFj9PFzaKCfqXnE" Location="../../../CraftLie.vl" />
   <Patch Id="AXcrkz7wtuiLTLQMfXYFvQ">
@@ -1034,12 +1034,12 @@
             <Node Bounds="435,176,45,13" Id="NgNMlpxL10LQZHAR00nlZF">
               <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationNode" Name="Switch" />
-                <CategoryReference Kind="Category" Name="Control" NeedsToBeDirectParent="true" />
+                <Choice Kind="OperationNode" Name="Switch (Boolean)" />
+                <FullNameCategoryReference ID="Control" />
               </p:NodeReference>
               <Pin Id="JEA7VYZR24cNF5utQFcObl" Name="Condition" Kind="InputPin" />
-              <Pin Id="CdfvjS7CTuxQaI9WWfNmi0" Name="False" Kind="InputPin" />
-              <Pin Id="GxGHG5TyCsdMjLHpiukLU3" Name="True" Kind="InputPin" />
+              <Pin Id="CdfvjS7CTuxQaI9WWfNmi0" Name="Input" Kind="InputPin" />
+              <Pin Id="GxGHG5TyCsdMjLHpiukLU3" Name="Input 2" Kind="InputPin" />
               <Pin Id="CS0KGbe7d0RQTeIn0i0V82" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="405,86,65,13" Id="LtH1dorc5gTLa6psmXz38C">
@@ -1156,6 +1156,7 @@
                   <Pin Id="BgEqC5PdvhePDlgJub66WB" Name="Goto Position" Kind="InputPin" />
                   <Pin Id="EVEzrYNTf28Ptkzysbzd3K" Name="Filter Time" Kind="InputPin" />
                   <Pin Id="TPtMwupPEUKQXVmqLfQRZJ" Name="Transition" Kind="InputPin" />
+                  <Pin Id="C2Apxz2lE8eLUGH6UXCeqw" Name="Mode" Kind="InputPin" />
                   <Pin Id="FamLiRwCzTZLXF5YDPVROL" Name="Reset" Kind="InputPin" />
                   <Pin Id="LOovwcII3yJOOT8U5eM527" Name="Position" Kind="OutputPin" />
                   <Pin Id="MStujR8BoaHLDA2TbkbV0G" Name="Progress" Kind="OutputPin" />
@@ -1993,12 +1994,12 @@
             <Node Bounds="286,214,45,13" Id="Edoiqz130bvMviHbVyVdii">
               <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationNode" Name="Switch" />
-                <CategoryReference Kind="Category" Name="Control" NeedsToBeDirectParent="true" />
+                <Choice Kind="OperationNode" Name="Switch (Boolean)" />
+                <FullNameCategoryReference ID="Control" />
               </p:NodeReference>
               <Pin Id="NT77ldNbo8BNQcrM1ZTsKc" Name="Condition" Kind="InputPin" />
-              <Pin Id="FdiCY98NKSHNlSJ1A3E8kF" Name="False" Kind="InputPin" />
-              <Pin Id="VSThWnDxzTXMYVca6rYPHA" Name="True" Kind="InputPin" />
+              <Pin Id="FdiCY98NKSHNlSJ1A3E8kF" Name="Input" Kind="InputPin" />
+              <Pin Id="VSThWnDxzTXMYVca6rYPHA" Name="Input 2" Kind="InputPin" />
               <Pin Id="OYQWTK98D5DNnma4wwLuz5" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="306,177,71,13" Id="D20BmXFCZfHOoXoi0SV8Sx">
@@ -2513,12 +2514,12 @@
             <Node Bounds="423,286,45,13" Id="EQzafHiUNfuLzV1vwHgqfT">
               <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationNode" Name="Switch" />
-                <CategoryReference Kind="Category" Name="Control" NeedsToBeDirectParent="true" />
+                <Choice Kind="OperationNode" Name="Switch (Boolean)" />
+                <FullNameCategoryReference ID="Control" />
               </p:NodeReference>
               <Pin Id="VfZ6n4Byar5MM05pjIMJPE" Name="Condition" Kind="InputPin" />
-              <Pin Id="PTzaxBDlLxSNbayhf6syOg" Name="False" Kind="InputPin" />
-              <Pin Id="BBYvgSusUqGMJZbxDfZtSb" Name="True" Kind="InputPin" />
+              <Pin Id="PTzaxBDlLxSNbayhf6syOg" Name="Input" Kind="InputPin" />
+              <Pin Id="BBYvgSusUqGMJZbxDfZtSb" Name="Input 2" Kind="InputPin" />
               <Pin Id="KR30aUG8P33MmnhV8ThA9V" Name="Output" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="LoroR1sRhcdLXIzzcuAqsW" Bounds="355,96,-23,0" />
@@ -3829,6 +3830,7 @@
                 <Pin Id="HvXZWgQMrpPLaIE9ylLLga" Name="Goto Position" Kind="InputPin" />
                 <Pin Id="T83272sdh1SMkvMvQ2wVav" Name="Filter Time" Kind="InputPin" />
                 <Pin Id="UF1SS87iS7UOzs8yEN6FxA" Name="Transition" Kind="InputPin" />
+                <Pin Id="UJiU7Ca8qejNKdfzJgR4wf" Name="Mode" Kind="InputPin" />
                 <Pin Id="A31madqnOseNMhxRY18yCM" Name="Reset" Kind="InputPin" />
                 <Pin Id="EyiCPZKJp4WMyyLqFGLdgc" Name="Position" Kind="OutputPin" />
                 <Pin Id="DFpGyed1XpdLkHDI56JvJ0" Name="Progress" Kind="OutputPin" />
@@ -3857,6 +3859,7 @@
                 <Pin Id="Jr6R81U32QhNWVzxcbQ5Ug" Name="Goto Position" Kind="InputPin" />
                 <Pin Id="QytWfoeKhnEPmLHQgWGAnu" Name="Filter Time" Kind="InputPin" />
                 <Pin Id="RXPfZsMVVfUPN9rfVgBnII" Name="Transition" Kind="InputPin" />
+                <Pin Id="MIJ0xOtdkBZMxcoTaaFOLx" Name="Mode" Kind="InputPin" />
                 <Pin Id="Mhk5ikpcI1lM8VHIRKKg5s" Name="Reset" Kind="InputPin" />
                 <Pin Id="NRzWONGkJMiMPTevq3KDxc" Name="Position" Kind="OutputPin" />
                 <Pin Id="OeBS4UjFUKLMGj94yfsmaM" Name="Progress" Kind="OutputPin" />
@@ -4226,12 +4229,12 @@
               <Node Bounds="576,719,45,13" Id="VQZIiGdjXKPLjA3Iqjpfcp">
                 <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationNode" Name="Switch" />
-                  <CategoryReference Kind="Category" Name="Control" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationNode" Name="Switch (Boolean)" />
+                  <FullNameCategoryReference ID="Control" />
                 </p:NodeReference>
                 <Pin Id="VFy9h1iXrdIMz2KncfMegG" Name="Condition" Kind="InputPin" />
-                <Pin Id="KrypgfmfDh6NWRWFKrRXsc" Name="False" Kind="InputPin" />
-                <Pin Id="NUplPX7ggwTMUNAecc4p73" Name="True" Kind="InputPin" />
+                <Pin Id="KrypgfmfDh6NWRWFKrRXsc" Name="Input" Kind="InputPin" />
+                <Pin Id="NUplPX7ggwTMUNAecc4p73" Name="Input 2" Kind="InputPin" />
                 <Pin Id="LHJQ50AlihrO60SVuQx0Am" Name="Output" Kind="OutputPin" />
               </Node>
               <Pad Id="MdzAtK76iUFNqqd3oEik5D" Comment="Color" Bounds="617,702,10,2" ShowValueBox="true" isIOBox="true" Value="1, 1, 1, 1">
@@ -8796,10 +8799,9 @@
                   <CategoryReference Kind="Category" Name="Primitive" />
                 </p:TypeAnnotation>
               </Pad>
-              <Pad Id="P3ZV5PosbxDMAzlVBzkibi" Bounds="539,774" ShowValueBox="true" isIOBox="true" Value="Leading">
+              <Pad Id="P3ZV5PosbxDMAzlVBzkibi" Bounds="539,774" ShowValueBox="true" isIOBox="true" Value="Left">
                 <p:TypeAnnotation LastCategoryFullName="CraftLie" LastSymbolSource="CraftLie.vl">
-                  <Choice Kind="TypeFlag" Name="TextAlignment" />
-                  <CategoryReference Kind="Category" Name="CraftLie" />
+                  <Choice Kind="TypeFlag" Name="HorizontalTextAlignment" />
                 </p:TypeAnnotation>
               </Pad>
               <Node Bounds="411,647,91,13" Id="SAsI7Cbc3x7OucHDXAYzPW">
@@ -8881,6 +8883,7 @@
                 <Pin Id="Fzp4iXgscO4MFkz3KlEW5b" Name="Goto Position" Kind="InputPin" />
                 <Pin Id="KJR3cT0Ut9GN9x7CRaO7X3" Name="Filter Time" Kind="InputPin" />
                 <Pin Id="M3RCoyI9S0KQSCtQDbP5no" Name="Transition" Kind="InputPin" />
+                <Pin Id="VpL0jXIG22nMLp5MVllxh1" Name="Mode" Kind="InputPin" />
                 <Pin Id="C6sOOzoK7Y8M9gl57Z1Txh" Name="Reset" Kind="InputPin" />
                 <Pin Id="H3FYROBj1c6MNMwUaIGS5S" Name="Position" Kind="OutputPin" />
                 <Pin Id="ANAZBS0VYcAQYdF53xusPD" Name="Progress" Kind="OutputPin" />
@@ -10116,12 +10119,12 @@
                       <Node Bounds="1088,1265,151,13" Id="EEhMlOmr2pAP6gdF3oFkIB">
                         <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                          <Choice Kind="OperationNode" Name="Switch" />
-                          <CategoryReference Kind="Category" Name="Control" NeedsToBeDirectParent="true" />
+                          <Choice Kind="OperationNode" Name="Switch (Boolean)" />
+                          <FullNameCategoryReference ID="Control" />
                         </p:NodeReference>
                         <Pin Id="RtraC7npDxYNwAWlVLKwFP" Name="Condition" Kind="InputPin" />
-                        <Pin Id="RgrSu2uKnFeOMbY6UpOf8I" Name="False" Kind="InputPin" />
-                        <Pin Id="BwIwY9ddlesMlMNyTUgZlh" Name="True" Kind="InputPin" />
+                        <Pin Id="RgrSu2uKnFeOMbY6UpOf8I" Name="Input" Kind="InputPin" />
+                        <Pin Id="BwIwY9ddlesMlMNyTUgZlh" Name="Input 2" Kind="InputPin" />
                         <Pin Id="PZ87gVJtiPTN5DtAjn9eXa" Name="Output" Kind="OutputPin" />
                       </Node>
                     </Patch>
@@ -10717,6 +10720,7 @@
                     <Pin Id="FismDhwkqt8NM8RjVbLUwc" Name="Goto Position" Kind="InputPin" />
                     <Pin Id="JbqcvZ86zceNT5yM5wlvLu" Name="Filter Time" Kind="InputPin" />
                     <Pin Id="HNVdF3UD1vGPB1xfSmivfy" Name="Transition" Kind="InputPin" />
+                    <Pin Id="OyEGCYUauGvPdNFadHNhTC" Name="Mode" Kind="InputPin" />
                     <Pin Id="Tne87e8sGDOMVmaQdojec2" Name="Reset" Kind="InputPin" />
                     <Pin Id="L9WugRPumBXLzMPXQlvuUJ" Name="Position" Kind="OutputPin" />
                     <Pin Id="E88DmgI7ZNcLerV4bv42Yx" Name="Progress" Kind="OutputPin" />
@@ -13100,11 +13104,6 @@
         <Canvas Id="T3tzXNYIlYCPv3Fs5gmV8C" BordersChecked="false" CanvasType="Group" />
         <Patch Id="IlBQv3vudWeO4oikzzlNEv" Name="Create" />
         <Patch Id="UySeKwwTdL9PdMemIyR4Je" Name="Update" />
-        <!--
-
-    ************************  ************************
-
--->
         <ProcessDefinition Id="BR1Kh7xJgp4OT56Qe6GznG">
           <Fragment Id="IwMLdDowcvPLXIx0kdPjwV" Patch="IlBQv3vudWeO4oikzzlNEv" Enabled="true" />
           <Fragment Id="F6UQ5Uv1jXfOOfVsv4CITc" Patch="UySeKwwTdL9PdMemIyR4Je" Enabled="true" />
