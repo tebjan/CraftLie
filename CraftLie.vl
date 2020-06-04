@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="MZmd92n0x8tLLBfKYOnxOx" LanguageVersion="2019.1.0-0624-g5df7a10830" Version="0.128">
-  <NugetDependency Id="HbAhAevw0FVN9sGbXw9dz9" Location="VL.CoreLib" Version="0.38.1043" />
+<Document xmlns:p="property" Id="OwQ4NL2DdwRP7rjDJ9X5h9" LanguageVersion="2020.1.3.137" Version="0.128">
+  <NugetDependency Id="HbAhAevw0FVN9sGbXw9dz9" Location="VL.CoreLib" Version="2020.1.3-0137-g383366eedc" />
   <PlatformDependency Id="APeASG2AmKpMmLhE4129LU" Location="./vvvv/nodes/plugins/CraftLie.dll" IsForward="true" />
   <Patch Id="AXcrkz7wtuiLTLQMfXYFvQ">
     <Canvas Id="UNxfqzqFZ0sNZX8LT3rUat" CanvasType="FullCategory">
@@ -47,9 +47,7 @@
                 <Pin Id="N8TqKjRITQwOHdQoOC1kMO" Name="Geometry Descriptor" Kind="InputPin" />
                 <Pin Id="SlbcSG0NztCO0dTOPq4Zms" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="AfTUimILWlQL84sgftK9c3" SlotId="ALE9ikKUzMULnvoqdjKAVK" Bounds="246,393">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="AfTUimILWlQL84sgftK9c3" SlotId="ALE9ikKUzMULnvoqdjKAVK" Bounds="246,393" />
               <Node Bounds="139,559,145,106" Id="LCgOYsJqxkNMsJCQMGF1ji">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -198,9 +196,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="CKgFaNtCUswOhi06eM9Uua" SlotId="FEhIK7B1RSiO4ExS3HuPWc" Bounds="48,245">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="CKgFaNtCUswOhi06eM9Uua" SlotId="FEhIK7B1RSiO4ExS3HuPWc" Bounds="48,245" />
               <Node Bounds="-124,58,105,22" Id="LWQzCsddjJnPZJF8uce5PV">
                 <p:NodeReference LastCategoryFullName="CraftLie.CylinderDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -292,9 +288,7 @@
                 <ControlPoint Id="OYQrrwxuj5KOsCLjHDPSgS" Bounds="63,316" Alignment="Top" />
                 <ControlPoint Id="Aa65GNTtGdDNMAuJmmWhoh" Bounds="62,429" Alignment="Bottom" />
               </Node>
-              <Pad Id="GIx2OAvCwp5PdA7zjhEfYD" SlotId="FEhIK7B1RSiO4ExS3HuPWc" Bounds="307,564">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="GIx2OAvCwp5PdA7zjhEfYD" SlotId="FEhIK7B1RSiO4ExS3HuPWc" Bounds="307,564" />
               <ControlPoint Id="F3XbXmR0xS4PC423vqdzjq" Bounds="26,3" />
               <ControlPoint Id="VfjwBUeRQ1TOfcxOzb72zQ" Bounds="90,3" />
               <ControlPoint Id="Px3TZqCZTM4LGYomugxPHi" Bounds="164,3" />
@@ -481,9 +475,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="MSp145ggh3WPI9vZEVTXvW" SlotId="Ntjvzxb89qxMVZ4czu06Yx" Bounds="115,259">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="MSp145ggh3WPI9vZEVTXvW" SlotId="Ntjvzxb89qxMVZ4czu06Yx" Bounds="115,259" />
               <Node Bounds="-88,8,71,22" Id="Ie1ZSrSZon3Oppvt4ic3YR">
                 <p:NodeReference LastCategoryFullName="CraftLie.DiscDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -578,9 +570,7 @@
                 <ControlPoint Id="Et65IKCSWdWNhISPDUWEXK" Bounds="146,318" Alignment="Top" />
                 <ControlPoint Id="IIHB2U8LbMGQZJw3BsQRm0" Bounds="145,431" Alignment="Bottom" />
               </Node>
-              <Pad Id="RkjuGwOirRvQCUybaJaqIu" SlotId="Ntjvzxb89qxMVZ4czu06Yx" Bounds="169,559">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="RkjuGwOirRvQCUybaJaqIu" SlotId="Ntjvzxb89qxMVZ4czu06Yx" Bounds="169,559" />
               <ControlPoint Id="TVRlHUqu8WaPuF0kettKpL" Bounds="63,31" />
               <ControlPoint Id="LlPFnJOIZRNQQEmHQFK9dN" Bounds="137,32" />
               <ControlPoint Id="OrKcNFkZgbtM1f1LXq3CEu" Bounds="223,33" />
@@ -665,9 +655,7 @@
           </p:NodeReference>
           <Patch Id="FglDgqFSABCNM2m5aMpNu3">
             <Canvas Id="TrmceYQKWwmOP3Y0FUiomW" CanvasType="Group">
-              <Pad Id="CX01USYSuzGQG1ZGEY7O1C" SlotId="KzQRay3p8i3MhngASQzT7J" Bounds="227,221">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="CX01USYSuzGQG1ZGEY7O1C" SlotId="KzQRay3p8i3MhngASQzT7J" Bounds="227,221" />
               <ControlPoint Id="LOgW8WrZB6LL2haRzydaei" Bounds="282,87" />
               <Node Bounds="312,280,58,22" Id="NHymStjNv5RMzDPD2AyqJz">
                 <p:NodeReference LastCategoryFullName="Collections.Builder.SpreadBuilder" LastSymbolSource="VL.Collections.vl">
@@ -690,9 +678,7 @@
                 <Pin Id="VCaUYWBxWVYMPm8h37xJ85" Name="Output" Kind="StateOutputPin" />
               </Node>
               <ControlPoint Id="BIvyZMSlK7gODVv4Kw35tH" Bounds="116,300" />
-              <Pad Id="BMZ6ST9SajHNJC4w1D9h0n" SlotId="CNvBQmLdBgDNPP1g42kmvs" Bounds="982,211">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="BMZ6ST9SajHNJC4w1D9h0n" SlotId="CNvBQmLdBgDNPP1g42kmvs" Bounds="982,211" />
               <ControlPoint Id="O0xmSmW0g67L9mcBwtaD30" Bounds="1033,67" />
               <Node Bounds="1067,270,58,22" Id="MGDS21wwUGqM76GueFnkE6">
                 <p:NodeReference LastCategoryFullName="Collections.Builder.SpreadBuilder" LastSymbolSource="VL.Collections.vl">
@@ -715,9 +701,7 @@
                 <Pin Id="IW6RAC6CiUaOLiiGgcs6oS" Name="Output" Kind="StateOutputPin" />
               </Node>
               <ControlPoint Id="G8RJBQEaPcVOsBI7OUPuEu" Bounds="876,290" />
-              <Pad Id="GMumiGz5kCQMtEgnc89zyL" SlotId="GbIfitqSW72Lq8EA9cyqdp" Bounds="633,215">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="GMumiGz5kCQMtEgnc89zyL" SlotId="GbIfitqSW72Lq8EA9cyqdp" Bounds="633,215" />
               <ControlPoint Id="MP9OaoYXRTiLwyd4N7hlWs" Bounds="688,76" />
               <Node Bounds="718,274,58,22" Id="FLMeLHfP4EbP6vIdriijKc">
                 <p:NodeReference LastCategoryFullName="Collections.Builder.SpreadBuilder" LastSymbolSource="VL.Collections.vl">
@@ -773,14 +757,11 @@
                 <Pin Id="PqqB57L1yMtLz4cfia2Zoa" Name="Output" Kind="StateOutputPin" />
               </Node>
               <ControlPoint Id="PvxVzCnRSEfNb1nfUy8Nyj" Bounds="1078,328" />
-              <Pad Id="ChlZnsiC0wHLV7ojym2PGZ" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="385,526">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="ChlZnsiC0wHLV7ojym2PGZ" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="385,526" />
               <Pad Id="QTBREXuec63O36OCozlKpH" Bounds="385,484,18,19" ShowValueBox="true" isIOBox="true" Value="0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Node Bounds="279,153,104,22" Id="RyYTt49JoaZPB5bd6wCclg">
                 <p:NodeReference LastCategoryFullName="CraftLie.DrawGeometryDescription" LastSymbolSource="CraftLie.vl">
@@ -792,9 +773,7 @@
                 <Pin Id="IjKlgTDJl0NORgeddutybb" Name="Layer Order" Kind="InputPin" />
                 <Pin Id="Nuc2bOYCMwAPqWBJEtZJvh" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="M47BT0cwLM3OiezUidAYKe" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="387,122">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="M47BT0cwLM3OiezUidAYKe" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="387,122" />
               <Node Bounds="409,159,25,13" Id="HPhqhjaYTNOP7UEnWg0afJ">
                 <p:NodeReference LastCategoryFullName="Primitive.Integer32" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -805,9 +784,7 @@
                 <Pin Id="MSGreXSiDUxO8Soe14G2uc" Name="Apply" Kind="ApplyPin" />
                 <Pin Id="Umwg3fCzdF6N54eK1jKssc" Name="Output" Kind="OutputPin" />
               </Node>
-              <Pad Id="RekvJkrZSgTPImGh6zffUi" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="412,207">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="RekvJkrZSgTPImGh6zffUi" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="412,207" />
               <Node Bounds="685,152,94,22" Id="Ol0fKLzDu09QdkJagiOESu">
                 <p:NodeReference LastCategoryFullName="CraftLie.DrawSpritesDescription" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -818,9 +795,7 @@
                 <Pin Id="ULUehhUPy4CMkQoSCAXWRf" Name="Layer Order" Kind="InputPin" />
                 <Pin Id="C00Na8eEPslOyRFwFiCuuk" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="FbmhYuTnHjAOSnmFDdxCOd" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="793,115">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="FbmhYuTnHjAOSnmFDdxCOd" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="793,115" />
               <Node Bounds="790,152,25,13" Id="Jfityf6hWNZOtcuHhd1ZPh">
                 <p:NodeReference LastCategoryFullName="Primitive.Integer32" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -831,9 +806,7 @@
                 <Pin Id="OmuexrrDC9JPn829ule92y" Name="Apply" Kind="ApplyPin" />
                 <Pin Id="OurLLhnzpsGN7y9RIUXfAc" Name="Output" Kind="OutputPin" />
               </Node>
-              <Pad Id="EirzDkYpZcgPlGWA1J3xFI" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="793,200">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="EirzDkYpZcgPlGWA1J3xFI" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="793,200" />
               <Node Bounds="1032,148,85,22" Id="KGL0HcjRo0rNHGnqtK0ZGL">
                 <p:NodeReference LastCategoryFullName="CraftLie.DrawTextDescription" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -844,9 +817,7 @@
                 <Pin Id="OAVqx1KKLVZOWSELrUQEAc" Name="Layer Order" Kind="InputPin" />
                 <Pin Id="U6flzGdbaafMhMax58b9RU" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="HByaVSOC1wJOzKJkMzXi2u" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="1141,118">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="HByaVSOC1wJOzKJkMzXi2u" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="1141,118" />
               <Node Bounds="1138,155,25,13" Id="HhdL26KaaaCPhb8MLA4XbU">
                 <p:NodeReference LastCategoryFullName="Primitive.Integer32" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -857,9 +828,7 @@
                 <Pin Id="FvwftiKVxEZNI3xsiu87qL" Name="Apply" Kind="ApplyPin" />
                 <Pin Id="QWyOmC0hpE4Lsznaep3PuI" Name="Output" Kind="OutputPin" />
               </Node>
-              <Pad Id="PZ3BbhO1mR8N03FkJ1JjBE" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="1141,203">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="PZ3BbhO1mR8N03FkJ1JjBE" SlotId="V4EpjwdE0vjMaa4DZxCoxj" Bounds="1141,203" />
             </Canvas>
             <Patch Id="D2wQ506gBQHOlQQGMY84WB" Name="Create" />
             <Patch Id="NQZo6f3eUP7PiDP5PF4GPr" Name="AddDrawDescription" ParticipatingElements="HPhqhjaYTNOP7UEnWg0afJ">
@@ -977,9 +946,7 @@
                 <Pin Id="ALPDOO6BbMcMQOTF2eypnL" Name="Result" Kind="OutputPin" />
               </Node>
               <ControlPoint Id="Sg7dIoOH0urLCclADOpfxD" Bounds="457,96" />
-              <Pad Id="Hl1Xu7otb2LLGin0sCURUC" SlotId="B61qapmaFRlMi2XFMEJ8sL" Bounds="458,156">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="Hl1Xu7otb2LLGin0sCURUC" SlotId="B61qapmaFRlMi2XFMEJ8sL" Bounds="458,156" />
               <ControlPoint Id="FEZw3ElauLeQcvG3XBXY7Z" Bounds="610,227" />
               <ControlPoint Id="EmII3WuslE7PT9ENVisjpB" Bounds="543,310" />
               <Node Bounds="330,289,72,22" Id="P7CCQagNQoFNcwaU11Cj9C">
@@ -1141,9 +1108,7 @@
                 <Pin Id="Ko18ovLedIBPz8atfib4Y5" Name="Geometry Descriptor" Kind="InputPin" />
                 <Pin Id="AOOmQ1vHwKGQFSq7rojX2o" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="NhfvK2tOHGSOVAfqygDAit" SlotId="BihDnJWZdt0O4T3HLWdrfS" Bounds="246,393">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="NhfvK2tOHGSOVAfqygDAit" SlotId="BihDnJWZdt0O4T3HLWdrfS" Bounds="246,393" />
               <Node Bounds="-74,281,145,108" Id="LXslEQyGI8qPbb56QZpGVK">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -1288,9 +1253,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="QhPEmqaJqdDQZI8KcVCFBJ" SlotId="GiA1Oukigy3O8Kb9NWKAt8" Bounds="106,259">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="QhPEmqaJqdDQZI8KcVCFBJ" SlotId="GiA1Oukigy3O8Kb9NWKAt8" Bounds="106,259" />
               <Node Bounds="-88,8,85,22" Id="VyPg9s8vzSULUZUHRouQOx">
                 <p:NodeReference LastCategoryFullName="CraftLie.MeshJoinDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1340,9 +1303,7 @@
                 <ControlPoint Id="SlbMS7CjmGNNOVUSaVWqEC" Bounds="177,301" Alignment="Top" />
                 <ControlPoint Id="CPKMr3XgKwvLMsvcF1xjTE" Bounds="176,428" Alignment="Bottom" />
               </Node>
-              <Pad Id="CIIhgRF2U5wQNKCEIIMkZf" SlotId="GiA1Oukigy3O8Kb9NWKAt8" Bounds="176,558">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="CIIhgRF2U5wQNKCEIIMkZf" SlotId="GiA1Oukigy3O8Kb9NWKAt8" Bounds="176,558" />
               <ControlPoint Id="G3UD32ZdO1VMB1N28HmScU" Bounds="844,268" />
               <ControlPoint Id="BTh0LboHQieQWgYgKsYcy6" Bounds="419,268" />
               <Node Bounds="157,232,85,13" Id="He7O4ECsOomQQVTaJa4VDG">
@@ -1529,9 +1490,7 @@
                 <Pin Id="VhJzRd5viW5MhcP1TiX0Hw" Name="Geometry Descriptor" Kind="InputPin" />
                 <Pin Id="GcZH0HzyC51LMKVe3TwCCq" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="LkP8WwjeyLYPvfUb4DYeZ9" SlotId="MDgMMJNX2zXMJp9Thu1o3F" Bounds="-8,180">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="LkP8WwjeyLYPvfUb4DYeZ9" SlotId="MDgMMJNX2zXMJp9Thu1o3F" Bounds="-8,180" />
               <Node Bounds="-55,13,85,22" Id="DLQvFuL4JuXQFY25ZPjUxa">
                 <p:NodeReference LastCategoryFullName="CraftLie.PolygonDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1731,9 +1690,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="SfDtwuXqVpsMNBcBcb2S5D" SlotId="OQ02NOMIvndNtDIsITwEHE" Bounds="-64,164">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="SfDtwuXqVpsMNBcBcb2S5D" SlotId="OQ02NOMIvndNtDIsITwEHE" Bounds="-64,164" />
               <Node Bounds="-66,16,71,22" Id="LvAB6ZKHuqWPPByt4HGvVm">
                 <p:NodeReference LastCategoryFullName="CraftLie.LineDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1777,9 +1734,7 @@
                 <ControlPoint Id="QisdtK4XhWqPrK8WablOv6" Bounds="177,301" Alignment="Top" />
                 <ControlPoint Id="A5Sb9LK1drUMr7gRaDTtty" Bounds="176,428" Alignment="Bottom" />
               </Node>
-              <Pad Id="EvtbPFhAap9OVLEQYC7vAh" SlotId="OQ02NOMIvndNtDIsITwEHE" Bounds="177,530">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="EvtbPFhAap9OVLEQYC7vAh" SlotId="OQ02NOMIvndNtDIsITwEHE" Bounds="177,530" />
               <ControlPoint Id="LiO6RQqSca6PA33SRmYUqm" Bounds="844,268" />
               <ControlPoint Id="I5rvm5KpfGmLDLtO6Hna5I" Bounds="415,268" />
               <Node Bounds="157,232,25,13" Id="DwEX7kfz2iYLISvjRwmvyr">
@@ -1918,9 +1873,7 @@
                 <Pin Id="KdU9mM7FLIfQQ2ixh2uBKZ" Name="Geometry Descriptor" Kind="InputPin" />
                 <Pin Id="IaZAq01Hnz2PDG8wGQJe9r" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="BZaY7tCvugALY0DF5lmRU0" SlotId="DLyRfmfg3YtNwH33DzRTgv" Bounds="237,367">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="BZaY7tCvugALY0DF5lmRU0" SlotId="DLyRfmfg3YtNwH33DzRTgv" Bounds="237,367" />
               <Node Bounds="158,198,66,22" Id="Oc3Jt1FM5iaOCvl5mc0usO">
                 <p:NodeReference LastCategoryFullName="CraftLie.QuadDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2021,9 +1974,7 @@
                 <Pin Id="SeUurYLnWoBOplSbnlyFzC" Name="Data" Kind="OutputPin" />
                 <Pin Id="EBcedh8IWJcOHZOWfXH6O8" Name="Buffer" Kind="OutputPin" />
               </Node>
-              <Pad Id="ByzO0WhLsnuMPHdeKtuH9m" SlotId="FZo5DWa33QnL9Of3nS8GQ9" Bounds="481,306">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="ByzO0WhLsnuMPHdeKtuH9m" SlotId="FZo5DWa33QnL9Of3nS8GQ9" Bounds="481,306" />
               <Node Bounds="480,359,91,22" Id="C98Fpr0vJc4NgQyuTUfEg9">
                 <p:NodeReference LastCategoryFullName="CraftLie.DrawDescriptionBuffer" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2056,9 +2007,7 @@
               </Pad>
               <Pad Id="TJMXqgAzGkNLDvaGQoOqwk" SlotId="C4vtu1U5QyUOrkUOGoPmvn" Bounds="483,517" />
               <Pad Id="AWPb9BBWsnfM1XZADhSUkb" SlotId="C4vtu1U5QyUOrkUOGoPmvn" Bounds="754,297" />
-              <Pad Id="JI1CdW0aRMkQELqKU0yAj8" SlotId="FZo5DWa33QnL9Of3nS8GQ9" Bounds="761,516">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="JI1CdW0aRMkQELqKU0yAj8" SlotId="FZo5DWa33QnL9Of3nS8GQ9" Bounds="761,516" />
             </Canvas>
             <Patch Id="RUKBy3Urj8lLCXPbaNENVP" Name="Create" />
             <Patch Id="VEzso8wMSkqQLElt4VtxWq" Name="Update" ParticipatingElements="Mwucb7P7KwDOrZ0b7beO9o">
@@ -2148,9 +2097,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="QCkgiPNismBNtdD9vKx6BD" SlotId="R2wJWGhT38tPUKQKF2f9X8" Bounds="11,249">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="QCkgiPNismBNtdD9vKx6BD" SlotId="R2wJWGhT38tPUKQKF2f9X8" Bounds="11,249" />
               <Node Bounds="-127,46,89,22" Id="KlACBtevvWzPlQxjXtRrn2">
                 <p:NodeReference LastCategoryFullName="CraftLie.RoundQuadDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2236,9 +2183,7 @@
                 <ControlPoint Id="PvrsvWtWJUuNqnnzfjjnJh" Bounds="43,308" Alignment="Top" />
                 <ControlPoint Id="KWOHqtMD9urMhVB8ZxNL9f" Bounds="42,421" Alignment="Bottom" />
               </Node>
-              <Pad Id="EqIvVsFg3L4Mu8Sr293B9S" SlotId="R2wJWGhT38tPUKQKF2f9X8" Bounds="229,572" ShowValueBox="true">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="EqIvVsFg3L4Mu8Sr293B9S" SlotId="R2wJWGhT38tPUKQKF2f9X8" Bounds="229,572" ShowValueBox="true" />
               <ControlPoint Id="OY6dwa1wp4EOW4Nrl7uk6L" Bounds="2,26" />
               <ControlPoint Id="H1OrSsI1sugLkWWtAY7PIr" Bounds="179,27" />
               <ControlPoint Id="IdANaGPDNctLi5LCVTuYwf" Bounds="271,27" />
@@ -2386,9 +2331,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="QuqTlM3WkXqMuiCqQI4RC5" SlotId="CpYhsFIpTMBL9GsCXmGkWX" Bounds="106,259">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="QuqTlM3WkXqMuiCqQI4RC5" SlotId="CpYhsFIpTMBL9GsCXmGkWX" Bounds="106,259" />
               <Node Bounds="-88,8,71,22" Id="UM4K1KHbqtdObnfKgH2hW7">
                 <p:NodeReference LastCategoryFullName="CraftLie.SphereDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2487,9 +2430,7 @@
               <ControlPoint Id="OuBhxjprrAJOeQmZHyBrbm" Bounds="128,14" />
               <ControlPoint Id="AoxiZsvgbVbQaiwX5Upjja" Bounds="207,14" />
               <ControlPoint Id="JjL2hAA2OatOaFFpZMFE4s" Bounds="295,14" />
-              <Pad Id="VR4JsVnagykMwwbrxOiVGS" SlotId="CpYhsFIpTMBL9GsCXmGkWX" Bounds="169,559">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="VR4JsVnagykMwwbrxOiVGS" SlotId="CpYhsFIpTMBL9GsCXmGkWX" Bounds="169,559" />
               <ControlPoint Id="SLR2ay9YRTfPMdIAcjl3mv" Bounds="844,268" />
               <ControlPoint Id="EWR7LpTNmLlPDRQK6eegXx" Bounds="415,268" />
             </Canvas>
@@ -2604,9 +2545,7 @@
                 </p:NodeReference>
                 <Pin Id="EwnNnc5GLYzNGEzUAah0Ju" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="EtnRsaj3XA7PTyNa7u78oq" SlotId="CQaq2vQeS24MgcYT52Iyl2" Bounds="192,383">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="EtnRsaj3XA7PTyNa7u78oq" SlotId="CQaq2vQeS24MgcYT52Iyl2" Bounds="192,383" />
               <Node Bounds="139,559,153,106" Id="UtOCQllzEQ4LJZOpMKtts8">
                 <p:NodeReference LastCategoryFullName="CraftLie.Layer" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
@@ -2884,9 +2823,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="T7VyUC7gOGuN9G6xI84uji" SlotId="RoU4Auf6EDlOXZPlHojgvo" Bounds="-48,220">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="T7VyUC7gOGuN9G6xI84uji" SlotId="RoU4Auf6EDlOXZPlHojgvo" Bounds="-48,220" />
               <Node Bounds="-124,58,105,22" Id="UURIAMRazLPOVmMOuoRHNZ">
                 <p:NodeReference LastCategoryFullName="CraftLie.TextDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2978,9 +2915,7 @@
                 <ControlPoint Id="EEcjy1EMBUkPfjvvaoBc5K" Bounds="68,313" Alignment="Top" />
                 <ControlPoint Id="TpN7EsqunWvLCPvsYmtj9g" Bounds="67,429" Alignment="Bottom" />
               </Node>
-              <Pad Id="K3ToewjXHFBNZI8IZbBGZj" SlotId="RoU4Auf6EDlOXZPlHojgvo" Bounds="307,564">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="K3ToewjXHFBNZI8IZbBGZj" SlotId="RoU4Auf6EDlOXZPlHojgvo" Bounds="307,564" />
               <Node Bounds="219,102,50,13" Id="Nt6zglI4C4ULU5RxGUkLTP">
                 <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3162,9 +3097,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="RDdYTSMybVYLL7rdZKr8bh" SlotId="ApDrCiW58c4LzsrWrSTRzK" Bounds="115,259">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="RDdYTSMybVYLL7rdZKr8bh" SlotId="ApDrCiW58c4LzsrWrSTRzK" Bounds="115,259" />
               <Node Bounds="-88,8,71,22" Id="PEzGDf28ZjGQUG9iBTMJnu">
                 <p:NodeReference LastCategoryFullName="CraftLie.TubeDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3250,9 +3183,7 @@
                 <ControlPoint Id="ABA5aduXx9wMxgzdtOcbdT" Bounds="149,318" Alignment="Top" />
                 <ControlPoint Id="Q2EO3DJK2cNNPudQRlyPTU" Bounds="148,431" Alignment="Bottom" />
               </Node>
-              <Pad Id="GhbUed02lucPp5UHFBjXKQ" SlotId="ApDrCiW58c4LzsrWrSTRzK" Bounds="169,559">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="GhbUed02lucPp5UHFBjXKQ" SlotId="ApDrCiW58c4LzsrWrSTRzK" Bounds="169,559" />
               <ControlPoint Id="IishsGzkRZnMWtR5soJBGY" Bounds="64,32" />
               <ControlPoint Id="TgKbqVM6QPPOx9kf7ftAmh" Bounds="204,35" />
               <ControlPoint Id="Lt43gN0ptbvOmhJ5XQQogw" Bounds="325,34" />
@@ -3558,7 +3489,11 @@
             <Link Id="ThQz22VkuEtON7GazMxq8M" Ids="PAENjDPwJspOBzZVFB4CgF,FnNRJPNgKSSN0SrbXoS4sL" />
             <Link Id="AgdlmIvWjSZLKFcP6TBQPL" Ids="Olr7G4ji0NsMr71P5F30hi,CGCqKpM8W8tLSMbljBHNBZ" />
             <Pin Id="D8C7vSedBJbM3YxgNXdxXx" Name="Input" Kind="InputPin" Bounds="-739,0" />
-            <Pin Id="VWocjyJu8wZM7yKh4hWCrr" Name="Modifier" Kind="InputPin" />
+            <Pin Id="VWocjyJu8wZM7yKh4hWCrr" Name="Modifier" Kind="InputPin">
+              <p:TypeAnnotation>
+                <Choice Kind="TypeFlag" Name="Delegate (1 -&gt; 0)" />
+              </p:TypeAnnotation>
+            </Pin>
             <Pin Id="JPEZWQVgXCkOvWIzEj1IUt" Name="Output" Kind="OutputPin" Bounds="-368,664" />
           </Patch>
         </Node>
@@ -3718,8 +3653,6 @@
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="OperationRegion" Name="LayerModifier" />
               </p:NodeReference>
-              <Pin Id="Pw4RHKPhpC5OYutKioK6nA" Name="Input" Kind="InputPin" />
-              <Pin Id="TUf1wNEY311P3THSI93WN8" Name="Output" Kind="OutputPin" />
               <Patch Id="EOwEULTc4KOOcdOw5ZXOTG" Name="Modifier" ManuallySortedPins="true">
                 <Pin Id="PQ7M6KIKruGMNnHlxgVvoP" Name="Arg" Kind="InputPin" />
                 <ControlPoint Id="MYWyPMPQ3sWPMhzDIlHKsN" Bounds="998,2259" />
@@ -3734,6 +3667,8 @@
                   <Pin Id="JUQXd7fzH7mQIc6QRmYQXS" Name="Output" Kind="StateOutputPin" />
                 </Node>
               </Patch>
+              <Pin Id="Pw4RHKPhpC5OYutKioK6nA" Name="Input" Kind="InputPin" />
+              <Pin Id="TUf1wNEY311P3THSI93WN8" Name="Output" Kind="OutputPin" />
             </Node>
             <Link Id="JG3AzVoRYYELm9RP3VKfwh" Ids="PQ7M6KIKruGMNnHlxgVvoP,MYWyPMPQ3sWPMhzDIlHKsN" IsHidden="true" />
             <Link Id="C2m2eVJGIDoODk1VuyfM49" Ids="UQ2MwcfUo9YNBE1UzPVJsQ,Pw4RHKPhpC5OYutKioK6nA" />
@@ -3767,8 +3702,6 @@
                 <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                 <Choice Kind="OperationRegion" Name="LayerModifier" />
               </p:NodeReference>
-              <Pin Id="Dx95G95pJnOMqI1hgnfuRf" Name="Input" Kind="InputPin" />
-              <Pin Id="HoHaqJvYaaHMaE9KXZMD43" Name="Output" Kind="OutputPin" />
               <Patch Id="MMl4IYWbCHDQIYQqXEMEwk" Name="Modifier" ManuallySortedPins="true">
                 <Pin Id="Iik7I8Z5nDmN6wZzEUQR6W" Name="Arg" Kind="InputPin" />
                 <ControlPoint Id="PakeKSSbthKLC3ilO8FgLB" Bounds="998,2578" />
@@ -3783,6 +3716,8 @@
                   <Pin Id="T8wKmhpVO9JNnwLSfLEKPN" Name="Output" Kind="StateOutputPin" />
                 </Node>
               </Patch>
+              <Pin Id="Dx95G95pJnOMqI1hgnfuRf" Name="Input" Kind="InputPin" />
+              <Pin Id="HoHaqJvYaaHMaE9KXZMD43" Name="Output" Kind="OutputPin" />
             </Node>
             <Link Id="LFGF0BXZwvaM2DE3gxWEeP" Ids="Iik7I8Z5nDmN6wZzEUQR6W,PakeKSSbthKLC3ilO8FgLB" IsHidden="true" />
             <Link Id="KR6GiE4DqE9QKFD8CQA8oK" Ids="PakeKSSbthKLC3ilO8FgLB,Rp58B9NjkFuPr763ACFLbK" />
@@ -3908,9 +3843,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Pad Id="DBVEYOP1Oa5LvZfPLOGBq9" SlotId="DX6HKZtoJ4dMBxPNt8c8NG" Bounds="171,382">
-                <p:ValueBoxSettings />
-              </Pad>
+              <Pad Id="DBVEYOP1Oa5LvZfPLOGBq9" SlotId="DX6HKZtoJ4dMBxPNt8c8NG" Bounds="171,382" />
               <Node Bounds="148,198,71,13" Id="TFLAZwN91JeLOKN8ap8A6N">
                 <p:NodeReference LastCategoryFullName="CraftLie.LineDescriptor" LastSymbolSource="CraftLie.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3938,25 +3871,21 @@
                 <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Vector3" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Pad Id="REaFptjYYu7QFNqfhX99hK" Bounds="206,-38,33,57" ShowValueBox="true" isIOBox="true" Value="0.5, 0.5, 0">
                 <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Vector3" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Pad Id="FuWdQnvOBZOO35oNveDeDK" Bounds="270,-37,38,57" ShowValueBox="true" isIOBox="true" Value="0.5, -0.5, 0">
                 <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Vector3" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Pad Id="NmBUqSH6XUtMaMzEmWEgCq" Bounds="334,-36,38,57" ShowValueBox="true" isIOBox="true" Value="-0.5, -0.5, 0">
                 <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Vector3" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Pad Id="NqeKXwv9edBQCj1hYssqnz" Comment="Is Closed" Bounds="247,145,40,19" ShowValueBox="true" isIOBox="true" Value="True">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -4586,25 +4515,21 @@
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Vector2" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Pad Id="KHTSA8lOBxJOakOWDZ61mh" Bounds="37,37,33,57" ShowValueBox="true" isIOBox="true" Value="0.5, 0.5">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Vector2" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Pad Id="K5ptCRdJnVzOpZnReJKYoH" Bounds="144,54,38,57" ShowValueBox="true" isIOBox="true" Value="0.5, -0.5">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Vector2" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Pad Id="HKJaHg2t68fL1VzO7bSkpf" Bounds="231,80,38,57" ShowValueBox="true" isIOBox="true" Value="-0.5, -0.5">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Vector2" />
                 </p:TypeAnnotation>
-                <p:ValueBoxSettings />
               </Pad>
               <Node Bounds="32,163,61,26" Id="M6T0GjsapruPEqoS6xSWIE">
                 <p:NodeReference LastCategoryFullName="2D.Rectangle" LastSymbolSource="CoreLibBasics.vl">
@@ -5337,10 +5262,6 @@
                     </p:TypeAnnotation>
                   </Pad>
                   <Link Id="DuwfyW34OdfOAO3U42qDmr" Ids="PVKSfJu0TppPeKD5wuBFp1,IiADSlqN4wtOAGPzohp13v" />
-                  <Pin Id="D1qBpHEm97dPPRy7MtMLuC" Name="Geometry Descriptor" Kind="InputPin" />
-                  <Pin Id="H7uuhcU2fi7Ot8AacQK5xU" Name="Transformation" Kind="InputPin" />
-                  <Pin Id="FVrokwxOXRtPnQJhy2Yrrw" Name="Instance Transformations" Kind="InputPin" />
-                  <Pin Id="AR5geTb9igQN9m2Rre9jDU" Name="Instance Colors" Kind="InputPin" />
                   <Pin Id="Obird6reCMUNgQLFnjqhx1" Name="Output" Kind="OutputPin" />
                 </Patch>
               </Node>
@@ -5668,7 +5589,7 @@
                 </p:NodeReference>
                 <Patch Id="HdBL4M3ZNq6MxLYtVSpKT2" ManuallySortedPins="true">
                   <Node Bounds="212,131,82,22" AutoConnect="true" Id="RTC0PHk46QgO8j7KuZk5SY">
-                    <p:NodeReference LastCategoryFullName="CraftLie.GeometryDescriptor" LastSymbolSource="CraftLie.dll">
+                    <p:NodeReference LastCategoryFullName="CraftLie.GeometryDescriptor" LastSymbolSource="CraftLie.vl">
                       <Choice Kind="OperationNode" Name="Create" />
                       <FullNameCategoryReference ID="CraftLie.GeometryDescriptor" />
                     </p:NodeReference>
